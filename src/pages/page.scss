@@ -1,0 +1,109 @@
+#content {
+    background-color: grey;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+.search {
+    width: 90%;
+    margin: 5%;
+}
+
+.charSearchBar {
+    background-color: #EBE4D6;
+    width: 100%;
+    height: 30px;
+    border-radius: 4px;
+    color: #4D5568;
+}
+
+.charSearchBar::placeholder {
+    color: #4D5568;
+}
+
+.charList {
+    list-style-type: none;
+    color: white;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.charList li {
+    width: 100px;
+    display: inline-block;
+}
+
+.addButton {
+    background-color: blue;
+    color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 30px;
+}
+
+.addContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.characterAdd {
+    background-color: darkblue;
+    width: 33%;
+    height: 100%;
+}
+
+.characterCard {
+    height: 1000px;
+}
+
+.weaponAdd {
+    background-color: darkorchid;
+    width: 34%;
+    height: 100%;
+}
+
+.artifactAdd {
+    background-color: hotpink;
+    width: 33.3%;
+    height: 100%;
+}
+
+.hexagon {
+    margin-top: 30px;
+    width: 61.773780845922001894784216785185px;
+    height: 104px;
+    background-color: coral;
+    border-color: coral;
+    position: relative;
+    display: inline-block;
+}
+
+/*.hexagon:after {
+    content: "";
+    width: 0; height: 0;
+    position: absolute;
+    right: -30px;
+    border-left: 30px solid;
+    border-color: inherit;
+    border-top: 52px solid transparent;
+    border-bottom: 52px solid transparent;
+}
+
+.hexagon:before {
+    content: "";
+    width: 0; height: 0;
+    position: absolute;
+    left: -30px;
+    border-right: 30px solid;
+    border-color: inherit;
+    border-top: 52px solid transparent;
+    border-bottom: 52px solid transparent;
+}*/

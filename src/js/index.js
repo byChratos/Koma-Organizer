@@ -1,19 +1,14 @@
+//Default imports
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import App from './App';
+//Components
 import NavigationBar from "./NavigationBar";
 
+//Style
 import './index.scss';
 
+const rootDom = document.getElementById('root');
+const root = ReactDOM.createRoot(rootDom);
 
-const domNode = document.getElementById('root');
-const root = ReactDOM.createRoot(domNode);
-
-const navDom = document.getElementById('nav');
-const nav = ReactDOM.createRoot(navDom);
-
-
-root.render(<App />);
-nav.render(<NavigationBar />);
+root.render(<NavigationBar />);

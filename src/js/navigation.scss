@@ -1,0 +1,33 @@
+.menuIcon {
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: black;
+}
+
+.navbar.active {
+    display: block;
+    float: left;
+    width: 250px;
+    height: 100%;
+    background-color: aqua;
+}
+
+.navbar {
+    display: block;
+    float: left;
+    width: 30px;
+    height: 100%;
+    background-color: aqua;
+}
+
+/* Dont display link list from navigation bar when isExpanded is false */
+.linkList {
+    display: none;
+}
+
+/* Display link list from navigation bar when isExpanded is true */
+.linkList.active {
+    display: block;
+}
