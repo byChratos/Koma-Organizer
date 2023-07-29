@@ -1,5 +1,5 @@
 import React from 'react';
-import { getArtifact } from '../functions/getAssets'
+import { getArtifact } from '../../functions/getAssets'
 
 export default function ArtifactIcon(props){
 

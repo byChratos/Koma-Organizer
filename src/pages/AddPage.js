@@ -1,8 +1,8 @@
 import React from 'react';
 
-import SearchBarCharacter from '../components/CharacterSearch';
-import SearchBarWeapon from '../components/WeaponSearch';
-import SearchBarArtifact from '../components/ArtifactSearch';
+import SearchBarCharacter from '../components/Character/CharacterSearch';
+import SearchBarWeapon from '../components/Weapon/WeaponSearch';
+import SearchBarArtifact from '../components/Artifacts/ArtifactSearch';
 
 
 export default function AddPage(){

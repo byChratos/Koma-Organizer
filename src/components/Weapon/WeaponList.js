@@ -1,6 +1,6 @@
 import React from 'react'
 
-import data from "../data/weapons.json"
+import data from "../../data/weapons.json"
 import WeaponIcon from './WeaponIcon';
 
 export default function WeaponList(props) {

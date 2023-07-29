@@ -1,5 +1,5 @@
 import React from 'react';
-import { getWeapon } from '../functions/getAssets'
+import { getWeapon } from '../../functions/getAssets'
 
 export default function WeaponIcon(props){
 

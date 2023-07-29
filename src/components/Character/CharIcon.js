@@ -1,5 +1,5 @@
 import React from 'react';
-import { getChar } from '../functions/getAssets'
+import { getChar } from '../../functions/getAssets'
 
 export default function CharIcon(props){
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './page.scss'
 
-import CharIcon from '../components/CharIcon';
+import CharIcon from '../components/Character/CharIcon';
 import Add from '../components/Add'
 
 export default function Calendar() {
