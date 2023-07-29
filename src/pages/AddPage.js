@@ -1,7 +1,8 @@
 import React from 'react';
 
-import CharIcon from '../components/CharIcon';
-import SearchBar from '../components/CharacterSearch';
+import SearchBarCharacter from '../components/CharacterSearch';
+import SearchBarWeapon from '../components/WeaponSearch';
+import SearchBarArtifact from '../components/ArtifactSearch';
 
 
 export default function AddPage(){
@@ -29,14 +30,14 @@ export default function AddPage(){
     return(
         <div className='addContainer'>
             <div className='characterAdd'>
-                <SearchBar />
+                <SearchBarCharacter />
                 {/* <CharIcon className="characterCard" character="ayaka" type="gacha-card" height={ dimensions.height } width={ dimensions.width/3 }/> */}
             </div>
             <div className='weaponAdd'>
-                <p>Weapon</p>
+                <SearchBarWeapon />
             </div>
             <div className='artifactAdd'>
-                <p>Artifact</p>
+                <SearchBarArtifact />
             </div>
         </div>
     );

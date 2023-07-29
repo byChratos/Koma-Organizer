@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import CharacterList from './CharacterList'
+import WeaponList from './WeaponList'
 
-export default function SearchBarCharacter() {
+export default function SearchBarWeapon() {
 
     const [inputText, setInputText] = useState("");
 
@@ -10,15 +10,15 @@ export default function SearchBarCharacter() {
     };
 
     return(
-        <div className="searchChar">
+        <div className="searchWeapon">
             <input
-                className="charSearchBar"
+                className="weaponSearchBar"
                 type="text"
-                placeholder="Search Character"
+                placeholder="Search Weapon"
                 onChange={inputHandler}
                 value={inputText}
             />
-            <CharacterList input={inputText}/>
+            <WeaponList input={inputText}/>
         </div>
     );
 }

@@ -1,0 +1,562 @@
+[
+  {
+    "id": 0,
+    "text": "akuoumaru"
+  },
+  {
+    "id": 1,
+    "text": "alley-hunter"
+  },
+  {
+    "id": 2,
+    "text": "amber-catalyst"
+  },
+  {
+    "id": 3,
+    "text": "amenoma-kageuchi"
+  },
+  {
+    "id": 4,
+    "text": "amos-bow"
+  },
+  {
+    "id": 5,
+    "text": "apprentice-s-notes"
+  },
+  {
+    "id": 6,
+    "text": "aqua-simulacra"
+  },
+  {
+    "id": 7,
+    "text": "aquila-favonia"
+  },
+  {
+    "id": 8,
+    "text": "beacon-of-the-reed-sea"
+  },
+  {
+    "id": 9,
+    "text": "beginner-s-protector"
+  },
+  {
+    "id": 10,
+    "text": "black-tassel"
+  },
+  {
+    "id": 11,
+    "text": "blackcliff-amulet"
+  },
+  {
+    "id": 12,
+    "text": "blackcliff-longsword"
+  },
+  {
+    "id": 13,
+    "text": "blackcliff-pole"
+  },
+  {
+    "id": 14,
+    "text": "blackcliff-slasher"
+  },
+  {
+    "id": 15,
+    "text": "blackcliff-warbow"
+  },
+  {
+    "id": 16,
+    "text": "bloodtainted-greatsword"
+  },
+  {
+    "id": 17,
+    "text": "calamity-queller"
+  },
+  {
+    "id": 18,
+    "text": "cinnabar -spindle"
+  },
+  {
+    "id": 19,
+    "text": "compound-bow"
+  },
+  {
+    "id": 20,
+    "text": "cool-steel"
+  },
+  {
+    "id": 21,
+    "text": "crescent-pike"
+  },
+  {
+    "id": 22,
+    "text": "dark-iron-sword"
+  },
+  {
+    "id": 23,
+    "text": "deathmatch"
+  },
+  {
+    "id": 24,
+    "text": "debate-club"
+  },
+  {
+    "id": 25,
+    "text": "dodoco-tales"
+  },
+  {
+    "id": 26,
+    "text": "dragon-s-bane"
+  },
+  {
+    "id": 27,
+    "text": "dragonspine-spear"
+  },
+  {
+    "id": 28,
+    "text": "dull-blade"
+  },
+  {
+    "id": 29,
+    "text": "eberlasting-moonglow"
+  },
+  {
+    "id": 30,
+    "text": "ebony-bow"
+  },
+  {
+    "id": 31,
+    "text": "elegy-for-the-end"
+  },
+  {
+    "id": 32,
+    "text": "emerald-orb"
+  },
+  {
+    "id": 33,
+    "text": "engulfing-lightning"
+  },
+  {
+    "id": 34,
+    "text": "everlasting-moonglow"
+  },
+  {
+    "id": 35,
+    "text": "eye-of-perception"
+  },
+  {
+    "id": 36,
+    "text": "favonius-codex"
+  },
+  {
+    "id": 37,
+    "text": "favonius-greatsword"
+  },
+  {
+    "id": 38,
+    "text": "favonius-lance"
+  },
+  {
+    "id": 39,
+    "text": "favonius-sword"
+  },
+  {
+    "id": 40,
+    "text": "favonius-warbow"
+  },
+  {
+    "id": 41,
+    "text": "ferrous-shadow"
+  },
+  {
+    "id": 42,
+    "text": "festering-desire"
+  },
+  {
+    "id": 43,
+    "text": "fillet-blade"
+  },
+  {
+    "id": 44,
+    "text": "freedom-sworn"
+  },
+  {
+    "id": 45,
+    "text": "frostbearer"
+  },
+  {
+    "id": 46,
+    "text": "hakushin-ring"
+  },
+  {
+    "id": 47,
+    "text": "halberd"
+  },
+  {
+    "id": 48,
+    "text": "hamayumi"
+  },
+  {
+    "id": 49,
+    "text": "haran-geppaku-futsu"
+  },
+  {
+    "id": 50,
+    "text": "harbinger-of-dawn"
+  },
+  {
+    "id": 51,
+    "text": "hunter-s-bow"
+  },
+  {
+    "id": 52,
+    "text": "iron-point"
+  },
+  {
+    "id": 53,
+    "text": "iron-sting"
+  },
+  {
+    "id": 54,
+    "text": "kagura's-verity"
+  },
+  {
+    "id": 55,
+    "text": "katsuragikiri-nagamasa"
+  },
+  {
+    "id": 56,
+    "text": "kitain-cross-spear"
+  },
+  {
+    "id": 57,
+    "text": "light-of-foliar-incision"
+  },
+  {
+    "id": 58,
+    "text": "lion-s-roar"
+  },
+  {
+    "id": 59,
+    "text": "lithic-blade"
+  },
+  {
+    "id": 60,
+    "text": "lithic-spear"
+  },
+  {
+    "id": 61,
+    "text": "lost-prayer-to-the-sacred-winds"
+  },
+  {
+    "id": 62,
+    "text": "luxurious-sea-lord"
+  },
+  {
+    "id": 63,
+    "text": "magic-guide"
+  },
+  {
+    "id": 64,
+    "text": "mailed-flower"
+  },
+  {
+    "id": 65,
+    "text": "mappa-mare"
+  },
+  {
+    "id": 66,
+    "text": "memory-of-dust"
+  },
+  {
+    "id": 67,
+    "text": "messenger"
+  },
+  {
+    "id": 68,
+    "text": "mistsplitter-reforged"
+  },
+  {
+    "id": 69,
+    "text": "mitternachts-waltz"
+  },
+  {
+    "id": 70,
+    "text": "mouun's-moon"
+  },
+  {
+    "id": 71,
+    "text": "oathsworn-eye"
+  },
+  {
+    "id": 72,
+    "text": "old-merc-s-pal"
+  },
+  {
+    "id": 73,
+    "text": "otherworldly-story"
+  },
+  {
+    "id": 74,
+    "text": "pocket-grimoire"
+  },
+  {
+    "id": 75,
+    "text": "polar-star"
+  },
+  {
+    "id": 76,
+    "text": "predator"
+  },
+  {
+    "id": 77,
+    "text": "primordial-jade-cutter"
+  },
+  {
+    "id": 78,
+    "text": "primordial-jade-winged-spear"
+  },
+  {
+    "id": 79,
+    "text": "prototype-archaic"
+  },
+  {
+    "id": 80,
+    "text": "prototype-crescent"
+  },
+  {
+    "id": 81,
+    "text": "prototype-grudge"
+  },
+  {
+    "id": 82,
+    "text": "prototype-malice"
+  },
+  {
+    "id": 83,
+    "text": "prototype-rancour"
+  },
+  {
+    "id": 84,
+    "text": "quartz"
+  },
+  {
+    "id": 85,
+    "text": "rainslasher"
+  },
+  {
+    "id": 86,
+    "text": "raven-bow"
+  },
+  {
+    "id": 87,
+    "text": "recurve-bow"
+  },
+  {
+    "id": 88,
+    "text": "redhorn-stonethresher"
+  },
+  {
+    "id": 89,
+    "text": "royal-bow"
+  },
+  {
+    "id": 90,
+    "text": "royal-greatsword"
+  },
+  {
+    "id": 91,
+    "text": "royal-grimoire"
+  },
+  {
+    "id": 92,
+    "text": "royal-longsword"
+  },
+  {
+    "id": 93,
+    "text": "royal-spear"
+  },
+  {
+    "id": 94,
+    "text": "rust"
+  },
+  {
+    "id": 95,
+    "text": "sacrificial-bow"
+  },
+  {
+    "id": 96,
+    "text": "sacrificial-fragments"
+  },
+  {
+    "id": 97,
+    "text": "sacrificial-greatsword"
+  },
+  {
+    "id": 98,
+    "text": "sacrificial-sword"
+  },
+  {
+    "id": 99,
+    "text": "seasoned-hunter-s-bow"
+  },
+  {
+    "id": 100,
+    "text": "serpent-spine"
+  },
+  {
+    "id": 101,
+    "text": "sharpshooter-s-oath"
+  },
+  {
+    "id": 102,
+    "text": "silver-sword"
+  },
+  {
+    "id": 103,
+    "text": "skyrider-greatsword"
+  },
+  {
+    "id": 104,
+    "text": "skyrider-sword"
+  },
+  {
+    "id": 105,
+    "text": "skyward-atlas"
+  },
+  {
+    "id": 106,
+    "text": "skyward-blade"
+  },
+  {
+    "id": 107,
+    "text": "skyward-harp"
+  },
+  {
+    "id": 108,
+    "text": "skyward-pride"
+  },
+  {
+    "id": 109,
+    "text": "skyward-spine"
+  },
+  {
+    "id": 110,
+    "text": "slingshot"
+  },
+  {
+    "id": 111,
+    "text": "snow-tombed-starsilver"
+  },
+  {
+    "id": 112,
+    "text": "solar-pearl"
+  },
+  {
+    "id": 113,
+    "text": "song-of-broken-pines"
+  },
+  {
+    "id": 114,
+    "text": "staff-of-homa"
+  },
+  {
+    "id": 115,
+    "text": "summit-shaper"
+  },
+  {
+    "id": 116,
+    "text": "sword-of-descension"
+  },
+  {
+    "id": 117,
+    "text": "the-alley-flash"
+  },
+  {
+    "id": 118,
+    "text": "the-bell"
+  },
+  {
+    "id": 119,
+    "text": "the-black-sword"
+  },
+  {
+    "id": 120,
+    "text": "the-catch"
+  },
+  {
+    "id": 121,
+    "text": "the-flute"
+  },
+  {
+    "id": 122,
+    "text": "the-stringless"
+  },
+  {
+    "id": 123,
+    "text": "the-unforged"
+  },
+  {
+    "id": 124,
+    "text": "the-viridescent-hunt"
+  },
+  {
+    "id": 125,
+    "text": "the-widsith"
+  },
+  {
+    "id": 126,
+    "text": "thrilling-tales-of-dragon-slayers"
+  },
+  {
+    "id": 127,
+    "text": "thundering-pulse"
+  },
+  {
+    "id": 128,
+    "text": "traveler-s-handy-sword"
+  },
+  {
+    "id": 129,
+    "text": "tulaytullah-remembrance"
+  },
+  {
+    "id": 130,
+    "text": "twin-nephrite"
+  },
+  {
+    "id": 131,
+    "text": "vortex-vanquisher"
+  },
+  {
+    "id": 132,
+    "text": "waster-greatsword"
+  },
+  {
+    "id": 133,
+    "text": "wavebreaker's-fin"
+  },
+  {
+    "id": 134,
+    "text": "white-iron-greatsword"
+  },
+  {
+    "id": 135,
+    "text": "white-tassel"
+  },
+  {
+    "id": 136,
+    "text": "whiteblind"
+  },
+  {
+    "id": 137,
+    "text": "windblume-ode"
+  },
+  {
+    "id": 138,
+    "text": "wine-and-song"
+  },
+  {
+    "id": 139,
+    "text": "wolf-s-gravestone"
+  }
+]

@@ -1,0 +1,286 @@
+[
+  {
+    "id": 0,
+    "text": "albedo"
+  },
+  {
+    "id": 1,
+    "text": "alhaitham"
+  },
+  {
+    "id": 2,
+    "text": "aloy"
+  },
+  {
+    "id": 3,
+    "text": "amber"
+  },
+  {
+    "id": 4,
+    "text": "arataki-itto"
+  },
+  {
+    "id": 5,
+    "text": "ayaka"
+  },
+  {
+    "id": 6,
+    "text": "ayato"
+  },
+  {
+    "id": 7,
+    "text": "baizhu"
+  },
+  {
+    "id": 8,
+    "text": "barbara"
+  },
+  {
+    "id": 9,
+    "text": "beidou"
+  },
+  {
+    "id": 10,
+    "text": "bennett"
+  },
+  {
+    "id": 11,
+    "text": "candace"
+  },
+  {
+    "id": 12,
+    "text": "chongyun"
+  },
+  {
+    "id": 13,
+    "text": "collei"
+  },
+  {
+    "id": 14,
+    "text": "cyno"
+  },
+  {
+    "id": 15,
+    "text": "dehya"
+  },
+  {
+    "id": 16,
+    "text": "diluc"
+  },
+  {
+    "id": 17,
+    "text": "diona"
+  },
+  {
+    "id": 18,
+    "text": "dori"
+  },
+  {
+    "id": 19,
+    "text": "eula"
+  },
+  {
+    "id": 20,
+    "text": "faruzan"
+  },
+  {
+    "id": 21,
+    "text": "fischl"
+  },
+  {
+    "id": 22,
+    "text": "ganyu"
+  },
+  {
+    "id": 23,
+    "text": "gorou"
+  },
+  {
+    "id": 24,
+    "text": "hu-tao"
+  },
+  {
+    "id": 25,
+    "text": "jean"
+  },
+  {
+    "id": 26,
+    "text": "kaeya"
+  },
+  {
+    "id": 27,
+    "text": "kaveh"
+  },
+  {
+    "id": 28,
+    "text": "kazuha"
+  },
+  {
+    "id": 29,
+    "text": "keqing"
+  },
+  {
+    "id": 30,
+    "text": "kirara"
+  },
+  {
+    "id": 31,
+    "text": "klee"
+  },
+  {
+    "id": 32,
+    "text": "kokomi"
+  },
+  {
+    "id": 33,
+    "text": "kuki-shinobu"
+  },
+  {
+    "id": 34,
+    "text": "layla"
+  },
+  {
+    "id": 35,
+    "text": "lisa"
+  },
+  {
+    "id": 36,
+    "text": "mika"
+  },
+  {
+    "id": 37,
+    "text": "mona"
+  },
+  {
+    "id": 38,
+    "text": "nahida"
+  },
+  {
+    "id": 39,
+    "text": "nilou"
+  },
+  {
+    "id": 40,
+    "text": "ningguang"
+  },
+  {
+    "id": 41,
+    "text": "noelle"
+  },
+  {
+    "id": 42,
+    "text": "qiqi"
+  },
+  {
+    "id": 43,
+    "text": "raiden"
+  },
+  {
+    "id": 44,
+    "text": "razor"
+  },
+  {
+    "id": 45,
+    "text": "rosaria"
+  },
+  {
+    "id": 46,
+    "text": "sara"
+  },
+  {
+    "id": 47,
+    "text": "sayu"
+  },
+  {
+    "id": 48,
+    "text": "shenhe"
+  },
+  {
+    "id": 49,
+    "text": "shikanoin-heizou"
+  },
+  {
+    "id": 50,
+    "text": "sucrose"
+  },
+  {
+    "id": 51,
+    "text": "tartaglia"
+  },
+  {
+    "id": 52,
+    "text": "thoma"
+  },
+  {
+    "id": 53,
+    "text": "tighnari"
+  },
+  {
+    "id": 54,
+    "text": "traveler-anemo"
+  },
+  {
+    "id": 55,
+    "text": "traveler-dendro"
+  },
+  {
+    "id": 56,
+    "text": "traveler-electro"
+  },
+  {
+    "id": 57,
+    "text": "traveler-geo"
+  },
+  {
+    "id": 58,
+    "text": "venti"
+  },
+  {
+    "id": 59,
+    "text": "wanderer"
+  },
+  {
+    "id": 60,
+    "text": "xiangling"
+  },
+  {
+    "id": 61,
+    "text": "xiao"
+  },
+  {
+    "id": 62,
+    "text": "xingqiu"
+  },
+  {
+    "id": 63,
+    "text": "xinyan"
+  },
+  {
+    "id": 64,
+    "text": "yae-miko"
+  },
+  {
+    "id": 65,
+    "text": "yanfei"
+  },
+  {
+    "id": 66,
+    "text": "yaoyao"
+  },
+  {
+    "id": 67,
+    "text": "yelan"
+  },
+  {
+    "id": 68,
+    "text": "yoimiya"
+  },
+  {
+    "id": 69,
+    "text": "yun-jin"
+  },
+  {
+    "id": 70,
+    "text": "zhongli"
+  }
+]

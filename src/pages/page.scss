@@ -1,20 +1,28 @@
 #content {
     background-color: grey;
 }
-
 h1 {
     color: white;
 }
-
 p {
     color: white;
 }
 
-.search {
+//Search bars container positioning
+.searchChar {
+    width: 90%;
+    margin: 5%;
+}
+.searchWeapon {
+    width: 90%;
+    margin: 5%;
+}
+.searchArtifact {
     width: 90%;
     margin: 5%;
 }
 
+//Search bar styling
 .charSearchBar {
     background-color: #EBE4D6;
     width: 100%;
@@ -22,23 +30,102 @@ p {
     border-radius: 4px;
     color: #4D5568;
 }
-
 .charSearchBar::placeholder {
     color: #4D5568;
 }
 
+.weaponSearchBar {
+    background-color: #EBE4D6;
+    width: 100%;
+    height: 30px;
+    border-radius: 4px;
+    color: #4D5568;
+}
+.weaponSearchBar::placeholder {
+    color: #4D5568;
+}
+
+.artifactSearchBar {
+    background-color: #EBE4D6;
+    width: 100%;
+    height: 30px;
+    border-radius: 4px;
+    color: #4D5568;
+}
+.artifactSearchBar::placeholder {
+    color: #4D5568;
+}
+
+//Lists
 .charList {
     list-style-type: none;
     color: white;
     margin-top: 5%;
     text-align: center;
 }
-
 .charList li {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+.charIcon {
+    object-fit: cover;
+}
+
+.weaponList {
+    list-style-type: none;
+    color: white;
+    margin-top: 5%;
+    text-align: center;
+}
+.weaponList li {
     width: 100px;
     display: inline-block;
 }
+.weaponIcon {
+    object-fit: cover;
+}
 
+.artifactList {
+    list-style-type: none;
+    color: white;
+    margin-top: 5%;
+    text-align: center;
+}
+.artifactList li {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+.artifactIcon {
+    object-fit: cover;
+}
+
+//Add divs
+.characterAdd {
+    overflow: auto;
+    background-color: darkblue;
+    width: 33%;
+    height: 100%;
+}
+
+.weaponAdd {
+    overflow: auto;
+    background-color: darkorchid;
+    width: 34%;
+    height: 100%;
+}
+
+.artifactAdd {
+    overflow: auto;
+    background-color: hotpink;
+    width: 33.3%;
+    height: 100%;
+}
+
+
+
+//Add button
 .addButton {
     background-color: blue;
     color: black;
@@ -54,26 +141,8 @@ p {
     display: flex;
 }
 
-.characterAdd {
-    background-color: darkblue;
-    width: 33%;
-    height: 100%;
-}
-
 .characterCard {
     height: 1000px;
-}
-
-.weaponAdd {
-    background-color: darkorchid;
-    width: 34%;
-    height: 100%;
-}
-
-.artifactAdd {
-    background-color: hotpink;
-    width: 33.3%;
-    height: 100%;
 }
 
 .hexagon {

@@ -9,7 +9,7 @@
 .navbar.active {
     display: block;
     float: left;
-    width: 250px;
+    width: 20%;
     height: 100%;
     background-color: aqua;
 }
@@ -20,6 +20,14 @@
     width: 30px;
     height: 100%;
     background-color: aqua;
+}
+
+.linkList li {
+    text-align: center;
+    list-style-position: inside;
+    list-style-type: none;
+    border: 3px solid black;
+    margin-top: 5px;
 }
 
 /* Dont display link list from navigation bar when isExpanded is false */

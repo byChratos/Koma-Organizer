@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import CharacterList from './CharacterList'
+import ArtifactList from './ArtifactList'
 
-export default function SearchBarCharacter() {
+export default function SearchBarArtifact() {
 
     const [inputText, setInputText] = useState("");
 
@@ -10,15 +10,15 @@ export default function SearchBarCharacter() {
     };
 
     return(
-        <div className="searchChar">
+        <div className="searchArtifact">
             <input
-                className="charSearchBar"
+                className="artifactSearchBar"
                 type="text"
-                placeholder="Search Character"
+                placeholder="Search Artifact"
                 onChange={inputHandler}
                 value={inputText}
             />
-            <CharacterList input={inputText}/>
+            <ArtifactList input={inputText}/>
         </div>
     );
 }
