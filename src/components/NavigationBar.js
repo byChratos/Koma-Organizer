@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 import Home from "../pages/Home"
 import Calendar from "../pages/Calendar"
-import './navigation.scss'
+import '../style/navigation.scss'
 import Add from "../pages/AddPage"
 
 

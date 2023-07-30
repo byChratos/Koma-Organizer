@@ -1,5 +1,5 @@
 import React from 'react';
-import './page.scss'
+import '../style/page.scss';
 
 import CharIcon from '../components/Character/CharIcon';
 import Add from '../components/Add'

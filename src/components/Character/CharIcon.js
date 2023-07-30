@@ -1,13 +1,14 @@
 import React from 'react';
+
 import { getChar } from '../../functions/getAssets'
 
-export default function CharIcon(props){
+export default function CharIcon({ character, type, width, height }){
 
-    const character = props.character.replace(" ", "-");
+    const lCharacter = character.replace(" ", "-");
 
-    const icon = getChar(character.toLowerCase(), props.type)
+    const icon = getChar(lCharacter.toLowerCase(), type)
 
     return (
-        <img className="charIcon" src={ icon } width={ props.width } height={ props.height } />
+        <img className="charIcon" src={ icon } width={ width } height={ height } />
     );
 }

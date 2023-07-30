@@ -1,5 +1,7 @@
 #content {
     background-color: grey;
+    height: 100%;
+    width: 100%;
 }
 h1 {
     color: white;
@@ -70,6 +72,8 @@ p {
 }
 .charIcon {
     object-fit: cover;
+    position: relative;
+    display: inline-block;
 }
 
 .weaponList {
@@ -107,6 +111,16 @@ p {
     background-color: darkblue;
     width: 33%;
     height: 100%;
+}
+
+.characterAdd.active {
+    overflow: hidden;
+}
+
+.removeCharacter {
+    position: relative;
+    background-color: red;
+    color: black;
 }
 
 .weaponAdd {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CharacterList from './CharacterList'
 
-export default function SearchBarCharacter() {
+export default function SearchBarCharacter({ onClickButton }) {
 
     const [inputText, setInputText] = useState("");
 
@@ -18,7 +18,8 @@ export default function SearchBarCharacter() {
                 onChange={inputHandler}
                 value={inputText}
             />
-            <CharacterList input={inputText}/>
+
+            <CharacterList input={inputText} onButtonClick={ onClickButton }/>
         </div>
     );
 }
