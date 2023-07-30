@@ -5,6 +5,9 @@ import ReactDOM from "react-dom/client";
 //Components
 import NavigationBar from "../components/NavigationBar";
 
+//Style
+import '../../index.css'
+
 const rootDom = document.getElementById('root');
 const root = ReactDOM.createRoot(rootDom);
 
