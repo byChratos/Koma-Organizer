@@ -3,9 +3,9 @@ import '../style/page.scss';
 
 export default function Home() {
     return(
-        <div id="content">
+        <div className='w-full h-full bg-gray-500'>
             <h1 className='text-red-500'>GenShO</h1>
-            <p>Lorem Ipsum</p>
+            <p className='text-white'>Lorem Ipsum</p>
         </div>
     )
 }
