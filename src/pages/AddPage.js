@@ -41,7 +41,7 @@ export default function AddPage(){
     return(
         <div className='w-full h-full flex'>
             <div className={`${selectedCharacter ? 'w-1/3 h-full bg-blue-800 overflow-hidden' : 'w-1/3 h-full bg-blue-800 overflow-auto'}`}>
-                {selectedCharacter ? <CharacterSelected character={ selectedCharacter } width={dimensions.width/3} height={dimensions.height}/> : <SearchBarCharacter onClickButton={ handleCharButtonClick } />}
+                {selectedCharacter ? <CharacterSelected handleButtonClick={ handleCharButtonClick } character={ selectedCharacter } width={dimensions.width/3} height={dimensions.height}/> : <SearchBarCharacter onClickButton={ handleCharButtonClick } />}
             </div>
 
             <div className='h-full w-1/3 overflow-auto bg-purple-600'>
