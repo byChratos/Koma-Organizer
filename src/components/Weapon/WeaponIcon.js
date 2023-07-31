@@ -8,6 +8,6 @@ export default function WeaponIcon(props){
     const icon = getWeapon(weapon.toLowerCase(), props.type)
 
     return (
-        <img className="weaponIcon" src={ icon } width={ props.width } height={ props.height } />
+        <img className="object-cover" src={ icon } width={ props.width } height={ props.height } />
     );
 }

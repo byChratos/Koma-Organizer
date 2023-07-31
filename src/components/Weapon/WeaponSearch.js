@@ -10,9 +10,9 @@ export default function SearchBarWeapon() {
     };
 
     return(
-        <div className="searchWeapon">
+        <div className="w-10/9 m-3">
             <input
-                className="weaponSearchBar"
+                className="bg-[#EBE4D6] w-full h-7 rounded-md placeholder-[#4D5568]"
                 type="text"
                 placeholder="Search Weapon"
                 onChange={inputHandler}

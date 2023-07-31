@@ -9,6 +9,6 @@ export default function CharIcon({ character, type, width, height }){
     const icon = getChar(lCharacter.toLowerCase(), type)
 
     return (
-        <img className="charIcon" src={ icon } width={ width } height={ height } />
+        <img className="object-cover inline-block relative" src={ icon } width={ width } height={ height } />
     );
 }

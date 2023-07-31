@@ -10,9 +10,9 @@ export default function SearchBarCharacter({ onClickButton }) {
     };
 
     return(
-        <div className="searchChar">
+        <div className="w-10/9 m-3">
             <input
-                className="charSearchBar"
+                className="bg-[#EBE4D6] w-full h-7 rounded-md placeholder-[#4D5568]"
                 type="text"
                 placeholder="Search Character"
                 onChange={inputHandler}

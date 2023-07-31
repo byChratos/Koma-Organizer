@@ -7,6 +7,6 @@ export default function Add() {
 
     return(
         //Change Page to addition
-        <button className="addButton" onClick={() => navigate("/add")}>+</button>
+        <button className="bg-blue-500 border text-black w-8 h-8 rounded-3xl text-xl text-center" onClick={() => navigate("/add")}>+</button>
     );
 }

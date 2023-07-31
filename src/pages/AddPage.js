@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../style/page.scss';
 
 import SearchBarCharacter from '../components/Character/CharacterSearch';
 import SearchBarWeapon from '../components/Weapon/WeaponSearch';
@@ -40,16 +39,16 @@ export default function AddPage(){
     })
 
     return(
-        <div className='addContainer'>
-            <div className={`characterAdd${selectedCharacter ? ' active' : ''}`}>
+        <div className='w-full h-full flex'>
+            <div className={`${selectedCharacter ? 'w-1/3 h-full bg-blue-800 overflow-hidden' : 'w-1/3 h-full bg-blue-800 overflow-auto'}`}>
                 {selectedCharacter ? <CharacterSelected character={ selectedCharacter } width={dimensions.width/3} height={dimensions.height}/> : <SearchBarCharacter onClickButton={ handleCharButtonClick } />}
             </div>
 
-            <div className='weaponAdd'>
+            <div className='h-full w-1/3 overflow-auto bg-purple-600'>
                 <SearchBarWeapon />
             </div>
 
-            <div className='artifactAdd'>
+            <div className='h-full w-1/3 overflow-auto bg-pink-500'>
                 <SearchBarArtifact />
             </div>
         </div>

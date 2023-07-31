@@ -7,7 +7,7 @@ export default function CharacterSelected({ character, width, height }){
 
         <div className="selectedCharacter">
             <CharIcon character={character} type="gacha-card" width={width} height={height}/>
-            <button className="removeCharacter">Remove Character</button>
+            <button className="bg-red-600 text-black relative">Remove Character</button>
         </div>
     );
 }
