@@ -23,7 +23,7 @@ export default function NavigationBar() {
                 </nav>
 
                 <Routes>
-                    <Route exact path="/" element={<Home />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/calendar" element={<Calendar />} />
                     <Route path="/add" element={<Add />} />
                 </Routes>

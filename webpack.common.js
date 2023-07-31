@@ -1,5 +1,7 @@
 const path = require('path');
 
+const srcPath = path.join(__dirname, './src');
+
 module.exports = {
   mode: 'development',
   entry: './src/js/index.js',
@@ -24,7 +26,7 @@ module.exports = {
         }
       },
       {
-        test: [/\.s[ac]ss$/i, /\.css$/i],
+        test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
           'style-loader',
@@ -33,6 +35,11 @@ module.exports = {
           // Compiles Sass to CSS
           'sass-loader',
         ],
+      },
+      {
+        test: /\.css$/,
+        include: [srcPath],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       }
     ]
   },
