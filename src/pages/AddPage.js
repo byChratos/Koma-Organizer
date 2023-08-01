@@ -5,6 +5,7 @@ import SearchBarWeapon from '../components/Weapon/WeaponSearch';
 import SearchBarArtifact from '../components/Artifacts/ArtifactSearch';
 
 import CharacterSelected from '../components/Character/CharacterSelected'
+import WeaponSelected from '../components/Weapon/WeaponSelected';
 
 
 export default function AddPage(){
@@ -21,6 +22,15 @@ export default function AddPage(){
     const handleCharButtonClick = (character) => {
         setSelectedCharacter(character);
     };
+
+    //Weapon Button
+    const [selectedWeapon, setSelectedWeapon] = useState(null);
+
+    const handleWeaponButtonClick = (weapon) => {
+        setSelectedWeapon(weapon);
+    }
+
+    //Artifact Button // TODO 2 or 4 piece selected?
 
 
     React.useEffect(() => {
@@ -45,7 +55,7 @@ export default function AddPage(){
             </div>
 
             <div className='h-full w-1/3 overflow-auto bg-gradient-to-tl from-[#9c05ff] to-[#0d85ff]'>
-                <SearchBarWeapon />
+                {selectedWeapon ? <WeaponSelected handleButtonClick={ handleWeaponButtonClick } weapon={ selectedWeapon } width={dimensions.width/3} height={dimensions.height/3}/> : <SearchBarWeapon onClickButton={ handleWeaponButtonClick } />}
             </div>
 
             <div className='h-full w-1/3 overflow-auto bg-gradient-to-tr from-[#9c05ff] to-[#0d85ff]'>

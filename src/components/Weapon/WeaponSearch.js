@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import WeaponList from './WeaponList'
 
-export default function SearchBarWeapon() {
+export default function SearchBarWeapon({ onClickButton }) {
 
     const [inputText, setInputText] = useState("");
 
@@ -18,7 +18,8 @@ export default function SearchBarWeapon() {
                 onChange={inputHandler}
                 value={inputText}
             />
-            <WeaponList input={inputText}/>
+            
+            <WeaponList input={inputText} onButtonClick={ onClickButton }/>
         </div>
     );
 }
