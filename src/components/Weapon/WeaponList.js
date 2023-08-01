@@ -14,9 +14,9 @@ export default function WeaponList(props) {
     })
 
     return (
-        <ul className='weaponList'>
+        <ul className='list-none mt-5/1 text-center'>
             {filteredData.map((item) => (
-                <li key={item.id}> <WeaponIcon type="icon" weapon={ item.text } height="100" width="100" /> </li>
+                <li className="inline-block w-24 h-24" key={item.id}> <WeaponIcon type="icon" weapon={ item.text } height="100" width="100" /> </li>
             ))}
         </ul>
     )
