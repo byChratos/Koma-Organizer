@@ -40,15 +40,15 @@ export default function AddPage(){
 
     return(
         <div className='w-full h-full flex'>
-            <div className={`${selectedCharacter ? 'w-1/3 h-full bg-blue-800 overflow-hidden' : 'w-1/3 h-full bg-blue-800 overflow-auto'}`}>
+            <div className={`${selectedCharacter ? 'w-1/3 h-full bg-gradient-to-br from-[#9c05ff] to-[#0d85ff] overflow-hidden' : 'w-1/3 h-full bg-gradient-to-br from-[#9c05ff] to-[#0d85ff] overflow-auto'}`}>
                 {selectedCharacter ? <CharacterSelected handleButtonClick={ handleCharButtonClick } character={ selectedCharacter } width={dimensions.width/3} height={dimensions.height}/> : <SearchBarCharacter onClickButton={ handleCharButtonClick } />}
             </div>
 
-            <div className='h-full w-1/3 overflow-auto bg-purple-600'>
+            <div className='h-full w-1/3 overflow-auto bg-gradient-to-tl from-[#9c05ff] to-[#0d85ff]'>
                 <SearchBarWeapon />
             </div>
 
-            <div className='h-full w-1/3 overflow-auto bg-pink-500'>
+            <div className='h-full w-1/3 overflow-auto bg-gradient-to-tr from-[#9c05ff] to-[#0d85ff]'>
                 <SearchBarArtifact />
             </div>
         </div>

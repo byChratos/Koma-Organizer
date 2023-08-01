@@ -1,3 +1,8 @@
+export function getAsset(object, name, type) {
+    const url = `https://genshin.jmp.blue/${object}/${name}/${type}`;
+    return url;
+}
+
 export function getChar(name, type) {
     const charUrl = `https://genshin.jmp.blue/characters/${name}/${type}`;
     return charUrl;

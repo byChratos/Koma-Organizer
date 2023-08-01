@@ -1,7 +1,7 @@
 import React from 'react';
 
-import CharIcon from '../components/Character/CharIcon';
 import Add from '../components/Add'
+import GenshinImage from '../components/GenshinImage';
 
 export default function Calendar() {
 
@@ -19,7 +19,7 @@ export default function Calendar() {
 
                 <div className={ dayStyle } id="monday">
                     <p>Monday</p>
-                    <div id="toFarmMonday"><CharIcon character="ayaka" type="icon" width="30" height="30"/></div>
+                    <div id="toFarmMonday"><GenshinImage objectName="ayaka" objectType="characters" imageType="icon" height="30" width="30" /></div>
                 </div>
 
                 <div className={ dayStyle } id="tuesday">
