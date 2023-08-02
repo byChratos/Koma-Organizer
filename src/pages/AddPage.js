@@ -18,17 +18,15 @@ export default function AddPage(){
 
     //Character Button
     const [selectedCharacter, setSelectedCharacter] = useState(null);
-
     const handleCharButtonClick = (character) => {
         setSelectedCharacter(character);
     };
 
     //Weapon Button
     const [selectedWeapon, setSelectedWeapon] = useState(null);
-
     const handleWeaponButtonClick = (weapon) => {
         setSelectedWeapon(weapon);
-    }
+    };
 
     //Artifact Button // TODO 2 or 4 piece selected?
 
