@@ -1,23 +1,22 @@
 import React from 'react'
 
 import data from "../../data/weapons.json"
-import GenshinImage from '../GenshinImage';
 
-export default function WeaponList({ input, onButtonClick }) {
+export default function WeaponList({ input, handleClick }) {
 
     const filteredData = data.filter((el) => {
-        if(input === ''){
+        if(input === null){
             return el;
         }else{
             return el.text.toLowerCase().includes(input.toLowerCase())
         }
     })
 
-    return (
-        <ul className='list-none mt-5/1 text-center'>
+    return(
+        <ul className='w-full h-full list-none rounded-[20px]'>
             {filteredData.map((item) => (
-                <li className="inline-block w-24 h-24" key={item.id}> <button key={item.text.toLowerCase()} onClick={() => { onButtonClick(item.text.toLowerCase())} }><GenshinImage objectName={ item.text } objectType="weapons" imageType="icon" width="100" height="100" /></button> </li>
+                <button key={item.id} className="w-full text-left" onClick={() => { handleClick(item.text) }}> <li className='text-white w-full h-[50px] ml-[30px]' key={item.id}>{item.text}</li> </button>
             ))}
         </ul>
-    )
+    );
 }

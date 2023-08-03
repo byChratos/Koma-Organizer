@@ -1,24 +1,21 @@
 import React, { useState } from "react";
-import ArtifactList from './ArtifactList'
 
-export default function SearchBarArtifact() {
+export default function SearchBarArtifact({ handleInput }) {
 
     const [inputText, setInputText] = useState("");
 
     let inputHandler = (e) => {
         setInputText(e.target.value);
+        handleInput(e.target.value);
     };
 
     return(
-        <div className="w-10/9 m-3">
-            <input
-                className="bg-[#EBE4D6] w-full h-7 rounded-md placeholder-[#4D5568]"
-                type="text"
-                placeholder="Search Artifact"
-                onChange={inputHandler}
-                value={inputText}
-            />
-            <ArtifactList input={inputText}/>
-        </div>
+        <input
+            className="bg-[#EBE4D6] placeholder-[#4D5568] w-[90%] h-[50px] mt-[1%] mx-[1%] rounded-[20px] text-[35px] pl-[20px]"
+            type="text"
+            placeholder="Search Artifact"
+            onChange={inputHandler}
+            value={inputText}
+        />
     );
 }

@@ -1,22 +1,21 @@
 import React from 'react'
 
 import data from "../../data/artifacts.json"
-import GenshinImage from '../GenshinImage';
 
-export default function ArtifactList(props) {
+export default function ArtifactList({ input, handleClick }) {
 
     const filteredData = data.filter((el) => {
-        if(props.input === ''){
+        if(input === null){
             return el;
         }else{
-            return el.text.toLowerCase().includes(props.input.toLowerCase())
+            return el.text.toLowerCase().includes(input.toLowerCase())
         }
     })
 
     return (
-        <ul className='list-none mt-5/1 text-center'>
+        <ul className='w-full h-full list-none rounded-[20px]'>
             {filteredData.map((item) => (
-                <li className="inline-block w-24 h-24" key={item.id}> <GenshinImage objectName={ item.text } objectType="artifacts" imageType="flower-of-life" width="100" height="100" /> </li>
+                <button key={item.id} className="w-full text-left" onClick={() => { handleClick(item.text) }}> <li className='text-white w-full h-[50px] ml-[30px]' key={item.id}>{item.text}</li> </button>
             ))}
         </ul>
     )

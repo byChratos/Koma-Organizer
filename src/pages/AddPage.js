@@ -1,35 +1,54 @@
 import React, { useState } from 'react';
 
-import SearchBarCharacter from '../components/Character/CharacterSearch';
-import SearchBarWeapon from '../components/Weapon/WeaponSearch';
-import SearchBarArtifact from '../components/Artifacts/ArtifactSearch';
+import AddButton from '../components/AddButton';
+import RemoveButton from '../components/RemoveButton';
 
-import CharacterSelected from '../components/Character/CharacterSelected'
-import WeaponSelected from '../components/Weapon/WeaponSelected';
+import AddingModal from '../components/AddingModal';
 
 
 export default function AddPage(){
 
     //Dimensions
-    const [dimensions, setDimensions] = React.useState({
+    const [dimensions, setDimensions] = useState({
         height: window.innerHeight,
         width: window.innerWidth
     })
 
+    //Modal open or not
+    const [modalOpen, setModalOpen] = useState(false);
+    const setModal = (val) => {
+        setModalOpen(val);
+    }
+
+    //Modal typing
+    const [modalType, setModalType] = useState(null);
+    const handleModalType = (type) => {
+        setModalType(type);
+    }
+
     //Character Button
     const [selectedCharacter, setSelectedCharacter] = useState(null);
-    const handleCharButtonClick = (character) => {
+    const handleChar = (character) => {
+        setModalType(null);
+        setModalOpen(false);
         setSelectedCharacter(character);
     };
 
     //Weapon Button
     const [selectedWeapon, setSelectedWeapon] = useState(null);
-    const handleWeaponButtonClick = (weapon) => {
+    const handleWeapon = (weapon) => {
+        setModalType(null);
+        setModalOpen(false);
         setSelectedWeapon(weapon);
     };
 
     //Artifact Button // TODO 2 or 4 piece selected?
-
+    const [selectedArtifact, setSelectedArtifact] = useState(null);
+    const handleArtifact = (artifact) => {
+        setModalType(null);
+        setModalOpen(false);
+        setSelectedArtifact(artifact);
+    };
 
     React.useEffect(() => {
         function handleResize() {
@@ -47,6 +66,58 @@ export default function AddPage(){
     })
 
     return(
+        <div className='w-full h-full flex bg-gradient-to-br from-purple-600 via-blue-500 to-pink-400'>
+            {/* // ! Weapon Card */}
+            <div className='bg-[#333333] rounded-xl h-3/5 w-1/6 relative mt-[10%] ml-[11%]'>
+                <h1 className='text-white text-center'>Weapon</h1>
+
+                {/* Add Button */}
+                <AddButton handleButton={ setModal } modalType={ handleModalType } type="weapon" />
+
+                {/* Debug Button */}
+                <button className='w-[50px] h-[50px] bg-red-500' onClick={() => console.log(selectedWeapon + " " + modalType) }>Debutt</button>
+                
+                {/* Remove Button */}
+                {selectedWeapon ? <RemoveButton handleButton={ handleWeapon } /> : (null)}
+            </div>
+
+            {/* // ! Character Card */}
+            <div className='bg-[#333333] rounded-xl h-4/5 w-1/3 relative mt-[5%] ml-[5%]'>
+                <h1 className='text-white text-center'>Character</h1>
+
+                {/* Add Button */}
+                <AddButton handleButton={ setModal } modalType={ handleModalType } type="character" />
+
+                {/* Debug Button */}
+                <button className='w-[50px] h-[50px] bg-red-500' onClick={() => console.log(selectedCharacter + " " + modalType) }>Debutt</button>
+
+                {/* Remove Button */}
+                {selectedCharacter ? <RemoveButton handleButton={ handleChar } /> : (null)}
+            </div>
+
+            {/* // ! Artifact Card */}
+            <div className='bg-[#333333] rounded-xl h-3/5 w-1/6 relative mt-[10%] ml-[5%]'>
+                <h1 className='text-white text-center'>Artifact</h1>
+
+                {/* Add Button */}
+                <AddButton handleButton={ setModal } modalType={ handleModalType } type="artifact" />
+
+                {/* Debug Button */}
+                <button className='w-[50px] h-[50px] bg-red-500' onClick={() => console.log(selectedArtifact + " " + modalType) }>Debutt</button>
+
+                {/* Remove Button */}
+                {selectedArtifact ? <RemoveButton handleButton={ handleArtifact } /> : (null)}
+            </div>
+
+            {/* // ! Conditional Modal */}
+            { (modalOpen && modalType === "character") && <AddingModal modalOpen={setModal} handleSelection={ handleChar } type={modalType} setModalType={ handleModalType } />}
+            { (modalOpen && modalType === "weapon") && <AddingModal modalOpen={setModal} handleSelection={ handleWeapon } type={modalType} setModalType={ handleModalType } />}
+            { (modalOpen && modalType === "artifact") && <AddingModal modalOpen={setModal} handleSelection={ handleArtifact } type={modalType} setModalType={ handleModalType } />}
+            {/*modalOpen ? <AddingModal modalOpen={setModal} handleSelection={ handleWeapon } type={modalType} setModalType={ handleModalType } /> : (null)*/}
+        </div>
+    );
+
+    /*return(
         <div className='w-full h-full flex'>
             <div className={`${selectedCharacter ? 'w-1/3 h-full bg-gradient-to-br from-[#9c05ff] to-[#0d85ff] overflow-hidden' : 'w-1/3 h-full bg-gradient-to-br from-[#9c05ff] to-[#0d85ff] overflow-auto'}`}>
                 {selectedCharacter ? <CharacterSelected handleButtonClick={ handleCharButtonClick } character={ selectedCharacter } width={dimensions.width/3} height={dimensions.height}/> : <SearchBarCharacter onClickButton={ handleCharButtonClick } />}
@@ -60,5 +131,5 @@ export default function AddPage(){
                 <SearchBarArtifact />
             </div>
         </div>
-    );
+    );*/
 }
