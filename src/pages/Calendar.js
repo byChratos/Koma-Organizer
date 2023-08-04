@@ -3,12 +3,12 @@ import React from 'react';
 import Add from '../components/Add'
 import GenshinImage from '../components/GenshinImage';
 
+
 export default function Calendar() {
 
     // TODO Load needed characters from file
 
     const dayStyle = "relative bg-orange-500 inline-block mt-3 h-24 w-20";
-
 
     return(
         <div className='w-full h-full bg-gray-500'>

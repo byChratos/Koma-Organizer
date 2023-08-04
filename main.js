@@ -1,10 +1,18 @@
 const { app, BrowserWindow, ipcMain, Notification } = require('electron');
 const path = require('path');
 var fs = require('fs')
+const { EnkaClient } = require("enka-network-api");
 
 const { getCharacterList, getWeaponsList, getArtifactList } = require('./src/functions/getDataList')
 
 const isDev = !app.isPackaged;
+
+
+const enka = new EnkaClient({ cacheDirectory: "./cache" });
+// ! Creates Cache folder if there is no cache folder already
+if(!fs.existsSync("./cache")){
+    enka.cachedAssetsManager.cacheDirectorySetup();
+};
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -21,6 +29,18 @@ function createWindow() {
 
     win.loadFile('index.html');
     //win.setMenu(null);
+
+    // ! Get contents if there is missing contents
+    if(!enka.cachedAssetsManager.hasAllContents()){
+        // TODO Make thread do that?
+        enka.cachedAssetsManager.fetchAllContents();
+    }
+
+    // ! Check for update
+    if(enka.cachedAssetsManager.checkForUpdates()){
+        enka.cachedAssetsManager.updateContents();
+    }
+
 }
 
 require('electron-reload')(__dirname, {
@@ -29,6 +49,9 @@ require('electron-reload')(__dirname, {
 
 app.whenReady().then(() => {
     createWindow();
+
+    // * Enka close
+    enka.close();
 
     //Retrieving the list of all characters
     getCharacterList().then(chars => {

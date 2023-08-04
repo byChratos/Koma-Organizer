@@ -68,17 +68,25 @@ export default function AddPage(){
     return(
         <div className='w-full h-full flex bg-gradient-to-br from-purple-600 via-blue-500 to-pink-400'>
             {/* // ! Weapon Card */}
-            <div className='bg-[#333333] rounded-xl h-3/5 w-1/6 relative mt-[10%] ml-[11%]'>
-                <h1 className='text-white text-center'>Weapon</h1>
+            <div className='bg-[#333333] rounded-xl h-3/5 w-1/6 relative mt-[10%] ml-[11%] grid grid-cols-2 grid-rows-10'>
+                <h1 className='text-white text-center col-span-2 row-span-1'>Weapon</h1>
 
-                {/* Add Button */}
-                <AddButton handleButton={ setModal } modalType={ handleModalType } type="weapon" />
-
-                {/* Debug Button */}
-                <button className='w-[50px] h-[50px] bg-red-500' onClick={() => console.log(selectedWeapon + " " + modalType) }>Debutt</button>
+                {/* Image div */}
+                <div className='bg-red-500 w-full h-full block col-span-2 row-span-6'>
+                    {/* Place Image here */}
+                </div>
                 
-                {/* Remove Button */}
-                {selectedWeapon ? <RemoveButton handleButton={ handleWeapon } /> : (null)}
+                {/* Button div */}
+                <div className='inline-block row-span-2 col-span-3'>
+                    {/* Add Button */}
+                    <AddButton handleButton={ setModal } modalType={ handleModalType } type="weapon" name="Select Weapon" />
+
+                    {/* Debug Button */}
+                    {/*<button className='w-[50px] h-[50px] bg-red-500' onClick={() => console.log(selectedWeapon + " " + modalType) }>Debutt</button>*/}
+
+                    {/* Remove Button */}
+                    {selectedWeapon ? <RemoveButton handleButton={ handleWeapon } /> : (null)}
+                </div>
             </div>
 
             {/* // ! Character Card */}
@@ -86,7 +94,7 @@ export default function AddPage(){
                 <h1 className='text-white text-center'>Character</h1>
 
                 {/* Add Button */}
-                <AddButton handleButton={ setModal } modalType={ handleModalType } type="character" />
+                <AddButton handleButton={ setModal } modalType={ handleModalType } type="character" name="Select Character" />
 
                 {/* Debug Button */}
                 <button className='w-[50px] h-[50px] bg-red-500' onClick={() => console.log(selectedCharacter + " " + modalType) }>Debutt</button>
@@ -100,7 +108,7 @@ export default function AddPage(){
                 <h1 className='text-white text-center'>Artifact</h1>
 
                 {/* Add Button */}
-                <AddButton handleButton={ setModal } modalType={ handleModalType } type="artifact" />
+                <AddButton handleButton={ setModal } modalType={ handleModalType } type="artifact" name="Select Artifact" />
 
                 {/* Debug Button */}
                 <button className='w-[50px] h-[50px] bg-red-500' onClick={() => console.log(selectedArtifact + " " + modalType) }>Debutt</button>

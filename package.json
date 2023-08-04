@@ -14,6 +14,7 @@
   "dependencies": {
     "autoprefixer": "^10.4.14",
     "electron": "^25.3.1",
+    "enka-network-api": "^3.7.2",
     "postcss": "^8.4.27",
     "postcss-import": "^15.1.0",
     "postcss-loader": "^7.3.3",
