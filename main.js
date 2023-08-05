@@ -2,16 +2,19 @@ const { app, BrowserWindow, ipcMain, Notification } = require('electron');
 const path = require('path');
 var fs = require('fs')
 const { EnkaClient } = require("enka-network-api");
-
 const { getCharacterList, getWeaponsList, getArtifactList } = require('./src/functions/getDataList')
+const { Worker } = require("worker_threads");
 
 const isDev = !app.isPackaged;
 
+// * Worker for multithreading the Genshin data from Enka
+const worker = new Worker("./src/worker/cacheData.js");
 
-const enka = new EnkaClient({ cacheDirectory: "./cache" });
+const enka = new EnkaClient({ cacheDirectory: "./cache", defaultLanguage: "en" });
 // ! Creates Cache folder if there is no cache folder already
 if(!fs.existsSync("./cache")){
     enka.cachedAssetsManager.cacheDirectorySetup();
+    worker.postMessage('fetchContent');
 };
 
 function createWindow() {
@@ -21,6 +24,7 @@ function createWindow() {
         backgroundColor: "white",
         webPreferences: {
             nodeIntegration: false,
+            nodeIntegrationInWorker: true,
             worldSafeExecuteJavaScript: true,
             contextIsolation: true,
             preload: path.join(__dirname, 'preload.js')
@@ -29,17 +33,6 @@ function createWindow() {
 
     win.loadFile('index.html');
     //win.setMenu(null);
-
-    // ! Get contents if there is missing contents
-    if(!enka.cachedAssetsManager.hasAllContents()){
-        // TODO Make thread do that?
-        enka.cachedAssetsManager.fetchAllContents();
-    }
-
-    // ! Check for update
-    if(enka.cachedAssetsManager.checkForUpdates()){
-        enka.cachedAssetsManager.updateContents();
-    }
 
 }
 
@@ -52,6 +45,8 @@ app.whenReady().then(() => {
 
     // * Enka close
     enka.close();
+
+    worker.postMessage('startAutoUpdater');
 
     //Retrieving the list of all characters
     getCharacterList().then(chars => {
@@ -103,6 +98,12 @@ app.whenReady().then(() => {
         const jsonString = JSON.stringify(artifactArray, null, 2);
         fs.writeFileSync('./src/data/artifacts.json', jsonString);
     })
+})
+
+app.on('quit', () => {
+    worker.postMessage('closeEnka');
+    enka.close();
+    app.quit();
 })
 
 //Not working idk why
