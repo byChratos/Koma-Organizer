@@ -25,8 +25,7 @@ function createWindow() {
             nodeIntegration: true,
             nodeIntegrationInWorker: true,
             worldSafeExecuteJavaScript: true,
-            contextIsolation: false,
-            preload: path.join(__dirname, 'preload.js')
+            contextIsolation: false
         }
     })
 
@@ -35,9 +34,9 @@ function createWindow() {
 
 }
 
-require('electron-reload')(__dirname, {
-    electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
-})
+//require('electron-reload')(__dirname, {
+//    electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
+//})
 
 app.whenReady().then(() => {
     createWindow();
@@ -59,30 +58,101 @@ ipcMain.on('notify', (_, message) => {
     new Notification({title: 'Notification', body: message}).show();
 })
 
-ipcMain.on('writeFile', (event, filePath, fileContent) => {
-    try{
-        if(!fs.existsSync(filePath)){
-            fs.writeFileSync(filePath, "[]");
+function checkIfFileExists(filePath, callback){
+    fs.access(filePath, fs.constants.F_OK, (err) => {
+        if(err){
+            //*File doesnt exist
+            callback(false);
+        }else{
+            //*File exists
+            callback(true);
         }
+    })
+}
 
-        fs.writeFileSync(filePath, fileContent);
-        event.reply('wroteFile', true);
-    }catch(err){
-        event.reply('wroteFile', false);
-    }
-})
-
-ipcMain.on('loadFile', (event, filePath) => {
+ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWeapon) => {
     try{
 
-        if(!fs.existsSync(filePath)){
-            fs.writeFileSync(filePath, "[]");
-        }
+        //* If calendar.json doesnt exist - create and paste content in
+        checkIfFileExists("./calendar.json", (exists) => {
+            if(exists){
 
-        const rawdata = fs.readFileSync(filePath);
-        const data = JSON.parse(rawdata);
-        event.reply('loadedFile', true, data);
-    }catch(err){
-        event.reply('loadedFile', false, '');
+                //*First load the old file data
+                fs.readFile("./calendar.json", 'utf8', (err, rawdata) => {
+                    if(err){
+                        console.error(err);
+                        return;
+                    }
+                    const data = JSON.parse(rawdata);
+
+                    //* Add stuff
+                    if(selectedArtifact != null){
+                        var newStuff = {
+                            name: selectedArtifact,
+                            type: "artifact",
+                        }
+                        data.push(newStuff);
+                    }
+                    if(selectedCharacter != null){
+                        var newStuff = {
+                            name: selectedCharacter,
+                            type: "character",
+                        }
+                        data.push(newStuff);
+                    }
+                    if(selectedWeapon != null){
+                        var newStuff = {
+                            name: selectedWeapon,
+                            type: "weapon",
+                        }
+                        data.push(newStuff);
+                    }
+
+                    //* Save stuff
+                    var jsonString = JSON.stringify(data, null, 2);
+                    fs.writeFile("./calendar.json", jsonString, (error) => {
+                        if(error){
+                            console.error(error);
+                            throw error;
+                        }
+                    });
+                    event.reply('savedFile', true);
+                })
+
+            }else{
+                let newData = []
+                if(selectedArtifact != null){
+                    var newStuff = {
+                        name: selectedArtifact,
+                        type: "artifact",
+                    }
+                    newData.push(newStuff);
+                }
+                if(selectedCharacter != null){
+                    var newStuff = {
+                        name: selectedCharacter,
+                        type: "character",
+                    }
+                    newData.push(newStuff);
+                }
+                if(selectedWeapon != null){
+                    var newStuff = {
+                        name: selectedWeapon,
+                        type: "weapon",
+                    }
+                    newData.push(newStuff);
+                }
+
+                var jsonString = JSON.stringify(newData, null, 2);
+                fs.writeFile("./calendar.json", jsonString, (error) => {
+                    if(error){
+                        console.error(error);
+                        throw error;
+                    }
+                });
+            }
+        })
+    }catch(error){
+        console.error(error);
     }
 })

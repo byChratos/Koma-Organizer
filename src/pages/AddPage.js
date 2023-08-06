@@ -10,10 +10,10 @@ import SubmitButton from '../components/SubmitButton';
 export default function AddPage(){
 
     //Dimensions
-    const [dimensions, setDimensions] = useState({
+    /*const [dimensions, setDimensions] = useState({
         height: window.innerHeight,
         width: window.innerWidth
-    })
+    })*/
 
     //Modal open or not
     const [modalOpen, setModalOpen] = useState(false);
@@ -51,7 +51,7 @@ export default function AddPage(){
         setSelectedArtifact(artifact);
     };
 
-    React.useEffect(() => {
+    /*React.useEffect(() => {
         function handleResize() {
             setDimensions({
                 height: window.innerHeight,
@@ -64,7 +64,7 @@ export default function AddPage(){
         return _ => {
             window.removeEventListener('resize', handleResize)
         }
-    })
+    })*/
 
     return(
         <div className='w-full h-full flex bg-gradient-to-br from-purple-600 via-blue-500 to-pink-400'>
