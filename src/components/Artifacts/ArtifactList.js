@@ -1,6 +1,8 @@
 import React from 'react'
 
-import data from "../../data/artifacts.json"
+import data from "../../data/artifacts.json";
+import GenshinImage from "../GenshinImage";
+
 
 export default function ArtifactList({ input, handleClick }) {
 
@@ -8,14 +10,14 @@ export default function ArtifactList({ input, handleClick }) {
         if(input === null){
             return el;
         }else{
-            return el.text.toLowerCase().includes(input.toLowerCase())
+            return el.name.toLowerCase().includes(input.toLowerCase())
         }
     })
 
     return (
         <ul className='w-full h-full list-none rounded-[20px]'>
             {filteredData.map((item) => (
-                <button key={item.id} className="w-full text-left" onClick={() => { handleClick(item.text) }}> <li className='text-white w-full h-[50px] ml-[30px]' key={item.id}>{item.text}</li> </button>
+                <button key={item.id} className="bg-gray-400 w-full text-left flex rounded-l-lg my-2 ml-1 overflow-hidden" onClick={() => { handleClick(item.name) }}> <GenshinImage objectKey={item.key} objectType="artifact" imageType="icon" width="50" height="50"/> <li className='text-white w-full h-[50px] ml-[30px]' key={item.id}>{item.name}</li> </button>
             ))}
         </ul>
     )

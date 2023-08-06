@@ -1,286 +1,605 @@
 [
   {
-    "id": 0,
-    "text": "albedo"
-  },
-  {
-    "id": 1,
-    "text": "alhaitham"
-  },
-  {
-    "id": 2,
-    "text": "aloy"
-  },
-  {
-    "id": 3,
-    "text": "amber"
-  },
-  {
-    "id": 4,
-    "text": "arataki-itto"
-  },
-  {
-    "id": 5,
-    "text": "ayaka"
-  },
-  {
-    "id": 6,
-    "text": "ayato"
-  },
-  {
-    "id": 7,
-    "text": "baizhu"
-  },
-  {
-    "id": 8,
-    "text": "barbara"
-  },
-  {
-    "id": 9,
-    "text": "beidou"
-  },
-  {
-    "id": 10,
-    "text": "bennett"
-  },
-  {
-    "id": 11,
-    "text": "candace"
-  },
-  {
-    "id": 12,
-    "text": "chongyun"
-  },
-  {
-    "id": 13,
-    "text": "collei"
-  },
-  {
-    "id": 14,
-    "text": "cyno"
-  },
-  {
-    "id": 15,
-    "text": "dehya"
-  },
-  {
-    "id": 16,
-    "text": "diluc"
-  },
-  {
-    "id": 17,
-    "text": "diona"
-  },
-  {
-    "id": 18,
-    "text": "dori"
-  },
-  {
-    "id": 19,
-    "text": "eula"
-  },
-  {
-    "id": 20,
-    "text": "faruzan"
-  },
-  {
-    "id": 21,
-    "text": "fischl"
-  },
-  {
-    "id": 22,
-    "text": "ganyu"
-  },
-  {
-    "id": 23,
-    "text": "gorou"
-  },
-  {
-    "id": 24,
-    "text": "hu-tao"
-  },
-  {
-    "id": 25,
-    "text": "jean"
-  },
-  {
-    "id": 26,
-    "text": "kaeya"
-  },
-  {
-    "id": 27,
-    "text": "kaveh"
-  },
-  {
-    "id": 28,
-    "text": "kazuha"
-  },
-  {
-    "id": 29,
-    "text": "keqing"
-  },
-  {
-    "id": 30,
-    "text": "kirara"
-  },
-  {
-    "id": 31,
-    "text": "klee"
-  },
-  {
-    "id": 32,
-    "text": "kokomi"
-  },
-  {
-    "id": 33,
-    "text": "kuki-shinobu"
-  },
-  {
-    "id": 34,
-    "text": "layla"
-  },
-  {
-    "id": 35,
-    "text": "lisa"
-  },
-  {
-    "id": 36,
-    "text": "mika"
-  },
-  {
-    "id": 37,
-    "text": "mona"
-  },
-  {
-    "id": 38,
-    "text": "nahida"
-  },
-  {
-    "id": 39,
-    "text": "nilou"
-  },
-  {
-    "id": 40,
-    "text": "ningguang"
-  },
-  {
-    "id": 41,
-    "text": "noelle"
-  },
-  {
-    "id": 42,
-    "text": "qiqi"
-  },
-  {
-    "id": 43,
-    "text": "raiden"
-  },
-  {
-    "id": 44,
-    "text": "razor"
-  },
-  {
-    "id": 45,
-    "text": "rosaria"
-  },
-  {
-    "id": 46,
-    "text": "sara"
-  },
-  {
-    "id": 47,
-    "text": "sayu"
-  },
-  {
-    "id": 48,
-    "text": "shenhe"
-  },
-  {
-    "id": 49,
-    "text": "shikanoin-heizou"
-  },
-  {
-    "id": 50,
-    "text": "sucrose"
-  },
-  {
-    "id": 51,
-    "text": "tartaglia"
-  },
-  {
-    "id": 52,
-    "text": "thoma"
-  },
-  {
-    "id": 53,
-    "text": "tighnari"
-  },
-  {
-    "id": 54,
-    "text": "traveler-anemo"
-  },
-  {
-    "id": 55,
-    "text": "traveler-dendro"
-  },
-  {
-    "id": 56,
-    "text": "traveler-electro"
-  },
-  {
-    "id": 57,
-    "text": "traveler-geo"
-  },
-  {
-    "id": 58,
-    "text": "venti"
-  },
-  {
-    "id": 59,
-    "text": "wanderer"
-  },
-  {
-    "id": 60,
-    "text": "xiangling"
-  },
-  {
-    "id": 61,
-    "text": "xiao"
-  },
-  {
-    "id": 62,
-    "text": "xingqiu"
-  },
-  {
-    "id": 63,
-    "text": "xinyan"
-  },
-  {
-    "id": 64,
-    "text": "yae-miko"
-  },
-  {
-    "id": 65,
-    "text": "yanfei"
-  },
-  {
-    "id": 66,
-    "text": "yaoyao"
-  },
-  {
-    "id": 67,
-    "text": "yelan"
-  },
-  {
-    "id": 68,
-    "text": "yoimiya"
-  },
-  {
-    "id": 69,
-    "text": "yun-jin"
-  },
-  {
-    "id": 70,
-    "text": "zhongli"
+    "key": 0,
+    "id": 10000002,
+    "name": "Kamisato Ayaka",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Ayaka.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Ayaka.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Ayaka.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Ayaka.png"
+  },
+  {
+    "key": 1,
+    "id": 10000003,
+    "name": "Jean",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Qin.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Qin.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Qin.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Qin.png"
+  },
+  {
+    "key": 2,
+    "id": 10000006,
+    "name": "Lisa",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Lisa.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Lisa.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Lisa.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Lisa.png"
+  },
+  {
+    "key": 3,
+    "id": 10000014,
+    "name": "Barbara",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Barbara.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Barbara.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Barbara.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Barbara.png"
+  },
+  {
+    "key": 4,
+    "id": 10000015,
+    "name": "Kaeya",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Kaeya.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Kaeya.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Kaeya.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Kaeya.png"
+  },
+  {
+    "key": 5,
+    "id": 10000016,
+    "name": "Diluc",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Diluc.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Diluc.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Diluc.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Diluc.png"
+  },
+  {
+    "key": 6,
+    "id": 10000020,
+    "name": "Razor",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Razor.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Razor.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Razor.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Razor.png"
+  },
+  {
+    "key": 7,
+    "id": 10000021,
+    "name": "Amber",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Ambor.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Ambor.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Ambor.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Ambor.png"
+  },
+  {
+    "key": 8,
+    "id": 10000022,
+    "name": "Venti",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Venti.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Venti.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Venti.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Venti.png"
+  },
+  {
+    "key": 9,
+    "id": 10000023,
+    "name": "Xiangling",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Xiangling.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Xiangling.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Xiangling.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Xiangling.png"
+  },
+  {
+    "key": 10,
+    "id": 10000024,
+    "name": "Beidou",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Beidou.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Beidou.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Beidou.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Beidou.png"
+  },
+  {
+    "key": 11,
+    "id": 10000025,
+    "name": "Xingqiu",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Xingqiu.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Xingqiu.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Xingqiu.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Xingqiu.png"
+  },
+  {
+    "key": 12,
+    "id": 10000026,
+    "name": "Xiao",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Xiao.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Xiao.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Xiao.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Xiao.png"
+  },
+  {
+    "key": 13,
+    "id": 10000027,
+    "name": "Ningguang",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Ningguang.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Ningguang.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Ningguang.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Ningguang.png"
+  },
+  {
+    "key": 14,
+    "id": 10000029,
+    "name": "Klee",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Klee.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Klee.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Klee.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Klee.png"
+  },
+  {
+    "key": 15,
+    "id": 10000030,
+    "name": "Zhongli",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Zhongli.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Zhongli.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Zhongli.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Zhongli.png"
+  },
+  {
+    "key": 16,
+    "id": 10000031,
+    "name": "Fischl",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Fischl.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Fischl.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Fischl.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Fischl.png"
+  },
+  {
+    "key": 17,
+    "id": 10000032,
+    "name": "Bennett",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Bennett.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Bennett.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Bennett.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Bennett.png"
+  },
+  {
+    "key": 18,
+    "id": 10000033,
+    "name": "Tartaglia",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Tartaglia.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Tartaglia.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Tartaglia.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Tartaglia.png"
+  },
+  {
+    "key": 19,
+    "id": 10000034,
+    "name": "Noelle",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Noel.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Noel.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Noel.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Noel.png"
+  },
+  {
+    "key": 20,
+    "id": 10000035,
+    "name": "Qiqi",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Qiqi.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Qiqi.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Qiqi.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Qiqi.png"
+  },
+  {
+    "key": 21,
+    "id": 10000036,
+    "name": "Chongyun",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Chongyun.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Chongyun.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Chongyun.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Chongyun.png"
+  },
+  {
+    "key": 22,
+    "id": 10000037,
+    "name": "Ganyu",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Ganyu.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Ganyu.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Ganyu.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Ganyu.png"
+  },
+  {
+    "key": 23,
+    "id": 10000038,
+    "name": "Albedo",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Albedo.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Albedo.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Albedo.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Albedo.png"
+  },
+  {
+    "key": 24,
+    "id": 10000039,
+    "name": "Diona",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Diona.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Diona.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Diona.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Diona.png"
+  },
+  {
+    "key": 25,
+    "id": 10000041,
+    "name": "Mona",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Mona.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Mona.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Mona.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Mona.png"
+  },
+  {
+    "key": 26,
+    "id": 10000042,
+    "name": "Keqing",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Keqing.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Keqing.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Keqing.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Keqing.png"
+  },
+  {
+    "key": 27,
+    "id": 10000043,
+    "name": "Sucrose",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Sucrose.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Sucrose.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Sucrose.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Sucrose.png"
+  },
+  {
+    "key": 28,
+    "id": 10000044,
+    "name": "Xinyan",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Xinyan.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Xinyan.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Xinyan.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Xinyan.png"
+  },
+  {
+    "key": 29,
+    "id": 10000045,
+    "name": "Rosaria",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Rosaria.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Rosaria.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Rosaria.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Rosaria.png"
+  },
+  {
+    "key": 30,
+    "id": 10000046,
+    "name": "Hu Tao",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Hutao.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Hutao.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Hutao.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Hutao.png"
+  },
+  {
+    "key": 31,
+    "id": 10000047,
+    "name": "Kaedehara Kazuha",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Kazuha.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Kazuha.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Kazuha.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Kazuha.png"
+  },
+  {
+    "key": 32,
+    "id": 10000048,
+    "name": "Yanfei",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Feiyan.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Feiyan.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Feiyan.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Feiyan.png"
+  },
+  {
+    "key": 33,
+    "id": 10000049,
+    "name": "Yoimiya",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Yoimiya.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Yoimiya.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Yoimiya.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Yoimiya.png"
+  },
+  {
+    "key": 34,
+    "id": 10000050,
+    "name": "Thoma",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Tohma.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Tohma.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Tohma.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Tohma.png"
+  },
+  {
+    "key": 35,
+    "id": 10000051,
+    "name": "Eula",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Eula.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Eula.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Eula.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Eula.png"
+  },
+  {
+    "key": 36,
+    "id": 10000052,
+    "name": "Raiden Shogun",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Shougun.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Shougun.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Shougun.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Shougun.png"
+  },
+  {
+    "key": 37,
+    "id": 10000053,
+    "name": "Sayu",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Sayu.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Sayu.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Sayu.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Sayu.png"
+  },
+  {
+    "key": 38,
+    "id": 10000054,
+    "name": "Sangonomiya Kokomi",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Kokomi.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Kokomi.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Kokomi.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Kokomi.png"
+  },
+  {
+    "key": 39,
+    "id": 10000055,
+    "name": "Gorou",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Gorou.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Gorou.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Gorou.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Gorou.png"
+  },
+  {
+    "key": 40,
+    "id": 10000056,
+    "name": "Kujou Sara",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Sara.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Sara.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Sara.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Sara.png"
+  },
+  {
+    "key": 41,
+    "id": 10000057,
+    "name": "Arataki Itto",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Itto.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Itto.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Itto.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Itto.png"
+  },
+  {
+    "key": 42,
+    "id": 10000058,
+    "name": "Yae Miko",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Yae.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Yae.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Yae.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Yae.png"
+  },
+  {
+    "key": 43,
+    "id": 10000059,
+    "name": "Shikanoin Heizou",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Heizo.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Heizo.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Heizo.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Heizo.png"
+  },
+  {
+    "key": 44,
+    "id": 10000060,
+    "name": "Yelan",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Yelan.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Yelan.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Yelan.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Yelan.png"
+  },
+  {
+    "key": 45,
+    "id": 10000061,
+    "name": "Kirara",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Momoka.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Momoka.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Momoka.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Momoka.png"
+  },
+  {
+    "key": 46,
+    "id": 10000062,
+    "name": "Aloy",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Aloy.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Aloy.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Aloy.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Aloy.png"
+  },
+  {
+    "key": 47,
+    "id": 10000063,
+    "name": "Shenhe",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Shenhe.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Shenhe.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Shenhe.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Shenhe.png"
+  },
+  {
+    "key": 48,
+    "id": 10000064,
+    "name": "Yun Jin",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Yunjin.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Yunjin.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Yunjin.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Yunjin.png"
+  },
+  {
+    "key": 49,
+    "id": 10000065,
+    "name": "Kuki Shinobu",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Shinobu.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Shinobu.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Shinobu.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Shinobu.png"
+  },
+  {
+    "key": 50,
+    "id": 10000066,
+    "name": "Kamisato Ayato",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Ayato.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Ayato.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Ayato.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Ayato.png"
+  },
+  {
+    "key": 51,
+    "id": 10000067,
+    "name": "Collei",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Collei.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Collei.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Collei.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Collei.png"
+  },
+  {
+    "key": 52,
+    "id": 10000068,
+    "name": "Dori",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Dori.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Dori.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Dori.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Dori.png"
+  },
+  {
+    "key": 53,
+    "id": 10000069,
+    "name": "Tighnari",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Tighnari.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Tighnari.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Tighnari.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Tighnari.png"
+  },
+  {
+    "key": 54,
+    "id": 10000070,
+    "name": "Nilou",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Nilou.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Nilou.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Nilou.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Nilou.png"
+  },
+  {
+    "key": 55,
+    "id": 10000071,
+    "name": "Cyno",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Cyno.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Cyno.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Cyno.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Cyno.png"
+  },
+  {
+    "key": 56,
+    "id": 10000072,
+    "name": "Candace",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Candace.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Candace.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Candace.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Candace.png"
+  },
+  {
+    "key": 57,
+    "id": 10000073,
+    "name": "Nahida",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Nahida.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Nahida.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Nahida.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Nahida.png"
+  },
+  {
+    "key": 58,
+    "id": 10000074,
+    "name": "Layla",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Layla.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Layla.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Layla.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Layla.png"
+  },
+  {
+    "key": 59,
+    "id": 10000075,
+    "name": "Wanderer",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Wanderer.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Wanderer.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Wanderer.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Wanderer.png"
+  },
+  {
+    "key": 60,
+    "id": 10000076,
+    "name": "Faruzan",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Faruzan.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Faruzan.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Faruzan.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Faruzan.png"
+  },
+  {
+    "key": 61,
+    "id": 10000077,
+    "name": "Yaoyao",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Yaoyao.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Yaoyao.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Yaoyao.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Yaoyao.png"
+  },
+  {
+    "key": 62,
+    "id": 10000078,
+    "name": "Alhaitham",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Alhatham.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Alhatham.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Alhatham.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Alhatham.png"
+  },
+  {
+    "key": 63,
+    "id": 10000079,
+    "name": "Dehya",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Dehya.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Dehya.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Dehya.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Dehya.png"
+  },
+  {
+    "key": 64,
+    "id": 10000080,
+    "name": "Mika",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Mika.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Mika.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Mika.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Mika.png"
+  },
+  {
+    "key": 65,
+    "id": 10000081,
+    "name": "Kaveh",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Kaveh.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Kaveh.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Kaveh.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Kaveh.png"
+  },
+  {
+    "key": 66,
+    "id": 10000082,
+    "name": "Baizhu",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Baizhuer.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Baizhuer.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Baizhuer.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Baizhuer.png"
   }
 ]

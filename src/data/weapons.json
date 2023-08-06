@@ -1,562 +1,974 @@
 [
   {
-    "id": 0,
-    "text": "akuoumaru"
+    "key": 0,
+    "id": 11101,
+    "name": "Dull Blade",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Blunt.png"
   },
   {
-    "id": 1,
-    "text": "alley-hunter"
+    "key": 1,
+    "id": 11201,
+    "name": "Silver Sword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Silver.png"
   },
   {
-    "id": 2,
-    "text": "amber-catalyst"
+    "key": 2,
+    "id": 11301,
+    "name": "Cool Steel",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Steel.png"
   },
   {
-    "id": 3,
-    "text": "amenoma-kageuchi"
+    "key": 3,
+    "id": 11302,
+    "name": "Harbinger of Dawn",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Dawn.png"
   },
   {
-    "id": 4,
-    "text": "amos-bow"
+    "key": 4,
+    "id": 11303,
+    "name": "Traveler's Handy Sword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Traveler.png"
   },
   {
-    "id": 5,
-    "text": "apprentice-s-notes"
+    "key": 5,
+    "id": 11304,
+    "name": "Dark Iron Sword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Darker.png"
   },
   {
-    "id": 6,
-    "text": "aqua-simulacra"
+    "key": 6,
+    "id": 11305,
+    "name": "Fillet Blade",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Sashimi.png"
   },
   {
-    "id": 7,
-    "text": "aquila-favonia"
+    "key": 7,
+    "id": 11306,
+    "name": "Skyrider Sword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Mitsurugi.png"
   },
   {
-    "id": 8,
-    "text": "beacon-of-the-reed-sea"
+    "key": 8,
+    "id": 11401,
+    "name": "Favonius Sword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Zephyrus.png"
   },
   {
-    "id": 9,
-    "text": "beginner-s-protector"
+    "key": 9,
+    "id": 11402,
+    "name": "The Flute",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Troupe.png"
   },
   {
-    "id": 10,
-    "text": "black-tassel"
+    "key": 10,
+    "id": 11403,
+    "name": "Sacrificial Sword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Fossil.png"
   },
   {
-    "id": 11,
-    "text": "blackcliff-amulet"
+    "key": 11,
+    "id": 11404,
+    "name": "Royal Longsword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Theocrat.png"
   },
   {
-    "id": 12,
-    "text": "blackcliff-longsword"
+    "key": 12,
+    "id": 11405,
+    "name": "Lion's Roar",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Rockkiller.png"
   },
   {
-    "id": 13,
-    "text": "blackcliff-pole"
+    "key": 13,
+    "id": 11406,
+    "name": "Prototype Rancour",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Proto.png"
   },
   {
-    "id": 14,
-    "text": "blackcliff-slasher"
+    "key": 14,
+    "id": 11407,
+    "name": "Iron Sting",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Exotic.png"
   },
   {
-    "id": 15,
-    "text": "blackcliff-warbow"
+    "key": 15,
+    "id": 11408,
+    "name": "Blackcliff Longsword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Blackrock.png"
   },
   {
-    "id": 16,
-    "text": "bloodtainted-greatsword"
+    "key": 16,
+    "id": 11409,
+    "name": "The Black Sword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Bloodstained.png"
   },
   {
-    "id": 17,
-    "text": "calamity-queller"
+    "key": 17,
+    "id": 11410,
+    "name": "The Alley Flash",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Outlaw.png"
   },
   {
-    "id": 18,
-    "text": "cinnabar -spindle"
+    "key": 18,
+    "id": 11412,
+    "name": "Sword of Descension",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Psalmus.png"
   },
   {
-    "id": 19,
-    "text": "compound-bow"
+    "key": 19,
+    "id": 11413,
+    "name": "Festering Desire",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Magnum.png"
   },
   {
-    "id": 20,
-    "text": "cool-steel"
+    "key": 20,
+    "id": 11414,
+    "name": "Amenoma Kageuchi",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Bakufu.png"
   },
   {
-    "id": 21,
-    "text": "crescent-pike"
+    "key": 21,
+    "id": 11415,
+    "name": "Cinnabar Spindle",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Opus.png"
   },
   {
-    "id": 22,
-    "text": "dark-iron-sword"
+    "key": 22,
+    "id": 11416,
+    "name": "Kagotsurube Isshin",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Youtou.png"
   },
   {
-    "id": 23,
-    "text": "deathmatch"
+    "key": 23,
+    "id": 11417,
+    "name": "Sapwood Blade",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Arakalari.png"
   },
   {
-    "id": 24,
-    "text": "debate-club"
+    "key": 24,
+    "id": 11418,
+    "name": "Xiphos' Moonlight",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Pleroma.png"
   },
   {
-    "id": 25,
-    "text": "dodoco-tales"
+    "key": 25,
+    "id": 11419,
+    "name": "Prized Isshin Blade",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_YoutouEnchanted.png"
   },
   {
-    "id": 26,
-    "text": "dragon-s-bane"
+    "key": 26,
+    "id": 11420,
+    "name": "Prized Isshin Blade",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_YoutouShattered.png"
   },
   {
-    "id": 27,
-    "text": "dragonspine-spear"
+    "key": 27,
+    "id": 11421,
+    "name": "Prized Isshin Blade",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_YoutouEnchanted.png"
   },
   {
-    "id": 28,
-    "text": "dull-blade"
+    "key": 28,
+    "id": 11422,
+    "name": "Toukabou Shigure",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Kasabouzu.png"
   },
   {
-    "id": 29,
-    "text": "eberlasting-moonglow"
+    "key": 29,
+    "id": 11501,
+    "name": "Aquila Favonia",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Falcon.png"
   },
   {
-    "id": 30,
-    "text": "ebony-bow"
+    "key": 30,
+    "id": 11502,
+    "name": "Skyward Blade",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Dvalin.png"
   },
   {
-    "id": 31,
-    "text": "elegy-for-the-end"
+    "key": 31,
+    "id": 11503,
+    "name": "Freedom-Sworn",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Widsith.png"
   },
   {
-    "id": 32,
-    "text": "emerald-orb"
+    "key": 32,
+    "id": 11504,
+    "name": "Summit Shaper",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Kunwu.png"
   },
   {
-    "id": 33,
-    "text": "engulfing-lightning"
+    "key": 33,
+    "id": 11505,
+    "name": "Primordial Jade Cutter",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Morax.png"
   },
   {
-    "id": 34,
-    "text": "everlasting-moonglow"
+    "key": 34,
+    "id": 11509,
+    "name": "Mistsplitter Reforged",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Narukami.png"
   },
   {
-    "id": 35,
-    "text": "eye-of-perception"
+    "key": 35,
+    "id": 11510,
+    "name": "Haran Geppaku Futsu",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Amenoma.png"
   },
   {
-    "id": 36,
-    "text": "favonius-codex"
+    "key": 36,
+    "id": 11511,
+    "name": "Key of Khaj-Nisut",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Deshret.png"
   },
   {
-    "id": 37,
-    "text": "favonius-greatsword"
+    "key": 37,
+    "id": 11512,
+    "name": "Light of Foliar Incision",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Sword_Ayus.png"
   },
   {
-    "id": 38,
-    "text": "favonius-lance"
+    "key": 38,
+    "id": 12101,
+    "name": "Waster Greatsword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Aniki.png"
   },
   {
-    "id": 39,
-    "text": "favonius-sword"
+    "key": 39,
+    "id": 12201,
+    "name": "Old Merc's Pal",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Oyaji.png"
   },
   {
-    "id": 40,
-    "text": "favonius-warbow"
+    "key": 40,
+    "id": 12301,
+    "name": "Ferrous Shadow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Glaive.png"
   },
   {
-    "id": 41,
-    "text": "ferrous-shadow"
+    "key": 41,
+    "id": 12302,
+    "name": "Bloodtainted Greatsword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Siegfry.png"
   },
   {
-    "id": 42,
-    "text": "festering-desire"
+    "key": 42,
+    "id": 12303,
+    "name": "White Iron Greatsword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Tin.png"
   },
   {
-    "id": 43,
-    "text": "fillet-blade"
+    "key": 43,
+    "id": 12304,
+    "name": "Quartz",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Quartz.png"
   },
   {
-    "id": 44,
-    "text": "freedom-sworn"
+    "key": 44,
+    "id": 12305,
+    "name": "Debate Club",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Reasoning.png"
   },
   {
-    "id": 45,
-    "text": "frostbearer"
+    "key": 45,
+    "id": 12306,
+    "name": "Skyrider Greatsword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Mitsurugi.png"
   },
   {
-    "id": 46,
-    "text": "hakushin-ring"
+    "key": 46,
+    "id": 12401,
+    "name": "Favonius Greatsword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Zephyrus.png"
   },
   {
-    "id": 47,
-    "text": "halberd"
+    "key": 47,
+    "id": 12402,
+    "name": "The Bell",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Troupe.png"
   },
   {
-    "id": 48,
-    "text": "hamayumi"
+    "key": 48,
+    "id": 12403,
+    "name": "Sacrificial Greatsword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Fossil.png"
   },
   {
-    "id": 49,
-    "text": "haran-geppaku-futsu"
+    "key": 49,
+    "id": 12404,
+    "name": "Royal Greatsword",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Theocrat.png"
   },
   {
-    "id": 50,
-    "text": "harbinger-of-dawn"
+    "key": 50,
+    "id": 12405,
+    "name": "Rainslasher",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Perdue.png"
   },
   {
-    "id": 51,
-    "text": "hunter-s-bow"
+    "key": 51,
+    "id": 12406,
+    "name": "Prototype Archaic",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Proto.png"
   },
   {
-    "id": 52,
-    "text": "iron-point"
+    "key": 52,
+    "id": 12407,
+    "name": "Whiteblind",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Exotic.png"
   },
   {
-    "id": 53,
-    "text": "iron-sting"
+    "key": 53,
+    "id": 12408,
+    "name": "Blackcliff Slasher",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Blackrock.png"
   },
   {
-    "id": 54,
-    "text": "kagura's-verity"
+    "key": 54,
+    "id": 12409,
+    "name": "Serpent Spine",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Kione.png"
   },
   {
-    "id": 55,
-    "text": "katsuragikiri-nagamasa"
+    "key": 55,
+    "id": 12410,
+    "name": "Lithic Blade",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Lapis.png"
   },
   {
-    "id": 56,
-    "text": "kitain-cross-spear"
+    "key": 56,
+    "id": 12411,
+    "name": "Snow-Tombed Starsilver",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Dragonfell.png"
   },
   {
-    "id": 57,
-    "text": "light-of-foliar-incision"
+    "key": 57,
+    "id": 12412,
+    "name": "Luxurious Sea-Lord",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_MillenniaTuna.png"
   },
   {
-    "id": 58,
-    "text": "lion-s-roar"
+    "key": 58,
+    "id": 12414,
+    "name": "Katsuragikiri Nagamasa",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Bakufu.png"
   },
   {
-    "id": 59,
-    "text": "lithic-blade"
+    "key": 59,
+    "id": 12415,
+    "name": "Makhaira Aquamarine",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Pleroma.png"
   },
   {
-    "id": 60,
-    "text": "lithic-spear"
+    "key": 60,
+    "id": 12416,
+    "name": "Akuoumaru",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Maria.png"
   },
   {
-    "id": 61,
-    "text": "lost-prayer-to-the-sacred-winds"
+    "key": 61,
+    "id": 12417,
+    "name": "Forest Regalia",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Arakalari.png"
   },
   {
-    "id": 62,
-    "text": "luxurious-sea-lord"
+    "key": 62,
+    "id": 12418,
+    "name": "Mailed Flower",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Fleurfair.png"
   },
   {
-    "id": 63,
-    "text": "magic-guide"
+    "key": 63,
+    "id": 12501,
+    "name": "Skyward Pride",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Dvalin.png"
   },
   {
-    "id": 64,
-    "text": "mailed-flower"
+    "key": 64,
+    "id": 12502,
+    "name": "Wolf's Gravestone",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Wolfmound.png"
   },
   {
-    "id": 65,
-    "text": "mappa-mare"
+    "key": 65,
+    "id": 12503,
+    "name": "Song of Broken Pines",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Widsith.png"
   },
   {
-    "id": 66,
-    "text": "memory-of-dust"
+    "key": 66,
+    "id": 12504,
+    "name": "The Unforged",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Kunwu.png"
   },
   {
-    "id": 67,
-    "text": "messenger"
+    "key": 67,
+    "id": 12510,
+    "name": "Redhorn Stonethresher",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Itadorimaru.png"
   },
   {
-    "id": 68,
-    "text": "mistsplitter-reforged"
+    "key": 68,
+    "id": 12511,
+    "name": "Beacon of the Reed Sea",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Claymore_Deshret.png"
   },
   {
-    "id": 69,
-    "text": "mitternachts-waltz"
+    "key": 69,
+    "id": 13101,
+    "name": "Beginner's Protector",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Gewalt.png"
   },
   {
-    "id": 70,
-    "text": "mouun's-moon"
+    "key": 70,
+    "id": 13201,
+    "name": "Iron Point",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Rod.png"
   },
   {
-    "id": 71,
-    "text": "oathsworn-eye"
+    "key": 71,
+    "id": 13301,
+    "name": "White Tassel",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Ruby.png"
   },
   {
-    "id": 72,
-    "text": "old-merc-s-pal"
+    "key": 72,
+    "id": 13302,
+    "name": "Halberd",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Halberd.png"
   },
   {
-    "id": 73,
-    "text": "otherworldly-story"
+    "key": 73,
+    "id": 13303,
+    "name": "Black Tassel",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Noire.png"
   },
   {
-    "id": 74,
-    "text": "pocket-grimoire"
+    "key": 74,
+    "id": 13304,
+    "name": "The Flagstaff",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Flagpole.png"
   },
   {
-    "id": 75,
-    "text": "polar-star"
+    "key": 75,
+    "id": 13401,
+    "name": "Dragon's Bane",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Stardust.png"
   },
   {
-    "id": 76,
-    "text": "predator"
+    "key": 76,
+    "id": 13402,
+    "name": "Prototype Starglitter",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Proto.png"
   },
   {
-    "id": 77,
-    "text": "primordial-jade-cutter"
+    "key": 77,
+    "id": 13403,
+    "name": "Crescent Pike",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Exotic.png"
   },
   {
-    "id": 78,
-    "text": "primordial-jade-winged-spear"
+    "key": 78,
+    "id": 13404,
+    "name": "Blackcliff Pole",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Blackrock.png"
   },
   {
-    "id": 79,
-    "text": "prototype-archaic"
+    "key": 79,
+    "id": 13405,
+    "name": "Deathmatch",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Gladiator.png"
   },
   {
-    "id": 80,
-    "text": "prototype-crescent"
+    "key": 80,
+    "id": 13406,
+    "name": "Lithic Spear",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Lapis.png"
   },
   {
-    "id": 81,
-    "text": "prototype-grudge"
+    "key": 81,
+    "id": 13407,
+    "name": "Favonius Lance",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Zephyrus.png"
   },
   {
-    "id": 82,
-    "text": "prototype-malice"
+    "key": 82,
+    "id": 13408,
+    "name": "Royal Spear",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Theocrat.png"
   },
   {
-    "id": 83,
-    "text": "prototype-rancour"
+    "key": 83,
+    "id": 13409,
+    "name": "Dragonspine Spear",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Everfrost.png"
   },
   {
-    "id": 84,
-    "text": "quartz"
+    "key": 84,
+    "id": 13414,
+    "name": "Kitain Cross Spear",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Bakufu.png"
   },
   {
-    "id": 85,
-    "text": "rainslasher"
+    "key": 85,
+    "id": 13415,
+    "name": "\"The Catch\"",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Mori.png"
   },
   {
-    "id": 86,
-    "text": "raven-bow"
+    "key": 86,
+    "id": 13416,
+    "name": "Wavebreaker's Fin",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Maria.png"
   },
   {
-    "id": 87,
-    "text": "recurve-bow"
+    "key": 87,
+    "id": 13417,
+    "name": "Moonpiercer",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Arakalari.png"
   },
   {
-    "id": 88,
-    "text": "redhorn-stonethresher"
+    "key": 88,
+    "id": 13419,
+    "name": "Missive Windspear",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Windvane.png"
   },
   {
-    "id": 89,
-    "text": "royal-bow"
+    "key": 89,
+    "id": 13501,
+    "name": "Staff of Homa",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Homa.png"
   },
   {
-    "id": 90,
-    "text": "royal-greatsword"
+    "key": 90,
+    "id": 13502,
+    "name": "Skyward Spine",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Dvalin.png"
   },
   {
-    "id": 91,
-    "text": "royal-grimoire"
+    "key": 91,
+    "id": 13504,
+    "name": "Vortex Vanquisher",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Kunwu.png"
   },
   {
-    "id": 92,
-    "text": "royal-longsword"
+    "key": 92,
+    "id": 13505,
+    "name": "Primordial Jade Winged-Spear",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Morax.png"
   },
   {
-    "id": 93,
-    "text": "royal-spear"
+    "key": 93,
+    "id": 13507,
+    "name": "Calamity Queller",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Santika.png"
   },
   {
-    "id": 94,
-    "text": "rust"
+    "key": 94,
+    "id": 13509,
+    "name": "Engulfing Lightning",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Narukami.png"
   },
   {
-    "id": 95,
-    "text": "sacrificial-bow"
+    "key": 95,
+    "id": 13511,
+    "name": "Staff of the Scarlet Sands",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Pole_Deshret.png"
   },
   {
-    "id": 96,
-    "text": "sacrificial-fragments"
+    "key": 96,
+    "id": 14101,
+    "name": "Apprentice's Notes",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Apprentice.png"
   },
   {
-    "id": 97,
-    "text": "sacrificial-greatsword"
+    "key": 97,
+    "id": 14201,
+    "name": "Pocket Grimoire",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Pocket.png"
   },
   {
-    "id": 98,
-    "text": "sacrificial-sword"
+    "key": 98,
+    "id": 14301,
+    "name": "Magic Guide",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Intro.png"
   },
   {
-    "id": 99,
-    "text": "seasoned-hunter-s-bow"
+    "key": 99,
+    "id": 14302,
+    "name": "Thrilling Tales of Dragon Slayers",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Pulpfic.png"
   },
   {
-    "id": 100,
-    "text": "serpent-spine"
+    "key": 100,
+    "id": 14303,
+    "name": "Otherworldly Story",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Lightnov.png"
   },
   {
-    "id": 101,
-    "text": "sharpshooter-s-oath"
+    "key": 101,
+    "id": 14304,
+    "name": "Emerald Orb",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Jade.png"
   },
   {
-    "id": 102,
-    "text": "silver-sword"
+    "key": 102,
+    "id": 14305,
+    "name": "Twin Nephrite",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Phoney.png"
   },
   {
-    "id": 103,
-    "text": "skyrider-greatsword"
+    "key": 103,
+    "id": 14306,
+    "name": "Amber Bead",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Amber.png"
   },
   {
-    "id": 104,
-    "text": "skyrider-sword"
+    "key": 104,
+    "id": 14401,
+    "name": "Favonius Codex",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Zephyrus.png"
   },
   {
-    "id": 105,
-    "text": "skyward-atlas"
+    "key": 105,
+    "id": 14402,
+    "name": "The Widsith",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Troupe.png"
   },
   {
-    "id": 106,
-    "text": "skyward-blade"
+    "key": 106,
+    "id": 14403,
+    "name": "Sacrificial Fragments",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Fossil.png"
   },
   {
-    "id": 107,
-    "text": "skyward-harp"
+    "key": 107,
+    "id": 14404,
+    "name": "Royal Grimoire",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Theocrat.png"
   },
   {
-    "id": 108,
-    "text": "skyward-pride"
+    "key": 108,
+    "id": 14405,
+    "name": "Solar Pearl",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Resurrection.png"
   },
   {
-    "id": 109,
-    "text": "skyward-spine"
+    "key": 109,
+    "id": 14406,
+    "name": "Prototype Amber",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Proto.png"
   },
   {
-    "id": 110,
-    "text": "slingshot"
+    "key": 110,
+    "id": 14407,
+    "name": "Mappa Mare",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Exotic.png"
   },
   {
-    "id": 111,
-    "text": "snow-tombed-starsilver"
+    "key": 111,
+    "id": 14408,
+    "name": "Blackcliff Agate",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Blackrock.png"
   },
   {
-    "id": 112,
-    "text": "solar-pearl"
+    "key": 112,
+    "id": 14409,
+    "name": "Eye of Perception",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Truelens.png"
   },
   {
-    "id": 113,
-    "text": "song-of-broken-pines"
+    "key": 113,
+    "id": 14410,
+    "name": "Wine and Song",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Outlaw.png"
   },
   {
-    "id": 114,
-    "text": "staff-of-homa"
+    "key": 114,
+    "id": 14412,
+    "name": "Frostbearer",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Everfrost.png"
   },
   {
-    "id": 115,
-    "text": "summit-shaper"
+    "key": 115,
+    "id": 14413,
+    "name": "Dodoco Tales",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Ludiharpastum.png"
   },
   {
-    "id": 116,
-    "text": "sword-of-descension"
+    "key": 116,
+    "id": 14414,
+    "name": "Hakushin Ring",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Bakufu.png"
   },
   {
-    "id": 117,
-    "text": "the-alley-flash"
+    "key": 117,
+    "id": 14415,
+    "name": "Oathsworn Eye",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Jyanome.png"
   },
   {
-    "id": 118,
-    "text": "the-bell"
+    "key": 118,
+    "id": 14416,
+    "name": "Wandering Evenstar",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Pleroma.png"
   },
   {
-    "id": 119,
-    "text": "the-black-sword"
+    "key": 119,
+    "id": 14417,
+    "name": "Fruit of Fulfillment",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Arakalari.png"
   },
   {
-    "id": 120,
-    "text": "the-catch"
+    "key": 120,
+    "id": 14501,
+    "name": "Skyward Atlas",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Dvalin.png"
   },
   {
-    "id": 121,
-    "text": "the-flute"
+    "key": 121,
+    "id": 14502,
+    "name": "Lost Prayer to the Sacred Winds",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Fourwinds.png"
   },
   {
-    "id": 122,
-    "text": "the-stringless"
+    "key": 122,
+    "id": 14504,
+    "name": "Memory of Dust",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Kunwu.png"
   },
   {
-    "id": 123,
-    "text": "the-unforged"
+    "key": 123,
+    "id": 14505,
+    "name": "Jadefall's Splendor",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Morax.png"
   },
   {
-    "id": 124,
-    "text": "the-viridescent-hunt"
+    "key": 124,
+    "id": 14506,
+    "name": "Everlasting Moonglow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Kaleido.png"
   },
   {
-    "id": 125,
-    "text": "the-widsith"
+    "key": 125,
+    "id": 14509,
+    "name": "Kagura's Verity",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Narukami.png"
   },
   {
-    "id": 126,
-    "text": "thrilling-tales-of-dragon-slayers"
+    "key": 126,
+    "id": 14511,
+    "name": "A Thousand Floating Dreams",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Ayus.png"
   },
   {
-    "id": 127,
-    "text": "thundering-pulse"
+    "key": 127,
+    "id": 14512,
+    "name": "Tulaytullah's Remembrance",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Catalyst_Alaya.png"
   },
   {
-    "id": 128,
-    "text": "traveler-s-handy-sword"
+    "key": 128,
+    "id": 15101,
+    "name": "Hunter's Bow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Hunters.png"
   },
   {
-    "id": 129,
-    "text": "tulaytullah-remembrance"
+    "key": 129,
+    "id": 15201,
+    "name": "Seasoned Hunter's Bow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Old.png"
   },
   {
-    "id": 130,
-    "text": "twin-nephrite"
+    "key": 130,
+    "id": 15301,
+    "name": "Raven Bow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Crowfeather.png"
   },
   {
-    "id": 131,
-    "text": "vortex-vanquisher"
+    "key": 131,
+    "id": 15302,
+    "name": "Sharpshooter's Oath",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Arjuna.png"
   },
   {
-    "id": 132,
-    "text": "waster-greatsword"
+    "key": 132,
+    "id": 15303,
+    "name": "Recurve Bow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Curve.png"
   },
   {
-    "id": 133,
-    "text": "wavebreaker's-fin"
+    "key": 133,
+    "id": 15304,
+    "name": "Slingshot",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Sling.png"
   },
   {
-    "id": 134,
-    "text": "white-iron-greatsword"
+    "key": 134,
+    "id": 15305,
+    "name": "Messenger",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Msg.png"
   },
   {
-    "id": 135,
-    "text": "white-tassel"
+    "key": 135,
+    "id": 15306,
+    "name": "Ebony Bow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Hardwood.png"
   },
   {
-    "id": 136,
-    "text": "whiteblind"
+    "key": 136,
+    "id": 15401,
+    "name": "Favonius Warbow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Zephyrus.png"
   },
   {
-    "id": 137,
-    "text": "windblume-ode"
+    "key": 137,
+    "id": 15402,
+    "name": "The Stringless",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Troupe.png"
   },
   {
-    "id": 138,
-    "text": "wine-and-song"
+    "key": 138,
+    "id": 15403,
+    "name": "Sacrificial Bow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Fossil.png"
   },
   {
-    "id": 139,
-    "text": "wolf-s-gravestone"
+    "key": 139,
+    "id": 15404,
+    "name": "Royal Bow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Theocrat.png"
+  },
+  {
+    "key": 140,
+    "id": 15405,
+    "name": "Rust",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Recluse.png"
+  },
+  {
+    "key": 141,
+    "id": 15406,
+    "name": "Prototype Crescent",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Proto.png"
+  },
+  {
+    "key": 142,
+    "id": 15407,
+    "name": "Compound Bow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Exotic.png"
+  },
+  {
+    "key": 143,
+    "id": 15408,
+    "name": "Blackcliff Warbow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Blackrock.png"
+  },
+  {
+    "key": 144,
+    "id": 15409,
+    "name": "The Viridescent Hunt",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Viridescent.png"
+  },
+  {
+    "key": 145,
+    "id": 15410,
+    "name": "Alley Hunter",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Outlaw.png"
+  },
+  {
+    "key": 146,
+    "id": 15411,
+    "name": "Fading Twilight",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Fallensun.png"
+  },
+  {
+    "key": 147,
+    "id": 15412,
+    "name": "Mitternachts Waltz",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Nachtblind.png"
+  },
+  {
+    "key": 148,
+    "id": 15413,
+    "name": "Windblume Ode",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Fleurfair.png"
+  },
+  {
+    "key": 149,
+    "id": 15414,
+    "name": "Hamayumi",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Bakufu.png"
+  },
+  {
+    "key": 150,
+    "id": 15415,
+    "name": "Predator",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Predator.png"
+  },
+  {
+    "key": 151,
+    "id": 15416,
+    "name": "Mouun's Moon",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Maria.png"
+  },
+  {
+    "key": 152,
+    "id": 15417,
+    "name": "King's Squire",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Arakalari.png"
+  },
+  {
+    "key": 153,
+    "id": 15418,
+    "name": "End of the Line",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Fin.png"
+  },
+  {
+    "key": 154,
+    "id": 15419,
+    "name": "Ibis Piercer",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Ibis.png"
+  },
+  {
+    "key": 155,
+    "id": 15501,
+    "name": "Skyward Harp",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Dvalin.png"
+  },
+  {
+    "key": 156,
+    "id": 15502,
+    "name": "Amos' Bow",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Amos.png"
+  },
+  {
+    "key": 157,
+    "id": 15503,
+    "name": "Elegy for the End",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Widsith.png"
+  },
+  {
+    "key": 158,
+    "id": 15507,
+    "name": "Polar Star",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Worldbane.png"
+  },
+  {
+    "key": 159,
+    "id": 15508,
+    "name": "Aqua Simulacra",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Kirin.png"
+  },
+  {
+    "key": 160,
+    "id": 15509,
+    "name": "Thundering Pulse",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Narukami.png"
+  },
+  {
+    "key": 161,
+    "id": 15511,
+    "name": "Hunter's Path",
+    "icon": "https://enka.network/ui/UI_EquipIcon_Bow_Ayus.png"
   }
 ]

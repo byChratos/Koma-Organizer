@@ -1,21 +1,20 @@
 const { app, BrowserWindow, ipcMain, Notification } = require('electron');
 const path = require('path');
 var fs = require('fs')
-const { EnkaClient } = require("enka-network-api");
-const { getCharacterList, getWeaponsList, getArtifactList } = require('./src/functions/getDataList')
+
 const { Worker } = require("worker_threads");
+const { EnkaClient } = require("enka-network-api");
+const { createJsonData } = require("./src/functions/createDataList");
 
 const isDev = !app.isPackaged;
 
-// * Worker for multithreading the Genshin data from Enka
-const worker = new Worker("./src/worker/cacheData.js");
+const enka = new EnkaClient({ cacheDirectory: "./cache" });
+const worker = new Worker("./src/workers/enkaWorker.js");
 
-const enka = new EnkaClient({ cacheDirectory: "./cache", defaultLanguage: "en" });
-// ! Creates Cache folder if there is no cache folder already
 if(!fs.existsSync("./cache")){
     enka.cachedAssetsManager.cacheDirectorySetup();
-    worker.postMessage('fetchContent');
-};
+    worker.postMessage("fetchContent");
+}
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -23,10 +22,10 @@ function createWindow() {
         height: 800,
         backgroundColor: "white",
         webPreferences: {
-            nodeIntegration: false,
+            nodeIntegration: true,
             nodeIntegrationInWorker: true,
             worldSafeExecuteJavaScript: true,
-            contextIsolation: true,
+            contextIsolation: false,
             preload: path.join(__dirname, 'preload.js')
         }
     })
@@ -43,70 +42,47 @@ require('electron-reload')(__dirname, {
 app.whenReady().then(() => {
     createWindow();
 
-    // * Enka close
+    createJsonData(enka);
     enka.close();
 
-    worker.postMessage('startAutoUpdater');
-
-    //Retrieving the list of all characters
-    getCharacterList().then(chars => {
-
-        let charactersArray = []
-
-        for(let i = 0; i < chars.length; i++){
-            const newChar = {
-                id: i,
-                text: chars[i]
-            };
-            charactersArray.push(newChar)
-        }
-
-        const jsonString = JSON.stringify(charactersArray, null, 2);
-        fs.writeFileSync('./src/data/characters.json', jsonString);
-    })
-
-    //Retrieving the list of all weapons
-    getWeaponsList().then(weapons => {
-
-        let weaponsArray = []
-
-        for(let i = 0; i < weapons.length; i++){
-            const newWeapon = {
-                id: i,
-                text: weapons[i]
-            };
-            weaponsArray.push(newWeapon)
-        }
-
-        const jsonString = JSON.stringify(weaponsArray, null, 2);
-        fs.writeFileSync('./src/data/weapons.json', jsonString);
-    })
-
-    //Retrieving the list of all the weapons
-    getArtifactList().then(artifacts => {
-
-        let artifactArray = []
-
-        for(let i = 0; i < artifacts.length; i++){
-            const newArtifact = {
-                id: i,
-                text: artifacts[i]
-            };
-            artifactArray.push(newArtifact)
-        }
-
-        const jsonString = JSON.stringify(artifactArray, null, 2);
-        fs.writeFileSync('./src/data/artifacts.json', jsonString);
-    })
+    worker.postMessage("startAutoUpdater");
 })
 
 app.on('quit', () => {
-    worker.postMessage('closeEnka');
-    enka.close();
+    worker.postMessage("stopAutoUpdater")
+    worker.postMessage("closeEnka");
     app.quit();
 })
 
-//Not working idk why
+
 ipcMain.on('notify', (_, message) => {
     new Notification({title: 'Notification', body: message}).show();
+})
+
+ipcMain.on('writeFile', (event, filePath, fileContent) => {
+    try{
+        if(!fs.existsSync(filePath)){
+            fs.writeFileSync(filePath, "[]");
+        }
+
+        fs.writeFileSync(filePath, fileContent);
+        event.reply('wroteFile', true);
+    }catch(err){
+        event.reply('wroteFile', false);
+    }
+})
+
+ipcMain.on('loadFile', (event, filePath) => {
+    try{
+
+        if(!fs.existsSync(filePath)){
+            fs.writeFileSync(filePath, "[]");
+        }
+
+        const rawdata = fs.readFileSync(filePath);
+        const data = JSON.parse(rawdata);
+        event.reply('loadedFile', true, data);
+    }catch(err){
+        event.reply('loadedFile', false, '');
+    }
 })

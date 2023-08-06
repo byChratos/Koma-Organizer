@@ -1,6 +1,20 @@
-export function getAsset(object, name, type) {
-    const url = `https://genshin.jmp.blue/${object}/${name}/${type}`;
-    return url;
+import charData from "../data/characters.json";
+import weaponData from "../data/weapons.json";
+import artifactData from "../data/artifacts.json";
+
+export function getAsset(object, type, key) {
+
+    if(object === "character"){
+        const charUrl = charData[key][type];
+        return charUrl;
+    }else if(object === "weapon"){
+        const weaponUrl = weaponData[key][type];
+        return weaponUrl;
+    }else if(object === "artifact"){
+        const artifactUrl = artifactData[key][type];
+        return artifactUrl;
+    }
+    
 }
 
 export function getChar(name, type) {

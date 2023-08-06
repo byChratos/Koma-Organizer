@@ -19,7 +19,7 @@ export default function Calendar() {
 
                 <div className={ dayStyle } id="monday">
                     <p>Monday</p>
-                    <div id="toFarmMonday"><GenshinImage objectName="ayaka" objectType="characters" imageType="icon" height="30" width="30" /></div>
+                    <div id="toFarmMonday"><GenshinImage objectKey={0} objectType="character" imageType="icon" height="30" width="30" /></div>
                 </div>
 
                 <div className={ dayStyle } id="tuesday">

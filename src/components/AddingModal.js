@@ -50,7 +50,7 @@ export default function AddingModal({ modalOpen, handleSelection, type, setModal
             <Backdrop handleClick={ modalOpen } setModalType={ setModalType }>
                 <motion.div
                     onClick={(e) => e.stopPropagation()}
-                    className='bg-gray-800 w-[80%] h-[75%] rounded-[20px]'
+                    className='bg-gray-800 w-[80%] h-[75%] rounded-[20px] overflow-hidden'
                     variants={dropIn}
                     initial="hidden"
                     animate="visible"

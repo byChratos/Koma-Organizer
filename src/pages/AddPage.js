@@ -4,6 +4,7 @@ import AddButton from '../components/AddButton';
 import RemoveButton from '../components/RemoveButton';
 
 import AddingModal from '../components/AddingModal';
+import SubmitButton from '../components/SubmitButton';
 
 
 export default function AddPage(){
@@ -97,7 +98,7 @@ export default function AddPage(){
                 <AddButton handleButton={ setModal } modalType={ handleModalType } type="character" name="Select Character" />
 
                 {/* Debug Button */}
-                <button className='w-[50px] h-[50px] bg-red-500' onClick={() => console.log(selectedCharacter + " " + modalType) }>Debutt</button>
+                <button className='w-[50px] h-[50px] bg-red-500' onClick={() => console.log(selectedCharacter) }>Debutt</button>
 
                 {/* Remove Button */}
                 {selectedCharacter ? <RemoveButton handleButton={ handleChar } /> : (null)}
@@ -116,6 +117,9 @@ export default function AddPage(){
                 {/* Remove Button */}
                 {selectedArtifact ? <RemoveButton handleButton={ handleArtifact } /> : (null)}
             </div>
+
+            {/* // ! Submit Button */}
+            { (selectedArtifact || selectedCharacter || selectedWeapon) && <SubmitButton selectedCharacter={selectedCharacter} selectedWeapon={selectedWeapon} selectedArtifact={selectedArtifact}/>}
 
             {/* // ! Conditional Modal */}
             { (modalOpen && modalType === "character") && <AddingModal modalOpen={setModal} handleSelection={ handleChar } type={modalType} setModalType={ handleModalType } />}

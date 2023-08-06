@@ -24,6 +24,10 @@ parentPort.on('message', (message) => {
             }
         });
 
+    }else if(message === 'stopAutoUpdater'){
+
+        enka.cachedAssetsManager.deactivateAutoCacheUpdater();
+
     }else if(message === 'closeEnka'){
 
         // ! Closes the EnkaClient
