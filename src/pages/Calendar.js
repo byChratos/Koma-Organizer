@@ -1,54 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Add from '../components/Add'
 import GenshinImage from '../components/GenshinImage';
+import Day from "../components/Day";
+import DayInformationModal from '../components/DayInformationModal';
 
 
 export default function Calendar() {
 
-    // TODO Load needed characters from file
+    const [modalOpen, setModalOpen] = useState(false);
+    const setModal = (val) => {
+        setModalOpen(val);
+    }
+
+    const [modalDay, setModalDay] = useState(null);
+    const setDay = (day) => {
+        setModalDay(day);
+    }
 
     const dayStyle = "relative bg-orange-500 inline-block mt-3 h-24 w-20";
 
     return(
-        <div className='w-full h-full bg-gray-500'>
+        <div className='w-full h-full bg-gray-500 px-[5%] py-[1%] text-center'>
             <h1 className='text-white'>Calendar</h1>
             <p className='text-white'>Hier kommt der Kalender</p>
 
-            <div className="days">
+            <div className="w-full h-[80%] bg-gray-400 grid grid-rows-3 grid-cols-3">
 
-                <div className={ dayStyle } id="monday">
+                <div className={ dayStyle + " row-start-1 col-start-1 justify-self-center self-center" } id="monday">
                     <p>Monday</p>
                     <div id="toFarmMonday"><GenshinImage objectKey={0} objectType="character" imageType="icon" height="30" width="30" /></div>
                 </div>
 
-                <div className={ dayStyle } id="tuesday">
-                    <p>Tuesday</p>
-                </div>
+                <Day dayName="Tuesday" className="row-start-2 col-start-1 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
-                <div className={ dayStyle } id="wednesday">
-                    <p>Wednesday</p>
-                </div>
+                <Day dayName="Wednesday" className="row-start-3 col-start-1 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
-                <div className={ dayStyle } id="thursday">
-                    <p>Thursday</p>
-                </div>
+                <Day dayName="Thursday" className="row-start-2 col-start-2 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
-                <div className={ dayStyle } id="friday">
-                    <p>Friday</p>
-                </div>
+                <Day dayName="Friday" className="row-start-1 col-start-3 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
-                <div className={ dayStyle } id="saturday">
-                    <p>Saturday</p>
-                </div>
+                <Day dayName="Saturday" className="row-start-2 col-start-3 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
-                <div className={ dayStyle } id="sunday">
-                    <p>Sunday</p>
-                </div>
+                <Day dayName="Sunday" className="row-start-3 col-start-3 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
 
             </div>
-            <div className='Add'><Add /></div>
+            <Add />
+
+            {modalOpen ? <DayInformationModal modalOpen={setModal} setModalType={setDay} day={modalDay} /> : null}
 
         </div>
     )

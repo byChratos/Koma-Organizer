@@ -19,7 +19,7 @@ export default function Backdrop({ children, handleClick, setModalType }) {
     return(
         <motion.div
             onClick={handleDoubleClick}
-            className='absolute top-0 left-0 h-full w-full flex items-center justify-center overflow-y-hidden bg-[#000000e1]'
+            className='absolute top-0 left-0 h-full w-full flex items-center justify-center overflow-y-hidden bg-[#000000e1] z-20'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0}}

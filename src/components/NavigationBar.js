@@ -13,7 +13,7 @@ export default function NavigationBar() {
     return(
         <>
             <Router>
-                <nav className={`${isExpanded ? 'block bg-blue-400 float-left w-1/5 h-full' : 'block float-left bg-blue-400 w-5 h-full'}`}>
+                <nav className={`${isExpanded ? 'absolute bg-blue-400 float-left w-1/5 h-full z-10' : 'absolute float-left bg-blue-400 w-5 h-[30px] z-10 top-[50%] left-0 mt-[-15px]'}`}>
                     <button className="text-xl cursor-pointer bg-none border-none text-black" onClick={() => setIsExpanded(!isExpanded)}>☰</button>
                     <ul className={`${isExpanded ? 'block' : 'hidden'}`}>
                         <li className='text-center list-none list-inside mt-1 border-solid border-black border-2'><Link to="/">Home</Link></li>

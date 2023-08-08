@@ -1,4 +1,8 @@
 const fs = require("fs");
+const { getTalentMaterialId, getBossMaterialId } = require("../functions/getCharacterMaterials");
+const { getWeaponMaterialId } = require("../functions/getWeaponMaterials");
+
+//TODO Weekly Boss Material?
 
 function createCharJson(enka){
     const characters = enka.getAllCharacters();
@@ -18,6 +22,8 @@ function createCharJson(enka){
             sideIcon: char.sideIcon.url,
             splash: char.splashImage.url,
             gachaSlice: char.gachaSlice.url,
+            bossMaterial: getBossMaterialId(char),
+            talentMaterial: getTalentMaterialId(char),
         }
         charactersArray.push(newChar);
         i += 1;
@@ -36,6 +42,7 @@ function createWeaponJson(enka){
             id: weapon.id,
             name: weapon.name.get("en"),
             icon: weapon.icon.url,
+            ascensionMaterial: getWeaponMaterialId(weapon),
         }
         weaponsArray.push(newWeapon);
         i += 1;

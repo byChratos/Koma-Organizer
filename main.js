@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain, Notification } = require('electron');
 const path = require('path');
-var fs = require('fs')
+var fs = require('fs');
 
 const { Worker } = require("worker_threads");
 const { EnkaClient } = require("enka-network-api");
@@ -34,9 +34,9 @@ function createWindow() {
 
 }
 
-//require('electron-reload')(__dirname, {
-//    electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
-//})
+require('electron-reload')(__dirname, {
+    electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
+})
 
 app.whenReady().then(() => {
     createWindow();
@@ -70,15 +70,29 @@ function checkIfFileExists(filePath, callback){
     })
 }
 
+//* Checks if a Character, Weapon or Artifact is already inside of the calendar
+function isDuplicate(name, data){
+    for(const element of data){
+        if(name === element.name){
+            //*Element already exists in file
+            return true;
+        }
+    }
+    //*Element doesnt exist in file
+    return false;
+}
+
 ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWeapon) => {
     try{
 
+        const filePath = path.resolve(__dirname, "calendar.json")
+
         //* If calendar.json doesnt exist - create and paste content in
-        checkIfFileExists("./calendar.json", (exists) => {
+        checkIfFileExists(filePath, (exists) => {
             if(exists){
 
                 //*First load the old file data
-                fs.readFile("./calendar.json", 'utf8', (err, rawdata) => {
+                fs.readFile(filePath, (err, rawdata) => {
                     if(err){
                         console.error(err);
                         return;
@@ -86,31 +100,33 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
                     const data = JSON.parse(rawdata);
 
                     //* Add stuff
-                    if(selectedArtifact != null){
-                        var newStuff = {
+                    if((selectedArtifact != null) && !isDuplicate(selectedArtifact, data)){
+                        var newArtifact = {
                             name: selectedArtifact,
                             type: "artifact",
                         }
-                        data.push(newStuff);
+                        data.push(newArtifact);
                     }
-                    if(selectedCharacter != null){
-                        var newStuff = {
+                    if((selectedCharacter != null) && !isDuplicate(selectedCharacter, data)){
+                        var newCharacter = {
                             name: selectedCharacter,
                             type: "character",
                         }
-                        data.push(newStuff);
+                        data.push(newCharacter);
                     }
-                    if(selectedWeapon != null){
-                        var newStuff = {
+                    if((selectedWeapon != null) && !isDuplicate(selectedWeapon, data)){
+                        var newWeapon = {
                             name: selectedWeapon,
                             type: "weapon",
                         }
-                        data.push(newStuff);
+                        data.push(newWeapon);
                     }
+
+                    //TODO Callback that an Element was a duplicate
 
                     //* Save stuff
                     var jsonString = JSON.stringify(data, null, 2);
-                    fs.writeFile("./calendar.json", jsonString, (error) => {
+                    fs.writeFile(filePath, jsonString, (error) => {
                         if(error){
                             console.error(error);
                             throw error;
@@ -122,29 +138,29 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
             }else{
                 let newData = []
                 if(selectedArtifact != null){
-                    var newStuff = {
+                    var newArtifact = {
                         name: selectedArtifact,
                         type: "artifact",
                     }
-                    newData.push(newStuff);
+                    newData.push(newArtifact);
                 }
                 if(selectedCharacter != null){
-                    var newStuff = {
+                    var newCharacter = {
                         name: selectedCharacter,
                         type: "character",
                     }
-                    newData.push(newStuff);
+                    newData.push(newCharacter);
                 }
                 if(selectedWeapon != null){
-                    var newStuff = {
+                    var newWeapon = {
                         name: selectedWeapon,
                         type: "weapon",
                     }
-                    newData.push(newStuff);
+                    newData.push(newWeapon);
                 }
 
                 var jsonString = JSON.stringify(newData, null, 2);
-                fs.writeFile("./calendar.json", jsonString, (error) => {
+                fs.writeFile(filePath, jsonString, (error) => {
                     if(error){
                         console.error(error);
                         throw error;

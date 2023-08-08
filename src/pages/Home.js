@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Home() {
     return(
-        <div className='w-full h-full bg-gray-500'>
+        <div className='w-full h-full bg-gray-500 px-[5%] py-[1%]'>
             <h1 className='text-white'>GenShO</h1>
             <p className='text-white'>© All rights reserved by miHoYo. Other properties belong to their respective owners.</p>
             <p className='text-white'>This file is copyrighted to HoYoverse This file is an official media, game graphic, or game audio of Genshin Impact,

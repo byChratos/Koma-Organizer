@@ -6,14 +6,11 @@ import RemoveButton from '../components/RemoveButton';
 import AddingModal from '../components/AddingModal';
 import SubmitButton from '../components/SubmitButton';
 
+//TODO Auswählen was man von Character farmen möchte
+//TODO Page mit allen Sachen, die man farmen will => einzelne Sachen wie Boss als fertig markierbar, Prioritäten verschiebbar?
+
 
 export default function AddPage(){
-
-    //Dimensions
-    /*const [dimensions, setDimensions] = useState({
-        height: window.innerHeight,
-        width: window.innerWidth
-    })*/
 
     //Modal open or not
     const [modalOpen, setModalOpen] = useState(false);
@@ -51,25 +48,10 @@ export default function AddPage(){
         setSelectedArtifact(artifact);
     };
 
-    /*React.useEffect(() => {
-        function handleResize() {
-            setDimensions({
-                height: window.innerHeight,
-                width: window.innerWidth
-            })
-        }
-
-        window.addEventListener('resize', handleResize)
-
-        return _ => {
-            window.removeEventListener('resize', handleResize)
-        }
-    })*/
-
     return(
-        <div className='w-full h-full flex bg-gradient-to-br from-purple-600 via-blue-500 to-pink-400'>
+        <div className='w-full h-full grid grid-cols-3 grid-rows-6 bg-gradient-to-br from-purple-600 via-blue-500 to-pink-400'>
             {/* // ! Weapon Card */}
-            <div className='bg-[#333333] rounded-xl h-3/5 w-1/6 relative mt-[10%] ml-[11%] grid grid-cols-2 grid-rows-10'>
+            <div className='bg-[#333333] rounded-xl h-[80%] w-[60%] relative mt-[20%] mx-[20%] grid grid-cols-2 grid-rows-10 row-span-5'>
                 <h1 className='text-white text-center col-span-2 row-span-1'>Weapon</h1>
 
                 {/* Image div */}
@@ -91,7 +73,7 @@ export default function AddPage(){
             </div>
 
             {/* // ! Character Card */}
-            <div className='bg-[#333333] rounded-xl h-4/5 w-1/3 relative mt-[5%] ml-[5%]'>
+            <div className='bg-[#333333] rounded-xl h-[80%] w-[60%] relative mt-[20%] mx-[20%] row-span-5'>
                 <h1 className='text-white text-center'>Character</h1>
 
                 {/* Add Button */}
@@ -105,7 +87,7 @@ export default function AddPage(){
             </div>
 
             {/* // ! Artifact Card */}
-            <div className='bg-[#333333] rounded-xl h-3/5 w-1/6 relative mt-[10%] ml-[5%]'>
+            <div className='bg-[#333333] rounded-xl h-[80%] w-[60%] relative mt-[20%] mx-[20%] row-span-5 row-start-1 col-start-3'>
                 <h1 className='text-white text-center'>Artifact</h1>
 
                 {/* Add Button */}
@@ -119,29 +101,12 @@ export default function AddPage(){
             </div>
 
             {/* // ! Submit Button */}
-            { (selectedArtifact || selectedCharacter || selectedWeapon) && <SubmitButton selectedCharacter={selectedCharacter} selectedWeapon={selectedWeapon} selectedArtifact={selectedArtifact}/>}
+            { (selectedArtifact || selectedCharacter || selectedWeapon) && <SubmitButton className="col-start-1 row-start-6 col-span-3 w-[80%] ml-[10%]" selectedCharacter={selectedCharacter} selectedWeapon={selectedWeapon} selectedArtifact={selectedArtifact}/>}
 
             {/* // ! Conditional Modal */}
             { (modalOpen && modalType === "character") && <AddingModal modalOpen={setModal} handleSelection={ handleChar } type={modalType} setModalType={ handleModalType } />}
             { (modalOpen && modalType === "weapon") && <AddingModal modalOpen={setModal} handleSelection={ handleWeapon } type={modalType} setModalType={ handleModalType } />}
             { (modalOpen && modalType === "artifact") && <AddingModal modalOpen={setModal} handleSelection={ handleArtifact } type={modalType} setModalType={ handleModalType } />}
-            {/*modalOpen ? <AddingModal modalOpen={setModal} handleSelection={ handleWeapon } type={modalType} setModalType={ handleModalType } /> : (null)*/}
         </div>
     );
-
-    /*return(
-        <div className='w-full h-full flex'>
-            <div className={`${selectedCharacter ? 'w-1/3 h-full bg-gradient-to-br from-[#9c05ff] to-[#0d85ff] overflow-hidden' : 'w-1/3 h-full bg-gradient-to-br from-[#9c05ff] to-[#0d85ff] overflow-auto'}`}>
-                {selectedCharacter ? <CharacterSelected handleButtonClick={ handleCharButtonClick } character={ selectedCharacter } width={dimensions.width/3} height={dimensions.height}/> : <SearchBarCharacter onClickButton={ handleCharButtonClick } />}
-            </div>
-
-            <div className='h-full w-1/3 overflow-auto bg-gradient-to-tl from-[#9c05ff] to-[#0d85ff]'>
-                {selectedWeapon ? <WeaponSelected handleButtonClick={ handleWeaponButtonClick } weapon={ selectedWeapon } width={dimensions.width/3} height={dimensions.height/3}/> : <SearchBarWeapon onClickButton={ handleWeaponButtonClick } />}
-            </div>
-
-            <div className='h-full w-1/3 overflow-auto bg-gradient-to-tr from-[#9c05ff] to-[#0d85ff]'>
-                <SearchBarArtifact />
-            </div>
-        </div>
-    );*/
 }
