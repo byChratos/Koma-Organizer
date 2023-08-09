@@ -8,8 +8,8 @@ const { createJsonData } = require("./src/functions/createDataList");
 
 const isDev = !app.isPackaged;
 
-const enka = new EnkaClient({ cacheDirectory: "./cache" });
-const worker = new Worker("./src/workers/enkaWorker.js");
+const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "cache") });
+const worker = new Worker(path.resolve(__dirname, "src", "workers", "enkaWorker.js"));
 
 if(!fs.existsSync("./cache")){
     enka.cachedAssetsManager.cacheDirectorySetup();
