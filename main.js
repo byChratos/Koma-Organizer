@@ -99,7 +99,7 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
                     }
                     const data = JSON.parse(rawdata);
 
-                    //* Add stuff
+                    //*Add stuff
                     if((selectedArtifact != null) && !isDuplicate(selectedArtifact, data)){
                         var newArtifact = {
                             name: selectedArtifact,
@@ -111,6 +111,8 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
                         var newCharacter = {
                             name: selectedCharacter,
                             type: "character",
+                            boss: true,
+                            talents: true,
                         }
                         data.push(newCharacter);
                     }
@@ -118,6 +120,7 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
                         var newWeapon = {
                             name: selectedWeapon,
                             type: "weapon",
+                            material: true,
                         }
                         data.push(newWeapon);
                     }

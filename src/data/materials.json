@@ -1,0 +1,674 @@
+[
+  {
+    "name": "Teachings of Freedom",
+    "type": "talentBook",
+    "id": 104301,
+    "day": 0,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104301.png"
+  },
+  {
+    "name": "Guide to Freedom",
+    "type": "talentBook",
+    "id": 104302,
+    "day": 0,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104302.png"
+  },
+  {
+    "name": "Philosophies of Freedom",
+    "type": "talentBook",
+    "id": 104303,
+    "day": 0,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104303.png"
+  },
+  {
+    "name": "Teachings of Prosperity",
+    "type": "talentBook",
+    "id": 104310,
+    "day": 0,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104310.png"
+  },
+  {
+    "name": "Guide to Prosperity",
+    "type": "talentBook",
+    "id": 104311,
+    "day": 0,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104311.png"
+  },
+  {
+    "name": "Philosophies of Prosperity",
+    "type": "talentBook",
+    "id": 104312,
+    "day": 0,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104312.png"
+  },
+  {
+    "name": "Teachings of Transience",
+    "type": "talentBook",
+    "id": 104320,
+    "day": 0,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104320.png"
+  },
+  {
+    "name": "Guide to Transience",
+    "type": "talentBook",
+    "id": 104321,
+    "day": 0,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104321.png"
+  },
+  {
+    "name": "Philosophies of Transience",
+    "type": "talentBook",
+    "id": 104322,
+    "day": 0,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104322.png"
+  },
+  {
+    "name": "Teachings of Admonition",
+    "type": "talentBook",
+    "id": 104329,
+    "day": 0,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104329.png"
+  },
+  {
+    "name": "Guide to Admonition",
+    "type": "talentBook",
+    "id": 104330,
+    "day": 0,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104330.png"
+  },
+  {
+    "name": "Philosophies of Admonition",
+    "type": "talentBook",
+    "id": 104331,
+    "day": 0,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104331.png"
+  },
+  {
+    "name": "Tile of Decarabian's Tower",
+    "type": "weaponMaterial",
+    "id": 114001,
+    "day": 0,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114001.png"
+  },
+  {
+    "name": "Debris of Decarabian's City",
+    "type": "weaponMaterial",
+    "id": 114002,
+    "day": 0,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114002.png"
+  },
+  {
+    "name": "Fragment of Decarabian's Epic",
+    "type": "weaponMaterial",
+    "id": 114003,
+    "day": 0,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114003.png"
+  },
+  {
+    "name": "Scattered Piece of Decarabian's Dream",
+    "type": "weaponMaterial",
+    "id": 114004,
+    "day": 0,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114004.png"
+  },
+  {
+    "name": "Luminous Sands from Guyun",
+    "type": "weaponMaterial",
+    "id": 114013,
+    "day": 0,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114013.png"
+  },
+  {
+    "name": "Lustrous Stone from Guyun",
+    "type": "weaponMaterial",
+    "id": 114014,
+    "day": 0,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114014.png"
+  },
+  {
+    "name": "Relic from Guyun",
+    "type": "weaponMaterial",
+    "id": 114015,
+    "day": 0,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114015.png"
+  },
+  {
+    "name": "Divine Body from Guyun",
+    "type": "weaponMaterial",
+    "id": 114016,
+    "day": 0,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114016.png"
+  },
+  {
+    "name": "Coral Branch of a Distant Sea",
+    "type": "weaponMaterial",
+    "id": 114025,
+    "day": 0,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114025.png"
+  },
+  {
+    "name": "Jeweled Branch of a Distant Sea",
+    "type": "weaponMaterial",
+    "id": 114026,
+    "day": 0,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114026.png"
+  },
+  {
+    "name": "Jade Branch of a Distant Sea",
+    "type": "weaponMaterial",
+    "id": 114027,
+    "day": 0,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114027.png"
+  },
+  {
+    "name": "Golden Branch of a Distant Sea",
+    "type": "weaponMaterial",
+    "id": 114028,
+    "day": 0,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114028.png"
+  },
+  {
+    "name": "Copper Talisman of the Forest Dew",
+    "type": "weaponMaterial",
+    "id": 114037,
+    "day": 0,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114037.png"
+  },
+  {
+    "name": "Iron Talisman of the Forest Dew",
+    "type": "weaponMaterial",
+    "id": 114038,
+    "day": 0,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114038.png"
+  },
+  {
+    "name": "Silver Talisman of the Forest Dew",
+    "type": "weaponMaterial",
+    "id": 114039,
+    "day": 0,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114039.png"
+  },
+  {
+    "name": "Golden Talisman of the Forest Dew",
+    "type": "weaponMaterial",
+    "id": 114040,
+    "day": 0,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114040.png"
+  },
+  {
+    "name": "Teachings of Resistance",
+    "type": "talentBook",
+    "id": 104304,
+    "day": 1,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104304.png"
+  },
+  {
+    "name": "Guide to Resistance",
+    "type": "talentBook",
+    "id": 104305,
+    "day": 1,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104305.png"
+  },
+  {
+    "name": "Philosophies of Resistance",
+    "type": "talentBook",
+    "id": 104306,
+    "day": 1,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104306.png"
+  },
+  {
+    "name": "Teachings of Diligence",
+    "type": "talentBook",
+    "id": 104313,
+    "day": 1,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104313.png"
+  },
+  {
+    "name": "Guide to Diligence",
+    "type": "talentBook",
+    "id": 104314,
+    "day": 1,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104314.png"
+  },
+  {
+    "name": "Philosophies of Diligence",
+    "type": "talentBook",
+    "id": 104315,
+    "day": 1,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104315.png"
+  },
+  {
+    "name": "Teachings of Elegance",
+    "type": "talentBook",
+    "id": 104323,
+    "day": 1,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104323.png"
+  },
+  {
+    "name": "Guide to Elegance",
+    "type": "talentBook",
+    "id": 104324,
+    "day": 1,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104324.png"
+  },
+  {
+    "name": "Philosophies of Elegance",
+    "type": "talentBook",
+    "id": 104325,
+    "day": 1,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104325.png"
+  },
+  {
+    "name": "Teachings of Ingenuity",
+    "type": "talentBook",
+    "id": 104332,
+    "day": 1,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104332.png"
+  },
+  {
+    "name": "Guide to Ingenuity",
+    "type": "talentBook",
+    "id": 104333,
+    "day": 1,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104333.png"
+  },
+  {
+    "name": "Philosophies of Ingenuity",
+    "type": "talentBook",
+    "id": 104334,
+    "day": 1,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104334.png"
+  },
+  {
+    "name": "Boreal Wolf's Milk Tooth",
+    "type": "weaponMaterial",
+    "id": 114005,
+    "day": 1,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114005.png"
+  },
+  {
+    "name": "Boreal Wolf's Cracked Tooth",
+    "type": "weaponMaterial",
+    "id": 114006,
+    "day": 1,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114006.png"
+  },
+  {
+    "name": "Boreal Wolf's Broken Fang",
+    "type": "weaponMaterial",
+    "id": 114007,
+    "day": 1,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114007.png"
+  },
+  {
+    "name": "Boreal Wolf's Nostalgia",
+    "type": "weaponMaterial",
+    "id": 114008,
+    "day": 1,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114008.png"
+  },
+  {
+    "name": "Mist Veiled Lead Elixir",
+    "type": "weaponMaterial",
+    "id": 114017,
+    "day": 1,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114017.png"
+  },
+  {
+    "name": "Mist Veiled Mercury Elixir",
+    "type": "weaponMaterial",
+    "id": 114018,
+    "day": 1,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114018.png"
+  },
+  {
+    "name": "Mist Veiled Gold Elixir",
+    "type": "weaponMaterial",
+    "id": 114019,
+    "day": 1,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114019.png"
+  },
+  {
+    "name": "Mist Veiled Primo Elixir",
+    "type": "weaponMaterial",
+    "id": 114020,
+    "day": 1,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114020.png"
+  },
+  {
+    "name": "Narukami's Wisdom",
+    "type": "weaponMaterial",
+    "id": 114029,
+    "day": 1,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114029.png"
+  },
+  {
+    "name": "Narukami's Joy",
+    "type": "weaponMaterial",
+    "id": 114030,
+    "day": 1,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114030.png"
+  },
+  {
+    "name": "Narukami's Affection",
+    "type": "weaponMaterial",
+    "id": 114031,
+    "day": 1,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114031.png"
+  },
+  {
+    "name": "Narukami's Valor",
+    "type": "weaponMaterial",
+    "id": 114032,
+    "day": 1,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114032.png"
+  },
+  {
+    "name": "Oasis Garden's Reminiscence",
+    "type": "weaponMaterial",
+    "id": 114041,
+    "day": 1,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114041.png"
+  },
+  {
+    "name": "Oasis Garden's Kindness",
+    "type": "weaponMaterial",
+    "id": 114042,
+    "day": 1,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114042.png"
+  },
+  {
+    "name": "Oasis Garden's Mourning",
+    "type": "weaponMaterial",
+    "id": 114043,
+    "day": 1,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114043.png"
+  },
+  {
+    "name": "Oasis Garden's Truth",
+    "type": "weaponMaterial",
+    "id": 114044,
+    "day": 1,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114044.png"
+  },
+  {
+    "name": "Teachings of Ballad",
+    "type": "talentBook",
+    "id": 104307,
+    "day": 2,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104307.png"
+  },
+  {
+    "name": "Guide to Ballad",
+    "type": "talentBook",
+    "id": 104308,
+    "day": 2,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104308.png"
+  },
+  {
+    "name": "Philosophies of Ballad",
+    "type": "talentBook",
+    "id": 104309,
+    "day": 2,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104309.png"
+  },
+  {
+    "name": "Teachings of Gold",
+    "type": "talentBook",
+    "id": 104316,
+    "day": 2,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104316.png"
+  },
+  {
+    "name": "Guide to Gold",
+    "type": "talentBook",
+    "id": 104317,
+    "day": 2,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104317.png"
+  },
+  {
+    "name": "Philosophies of Gold",
+    "type": "talentBook",
+    "id": 104318,
+    "day": 2,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104318.png"
+  },
+  {
+    "name": "Teachings of Light",
+    "type": "talentBook",
+    "id": 104326,
+    "day": 2,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104326.png"
+  },
+  {
+    "name": "Guide to Light",
+    "type": "talentBook",
+    "id": 104327,
+    "day": 2,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104327.png"
+  },
+  {
+    "name": "Philosophies of Light",
+    "type": "talentBook",
+    "id": 104328,
+    "day": 2,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104328.png"
+  },
+  {
+    "name": "Teachings of Praxis",
+    "type": "talentBook",
+    "id": 104335,
+    "day": 2,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104335.png"
+  },
+  {
+    "name": "Guide to Praxis",
+    "type": "talentBook",
+    "id": 104336,
+    "day": 2,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104336.png"
+  },
+  {
+    "name": "Philosophies of Praxis",
+    "type": "talentBook",
+    "id": 104337,
+    "day": 2,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104337.png"
+  },
+  {
+    "name": "Fetters of the Dandelion Gladiator",
+    "type": "weaponMaterial",
+    "id": 114009,
+    "day": 2,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114009.png"
+  },
+  {
+    "name": "Chains of the Dandelion Gladiator",
+    "type": "weaponMaterial",
+    "id": 114010,
+    "day": 2,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114010.png"
+  },
+  {
+    "name": "Shackles of the Dandelion Gladiator",
+    "type": "weaponMaterial",
+    "id": 114011,
+    "day": 2,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114011.png"
+  },
+  {
+    "name": "Dream of the Dandelion Gladiator",
+    "type": "weaponMaterial",
+    "id": 114012,
+    "day": 2,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114012.png"
+  },
+  {
+    "name": "Grain of Aerosiderite",
+    "type": "weaponMaterial",
+    "id": 114021,
+    "day": 2,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114021.png"
+  },
+  {
+    "name": "Piece of Aerosiderite",
+    "type": "weaponMaterial",
+    "id": 114022,
+    "day": 2,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114022.png"
+  },
+  {
+    "name": "Bit of Aerosiderite",
+    "type": "weaponMaterial",
+    "id": 114023,
+    "day": 2,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114023.png"
+  },
+  {
+    "name": "Chunk of Aerosiderite",
+    "type": "weaponMaterial",
+    "id": 114024,
+    "day": 2,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114024.png"
+  },
+  {
+    "name": "Mask of the Wicked Lieutenant",
+    "type": "weaponMaterial",
+    "id": 114033,
+    "day": 2,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114033.png"
+  },
+  {
+    "name": "Mask of the Tiger's Bite",
+    "type": "weaponMaterial",
+    "id": 114034,
+    "day": 2,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114034.png"
+  },
+  {
+    "name": "Mask of the One-Horned",
+    "type": "weaponMaterial",
+    "id": 114035,
+    "day": 2,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114035.png"
+  },
+  {
+    "name": "Mask of the Kijin",
+    "type": "weaponMaterial",
+    "id": 114036,
+    "day": 2,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114036.png"
+  },
+  {
+    "name": "Echo of Scorching Might",
+    "type": "weaponMaterial",
+    "id": 114045,
+    "day": 2,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114045.png"
+  },
+  {
+    "name": "Remnant Glow of Scorching Might",
+    "type": "weaponMaterial",
+    "id": 114046,
+    "day": 2,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114046.png"
+  },
+  {
+    "name": "Dream of Scorching Might",
+    "type": "weaponMaterial",
+    "id": 114047,
+    "day": 2,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114047.png"
+  },
+  {
+    "name": "Olden Days of Scorching Might",
+    "type": "weaponMaterial",
+    "id": 114048,
+    "day": 2,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114048.png"
+  }
+]

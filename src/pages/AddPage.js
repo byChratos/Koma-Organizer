@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import AddButton from '../components/AddButton';
-import RemoveButton from '../components/RemoveButton';
+import AddButton from '../components/Buttons/AddButton';
+import RemoveButton from '../components/Buttons/RemoveButton';
+import SubmitButton from '../components/Buttons/SubmitButton';
 
-import AddingModal from '../components/AddingModal';
-import SubmitButton from '../components/SubmitButton';
+import AddingModal from '../components/Modals/AddingModal';
 
 //TODO Auswählen was man von Character farmen möchte
 //TODO Page mit allen Sachen, die man farmen will => einzelne Sachen wie Boss als fertig markierbar, Prioritäten verschiebbar?

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import Add from '../components/Add'
+import Add from '../components/Buttons/Add'
 import GenshinImage from '../components/GenshinImage';
 import Day from "../components/Day";
-import DayInformationModal from '../components/DayInformationModal';
+import DayInformationModal from '../components/Modals/DayInformationModal';
 
 
 export default function Calendar() {

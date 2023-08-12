@@ -69,11 +69,65 @@ function createArtifactJson(enka){
     fs.writeFileSync("./src/data/artifacts.json", jsonString);
 }
 
+async function createMaterialJson(enka){
+    //TODO make users select their server (EU, NA, Asia)
+    const res = await fetch("https://gitlab.com/Dimbreath/AnimeGameData/-/raw/master/ExcelBinOutput/DungeonEntryExcelConfigData.json");
+    const json = await res.json();
+
+    const domains = json.filter(d => d.isDailyRefresh);
+
+    let newData = [];
+
+    //Iterate over the normal days (excluding sunday as everything is available on sundays)
+    for(let i = 0; i < 3; i++){
+        const talentBooks = domains
+            .filter(d => d.type === "DUNGEN_ENTRY_TYPE_AVATAR_TALENT")
+            .flatMap(d => d.descriptionCycleRewardList[i]);
+    
+        const weaponMaterials = domains
+            .filter(d => d.type === "DUNGEN_ENTRY_TYPE_WEAPON_PROMOTE")
+            .flatMap(d => d.descriptionCycleRewardList[i]);
+
+        for(const talentBook of talentBooks){
+
+            var material = enka.getMaterialById(talentBook);
+
+            newData.push({
+                name: material.name.get("en"),
+                type: "talentBook",
+                id: talentBook,
+                day: i,
+                rarity: material.stars,
+                icon: material.icon.url,
+            });
+        }
+
+        for(const weaponMaterial of weaponMaterials){
+
+            var material = enka.getMaterialById(weaponMaterial);
+
+            newData.push({
+                name: material.name.get("en"),
+                type: "weaponMaterial",
+                id: weaponMaterial,
+                day: i,
+                rarity: material.stars,
+                icon: material.icon.url,
+            });
+
+        }
+    }
+
+    const jsonString = JSON.stringify(newData, null, 2);
+    fs.writeFileSync("./src/data/materials.json", jsonString);
+}
+
 function createJsonData(enka){
 
     createCharJson(enka);
     createWeaponJson(enka);
     createArtifactJson(enka);
+    createMaterialJson(enka);
 }
 
 module.exports = { createJsonData }

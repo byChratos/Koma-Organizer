@@ -16,3 +16,11 @@ export function getAsset(object, type, key) {
     }
     
 }
+
+export function getCharIdByName(name){
+    for(const char of charData){
+        if(name === char["name"]){
+            return char["id"];
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { getAsset } from '../functions/getAssets'
+//import { getAsset } from '../functions/getAssets';
+import { getAsset } from '../functions/enkaFunctions';
 
 export default function GenshinImage({ objectKey, objectType, imageType, width, height }){
 

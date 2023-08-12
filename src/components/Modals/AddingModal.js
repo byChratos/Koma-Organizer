@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import SearchBarCharacter from './Character/CharacterSearch';
-import CharacterList from './Character/CharacterList';
+import SearchBarCharacter from '../Character/CharacterSearch';
+import CharacterList from '../Character/CharacterList';
 
-import SearchBarWeapon from './Weapon/WeaponSearch';
-import WeaponList from './Weapon/WeaponList';
+import SearchBarWeapon from '../Weapon/WeaponSearch';
+import WeaponList from '../Weapon/WeaponList';
 
-import SearchBarArtifact from './Artifacts/ArtifactSearch';
-import ArtifactList from './Artifacts/ArtifactList';
+import SearchBarArtifact from '../Artifacts/ArtifactSearch';
+import ArtifactList from '../Artifacts/ArtifactList';
 
 import Backdrop from './Backdrop';
 
