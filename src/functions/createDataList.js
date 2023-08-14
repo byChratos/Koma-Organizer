@@ -4,6 +4,8 @@ const { getWeaponMaterialId } = require("../functions/getWeaponMaterials");
 
 //TODO Weekly Boss Material?
 
+//TODO Make data list creating after update is downloaded (in worker)
+
 function createCharJson(enka){
     const characters = enka.getAllCharacters();
     let charactersArray = [];

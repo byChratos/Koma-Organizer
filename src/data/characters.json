@@ -735,5 +735,38 @@
     "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Baizhuer.png",
     "bossMaterial": 113045,
     "talentMaterial": 104316
+  },
+  {
+    "key": 67,
+    "id": 10000083,
+    "name": "Lynette",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Linette.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Linette.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Linette.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Linette.png",
+    "bossMaterial": 113049,
+    "talentMaterial": 104344
+  },
+  {
+    "key": 68,
+    "id": 10000084,
+    "name": "Lyney",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Liney.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Liney.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Liney.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Liney.png",
+    "bossMaterial": 113051,
+    "talentMaterial": 104338
+  },
+  {
+    "key": 69,
+    "id": 10000085,
+    "name": "Freminet",
+    "icon": "https://api.ambr.top/assets/UI/UI_AvatarIcon_Freminet.png",
+    "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Freminet.png",
+    "splash": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarImg_Freminet.png",
+    "gachaSlice": "https://api.ambr.top/assets/UI/UI_Gacha_AvatarIcon_Freminet.png",
+    "bossMaterial": 113050,
+    "talentMaterial": 104341
   }
 ]

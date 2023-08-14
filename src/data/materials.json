@@ -96,6 +96,30 @@
     "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104331.png"
   },
   {
+    "name": "Teachings of Equity",
+    "type": "talentBook",
+    "id": 104338,
+    "day": 0,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104338.png"
+  },
+  {
+    "name": "Guide to Equity",
+    "type": "talentBook",
+    "id": 104339,
+    "day": 0,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104339.png"
+  },
+  {
+    "name": "Philosophies of Equity",
+    "type": "talentBook",
+    "id": 104340,
+    "day": 0,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104340.png"
+  },
+  {
     "name": "Tile of Decarabian's Tower",
     "type": "weaponMaterial",
     "id": 114001,
@@ -224,6 +248,38 @@
     "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114040.png"
   },
   {
+    "name": "Fragment of an Ancient Chord",
+    "type": "weaponMaterial",
+    "id": 114049,
+    "day": 0,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114049.png"
+  },
+  {
+    "name": "Chapter of an Ancient Chord",
+    "type": "weaponMaterial",
+    "id": 114050,
+    "day": 0,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114050.png"
+  },
+  {
+    "name": "Movement of an Ancient Chord",
+    "type": "weaponMaterial",
+    "id": 114051,
+    "day": 0,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114051.png"
+  },
+  {
+    "name": "Echo of an Ancient Chord",
+    "type": "weaponMaterial",
+    "id": 114052,
+    "day": 0,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114052.png"
+  },
+  {
     "name": "Teachings of Resistance",
     "type": "talentBook",
     "id": 104304,
@@ -318,6 +374,30 @@
     "day": 1,
     "rarity": 4,
     "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104334.png"
+  },
+  {
+    "name": "Teachings of Justice",
+    "type": "talentBook",
+    "id": 104341,
+    "day": 1,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104341.png"
+  },
+  {
+    "name": "Guide to Justice",
+    "type": "talentBook",
+    "id": 104342,
+    "day": 1,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104342.png"
+  },
+  {
+    "name": "Philosophies of Justice",
+    "type": "talentBook",
+    "id": 104343,
+    "day": 1,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104343.png"
   },
   {
     "name": "Boreal Wolf's Milk Tooth",
@@ -448,6 +528,38 @@
     "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114044.png"
   },
   {
+    "name": "Dross of Pure Sacred Dewdrop",
+    "type": "weaponMaterial",
+    "id": 114053,
+    "day": 1,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114053.png"
+  },
+  {
+    "name": "Sublimation of Pure Sacred Dewdrop",
+    "type": "weaponMaterial",
+    "id": 114054,
+    "day": 1,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114054.png"
+  },
+  {
+    "name": "Spring of Pure Sacred Dewdrop",
+    "type": "weaponMaterial",
+    "id": 114055,
+    "day": 1,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114055.png"
+  },
+  {
+    "name": "Essence of Pure Sacred Dewdrop",
+    "type": "weaponMaterial",
+    "id": 114056,
+    "day": 1,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114056.png"
+  },
+  {
     "name": "Teachings of Ballad",
     "type": "talentBook",
     "id": 104307,
@@ -542,6 +654,30 @@
     "day": 2,
     "rarity": 4,
     "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104337.png"
+  },
+  {
+    "name": "Teachings of Order",
+    "type": "talentBook",
+    "id": 104344,
+    "day": 2,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104344.png"
+  },
+  {
+    "name": "Guide to Order",
+    "type": "talentBook",
+    "id": 104345,
+    "day": 2,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104345.png"
+  },
+  {
+    "name": "Philosophies of Order",
+    "type": "talentBook",
+    "id": 104346,
+    "day": 2,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_104346.png"
   },
   {
     "name": "Fetters of the Dandelion Gladiator",
@@ -670,5 +806,37 @@
     "day": 2,
     "rarity": 5,
     "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114048.png"
+  },
+  {
+    "name": "Broken Goblet of the Pristine Sea",
+    "type": "weaponMaterial",
+    "id": 114057,
+    "day": 2,
+    "rarity": 2,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114057.png"
+  },
+  {
+    "name": "Wine Goblet of the Pristine Sea",
+    "type": "weaponMaterial",
+    "id": 114058,
+    "day": 2,
+    "rarity": 3,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114058.png"
+  },
+  {
+    "name": "Silver Goblet of the Pristine Sea",
+    "type": "weaponMaterial",
+    "id": 114059,
+    "day": 2,
+    "rarity": 4,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114059.png"
+  },
+  {
+    "name": "Golden Goblet of the Pristine Sea",
+    "type": "weaponMaterial",
+    "id": 114060,
+    "day": 2,
+    "rarity": 5,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_114060.png"
   }
 ]

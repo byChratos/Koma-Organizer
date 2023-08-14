@@ -5,6 +5,7 @@ var fs = require('fs');
 const { Worker } = require("worker_threads");
 const { EnkaClient } = require("enka-network-api");
 const { createJsonData } = require("./src/functions/createDataList");
+const { getCharIdByName, getWeaponIdByName, getArtifactIdByName, getCharacterMaterials, getWeaponMaterial } = require("./src/functions/nonModuleFunctions");
 
 const isDev = !app.isPackaged;
 
@@ -101,26 +102,40 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
 
                     //*Add stuff
                     if((selectedArtifact != null) && !isDuplicate(selectedArtifact, data)){
+
+                        var id = getArtifactIdByName(selectedArtifact);
+
                         var newArtifact = {
                             name: selectedArtifact,
+                            id: id,
                             type: "artifact",
                         }
                         data.push(newArtifact);
                     }
                     if((selectedCharacter != null) && !isDuplicate(selectedCharacter, data)){
+                        
+                        var id = getCharIdByName(selectedCharacter);
+                        var materials = getCharacterMaterials(id);
+
                         var newCharacter = {
                             name: selectedCharacter,
+                            id: id,
                             type: "character",
-                            boss: true,
-                            talents: true,
+                            boss: materials["boss"],
+                            talents: materials["talent"],
                         }
                         data.push(newCharacter);
                     }
                     if((selectedWeapon != null) && !isDuplicate(selectedWeapon, data)){
+
+                        var id = getWeaponIdByName(selectedWeapon);
+                        var material = getWeaponMaterials(id);
+
                         var newWeapon = {
                             name: selectedWeapon,
+                            id: id,
                             type: "weapon",
-                            material: true,
+                            material: material,
                         }
                         data.push(newWeapon);
                     }
@@ -141,23 +156,40 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
             }else{
                 let newData = []
                 if(selectedArtifact != null){
+
+                    var id = getArtifactIdByName(selectedArtifact);
+
                     var newArtifact = {
                         name: selectedArtifact,
+                        id: id,
                         type: "artifact",
                     }
                     newData.push(newArtifact);
                 }
                 if(selectedCharacter != null){
+
+                    var id = getCharIdByName(selectedCharacter);
+                    var materials = getCharacterMaterials(id);
+
                     var newCharacter = {
                         name: selectedCharacter,
+                        id: id,
                         type: "character",
+                        boss: materials["boss"],
+                        talents: materials["talent"],
                     }
                     newData.push(newCharacter);
                 }
                 if(selectedWeapon != null){
+
+                    var id = getWeaponIdByName(selectedWeapon);
+                    var material = getWeaponMaterial(id);
+
                     var newWeapon = {
                         name: selectedWeapon,
+                        id: id,
                         type: "weapon",
+                        material: material,
                     }
                     newData.push(newWeapon);
                 }

@@ -268,5 +268,17 @@
     "id": 15030,
     "name": "Vourukasha's Glow",
     "icon": "https://enka.network/ui/UI_RelicIcon_15030_4.png"
+  },
+  {
+    "key": 45,
+    "id": 15031,
+    "name": "Marechaussee Hunter",
+    "icon": "https://enka.network/ui/UI_RelicIcon_15031_4.png"
+  },
+  {
+    "key": 46,
+    "id": 15032,
+    "name": "Golden Troupe",
+    "icon": "https://enka.network/ui/UI_RelicIcon_15032_4.png"
   }
 ]

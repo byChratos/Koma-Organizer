@@ -1,6 +1,9 @@
 [
   {
-    "name": "Kamisato Ayaka",
-    "type": "character"
+    "name": "Kaeya",
+    "id": 10000015,
+    "type": "character",
+    "boss": 113010,
+    "talents": 104307
   }
 ]
