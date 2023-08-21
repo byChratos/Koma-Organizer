@@ -1,9 +1,26 @@
 [
   {
-    "name": "Kaeya",
-    "id": 10000015,
+    "name": "Golden Troupe",
+    "id": 15032,
+    "type": "artifact"
+  },
+  {
+    "name": "Lynette",
+    "id": 10000083,
     "type": "character",
-    "boss": 113010,
-    "talents": 104307
+    "boss": 113049,
+    "talents": 104344
+  },
+  {
+    "name": "Baizhu",
+    "id": 10000082,
+    "type": "character",
+    "boss": 113045,
+    "talents": 104316
+  },
+  {
+    "name": "Emblem of Severed Fate",
+    "id": 15020,
+    "type": "artifact"
   }
 ]

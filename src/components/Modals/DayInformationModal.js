@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import Backdrop from './Backdrop';
+import EntityInformation from './ModalComponents/EntityInformation';
+import MaterialInformation from './ModalComponents/MaterialInformation';
 
 import { getDayNumber } from '../../functions/nonModuleFunctions';
 import { getFarmable } from '../../functions/enkaFunctions';
+
+import CharacterListModal from './ModalLists/CharacterListModal';
+import WeaponListModal from './ModalLists/WeaponListModal';
+import ArtifactListModal from './ModalLists/ArtifactListModal';
 
 const dropIn = {
     hidden: {
@@ -31,8 +37,30 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
     
     const dayNumber = getDayNumber(day);
 
-    let farmable = getFarmable(dayNumber);
-    let top = farmable[0];
+    const farmable = getFarmable(dayNumber);
+    let[top, ...restOfFarmable] = farmable;
+
+    if(top == null){
+        top = {
+            type: "empty",
+        }
+    }
+
+    let characters = [];
+    let weapons = [];
+    let artifacts = [];
+
+    //* Puts the other non top priority entries into their respective categories
+    for(const entry of restOfFarmable){
+        if(entry["type"] == "boss" || entry["type"] == "talent"){
+            characters.push(entry);
+        }else if(entry["type"] == "weapon"){
+            weapons.push(entry);
+        }else{
+            artifacts.push(entry);
+        }
+    }
+
 
     function close(){
         setModalType(null);
@@ -57,26 +85,49 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
 
 
             {/* Body Div */}
-            <div className='w-full h-[85%] overflow-y-auto overflow-x-hidden grid grid-cols-3 grid-rows-3 gap-3'>
+            <div className='w-full h-[85%] overflow-y-auto overflow-x-hidden grid grid-cols-3 grid-rows-3 gap-4 p-[1%] mt-[-0.5%]'>
                 {/* Top Priority */}
-                <div className="bg-gray-400 w-[98%] h-[98%] ml-[1%] row-start-1 col-start-1 col-span-full rounded-md">
-                    <p className='text-white'>{ top["name"] }</p>
-                    <p className='text-white'>{ top["id"] }</p>
-                    <p className='text-white'>{ top["type"] }</p>
-                    <p className='text-white'>{ top["boss"] }</p>
+                <div className="bg-gray-700 w-full h-full row-start-1 col-start-1 col-span-full rounded-md flex overflow-hidden">
+
+                    <div className="bg-gray-600 h-[50px] w-[450px] rounded-br-lg">
+                        <h1 className='text-white text-lg'>Top Priority Today:</h1>
+                    </div>
+
+                    {(top["type"] == "empty") &&
+                    <>
+                        <EntityInformation name="Your Calendar is empty" imageSrc={"https://i.ds.at/MxdaKg/rs:fill:750:0/plain/2021/07/29/572c4830-721d-11eb-bb63-96959c3b62f2.jpg"} />
+                    </>}
+
+                    {(top["type"] == "boss" || top["type"] == "talent") &&
+                    <>
+                        <EntityInformation name={top["name"]} imageSrc={top["entityUrl"]} />
+                        <MaterialInformation matId={top["matId"]} matType={top["type"]} imageSrc={top["materialUrl"]} />
+                    </>}
+
+                    {(top["type"] == "weapon") &&
+                    <>
+                        <EntityInformation name={top["name"]} imageSrc={top["entityUrl"]} />
+                        <MaterialInformation matId={top["material"]} matType={top["type"]} imageSrc={top["materialUrl"]} top={top} />
+                    </>}
+
+                    {(top["type"] == "artifact") &&
+                    <>
+                        <EntityInformation name={top["name"]} imageSrc={top["entityUrl"]} />
+                    </>}
+
                 </div>
 
                 {/* Chars */}
-                <div className="bg-gray-400 w-[98%] h-[98%] ml-[1%] row-start-2 col-start-1 row-span-2 rounded-md">
-
+                <div className="bg-gray-400 w-full h-full row-start-2 col-start-1 row-span-2 rounded-md">
+                    {(characters != null) && <CharacterListModal characters={characters}/>}
                 </div>
                 {/* Weapons */}
-                <div className="bg-gray-400 w-full h-full row-start-2 col-start-2 row-span-2">
-
+                <div className="bg-gray-400 w-full h-full row-start-2 col-start-2 row-span-2 rounded-md">
+                    {(weapons != null) && <WeaponListModal weapons={weapons}/>}
                 </div>
                 {/* Artifacts */}
-                <div className="bg-gray-400 w-full h-full row-start-2 col-start-3 row-span-2">
-
+                <div className="bg-gray-400 w-full h-full row-start-2 col-start-3 row-span-2 rounded-md">
+                    {(artifacts != null) && <ArtifactListModal artifacts={artifacts}/>}
                 </div>
             </div>
             

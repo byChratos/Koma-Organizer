@@ -124,12 +124,53 @@ async function createMaterialJson(enka){
     fs.writeFileSync("./src/data/materials.json", jsonString);
 }
 
+async function createBossMaterialJson(enka){
+    const enemyRes = await fetch("https://gitlab.com/Dimbreath/AnimeGameData/-/raw/master/ExcelBinOutput/InvestigationMonsterConfigData.json");
+    const enemies = await enemyRes.json();
+
+    const rewRes = await fetch("https://gitlab.com/Dimbreath/AnimeGameData/-/raw/master/ExcelBinOutput/RewardPreviewExcelConfigData.json");
+    const rewards = await rewRes.json();
+
+    const bossRewardList = enemies
+        .filter(d => d.monsterCategory == "Boss")
+        .flatMap(d => d.rewardPreviewId);
+
+    let bossLoot = rewards
+        .filter(d => bossRewardList.includes(d.id))
+        .flatMap(d => d.previewItems);
+
+    bossLoot = bossLoot
+        .filter(d => d.id != null);
+
+    let bossMaterialList = [];
+
+    for(const entry of bossLoot){
+        try{
+            let mat = enka.getMaterialById(entry.id);
+            if(mat.stars === 4){
+                let name = mat.name.get("en");
+                if(!name.includes("Chunk") && !name.includes("Billet") && !name.includes("Dream Solvent")){
+                    bossMaterialList.push({
+                        name: name,
+                        id: mat.id,
+                        icon: mat.icon.url,
+                    });
+                }
+            }
+        }catch(error){}
+    }
+
+    const jsonString = JSON.stringify(bossMaterialList, null, 2);
+    fs.writeFileSync("./src/data/bossMaterials.json", jsonString);
+}
+
 function createJsonData(enka){
 
     createCharJson(enka);
     createWeaponJson(enka);
     createArtifactJson(enka);
     createMaterialJson(enka);
+    createBossMaterialJson(enka);
 }
 
 module.exports = { createJsonData }

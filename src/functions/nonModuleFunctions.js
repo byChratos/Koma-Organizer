@@ -2,6 +2,9 @@ const charData = require("../data/characters.json");
 const weaponData = require("../data/weapons.json");
 const artifactData = require("../data/artifacts.json");
 
+const materialData = require("../data/materials.json");
+const bossData = require("../data/bossMaterials.json");
+
 function getCharIdByName(name){
     for(const entry of charData){
         if(entry["name"] == name){
@@ -57,4 +60,20 @@ function getDayNumber(day){
     }
 }
 
-module.exports = { getArtifactIdByName, getCharIdByName, getWeaponIdByName, getCharacterMaterials, getWeaponMaterial, getDayNumber }
+function getMaterialNameById(type, id){
+    if(type === "boss"){
+        for(const entry of bossData){
+            if(entry["id"] == id){
+                return entry["name"];
+            }
+        }
+    }else if(type === "talent" || type === "weapon"){
+        for(const entry of materialData){
+            if(entry["id"] == id){
+                return entry["name"];
+            }
+        }
+    }
+}
+
+module.exports = { getArtifactIdByName, getCharIdByName, getWeaponIdByName, getCharacterMaterials, getWeaponMaterial, getDayNumber, getMaterialNameById }

@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Lightning Prism",
+    "id": 113002,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113002.png"
+  },
+  {
+    "name": "Hurricane Seed",
+    "id": 113001,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113001.png"
+  },
+  {
+    "name": "Basalt Pillar",
+    "id": 113009,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113009.png"
+  },
+  {
+    "name": "Hoarfrost Core",
+    "id": 113010,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113010.png"
+  },
+  {
+    "name": "Everflame Seed",
+    "id": 113011,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113011.png"
+  },
+  {
+    "name": "Cleansing Heart",
+    "id": 113012,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113012.png"
+  },
+  {
+    "name": "Crystalline Bloom",
+    "id": 113020,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113020.png"
+  },
+  {
+    "name": "Marionette Core",
+    "id": 113022,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113022.png"
+  },
+  {
+    "name": "Perpetual Heart",
+    "id": 113023,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113023.png"
+  },
+  {
+    "name": "Smoldering Pearl",
+    "id": 113024,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113024.png"
+  },
+  {
+    "name": "Dew of Repudiation",
+    "id": 113028,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113028.png"
+  },
+  {
+    "name": "Storm Beads",
+    "id": 113029,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113029.png"
+  },
+  {
+    "name": "Riftborn Regalia",
+    "id": 113030,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113030.png"
+  },
+  {
+    "name": "Dragonheir's False Fin",
+    "id": 113031,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113031.png"
+  },
+  {
+    "name": "Runic Fang",
+    "id": 113035,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113035.png"
+  },
+  {
+    "name": "Majestic Hooked Beak",
+    "id": 113036,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113036.png"
+  },
+  {
+    "name": "Thunderclap Fruitcore",
+    "id": 113037,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113037.png"
+  },
+  {
+    "name": "Perpetual Caliber",
+    "id": 113038,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113038.png"
+  },
+  {
+    "name": "Light Guiding Tetrahedron",
+    "id": 113039,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113039.png"
+  },
+  {
+    "name": "Quelled Creeper",
+    "id": 113040,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113040.png"
+  },
+  {
+    "name": "Pseudo-Stamens",
+    "id": 113044,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113044.png"
+  },
+  {
+    "name": "Emperor's Resolution",
+    "id": 113051,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113051.png"
+  },
+  {
+    "name": "Juvenile Jade",
+    "id": 113016,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113016.png"
+  },
+  {
+    "name": "Evergloom Ring",
+    "id": 113045,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113045.png"
+  },
+  {
+    "name": "Artificed Spare Clockwork Component — Coppelia",
+    "id": 113049,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113049.png"
+  },
+  {
+    "name": "Artificed Spare Clockwork Component — Coppelius",
+    "id": 113050,
+    "icon": "https://api.ambr.top/assets/UI/UI_ItemIcon_113050.png"
+  }
+]

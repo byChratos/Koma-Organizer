@@ -27,10 +27,7 @@ export default function Calendar() {
 
             <div className="w-full h-[80%] bg-gray-400 grid grid-rows-3 grid-cols-3">
 
-                <div className={ dayStyle + " row-start-1 col-start-1 justify-self-center self-center" } id="monday">
-                    <p>Monday</p>
-                    <div id="toFarmMonday"><GenshinImage objectKey={0} objectType="character" imageType="icon" height="30" width="30" /></div>
-                </div>
+                <Day dayName="Monday" className="row-start-1 col-start-1 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
                 <Day dayName="Tuesday" className="row-start-2 col-start-1 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 

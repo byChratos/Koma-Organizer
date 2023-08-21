@@ -19,8 +19,10 @@ if(!fs.existsSync("./cache")){
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 800,
+        width: 1000,
         height: 800,
+        minWidth: 800,
+        minHeight: 600,
         backgroundColor: "white",
         webPreferences: {
             nodeIntegration: true,
@@ -129,7 +131,7 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
                     if((selectedWeapon != null) && !isDuplicate(selectedWeapon, data)){
 
                         var id = getWeaponIdByName(selectedWeapon);
-                        var material = getWeaponMaterials(id);
+                        var material = getWeaponMaterial(id);
 
                         var newWeapon = {
                             name: selectedWeapon,
