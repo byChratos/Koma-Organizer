@@ -118,7 +118,7 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
                 </div>
 
                 {/* Chars */}
-                <div className="bg-gray-400 w-full h-full row-start-2 col-start-1 row-span-2 rounded-md">
+                <div className="bg-gray-400 w-full h-full row-start-2 col-start-1 row-span-2 rounded-md overflow-auto">
                     {(characters != null) && <CharacterListModal characters={characters}/>}
                 </div>
                 {/* Weapons */}
