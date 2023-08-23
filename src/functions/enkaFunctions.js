@@ -74,7 +74,7 @@ export function getFarmable(day){
             var boss = entry["boss"];
             var talents = entry["talents"];
 
-            if(talents != false){
+            if(talents != false || boss != false){
 
                 let available;
 
@@ -88,31 +88,24 @@ export function getFarmable(day){
                     }
                 }
 
-                if(available){
+                if(!available){
+                    talents = false;
+                }
+
+                if(available || boss != false){
                     var newTalent = {
-                        name: entry["name"],
-                        id: entry["id"],
-                        entityUrl: getAssetById("character", entry["id"], "icon"),
-                        type: "talent",
-                        matId: talents,
-                        materialUrl: getAssetById("material", talents, "icon"),
+                        charName: entry["name"],
+                        charId: entry["id"],
+                        charUrl: getAssetById("character", entry["id"], "icon"),
+                        type: "character",
+                        bossId: boss,
+                        bossUrl: getAssetById("bossMaterial", boss, "icon"),
+                        talentId: talents,
+                        talentUrl: getAssetById("material", talents, "icon"),
                     }
     
                     farmable.push(newTalent);
                 }
-            }
-
-            if(boss != false){
-                var newBoss = {
-                    name: entry["name"],
-                    id: entry["id"],
-                    entityUrl: getAssetById("character", entry["id"], "icon"),
-                    type: "boss",
-                    matId: boss,
-                    materialUrl: getAssetById("bossMaterial", boss, "icon"),
-                }
-                
-                farmable.push(newBoss);
             }
         }else if(type == "weapon"){
 
@@ -134,9 +127,9 @@ export function getFarmable(day){
 
             if(available){
                 var newWeapon = {
-                    name: entry["name"],
-                    id: entry["id"],
-                    entityUrl: getAssetById("weapon", entry["id"], "icon"),
+                    weaponName: entry["name"],
+                    weaponId: entry["id"],
+                    weaponUrl: getAssetById("weapon", entry["id"], "icon"),
                     type: "weapon",
                     material: entry["material"],
                     materialUrl: url,
@@ -146,9 +139,9 @@ export function getFarmable(day){
             }
         }else if(type == "artifact"){
             var newArtifact = {
-                name: entry["name"],
-                id: entry["id"],
-                entityUrl: getAssetById("artifact", entry["id"], "icon"),
+                artifactName: entry["name"],
+                artifactId: entry["id"],
+                artifactUrl: getAssetById("artifact", entry["id"], "icon"),
                 type: "artifact",
             }
 

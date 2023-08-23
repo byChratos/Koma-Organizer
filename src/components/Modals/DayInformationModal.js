@@ -52,7 +52,7 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
 
     //* Puts the other non top priority entries into their respective categories
     for(const entry of restOfFarmable){
-        if(entry["type"] == "boss" || entry["type"] == "talent"){
+        if(entry["type"] == "character"){
             characters.push(entry);
         }else if(entry["type"] == "weapon"){
             weapons.push(entry);
@@ -80,7 +80,7 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
             {/* Heading Div */}
             <div className='bg-[#333333] rounded-t-[20px] w-full h-[15%] inline-block'>
                 <h1 className="text-white float-left mt-[1%] mx-[1%]"> {day} </h1>
-                <button className="bg-red-500 hover:bg-[#ff4e4e] h-[50px] w-[6%] rounded-[20px] mt-[1%] mx-[1%] float-right" onClick={() => {close()}}>Close</button>
+                <button className="bg-red-500 hover:bg-[#ff4e4e] h-[50px] w-[6%] rounded-full hover:rounded-[15px] mt-[1%] mx-[1%] float-right" onClick={() => {close()}}>Close</button>
             </div>
 
 
@@ -98,21 +98,21 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
                         <EntityInformation name="Your Calendar is empty" imageSrc={"https://i.ds.at/MxdaKg/rs:fill:750:0/plain/2021/07/29/572c4830-721d-11eb-bb63-96959c3b62f2.jpg"} />
                     </>}
 
-                    {(top["type"] == "boss" || top["type"] == "talent") &&
+                    {(top["type"] == "character") &&
                     <>
-                        <EntityInformation name={top["name"]} imageSrc={top["entityUrl"]} />
-                        <MaterialInformation matId={top["matId"]} matType={top["type"]} imageSrc={top["materialUrl"]} />
+                        <EntityInformation name={top["charName"]} imageSrc={top["charUrl"]} />
+                        {(top["talentId"] != false) ? <MaterialInformation matId={top["talentId"]} matType="talent" imageSrc={top["talentUrl"]} /> : <MaterialInformation matId={top["bossId"]} matType="boss" imageSrc={top["bossUrl"]} />}
                     </>}
 
                     {(top["type"] == "weapon") &&
                     <>
-                        <EntityInformation name={top["name"]} imageSrc={top["entityUrl"]} />
+                        <EntityInformation name={top["weaponName"]} imageSrc={top["weaponUrl"]} />
                         <MaterialInformation matId={top["material"]} matType={top["type"]} imageSrc={top["materialUrl"]} top={top} />
                     </>}
 
                     {(top["type"] == "artifact") &&
                     <>
-                        <EntityInformation name={top["name"]} imageSrc={top["entityUrl"]} />
+                        <EntityInformation name={top["artifactName"]} imageSrc={top["artifactUrl"]} />
                     </>}
 
                 </div>

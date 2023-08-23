@@ -1,11 +1,12 @@
 import React from "react";
-import { twMerge } from "tailwind-merge";
+import WeaponList from "./WeaponList";
 
 export default function WeaponListModal({ className, weapons }) {
+
     return(
         <div>
             {weapons.map((weapon, index) => (
-                <p key={weapon + " " + index} className="text-black">{weapon["name"]}</p>
+                <WeaponList key={weapon["weaponName"]} className="rounded-md my-[8px]" weapon={weapon} />
             ))}
         </div>
     );
