@@ -2,7 +2,6 @@ import charData from "../data/characters.json";
 import weaponData from "../data/weapons.json";
 import artifactData from "../data/artifacts.json";
 
-import calendarData from "../../calendar.json";
 import farmData from "../data/materials.json";
 import bossData from "../data/bossMaterials.json";
 
@@ -62,11 +61,11 @@ function insert(what, into, priority){
 
 //TODO
 //! Returns dict of farmable stuff today, sorted by Priority => first element == Top Prio, 
-export function getFarmable(day){
+export function getFarmable(day, calendar){
 
     let farmable = [];
 
-    for(const entry of calendarData){
+    for(const entry of calendar){
         var type = entry["type"];
 
         if(type == "character"){

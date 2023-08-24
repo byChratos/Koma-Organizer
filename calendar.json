@@ -1,15 +1,21 @@
 [
   {
-    "name": "Emblem of Severed Fate",
-    "id": 15020,
-    "type": "artifact"
-  },
-  {
     "name": "Baizhu",
     "id": 10000082,
     "type": "character",
     "boss": 113045,
     "talents": 104316
+  },
+  {
+    "name": "Emblem of Severed Fate",
+    "id": 15020,
+    "type": "artifact"
+  },
+  {
+    "name": "The First Great Magic",
+    "id": 15512,
+    "type": "weapon",
+    "material": 114050
   },
   {
     "name": "Lynette",
@@ -27,18 +33,5 @@
     "name": "Golden Troupe",
     "id": 15032,
     "type": "artifact"
-  },
-  {
-    "name": "Mona",
-    "id": 10000041,
-    "type": "character",
-    "boss": 113012,
-    "talents": 104304
-  },
-  {
-    "name": "The First Great Magic",
-    "id": 15512,
-    "type": "weapon",
-    "material": 114050
   }
 ]

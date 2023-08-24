@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import Backdrop from './Backdrop';
@@ -11,6 +11,9 @@ import { getFarmable } from '../../functions/enkaFunctions';
 import CharacterListModal from './ModalLists/CharacterListModal';
 import WeaponListModal from './ModalLists/WeaponListModal';
 import ArtifactListModal from './ModalLists/ArtifactListModal';
+
+import calendarData from "../../../calendar.json";
+const { ipcRenderer } = window.require("electron");
 
 const dropIn = {
     hidden: {
@@ -35,9 +38,25 @@ const dropIn = {
 
 export default function DayInformationModal({ modalOpen, setModalType, day }) {
     
+    useEffect(() => {
+        load();
+    }, [])
+
+    function load(){
+        ipcRenderer.send("loadList");
+    }
+
+    ipcRenderer.on("loadedList", (event, list) => {
+        if(list != null){
+            setList(list);
+        }
+    });
+
     const dayNumber = getDayNumber(day);
 
-    const farmable = getFarmable(dayNumber);
+    const[list, setList] = useState(calendarData);
+
+    const farmable = getFarmable(dayNumber, list);
     let[top, ...restOfFarmable] = farmable;
 
     if(top == null){

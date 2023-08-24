@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, Notification } = require('electron');
 const path = require('path');
 var fs = require('fs');
+const Store = require("electron-store");
 
 const { Worker } = require("worker_threads");
 const { EnkaClient } = require("enka-network-api");
@@ -11,6 +12,8 @@ const isDev = !app.isPackaged;
 
 const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "cache") });
 const worker = new Worker(path.resolve(__dirname, "src", "workers", "enkaWorker.js"));
+const store = new Store();
+store.set("calendarList", null);
 
 if(!fs.existsSync("./cache")){
     enka.cachedAssetsManager.cacheDirectorySetup();
@@ -37,9 +40,9 @@ function createWindow() {
 
 }
 
-/*require('electron-reload')(__dirname, {
+require('electron-reload')(__dirname, {
     electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
-})*/
+})
 
 app.whenReady().then(() => {
     createWindow();
@@ -98,11 +101,17 @@ ipcMain.on('saveList', (event, list) => {
             }
         });
 
+        store.set("calendarList", list);
         event.reply("savedList", true);
 
     }catch(error){
         console.error(error);
     }
+});
+
+ipcMain.on('loadList', (event) => {
+    list = store.get("calendarList");
+    event.reply("loadedList", list);
 })
 
 ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWeapon) => {

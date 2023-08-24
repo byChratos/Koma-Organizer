@@ -1,6 +1,4 @@
-import React, { useState, useRef } from 'react';
-import fs from "fs";
-import path from "path";
+import React, { useState, useRef, useEffect } from 'react';
 import PopUp from '../components/Modals/PopUp';
 
 import calendarData from "../../calendar.json";
@@ -9,8 +7,13 @@ import { getAssetById } from "../functions/enkaFunctions";
 
 export default function Priority() {
 
+    useEffect(() => {
+        load();
+    }, []);
+
     const dragItem = useRef();
     const dragOverItem = useRef();
+
     const[list, setList] = useState(calendarData);
 
     const[saved, setSaved] = useState(false);
@@ -34,25 +37,29 @@ export default function Priority() {
         setList(copyListItems);
     }
 
-    function save(){
-        try{
-            const filePath = path.resolve(__dirname, "calendar.json");
-    
-            const jsonString = JSON.stringify(list, null, 2);
-            fs.writeFile(filePath, jsonString, (error) => {
-                if(error){
-                    console.error(error);
-                    throw error;
-                }
-            });
-    
-        }catch(error){
-            console.error(error);
-        }
+    function load(){
+        ipcRenderer.send("loadList");
     }
 
-    function remove(){
+    ipcRenderer.on("loadedList", (event, list) => {
+        if(list != null){
+            setList(list);
+        }
+    });
+
+    function save(){
+        ipcRenderer.send("saveList", list)
+    }
+
+    ipcRenderer.on("savedList", (event, success) => {
+        if(success){
+            setSaved(true);
+        }
+    });
+
+    function remove(index){
         //TODO Remove element from list
+        setList(list.slice(0, index).concat(list.slice(index + 1)));
     }
 
     return(
@@ -82,20 +89,22 @@ export default function Priority() {
                                 </div>
                                 {(item["type"] == "character") && <div className="w-[150px] h-full select-none flex">
                                     <div className="bg-red-300 w-[50px] h-full rounded-full">
-
+                                        {/* Make List contain Boss (true/false) and BossID (always id) */}
+                                        {(item["boss"] != false) ? <p>BOSS</p> : <p>NO</p>}
                                     </div>
                                     <div className="bg-red-300 w-[50px] h-full ml-[25px] rounded-full">
-
+                                        {(item["talents"] != false) ? <p>TALENT</p> : <p>NO</p>}
                                     </div>
                                 </div>}
                                 <div className="bg-red-500 w-[100px] h-full ml-auto">
-                                    <button className="w-full h-full" onClick={() => remove(item)}>REMOVE</button>
+                                    <button className="w-full h-full" onClick={() => remove(index)}>REMOVE</button>
                                 </div>
                         </div>
                 ))}
-                {/* TODO Save Button | Cancel Button */}
+                {/* Save Button | Cancel Button */}
                 <div>
-                    <button className="w-[50px] h-[25px] text-white bg-black" onClick={() => save()}>SAVE</button>
+                    <button className="w-[50px] h-[25px] text-black bg-green-400 hover:bg-green-600 rounded-full" onClick={() => save()}>SAVE</button>                    
+                    <button className="w-[80px] h-[25px] text-black bg-opacity-0 hover:bg-opacity-100 bg-red-500 rounded-full ml-3" onClick={() => load()}>CANCEL</button>
                 </div>
             </div>
         </div>
