@@ -38,12 +38,14 @@ export default function Priority() {
     }
 
     function load(){
-        ipcRenderer.send("loadList");
+        ipcRenderer.send("loadList", "Prio");
     }
 
-    ipcRenderer.on("loadedList", (event, list) => {
-        if(list != null){
+    ipcRenderer.on("loadedListPrio", (event, list) => {
+        if(list != "empty"){
             setList(list);
+        }else{
+            ipcRenderer.send("storeList", calendarData);
         }
     });
 
@@ -89,7 +91,7 @@ export default function Priority() {
                                 </div>
                                 {(item["type"] == "character") && <div className="w-[150px] h-full select-none flex">
                                     <div className="bg-red-300 w-[50px] h-full rounded-full">
-                                        {/* Make List contain Boss (true/false) and BossID (always id) */}
+                                        {/* TODO Click on these buttons will toggle boss/talents = true/false */}
                                         {(item["boss"] != false) ? <p>BOSS</p> : <p>NO</p>}
                                     </div>
                                     <div className="bg-red-300 w-[50px] h-full ml-[25px] rounded-full">

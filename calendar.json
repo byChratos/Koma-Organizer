@@ -1,28 +1,17 @@
 [
   {
-    "name": "Baizhu",
-    "id": 10000082,
-    "type": "character",
-    "boss": 113045,
-    "talents": 104316
-  },
-  {
     "name": "Emblem of Severed Fate",
     "id": 15020,
     "type": "artifact"
   },
   {
-    "name": "The First Great Magic",
-    "id": 15512,
-    "type": "weapon",
-    "material": 114050
-  },
-  {
-    "name": "Lynette",
-    "id": 10000083,
+    "name": "Baizhu",
+    "id": 10000082,
     "type": "character",
-    "boss": 113049,
-    "talents": 104344
+    "boss": true,
+    "bossId": 113045,
+    "talents": true,
+    "talentsId": 104316
   },
   {
     "name": "Marechaussee Hunter",
@@ -30,8 +19,12 @@
     "type": "artifact"
   },
   {
-    "name": "Golden Troupe",
-    "id": 15032,
-    "type": "artifact"
+    "name": "Faruzan",
+    "id": 10000076,
+    "type": "character",
+    "boss": true,
+    "bossId": 113039,
+    "talents": true,
+    "talentsId": 104329
   }
 ]

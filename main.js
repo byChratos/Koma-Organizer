@@ -109,9 +109,17 @@ ipcMain.on('saveList', (event, list) => {
     }
 });
 
-ipcMain.on('loadList', (event) => {
+ipcMain.on('loadList', (event, sender) => {
     list = store.get("calendarList");
-    event.reply("loadedList", list);
+    if(list == null){
+        event.reply("loadedList" + sender, "empty");
+    }else{
+        event.reply("loadedList" + sender, list);
+    }
+})
+
+ipcMain.on("storeList", (event, list) => {
+    store.set("calendarList", list);
 })
 
 ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWeapon) => {
@@ -152,8 +160,10 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
                             name: selectedCharacter,
                             id: id,
                             type: "character",
-                            boss: materials["boss"],
-                            talents: materials["talent"],
+                            boss: true,
+                            bossId: materials["boss"],
+                            talents: true,
+                            talentsId: materials["talent"],
                         }
                         data.push(newCharacter);
                     }
@@ -181,6 +191,7 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
                             throw error;
                         }
                     });
+                    store.set("calendarList", data);
                     event.reply('savedFile', true);
                 })
 
@@ -206,8 +217,10 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
                         name: selectedCharacter,
                         id: id,
                         type: "character",
-                        boss: materials["boss"],
-                        talents: materials["talent"],
+                        boss: true,
+                        bossId: materials["boss"],
+                        talents: true,
+                        talentsId: materials["talent"],
                     }
                     newData.push(newCharacter);
                 }
@@ -232,6 +245,7 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
                         throw error;
                     }
                 });
+                store.set("calendarList", newData);
             }
         })
     }catch(error){

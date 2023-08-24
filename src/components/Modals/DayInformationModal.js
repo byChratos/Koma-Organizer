@@ -43,12 +43,14 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
     }, [])
 
     function load(){
-        ipcRenderer.send("loadList");
+        ipcRenderer.send("loadList", "Day");
     }
 
-    ipcRenderer.on("loadedList", (event, list) => {
-        if(list != null){
+    ipcRenderer.on("loadedListDay", (event, list) => {
+        if(list != "empty"){
             setList(list);
+        }else{
+            ipcRenderer.send("storeList", calendarData);
         }
     });
 

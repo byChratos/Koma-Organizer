@@ -70,15 +70,15 @@ export function getFarmable(day, calendar){
 
         if(type == "character"){
             //*Stores if bosses or/and talents should be farmed or not
-            var boss = entry["boss"];
-            var talents = entry["talents"];
+            var boss = entry["bossId"];
+            var talents = entry["talentsId"];
 
-            if(talents != false || boss != false){
+            if(entry["talents"] != false || entry["boss"] != false){
 
                 let available;
 
                 for(const material of farmData){
-                    if(entry["talents"] == material["id"]){
+                    if(entry["talentsId"] == material["id"]){
                         available = (day == material["day"]);
                         if(day == 3){
                             available = true;
@@ -91,7 +91,7 @@ export function getFarmable(day, calendar){
                     talents = false;
                 }
 
-                if(available || boss != false){
+                if(available || entry["boss"] != false){
                     var newTalent = {
                         charName: entry["name"],
                         charId: entry["id"],
