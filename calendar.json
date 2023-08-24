@@ -1,10 +1,8 @@
 [
   {
-    "name": "Lynette",
-    "id": 10000083,
-    "type": "character",
-    "boss": 113049,
-    "talents": 104344
+    "name": "Emblem of Severed Fate",
+    "id": 15020,
+    "type": "artifact"
   },
   {
     "name": "Baizhu",
@@ -14,10 +12,11 @@
     "talents": 104316
   },
   {
-    "name": "The First Great Magic",
-    "id": 15512,
-    "type": "weapon",
-    "material": 114050
+    "name": "Lynette",
+    "id": 10000083,
+    "type": "character",
+    "boss": 113049,
+    "talents": 104344
   },
   {
     "name": "Marechaussee Hunter",
@@ -30,15 +29,16 @@
     "type": "artifact"
   },
   {
-    "name": "Emblem of Severed Fate",
-    "id": 15020,
-    "type": "artifact"
-  },
-  {
     "name": "Mona",
     "id": 10000041,
     "type": "character",
     "boss": 113012,
     "talents": 104304
+  },
+  {
+    "name": "The First Great Magic",
+    "id": 15512,
+    "type": "weapon",
+    "material": 114050
   }
 ]

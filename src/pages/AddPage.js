@@ -40,7 +40,7 @@ export default function AddPage(){
         setSelectedWeapon(weapon);
     };
 
-    //Artifact Button // TODO 2 or 4 piece selected?
+    //Artifact Button
     const [selectedArtifact, setSelectedArtifact] = useState(null);
     const handleArtifact = (artifact) => {
         setModalType(null);

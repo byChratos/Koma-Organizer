@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from "../pages/Home"
 import Calendar from "../pages/Calendar"
 import Add from "../pages/AddPage"
+import Priority from '../pages/Priority';
 
 
 export default function NavigationBar() {
@@ -18,6 +19,8 @@ export default function NavigationBar() {
                     <ul className={`${isExpanded ? 'block' : 'hidden'}`}>
                         <li className='text-center list-none list-inside mt-1 border-solid border-black border-2'><Link to="/">Home</Link></li>
                         <li className='text-center list-none list-inside mt-1 border-solid border-black border-2'><Link to="/calendar">Calendar</Link></li>
+                        <li className='text-center list-none list-inside mt-1 border-solid border-black border-2'><Link to="/add">Add</Link></li>
+                        <li className='text-center list-none list-inside mt-1 border-solid border-black border-2'><Link to="/priority">Priority</Link></li>
                     </ul>
                 </nav>
 
@@ -25,6 +28,7 @@ export default function NavigationBar() {
                     <Route path="/" element={<Home />} />
                     <Route path="/calendar" element={<Calendar />} />
                     <Route path="/add" element={<Add />} />
+                    <Route path="/priority" element={<Priority />} />
                 </Routes>
 
             </Router>

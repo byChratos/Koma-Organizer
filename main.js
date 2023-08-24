@@ -37,9 +37,9 @@ function createWindow() {
 
 }
 
-require('electron-reload')(__dirname, {
+/*require('electron-reload')(__dirname, {
     electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
-})
+})*/
 
 app.whenReady().then(() => {
     createWindow();
@@ -84,6 +84,26 @@ function isDuplicate(name, data){
     //*Element doesnt exist in file
     return false;
 }
+
+ipcMain.on('saveList', (event, list) => {
+    try{
+        const filePath = path.resolve(__dirname, "calendar.json");
+
+        const jsonString = JSON.stringify(list, null, 2);
+
+        fs.writeFile(filePath, jsonString, (error) => {
+            if(error){
+                console.error(error);
+                throw error;
+            }
+        });
+
+        event.reply("savedList", true);
+
+    }catch(error){
+        console.error(error);
+    }
+})
 
 ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWeapon) => {
     try{

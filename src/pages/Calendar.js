@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import Add from '../components/Buttons/Add'
-import GenshinImage from '../components/GenshinImage';
 import Day from "../components/Day";
 import DayInformationModal from '../components/Modals/DayInformationModal';
 
@@ -17,8 +16,6 @@ export default function Calendar() {
     const setDay = (day) => {
         setModalDay(day);
     }
-
-    const dayStyle = "relative bg-orange-500 inline-block mt-3 h-24 w-20";
 
     return(
         <div className='w-full h-full bg-gray-500 px-[5%] py-[1%] text-center'>

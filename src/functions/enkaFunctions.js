@@ -21,7 +21,7 @@ export function getAsset(object, type, key) {
     }
 }
 
-function getAssetById(object, id, imageType){
+export function getAssetById(object, id, imageType){
     if(object == "character"){
         for(const char of charData){
             if(char["id"] == id){
