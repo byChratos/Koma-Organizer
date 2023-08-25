@@ -1,30 +1,7 @@
 [
   {
-    "name": "Emblem of Severed Fate",
-    "id": 15020,
-    "type": "artifact"
-  },
-  {
-    "name": "Baizhu",
-    "id": 10000082,
-    "type": "character",
-    "boss": true,
-    "bossId": 113045,
-    "talents": true,
-    "talentsId": 104316
-  },
-  {
     "name": "Marechaussee Hunter",
     "id": 15031,
     "type": "artifact"
-  },
-  {
-    "name": "Faruzan",
-    "id": 10000076,
-    "type": "character",
-    "boss": true,
-    "bossId": 113039,
-    "talents": true,
-    "talentsId": 104329
   }
 ]

@@ -77,13 +77,15 @@ export function getFarmable(day, calendar){
 
                 let available;
 
-                for(const material of farmData){
-                    if(entry["talentsId"] == material["id"]){
-                        available = (day == material["day"]);
-                        if(day == 3){
-                            available = true;
+                if(entry["talents"] != false){
+                    for(const material of farmData){
+                        if(entry["talentsId"] == material["id"]){
+                            available = (day == material["day"]);
+                            if(day == 3){
+                                available = true;
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
 
@@ -91,6 +93,7 @@ export function getFarmable(day, calendar){
                     talents = false;
                 }
 
+                //! Only push if either Talents are available or boss is active
                 if(available || entry["boss"] != false){
                     var newTalent = {
                         charName: entry["name"],

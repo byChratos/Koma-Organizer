@@ -15,9 +15,17 @@ export default function Priority() {
     const dragOverItem = useRef();
 
     const[list, setList] = useState(calendarData);
-
     const[saved, setSaved] = useState(false);
 
+    function swapListAtIndex(index, type){
+        const updatedList = [...list];
+        if(type == "boss"){
+            updatedList[index] = { ...updatedList[index], boss: (!updatedList[index]["boss"]) }
+        }else{
+            updatedList[index] = { ...updatedList[index], talents: (!updatedList[index]["talents"]) }
+        }
+        setList(updatedList);
+    }
 
     const dragStart = (e, position) => {
         dragItem.current = position;
@@ -90,12 +98,12 @@ export default function Priority() {
                                     <p className="w-[250px] text-left">{item["name"]}</p>
                                 </div>
                                 {(item["type"] == "character") && <div className="w-[150px] h-full select-none flex">
-                                    <div className="bg-red-300 w-[50px] h-full rounded-full">
+                                    <div className="bg-red-300 w-[50px] h-full rounded-full cursor-pointer" onClick={() => swapListAtIndex(index, "boss") }>
                                         {/* TODO Click on these buttons will toggle boss/talents = true/false */}
-                                        {(item["boss"] != false) ? <p>BOSS</p> : <p>NO</p>}
+                                        {(list[index]["boss"] != false) ? <p>BOSS</p> : <p>NO</p>}
                                     </div>
-                                    <div className="bg-red-300 w-[50px] h-full ml-[25px] rounded-full">
-                                        {(item["talents"] != false) ? <p>TALENT</p> : <p>NO</p>}
+                                    <div className="bg-red-300 w-[50px] h-full ml-[25px] rounded-full cursor-pointer" onClick={() => swapListAtIndex(index, "talents") }>
+                                        {(list[index]["talents"] != false) ? <p>TALENT</p> : <p>NO</p>}
                                     </div>
                                 </div>}
                                 <div className="bg-red-500 w-[100px] h-full ml-auto">
