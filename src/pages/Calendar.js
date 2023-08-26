@@ -4,6 +4,14 @@ import Add from '../components/Buttons/Add'
 import Day from "../components/Day";
 import DayInformationModal from '../components/Modals/DayInformationModal';
 
+/* //! Color Palette:
+
+    Light-Blue: #3873AA
+    Blue: #3943B7
+    Dark-Gray: #333231
+    Gray: #787878
+
+*/
 
 export default function Calendar() {
 
@@ -18,11 +26,15 @@ export default function Calendar() {
     }
 
     return(
-        <div className='w-full h-full bg-gray-500 px-[5%] py-[1%] text-center'>
-            <h1 className='text-white'>Calendar</h1>
-            <p className='text-white'>Hier kommt der Kalender</p>
+        <div className='w-full h-full bg-[#333231] text-center select-none'>
+            {/* Header */}
+            <div className='w-full h-[15%] text-center p-2'>
+                <h1 className="text-white font-merri text-4xl">Calendar</h1>
+                <p className="text-white font-merri text-xl">ABC</p>
+            </div>
 
-            <div className="w-full h-[80%] bg-gray-400 grid grid-rows-3 grid-cols-3">
+            {/* Body */}
+            <div className="w-full h-[85%] bg-[#333231] grid grid-rows-3 grid-cols-3">
 
                 <Day dayName="Monday" className="row-start-1 col-start-1 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
@@ -40,8 +52,7 @@ export default function Calendar() {
 
 
             </div>
-            <Add />
-
+            
             {modalOpen ? <DayInformationModal modalOpen={setModal} setModalType={setDay} day={modalDay} /> : null}
 
         </div>
