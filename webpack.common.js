@@ -40,7 +40,15 @@ module.exports = {
         test: /\.css$/,
         include: [srcPath],
         use: ['style-loader', 'css-loader', 'postcss-loader'],
-      }
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ]
   },
   resolve: {

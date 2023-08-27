@@ -10,10 +10,12 @@ const variants = {
 export default function Links() {
     return(
         <motion.div
-            className="float-right h-full w-auto bg-green-300 flex flex-row"
+            className="float-right h-full w-[250px] bg-green-300 flex flex-row items-center"
             variants={variants}
         >
-            <img src={github} width="50" height="50" />
+            <a href="https://github.com/byChratos/gensho">
+                <img src={github} alt="GitHub Repository" className="w-[50px] h-[50px]"/>
+            </a>
         </motion.div>
     );
 }
