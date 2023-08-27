@@ -24,8 +24,8 @@ function createWindow() {
     const win = new BrowserWindow({
         width: 1000,
         height: 800,
-        minWidth: 800,
-        minHeight: 600,
+        minWidth: 1000,
+        minHeight: 800,
         backgroundColor: "white",
         webPreferences: {
             nodeIntegration: true,

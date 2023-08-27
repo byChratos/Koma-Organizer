@@ -59,6 +59,7 @@ export default function MenuButton({ isOpen, width, height, strokeWidth, color, 
             {...props}
         >
             <motion.line
+                className="drop-shadow-md"
                 x1="0"
                 x2={unitWidth}
                 y1="0"
@@ -67,6 +68,7 @@ export default function MenuButton({ isOpen, width, height, strokeWidth, color, 
                 {...lineProps}
             />
             <motion.line
+                className="drop-shadow-md"
                 x1="0"
                 x2={unitWidth}
                 y1="2"
@@ -75,6 +77,7 @@ export default function MenuButton({ isOpen, width, height, strokeWidth, color, 
                 {...lineProps}
             />
             <motion.line
+                className="drop-shadow-md"
                 x1="0"
                 x2={unitWidth}
                 y1="4"

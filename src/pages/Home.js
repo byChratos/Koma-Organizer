@@ -44,7 +44,7 @@ export default function Home() {
                 <p className="text-white font-merri text-xl">Organize or smth</p>
 
                 <NavToggle toggle={toggleIsOpen} isOpen={isOpen}/>
-                {(isOpen) ? <Navbar/> : null}
+                <Navbar isOpen={isOpen} />
 
             </div>
 

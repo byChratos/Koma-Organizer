@@ -8,9 +8,7 @@ const navVar = {
         scale: 1.3,
         transition: {
             type: "spring",
-            stiffness: 500,
-            damping: 15,
-            duration: 0.1,
+            duration: 0.3,
         }
     },
     tap: {
@@ -30,7 +28,7 @@ export default function NavToggle({ toggle, isOpen }) {
 
     return(
         <motion.div
-            className="w-[50px] h-[50px] cursor-pointer absolute bg-[#4686c2] top-4 left-4 rounded-lg items-center content-center z-20"
+            className="w-[50px] h-[50px] cursor-pointer absolute top-4 left-4 items-center content-center z-20"
             whileHover="hover"
             whileTap="tap"
             variants={navVar}
