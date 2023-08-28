@@ -43,7 +43,7 @@ export default function NavItem({ name, link, isOpen, index }){
     return(
         <AnimatePresence>
             <motion.li
-                className="h-[75px] w-[150px] mx-3 mt-1" onClick={() => navigate(link)}
+                className="h-[75px] w-[150px] mx-2 mt-1" onClick={() => navigate(link)}
                 variants={variants}
                 whileHover="hover"
                 whileTap="tap"

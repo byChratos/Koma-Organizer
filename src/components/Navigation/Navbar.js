@@ -2,6 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavItem from "./NavItem";
 import Links from "./Links";
+import Settings from "./Settings";
 
 const variants = {
     open: (height = 1000) => ({
@@ -39,7 +40,7 @@ export default function Navbar({ isOpen }) {
                     <NavItem key={page["name"]} name={page["name"]} link={page["link"]} isOpen={isOpen} index={index} />
                 ))}
             </motion.ul>
-            <Links />
+            <Settings isOpen={isOpen} />
         </motion.nav>
     );
 }

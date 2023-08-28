@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import NavToggle from '../components/Navigation/NavToggle';
 import Navbar from '../components/Navigation/Navbar';
+import Links from '../components/Navigation/Links';
 
 /* //! Color Palette:
 
@@ -13,6 +14,27 @@ import Navbar from '../components/Navigation/Navbar';
     Gray: #787878
 
 */
+
+const variants = {
+    initial: {
+        opacity: 0,
+        x: "-100%",
+      },
+      animate: {
+        opacity: 1,
+        x: 0,
+        transition: {
+          duration: 0.5,
+        },
+      },
+      exit: {
+        opacity: 0,
+        x: "100%",
+        transition: {
+          duration: 0.5,
+        },
+      },
+}
 
 const button = {
     tap: {
@@ -36,7 +58,13 @@ export default function Home() {
     const[isOpen, toggleIsOpen] = useState(false);
 
     return(
-        <div className='flex flex-col h-screen select-none'>
+        <motion.div
+            className='flex flex-col h-screen select-none'
+            variants={variants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+        >
 
             {/* Header */}
             <div className='w-full flex-none text-center p-2 bg-[#42413F] drop-shadow-md'>
@@ -75,6 +103,7 @@ export default function Home() {
                         onClick={() => navigate("/add")}>
                         Add
                     </motion.button>
+                    <Links />
                 </div>
             </div>
 
@@ -83,6 +112,6 @@ export default function Home() {
                 <p className='text-white font-merri text-xs'>
                 DISCLAIMER© HoYoverse. All rights reserved. HoYoverse and Genshin Impact are trademarks, services marks, or registered trademarks of HoYoverse.</p>
             </div>
-        </div>
+        </motion.div>
     )
 }
