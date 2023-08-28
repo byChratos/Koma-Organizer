@@ -15,7 +15,7 @@ export default function TopBar() {
             <p className="text-white font-merri text-xl">Organize or smth</p>
 
             <NavToggle toggle={setIsOpen} isOpen={isOpen} />
-            <Navbar isOpen={isOpen}/>
+            <Navbar isOpen={isOpen} setPage={setPage}/>
         </div>
     );
 }

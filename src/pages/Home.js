@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
 
-import NavToggle from '../components/Navigation/NavToggle';
-import Navbar from '../components/Navigation/Navbar';
 import Links from '../components/Navigation/Links';
 
 /* //! Color Palette:
@@ -19,21 +17,14 @@ const variants = {
     initial: {
         opacity: 0,
         x: "-100%",
-      },
-      animate: {
+    },
+    animate: {
         opacity: 1,
         x: 0,
         transition: {
-          duration: 0.5,
+            duration: 0.5,
         },
-      },
-      exit: {
-        opacity: 0,
-        x: "100%",
-        transition: {
-          duration: 0.5,
-        },
-      },
+    },
 }
 
 const button = {
@@ -55,7 +46,6 @@ const button = {
 export default function Home() {
 
     const navigate = useNavigate();
-    const[isOpen, toggleIsOpen] = useState(false);
 
     return(
         <motion.div
@@ -63,21 +53,9 @@ export default function Home() {
             variants={variants}
             initial="initial"
             animate="animate"
-            exit="exit"
         >
-
-            {/* Header */}
-            <div className='w-full flex-none text-center p-2 bg-[#42413F] drop-shadow-md'>
-                <h1 className="text-white font-merri text-4xl">Insert Name</h1>
-                <p className="text-white font-merri text-xl">Organize or smth</p>
-
-                <NavToggle toggle={toggleIsOpen} isOpen={isOpen}/>
-                <Navbar isOpen={isOpen} />
-
-            </div>
-
             {/* Content */}
-            <div className="w-full flex-grow flex justify-center bg-[#333231] drop-shadow-sm">
+            <div className="w-full h-full flex flex-col justify-center items-center bg-[#333231] drop-shadow-sm">
                 <div className="w-[80%] h-[90%]">
                     <motion.button
                         className="w-[81%] h-[15%] bg-[#3873AA] hover:bg-[#4686c2] ml-[9.5%] mt-[10%] rounded-xl font-merri text-white text-xl drop-shadow-md hover:drop-shadow-xl"
@@ -105,12 +83,10 @@ export default function Home() {
                     </motion.button>
                     <Links />
                 </div>
-            </div>
-
-            {/* Footer */}
-            <div className="w-full flex-none text-center bg-[#42413F]">
-                <p className='text-white font-merri text-xs'>
-                DISCLAIMER© HoYoverse. All rights reserved. HoYoverse and Genshin Impact are trademarks, services marks, or registered trademarks of HoYoverse.</p>
+                <div className="w-full h-[10%] text-center bg-[#42413F]">
+                    <p className='text-white font-merri text-xs'>
+                    DISCLAIMER© HoYoverse. All rights reserved. HoYoverse and Genshin Impact are trademarks, services marks, or registered trademarks of HoYoverse.</p>
+                </div>
             </div>
         </motion.div>
     )

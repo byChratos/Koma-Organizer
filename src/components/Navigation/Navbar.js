@@ -24,7 +24,7 @@ const variants = {
     }
 }
 
-export default function Navbar({ isOpen }) {
+export default function Navbar({ isOpen, setPage }) {
 
     const pages = [{ name: "Home", link: "/"}, { name: "Calendar", link: "/calendar" }, { name: "Add", link: "/add"}, { name: "Priority", link: "/priority" }]
 
@@ -37,7 +37,7 @@ export default function Navbar({ isOpen }) {
         >
             <motion.ul className="flex flex-row h-full w-full ml-[82px]">
                 {pages.map((page, index) => (
-                    <NavItem key={page["name"]} name={page["name"]} link={page["link"]} isOpen={isOpen} index={index} />
+                    <NavItem key={page["name"]} name={page["name"]} link={page["link"]} isOpen={isOpen} index={index} setPage={setPage} />
                 ))}
             </motion.ul>
             <Settings isOpen={isOpen} />

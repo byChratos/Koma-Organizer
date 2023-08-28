@@ -4,11 +4,9 @@ import TopBar from "../components/TopBar";
 
 export default function Layout({ children }) {
     return(
-        <div>
+        <div className="select-none">
             <TopBar />
-            <div>
-                {children}
-            </div>
+            {children}
         </div>
     );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-export default function NavItem({ name, link, isOpen, index }){
+export default function NavItem({ name, link, isOpen, index, setPage }){
 
     const variants = {
         open: {
@@ -40,10 +40,15 @@ export default function NavItem({ name, link, isOpen, index }){
 
     const navigate = useNavigate();
 
+    function nav() {
+        navigate(link);
+        setPage(name);
+    }
+    
     return(
         <AnimatePresence>
             <motion.li
-                className="h-[75px] w-[150px] mx-2 mt-1" onClick={() => navigate(link)}
+                className="h-[75px] w-[150px] mx-2 mt-1" onClick={() => nav()}
                 variants={variants}
                 whileHover="hover"
                 whileTap="tap"
