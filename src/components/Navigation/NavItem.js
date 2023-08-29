@@ -54,7 +54,7 @@ export default function NavItem({ name, link, isOpen, index, setPage }){
                 whileTap="tap"
                 animate={isOpen ? "open" : "closed"}
             >
-                <button className="w-full h-full font-merri bg-[#4686c2] rounded-lg text-white drop-shadow-md"> {name} </button>
+                <motion.button className="w-full h-full font-merri bg-[#3943B7] rounded-lg text-white drop-shadow-md"> {name} </motion.button>
             </motion.li>
         </AnimatePresence>
     );

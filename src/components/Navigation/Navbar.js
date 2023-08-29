@@ -1,7 +1,6 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import NavItem from "./NavItem";
-import Links from "./Links";
 import Settings from "./Settings";
 
 const variants = {
@@ -30,7 +29,7 @@ export default function Navbar({ isOpen, setPage }) {
 
     return(
         <motion.nav
-            className="absolute w-full h-full bg-[#3943B7] top-0 left-0 z-10 flex flex-row"
+            className="absolute w-full h-full bg-[#3873AA] top-0 left-0 z-10 flex flex-row"
             initial="closed"
             animate={isOpen ? "open" : "closed"}
             variants={variants}

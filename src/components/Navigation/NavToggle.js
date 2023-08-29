@@ -22,9 +22,12 @@ const navVar = {
     }
 }
 
-export default function NavToggle({ toggle, isOpen }) {
+export default function NavToggle({ toggle, isOpen, setOpen }) {
 
-    //! TODO HEADER AS NAVBAR!!!!
+    function toggleNav(){
+        toggle(!isOpen);
+        setOpen(!isOpen);
+    }
 
     return(
         <motion.div
@@ -32,11 +35,11 @@ export default function NavToggle({ toggle, isOpen }) {
             whileHover="hover"
             whileTap="tap"
             variants={navVar}
-            onClick={() => toggle(!isOpen)}
+            onClick={() => toggleNav()}
         >
             <MenuButton 
                 isOpen={isOpen}
-                onClick={() => toggle(!isOpen)}
+                onClick={() => toggleNav()}
                 strokeWidth="5"
                 color="#ffffff"
                 lineProps={{ strokeLinecap: "round" }}

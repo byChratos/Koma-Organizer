@@ -10,7 +10,7 @@ import Priority from '../pages/Priority';
 import Layout from '../pages/Layout';
 
 
-export default function NavigationBar() {
+export default function ProjectRouter() {
 
     return(
         <>
@@ -18,7 +18,7 @@ export default function NavigationBar() {
                 <Layout>
                     <AnimatePresence mode="wait">
                         <Routes>
-                            <Route path="/" element={<Home />} />
+                            <Route index path="/" element={<Home />} />
                             <Route path="/calendar" element={<Calendar />} />
                             <Route path="/add" element={<Add />} />
                             <Route path="/priority" element={<Priority />} />

@@ -49,7 +49,7 @@ export default function Home() {
 
     return(
         <motion.div
-            className='flex flex-col h-screen select-none'
+            className='flex flex-col h-screen'
             variants={variants}
             initial="initial"
             animate="animate"

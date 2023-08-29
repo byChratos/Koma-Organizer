@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import Day from "../components/Day";
 import DayInformationModal from '../components/Modals/DayInformationModal';
-import NavToggle from '../components/Navigation/NavToggle';
-import Navbar from '../components/Navigation/Navbar';
+
 
 /* //! Color Palette:
 
@@ -32,15 +30,17 @@ const variants = {
 
 export default function Calendar() {
 
-    const [modalOpen, setModalOpen] = useState(false);
+    const[modalOpen, setModalOpen] = useState(false);
     const setModal = (val) => {
         setModalOpen(val);
     }
 
-    const [modalDay, setModalDay] = useState(null);
+    const[modalDay, setModalDay] = useState(null);
     const setDay = (day) => {
         setModalDay(day);
     }
+
+    const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
     return(
         <motion.div
@@ -49,22 +49,22 @@ export default function Calendar() {
             initial="initial"
             animate="animate"
         >
-            {/* Body */}
-            <div className="w-full h-full bg-[#333231] grid grid-rows-3 grid-cols-3">
+            {/* Content */}
+            <div className="w-full h-full flex flex-col justify-center items-center bg-[#333231]">
 
-                <Day dayName="Monday" className="row-start-1 col-start-1 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
+                <Day dayName="Monday" className="justify-self-center self-center top-0 left-0" handleButton={setModal} setDay={setDay} />
 
-                <Day dayName="Tuesday" className="row-start-2 col-start-1 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
+                <Day dayName="Tuesday" className="justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
-                <Day dayName="Wednesday" className="row-start-3 col-start-1 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
+                <Day dayName="Wednesday" className="justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
-                <Day dayName="Thursday" className="row-start-2 col-start-2 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
+                <Day dayName="Thursday" className="justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
-                <Day dayName="Friday" className="row-start-1 col-start-3 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
+                <Day dayName="Friday" className="justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
-                <Day dayName="Saturday" className="row-start-2 col-start-3 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
+                <Day dayName="Saturday" className="justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
-                <Day dayName="Sunday" className="row-start-3 col-start-3 justify-self-center self-center" handleButton={setModal} setDay={setDay} />
+                <Day dayName="Sunday" className="justify-self-center self-center" handleButton={setModal} setDay={setDay} />
 
 
             </div>

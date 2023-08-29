@@ -17,17 +17,17 @@ const { ipcRenderer } = window.require("electron");
 
 const dropIn = {
     hidden: {
-        y: "-100vh",
         opacity: 0,
+        scale: 0,
     },
     visible: {
-        y: "0",
         opacity: 1,
+        scale: 1,
         transition: {
-            duration: 0.1,
+            duration: 0.15,
             type: "spring",
             damping: 25,
-            stiffness: 500,
+            stiffness: 200,
         },
     },
     exit: {
@@ -92,7 +92,7 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
         <Backdrop handleClick={ modalOpen } setModalType={ setModalType }>
             <motion.div
                 onClick={(e) => e.stopPropagation()}
-                className="bg-gray-800 w-[80%] h-[75%] rounded-[20px] overflow-hidden"
+                className="bg-gray-800 w-[80%] h-[70%] rounded-[20px] overflow-hidden"
                 variants={dropIn}
                 initial="hidden"
                 animate="visible"

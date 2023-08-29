@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { motion, Reorder } from 'framer-motion';
+
 import PopUp from '../components/Modals/PopUp';
 
 import calendarData from "../../calendar.json";
@@ -6,6 +8,39 @@ const { ipcRenderer } = window.require("electron");
 import { getAssetById } from "../functions/enkaFunctions";
 
 export default function Priority() {
+
+    const variants = {
+        initial: {
+            opacity: 0,
+            x: "-100%",
+        },
+        animate: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.5,
+            },
+        },
+    }
+
+    const buttons = {
+        hover: {
+            scale: 1.1,
+            transition: {
+                type: "spring",
+                duration: 0.3
+            }
+        },
+        tap: {
+            scale: 0.95,
+            transition: {
+                type: "spring",
+                stiffness: 500,
+                damping: 15,
+                duration: 0.1,
+            }
+        }
+    }
 
     useEffect(() => {
         load();
@@ -43,7 +78,7 @@ export default function Priority() {
         dragItem.current = null;
         dragOverItem.current = null;
         setList(copyListItems);
-    }
+    };
 
     function load(){
         ipcRenderer.send("loadList", "Prio");
@@ -68,27 +103,49 @@ export default function Priority() {
     });
 
     function remove(index){
-        //TODO Remove element from list
         setList(list.slice(0, index).concat(list.slice(index + 1)));
     }
 
     return(
-        <div className="w-full h-full bg-green-800 px-[5%] py-[2%] text-center">
+        <motion.div
+            className="flex flex-col h-screen items-center pb-[84px]"
+            variants={variants}
+            initial="initial"
+            animate="animate"
+        >
 
             {(saved) && <PopUp message="ABC" setModalOpen={setSaved} />}
 
-            <h1 className='text-white text-lg'>Priority</h1>
-            <h2 className='text-gray-100'>Sort your Characters, Weapons and Artifacts by priority! Highest priority available to farm will be displayed first</h2>
+            {/* <h2 className='text-gray-100'>Sort your Characters, Weapons and Artifacts by priority! Highest priority available to farm will be displayed first</h2> */}
             
-            <div className="w-full h-full bg-gray-700 overflow-auto p-3 rounded-lg">
-                {list && 
-                    list.map((item, index) => (
-                        <div key={item["name"]}
-                            className="flex w-full h-[50px] bg-blue-500 mb-3 rounded-lg overflow-hidden"
-                            onDragStart={(e) => dragStart(e, index)}
-                            onDragEnter={(e) => dragEnter(e, index)}
-                            onDragEnd={drop}>
-                                <div className="cursor-move flex float-left w-[50px] h-full text-center items-center rounded-l-md bg-blue-500" draggable>
+            {/* Content */}
+            <div className="w-[90%] h-[100px] flex-none flex flex-row items-center pl-5">
+                <motion.button
+                    className="w-[125px] h-[75px] text-black font-merri font-lg bg-green-400 rounded-lg drop-shadow-md" onClick={() => save()}
+                    variants={buttons}
+                    whileHover="hover"
+                    whileTap="tap"
+                >SAVE</motion.button>
+                <motion.button
+                    className="w-[125px] h-[75px] text-black font-merri font-lg bg-red-500 rounded-lg ml-3 drop-shadow-md" onClick={() => load()}
+                    variants={buttons}
+                    whileHover="hover"
+                    whileTap="tap"
+                >CANCEL</motion.button>
+            </div>
+
+            <div className='w-[90%] flex-grow bg-[#42413F] rounded-xl py-5 px-4'>
+                <Reorder.Group axis='y' values={list} onReorder={setList}>
+                    {list && 
+                        list.map((item, index) => (
+                            <motion.div key={item["name"]}
+                                    className="flex w-full h-[50px] bg-blue-500 mb-3 rounded-lg overflow-hidden"
+                                    dragConstraints={{top: 0, bottom: 0}}
+                                    onDragStart={(e) => dragStart(e, index)}
+                                    onDragEnter={(e) => dragEnter(e, index)}
+                                    onDragEnd={drop}
+                            >
+                                <div className="cursor-move flex float-left w-[50px] h-full text-center items-center rounded-l-md bg-blue-500">
                                     <p className="w-full text-lg font-bold text-black hover:text-gray-700 hover:opacity-50">☰</p>
                                 </div>
                                 <div className="w-[300px] h-full select-none flex">
@@ -99,7 +156,6 @@ export default function Priority() {
                                 </div>
                                 {(item["type"] == "character") && <div className="w-[150px] h-full select-none flex">
                                     <div className="bg-red-300 w-[50px] h-full rounded-full cursor-pointer" onClick={() => swapListAtIndex(index, "boss") }>
-                                        {/* TODO Click on these buttons will toggle boss/talents = true/false */}
                                         {(list[index]["boss"] != false) ? <p>BOSS</p> : <p>NO</p>}
                                     </div>
                                     <div className="bg-red-300 w-[50px] h-full ml-[25px] rounded-full cursor-pointer" onClick={() => swapListAtIndex(index, "talents") }>
@@ -109,14 +165,10 @@ export default function Priority() {
                                 <div className="bg-red-500 w-[100px] h-full ml-auto">
                                     <button className="w-full h-full" onClick={() => remove(index)}>REMOVE</button>
                                 </div>
-                        </div>
-                ))}
-                {/* Save Button | Cancel Button */}
-                <div>
-                    <button className="w-[50px] h-[25px] text-black bg-green-400 hover:bg-green-600 rounded-full" onClick={() => save()}>SAVE</button>                    
-                    <button className="w-[80px] h-[25px] text-black bg-opacity-0 hover:bg-opacity-100 bg-red-500 rounded-full ml-3" onClick={() => load()}>CANCEL</button>
-                </div>
+                            </motion.div>
+                        ))}
+                </Reorder.Group>
             </div>
-        </div>
+        </motion.div>
     );
 }
