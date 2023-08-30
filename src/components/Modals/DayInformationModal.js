@@ -13,7 +13,6 @@ import WeaponListModal from './ModalLists/WeaponListModal';
 import ArtifactListModal from './ModalLists/ArtifactListModal';
 
 import calendarData from "../../../calendar.json";
-const { ipcRenderer } = window.require("electron");
 
 const dropIn = {
     hidden: {
@@ -42,17 +41,14 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
         load();
     }, [])
 
-    function load(){
-        ipcRenderer.send("loadList", "Day");
-    }
-
-    ipcRenderer.on("loadedListDay", (event, list) => {
-        if(list != "empty"){
-            setList(list);
+    async function load(){
+        const response = await window.api.loadList();
+        if(response != "empty"){
+            setList(response);
         }else{
-            ipcRenderer.send("storeList", calendarData);
+            await window.api.storeList(list);
         }
-    });
+    }
 
     const dayNumber = getDayNumber(day);
 

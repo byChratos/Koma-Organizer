@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, Reorder } from 'framer-motion';
 
 import PopUp from '../components/Modals/PopUp';
+import ReoItem from '../components/ReoItem';
 
 import calendarData from "../../calendar.json";
-const { ipcRenderer } = window.require("electron");
 import { getAssetById } from "../functions/enkaFunctions";
 
 export default function Priority() {
@@ -46,9 +46,6 @@ export default function Priority() {
         load();
     }, []);
 
-    const dragItem = useRef();
-    const dragOverItem = useRef();
-
     const[list, setList] = useState(calendarData);
     const[saved, setSaved] = useState(false);
 
@@ -62,45 +59,24 @@ export default function Priority() {
         setList(updatedList);
     }
 
-    const dragStart = (e, position) => {
-        dragItem.current = position;
-    };
+    async function load(){
 
-    const dragEnter = (e, position) => {
-        dragOverItem.current = position;
-    };
-
-    const drop = (e) => {
-        const copyListItems = [...list];
-        const dragItemContent = copyListItems[dragItem.current];
-        copyListItems.splice(dragItem.current, 1);
-        copyListItems.splice(dragOverItem.current, 0, dragItemContent);
-        dragItem.current = null;
-        dragOverItem.current = null;
-        setList(copyListItems);
-    };
-
-    function load(){
-        ipcRenderer.send("loadList", "Prio");
-    }
-
-    ipcRenderer.on("loadedListPrio", (event, list) => {
-        if(list != "empty"){
-            setList(list);
+        const response = await window.api.loadList();
+        console.log(response);
+        console.log(list);
+        if(response == "empty"){
+            await window.api.storeList(list);
         }else{
-            ipcRenderer.send("storeList", calendarData);
+            setList(response);
         }
-    });
-
-    function save(){
-        ipcRenderer.send("saveList", list)
     }
 
-    ipcRenderer.on("savedList", (event, success) => {
-        if(success){
+    async function save(){
+        const response = await window.api.saveList(list);
+        if(response){
             setSaved(true);
         }
-    });
+    }
 
     function remove(index){
         setList(list.slice(0, index).concat(list.slice(index + 1)));
@@ -132,43 +108,44 @@ export default function Priority() {
                     whileHover="hover"
                     whileTap="tap"
                 >CANCEL</motion.button>
+
+                <motion.button onClick={() => console.log(list)}>
+                    AE
+                </motion.button>
             </div>
 
-            <div className='w-[90%] flex-grow bg-[#42413F] rounded-xl py-5 px-4'>
-                <Reorder.Group axis='y' values={list} onReorder={setList}>
-                    {list && 
-                        list.map((item, index) => (
-                            <motion.div key={item["name"]}
-                                    className="flex w-full h-[50px] bg-blue-500 mb-3 rounded-lg overflow-hidden"
-                                    dragConstraints={{top: 0, bottom: 0}}
-                                    onDragStart={(e) => dragStart(e, index)}
-                                    onDragEnter={(e) => dragEnter(e, index)}
-                                    onDragEnd={drop}
-                            >
-                                <div className="cursor-move flex float-left w-[50px] h-full text-center items-center rounded-l-md bg-blue-500">
-                                    <p className="w-full text-lg font-bold text-black hover:text-gray-700 hover:opacity-50">☰</p>
-                                </div>
-                                <div className="w-[300px] h-full select-none flex">
-                                    {(item["type"] == "character") && <img className="flex-1" src={getAssetById("character", item["id"], "icon")} width="50" height="50"/>}
-                                    {(item["type"] == "weapon") && <img className="flex-1" src={getAssetById("weapon", item["id"], "icon")} width="50" height="50" />}
-                                    {(item["type"] == "artifact") && <img className="flex-1" src={getAssetById("artifact", item["id"], "icon")} width="50" height="50" />}
-                                    <p className="w-[250px] text-left">{item["name"]}</p>
-                                </div>
-                                {(item["type"] == "character") && <div className="w-[150px] h-full select-none flex">
-                                    <div className="bg-red-300 w-[50px] h-full rounded-full cursor-pointer" onClick={() => swapListAtIndex(index, "boss") }>
-                                        {(list[index]["boss"] != false) ? <p>BOSS</p> : <p>NO</p>}
-                                    </div>
-                                    <div className="bg-red-300 w-[50px] h-full ml-[25px] rounded-full cursor-pointer" onClick={() => swapListAtIndex(index, "talents") }>
-                                        {(list[index]["talents"] != false) ? <p>TALENT</p> : <p>NO</p>}
-                                    </div>
-                                </div>}
-                                <div className="bg-red-500 w-[100px] h-full ml-auto">
-                                    <button className="w-full h-full" onClick={() => remove(index)}>REMOVE</button>
-                                </div>
-                            </motion.div>
-                        ))}
+            <div className='w-[90%] bg-[#42413F] rounded-xl'>
+                <Reorder.Group className="h-full" axis='y' values={list} onReorder={setList}>
+                    {list.map((entry, index) => (
+                        <ReoItem key={entry["id"]} entry={entry} />
+                    ))}
                 </Reorder.Group>
             </div>
         </motion.div>
     );
 }
+
+{/*
+<div className="flex w-full h-[50px] bg-blue-500 mb-3 rounded-lg overflow-hidden">
+    <div className="cursor-move flex float-left w-[50px] h-full text-center items-center rounded-l-md bg-blue-500">
+        <p className="w-full text-lg font-bold text-black hover:text-gray-700 hover:opacity-50">☰</p>
+    </div>
+    <div className="w-[300px] h-full select-none flex">
+        {(item["type"] == "character") && <img className="flex-1" src={getAssetById("character", item["id"], "icon")} width="50" height="50"/>}
+        {(item["type"] == "weapon") && <img className="flex-1" src={getAssetById("weapon", item["id"], "icon")} width="50" height="50" />}
+        {(item["type"] == "artifact") && <img className="flex-1" src={getAssetById("artifact", item["id"], "icon")} width="50" height="50" />}
+        <p className="w-[250px] text-left">{item["name"]}</p>
+    </div>
+    {(item["type"] == "character") && <div className="w-[150px] h-full select-none flex">
+        <div className="bg-red-300 w-[50px] h-full rounded-full cursor-pointer" onClick={() => {swapListAtIndex(index, "boss")} }>
+            {(list[index]["boss"] != false) ? <p>BOSS</p> : <p>NO</p>}
+        </div>
+        <div className="bg-red-300 w-[50px] h-full ml-[25px] rounded-full cursor-pointer" onClick={() => {swapListAtIndex(index, "talents")} }>
+            {(list[index]["talents"] != false) ? <p>TALENT</p> : <p>NO</p>}
+        </div>
+    </div>}
+    <div className="bg-red-500 w-[100px] h-full ml-auto">
+        <button className="w-full h-full" onClick={() => remove(index)}>REMOVE</button>
+    </div>
+</div>
+*/}

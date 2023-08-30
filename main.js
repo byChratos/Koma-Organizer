@@ -28,10 +28,11 @@ function createWindow() {
         minHeight: 800,
         backgroundColor: "white",
         webPreferences: {
+            preload: path.join(__dirname, "preload.js"),
             nodeIntegration: true,
             nodeIntegrationInWorker: true,
             worldSafeExecuteJavaScript: true,
-            contextIsolation: false
+            contextIsolation: true
         }
     })
 
@@ -40,9 +41,9 @@ function createWindow() {
 
 }
 
-require('electron-reload')(__dirname, {
+/*require('electron-reload')(__dirname, {
     electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
-})
+})*/
 
 app.whenReady().then(() => {
     createWindow();
@@ -59,6 +60,44 @@ app.on('quit', () => {
     app.quit();
 })
 
+
+ipcMain.handle('loadList', (event, args) => {
+
+    list = store.get("calendarList");
+
+    if(list == null){
+        return "empty";
+    }else{
+        return list;
+    }
+});
+
+ipcMain.handle('saveList', (event, list) => {
+
+    try{
+        const filePath = path.resolve(__dirname, "calendar.json");
+        const jsonString = JSON.stringify(list, null, 2);
+
+        fs.writeFile(filePath, jsonString, (error) => {
+            if(error){
+                console.error(error);
+                return false;
+            }
+        });
+
+        store.set("calendarList", list);
+        return true;
+
+    }catch(error){
+        console.error(error);
+        return false;
+    }
+
+});
+
+ipcMain.handle('storeList', (event, list) => {
+    store.set("calendarList", list);
+});
 
 ipcMain.on('notify', (_, message) => {
     new Notification({title: 'Notification', body: message}).show();
@@ -88,42 +127,12 @@ function isDuplicate(name, data){
     return false;
 }
 
-ipcMain.on('saveList', (event, list) => {
+ipcMain.handle('saveToFile', (event, args) => {
     try{
-        const filePath = path.resolve(__dirname, "calendar.json");
 
-        const jsonString = JSON.stringify(list, null, 2);
-
-        fs.writeFile(filePath, jsonString, (error) => {
-            if(error){
-                console.error(error);
-                throw error;
-            }
-        });
-
-        store.set("calendarList", list);
-        event.reply("savedList", true);
-
-    }catch(error){
-        console.error(error);
-    }
-});
-
-ipcMain.on('loadList', (event, sender) => {
-    list = store.get("calendarList");
-    if(list == null){
-        event.reply("loadedList" + sender, "empty");
-    }else{
-        event.reply("loadedList" + sender, list);
-    }
-})
-
-ipcMain.on("storeList", (event, list) => {
-    store.set("calendarList", list);
-})
-
-ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWeapon) => {
-    try{
+        let selectedArtifact = args.selectedArtifact;
+        let selectedCharacter = args.selectedCharacter;
+        let selectedWeapon = args.selectedWeapon;
 
         const filePath = path.resolve(__dirname, "calendar.json")
 
@@ -192,7 +201,7 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
                         }
                     });
                     store.set("calendarList", data);
-                    event.reply('savedFile', true);
+                    return true;
                 })
 
             }else{
@@ -242,13 +251,15 @@ ipcMain.on('saveToFile', (event, selectedArtifact, selectedCharacter, selectedWe
                 fs.writeFile(filePath, jsonString, (error) => {
                     if(error){
                         console.error(error);
-                        throw error;
+                        return false;
                     }
                 });
                 store.set("calendarList", newData);
+                return true;
             }
         })
     }catch(error){
         console.error(error);
+        return false;
     }
 })
