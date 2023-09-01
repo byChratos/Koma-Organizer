@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { motion, Reorder } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import PopUp from '../components/Modals/PopUp';
-import ReoItem from '../components/ReoItem';
 
 import calendarData from "../../calendar.json";
 import { getAssetById } from "../functions/enkaFunctions";
@@ -31,6 +30,13 @@ export default function Priority() {
                 duration: 0.3
             }
         },
+        hover2: {
+            scale: 1.05,
+            transition: {
+                type: "spring",
+                duration: 0.3
+            }
+        },
         tap: {
             scale: 0.95,
             transition: {
@@ -38,6 +44,16 @@ export default function Priority() {
                 stiffness: 500,
                 damping: 15,
                 duration: 0.1,
+            }
+        }
+    }
+
+    const listItem = {
+        hover: {
+            scale: 1.025,
+            transition: {
+                type: "spring",
+                duration: 0.2,
             }
         }
     }
@@ -62,8 +78,6 @@ export default function Priority() {
     async function load(){
 
         const response = await window.api.loadList();
-        console.log(response);
-        console.log(list);
         if(response == "empty"){
             await window.api.storeList(list);
         }else{
@@ -82,9 +96,18 @@ export default function Priority() {
         setList(list.slice(0, index).concat(list.slice(index + 1)));
     }
 
+    function swap(firstIndex, secondIndex){
+        let arr = Array.from(list);
+        const tmp = arr[firstIndex];
+        arr[firstIndex] = arr[secondIndex];
+        arr[secondIndex] = tmp;
+
+        setList(arr);
+    }
+
     return(
         <motion.div
-            className="flex flex-col h-screen items-center pb-[84px]"
+            className="flex flex-col h-full"
             variants={variants}
             initial="initial"
             animate="animate"
@@ -95,7 +118,7 @@ export default function Priority() {
             {/* <h2 className='text-gray-100'>Sort your Characters, Weapons and Artifacts by priority! Highest priority available to farm will be displayed first</h2> */}
             
             {/* Content */}
-            <div className="w-[90%] h-[100px] flex-none flex flex-row items-center pl-5">
+            <div className="w-fit h-[100px] bg-[#393E46] rounded-t-xl flex-none flex flex-row items-center pl-5 mt-5 ml-[5%]">
                 <motion.button
                     className="w-[125px] h-[75px] text-black font-merri font-lg bg-green-400 rounded-lg drop-shadow-md" onClick={() => save()}
                     variants={buttons}
@@ -114,38 +137,58 @@ export default function Priority() {
                 </motion.button>
             </div>
 
-            <div className='w-[90%] bg-[#42413F] rounded-xl'>
-                <Reorder.Group className="h-full" axis='y' values={list} onReorder={setList}>
-                    {list.map((entry, index) => (
-                        <ReoItem key={entry["id"]} entry={entry} />
-                    ))}
-                </Reorder.Group>
+            <div className='w-[90%] h-[70%] bg-[#393E46] rounded-b-xl rounded-tr-xl drop-shadow-md items-center flex flex-col ml-[5%] p-5 overflow-auto'>
+                {list.map((item, index) => (
+                    <motion.div key={item["id"]}
+                        className="bg-[#00ADB5] w-full h-[70px] rounded-xl my-2 flex flex-row overflow-hidden drop-shadow-sm"
+                        variants={listItem}
+                        //whileHover="hover"
+                    >
+                        <div className="flex flex-col w-[50px] h-full">
+                            <div className='w-[50px] h-[35px]'>
+                                <button className="w-full h-full hover:bg-green-500" onClick={()=> (index > 0) ? swap(index, index-1) : null}>UP</button>
+                            </div>
+                            <div className='w-[50px] h-[35px]'>
+                                <button className="w-full h-full hover:bg-red-500" onClick={() => (index + 1 < list.length) ? swap(index, index+1) : null}>DOWN</button>
+                            </div>
+                        </div>
+                        <div className="flex flex-row w-full">
+                            <div className="h-full w-[400px] flex flex-row ml-2">
+                                <div className="w-[70px] h-[70px] overflow-hidden">
+                                    <img src={getAssetById(item["type"], item["id"], "icon")} width="70" height="70"/>
+                                </div>
+                                <div className="w-[330px] h-full flex items-center ml-2">
+                                    <div className="w-fit h-fit rounded-lg bg-[#1c6569] py-2 px-2">
+                                        <p className="w-fit text-left font-merri text-lg text-white select-text">{item["name"]}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {(item["type"] == "character") && <div className="minW:w-[165px] mdW:w-[400px] h-full select-none flex items-center">
+                                <motion.div className="bg-[#1c6569] minW:w-[60px] mdW:w-[187.5px] h-[60px] cursor-pointer rounded-lg" onClick={() => {swapListAtIndex(index, "boss")}} variants={buttons} whileHover="hover2">
+                                    <div className={`flex flex-row ${list[index]["boss"] == false ? 'grayscale' : 'grayscale-0'}`}>
+                                        <img src={getAssetById("bossMaterial", list[index]["bossId"], "icon")} width="60" height="60" />
+                                        <div className="mdW:flex minW:hidden h-[60px] items-center">
+                                            <p className={`text-white font-merri ${list[index]["boss"] == false ? 'line-through decoration-2 decoration-gray-400' : 'no-underline'}`}>BOSS</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                                <motion.div className="bg-[#1c6569] minW:w-[60px] mdW:w-[187.5px] h-[60px] ml-[25px] cursor-pointer rounded-lg" onClick={() => {swapListAtIndex(index, "talents")}} variants={buttons} whileHover="hover2">
+                                    <div className={`flex flex-row ${list[index]["talents"] == false ? 'grayscale' : 'grayscale-0'}`}>
+                                        <img src={getAssetById("material", list[index]["talentsId"], "icon")} width="60" height="60" />
+                                        <div className="mdW:flex minW:hidden h-[60px] items-center">
+                                            <p className={`text-white font-merri ${list[index]["talents"] == false ? 'line-through decoration-2 decoration-gray-400' : 'no-underline'}`}>TALENTS</p>
+                                        </div>
+                                    </div>
+                                    
+                                </motion.div>
+                            </div>}
+                            <div className="ml-auto w-[100px] h-full hover:bg-red-500">
+                                <button className="w-full h-full font-merri" onClick={() => remove(index)}>REMOVE</button>
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
             </div>
         </motion.div>
     );
 }
-
-{/*
-<div className="flex w-full h-[50px] bg-blue-500 mb-3 rounded-lg overflow-hidden">
-    <div className="cursor-move flex float-left w-[50px] h-full text-center items-center rounded-l-md bg-blue-500">
-        <p className="w-full text-lg font-bold text-black hover:text-gray-700 hover:opacity-50">☰</p>
-    </div>
-    <div className="w-[300px] h-full select-none flex">
-        {(item["type"] == "character") && <img className="flex-1" src={getAssetById("character", item["id"], "icon")} width="50" height="50"/>}
-        {(item["type"] == "weapon") && <img className="flex-1" src={getAssetById("weapon", item["id"], "icon")} width="50" height="50" />}
-        {(item["type"] == "artifact") && <img className="flex-1" src={getAssetById("artifact", item["id"], "icon")} width="50" height="50" />}
-        <p className="w-[250px] text-left">{item["name"]}</p>
-    </div>
-    {(item["type"] == "character") && <div className="w-[150px] h-full select-none flex">
-        <div className="bg-red-300 w-[50px] h-full rounded-full cursor-pointer" onClick={() => {swapListAtIndex(index, "boss")} }>
-            {(list[index]["boss"] != false) ? <p>BOSS</p> : <p>NO</p>}
-        </div>
-        <div className="bg-red-300 w-[50px] h-full ml-[25px] rounded-full cursor-pointer" onClick={() => {swapListAtIndex(index, "talents")} }>
-            {(list[index]["talents"] != false) ? <p>TALENT</p> : <p>NO</p>}
-        </div>
-    </div>}
-    <div className="bg-red-500 w-[100px] h-full ml-auto">
-        <button className="w-full h-full" onClick={() => remove(index)}>REMOVE</button>
-    </div>
-</div>
-*/}

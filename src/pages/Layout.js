@@ -8,10 +8,10 @@ export default function Layout({ children }) {
     const[isOpen, setIsOpen] = useState(false);
 
     return(
-        <div className="select-none">
+        <div className="select-none h-screen w-screen">
             <TopBar setOpen={setIsOpen}/>
             <div>
-                <NavDrop isOpen={isOpen} setIsOpen={setIsOpen} />
+                {/* <NavDrop isOpen={isOpen} setIsOpen={setIsOpen} /> */}
                 {children}
             </div>
         </div>

@@ -13,6 +13,21 @@ import Links from '../components/Navigation/Links';
 
 */
 
+/* Test Palette
+    Dark: #3C3C3C
+    Bittersweet: #FF5A5F
+    Teal: #087E8B
+    White Smoke: #F5F5F5
+    Puce: #C1839F
+*/
+
+/* Test 2
+    Dark: #222831
+    Brighter Dark: #393E46
+    Cyan: #00ADB5
+    Whiteish: #EEEEEE
+*/
+
 const variants = {
     initial: {
         opacity: 0,
@@ -55,10 +70,10 @@ export default function Home() {
             animate="animate"
         >
             {/* Content */}
-            <div className="w-full h-full flex flex-col justify-center items-center bg-[#333231] drop-shadow-sm">
+            <div className="w-full h-full flex flex-col justify-center items-center bg-[#222831] drop-shadow-sm">
                 <div className="w-[80%] h-[90%]">
                     <motion.button
-                        className="w-[81%] h-[15%] bg-[#3873AA] hover:bg-[#4686c2] ml-[9.5%] mt-[10%] rounded-xl font-merri text-white text-xl drop-shadow-md hover:drop-shadow-xl"
+                        className="w-[81%] h-[15%] bg-[#00ADB5] ml-[9.5%] mt-[10%] rounded-xl font-merri text-white text-xl drop-shadow-md hover:drop-shadow-xl"
                         whileHover="hover"
                         whileTap="tap"
                         variants={button}
@@ -66,7 +81,7 @@ export default function Home() {
                         Calendar
                     </motion.button>
                     <motion.button
-                        className="w-[39.5%] h-[15%] bg-[#3873AA] hover:bg-[#4686c2] rounded-xl ml-[9.5%] mt-[1%] font-merri text-white text-lg drop-shadow-md hover:drop-shadow-xl"
+                        className="w-[39.5%] h-[15%] bg-[#00ADB5] rounded-xl ml-[9.5%] mt-[1%] font-merri text-white text-lg drop-shadow-md hover:drop-shadow-xl"
                         whileHover="hover"
                         whileTap="tap"
                         variants={button}
@@ -74,16 +89,24 @@ export default function Home() {
                         Priority
                     </motion.button>
                     <motion.button
-                        className="w-[39.5%] h-[15%] bg-[#3873AA] hover:bg-[#4686c2] rounded-xl ml-[2%] mt-[1%] font-merri text-white text-lg drop-shadow-md hover:drop-shadow-xl"
+                        className="w-[39.5%] h-[15%] bg-[#00ADB5] rounded-xl ml-[2%] mt-[1%] font-merri text-white text-lg drop-shadow-md hover:drop-shadow-xl"
                         whileHover="hover"
                         whileTap="tap"
                         variants={button}
                         onClick={() => navigate("/add")}>
                         Add
                     </motion.button>
+                    <motion.button
+                        className="w-[81%] h-[15%] bg-[#00ADB5] ml-[9.5%] mt-[1%] rounded-xl font-merri text-white text-xl drop-shadow-md hover:drop-shadow-xl"
+                        whileHover="hover"
+                        whileTap="tap"
+                        variants={button}
+                        onClick={() => navigate("/settings")}>
+                        Settings
+                    </motion.button>
                     <Links />
                 </div>
-                <div className="w-full h-[10%] text-center bg-[#42413F]">
+                <div className="w-full h-[10%] text-center bg-[#393E46]">
                     <p className='text-white font-merri text-xs'>
                     DISCLAIMER© HoYoverse. All rights reserved. HoYoverse and Genshin Impact are trademarks, services marks, or registered trademarks of HoYoverse.</p>
                 </div>

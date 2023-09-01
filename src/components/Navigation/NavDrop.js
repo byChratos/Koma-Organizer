@@ -20,12 +20,12 @@ const variants = {
         }
     }
 }
-
+//TODO Double Click on Navdrop closes navbar
 export default function NavDrop({ isOpen }) {
     return(
         <AnimatePresence>
             <motion.div
-                className={"absolute w-full h-full bg-black bg-opacity-60 z-50"}
+                className={"absolute w-full h-full bg-black bg-opacity-60 z-30"}
                 variants={variants}
                 initial="closed"
                 animate={(isOpen) ? "open" : "closed"}

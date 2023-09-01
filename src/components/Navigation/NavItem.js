@@ -2,7 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-export default function NavItem({ name, link, isOpen, index, setPage }){
+export default function NavItem({ name, link, isOpen, index, setPage, active }){
 
     const variants = {
         open: {
@@ -18,13 +18,6 @@ export default function NavItem({ name, link, isOpen, index, setPage }){
             opacity: 0,
             transition: {
                 x: { stiffness: 1000 }
-            }
-        },
-        hover: {
-            scale: 1.1,
-            transition: {
-                type: "spring",
-                duration: 0.3
             }
         },
         tap: {
@@ -50,11 +43,10 @@ export default function NavItem({ name, link, isOpen, index, setPage }){
             <motion.li
                 className="h-[75px] w-[150px] mx-2 mt-1" onClick={() => nav()}
                 variants={variants}
-                whileHover="hover"
                 whileTap="tap"
                 animate={isOpen ? "open" : "closed"}
             >
-                <motion.button className="w-full h-full font-merri bg-[#3943B7] rounded-lg text-white drop-shadow-md"> {name} </motion.button>
+                <motion.button className={`w-full h-full font-merri hover:bg-[#1c6569] text-white rounded-lg drop-shadow-md ${active ? 'text-xl' : 'text-md no-underline'}`}> {name} </motion.button>
             </motion.li>
         </AnimatePresence>
     );

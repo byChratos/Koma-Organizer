@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import NavItem from "./NavItem";
+import NavSeparator from "./NavSeparator";
 import Settings from "./Settings";
 
 const variants = {
@@ -23,23 +24,26 @@ const variants = {
     }
 }
 
-export default function Navbar({ isOpen, setPage }) {
+export default function Navbar({ isOpen, setPage, activePage }) {
 
     const pages = [{ name: "Home", link: "/"}, { name: "Calendar", link: "/calendar" }, { name: "Add", link: "/add"}, { name: "Priority", link: "/priority" }]
 
     return(
         <motion.nav
-            className="absolute w-full h-full bg-[#3873AA] top-0 left-0 z-10 flex flex-row"
+            className="absolute w-full h-full bg-[#00ADB5] top-0 left-0 z-10 flex flex-row"
             initial="closed"
             animate={isOpen ? "open" : "closed"}
             variants={variants}
         >
             <motion.ul className="flex flex-row h-full w-full ml-[82px]">
                 {pages.map((page, index) => (
-                    <NavItem key={page["name"]} name={page["name"]} link={page["link"]} isOpen={isOpen} index={index} setPage={setPage} />
+                    <React.Fragment key={page["name"]}>
+                        {index != 0 ? <NavSeparator key={"sep " + index} isOpen={isOpen} index={index} /> : null}
+                        <NavItem key={page["name"]} name={page["name"]} link={page["link"]} isOpen={isOpen} index={index} setPage={setPage} active={page["name"] == activePage}/>
+                    </React.Fragment>
                 ))}
             </motion.ul>
-            <Settings isOpen={isOpen} />
+            <Settings isOpen={isOpen} setPage={setPage} />
         </motion.nav>
     );
 }

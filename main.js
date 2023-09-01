@@ -29,7 +29,7 @@ function createWindow() {
         backgroundColor: "white",
         webPreferences: {
             preload: path.join(__dirname, "preload.js"),
-            nodeIntegration: true,
+            nodeIntegration: false,
             nodeIntegrationInWorker: true,
             worldSafeExecuteJavaScript: true,
             contextIsolation: true
@@ -41,9 +41,9 @@ function createWindow() {
 
 }
 
-/*require('electron-reload')(__dirname, {
+require('electron-reload')(__dirname, {
     electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
-})*/
+})
 
 app.whenReady().then(() => {
     createWindow();

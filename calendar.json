@@ -39,5 +39,11 @@
     "bossId": 113012,
     "talents": true,
     "talentsId": 104301
+  },
+  {
+    "name": "Scion of the Blazing Sun",
+    "id": 15424,
+    "type": "weapon",
+    "material": 114046
   }
 ]

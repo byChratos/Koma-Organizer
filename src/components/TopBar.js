@@ -10,12 +10,12 @@ export default function TopBar({ setOpen }) {
     const[page, setPage] = useState("Home");
 
     return(
-        <div className='w-full flex-none text-center p-2 bg-[#42413F] drop-shadow-md'>
+        <div className='w-full flex-none text-center p-2 bg-[#393E46] drop-shadow-md'>
             <h1 className="text-white font-merri text-4xl">{page}</h1>
             <p className="text-white font-merri text-xl">Organize or smth</p>
 
             <NavToggle toggle={setIsOpen} isOpen={isOpen} setOpen={setOpen}/>
-            <Navbar isOpen={isOpen} setPage={setPage}/>
+            <Navbar isOpen={isOpen} setPage={setPage} activePage={page} />
         </div>
     );
 }
