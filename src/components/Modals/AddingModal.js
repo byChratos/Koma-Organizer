@@ -1,35 +1,27 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import SearchBarCharacter from '../Character/CharacterSearch';
 import CharacterList from '../Character/CharacterList';
-
-import SearchBarWeapon from '../Weapon/WeaponSearch';
 import WeaponList from '../Weapon/WeaponList';
-
-import SearchBarArtifact from '../Artifacts/ArtifactSearch';
 import ArtifactList from '../Artifacts/ArtifactList';
-
 import Backdrop from './Backdrop';
+import SearchBar from './ModalComponents/SearchBar';
 
 
 const dropIn = {
     hidden: {
-        y: "-100vh",
+        scale: 0,
         opacity: 0,
     },
     visible: {
-        y: "0",
+        scale: 1,
         opacity: 1,
         transition: {
-            duration: 0.1,
-            type: "spring",
-            damping: 25,
-            stiffness: 500,
+            duration: 0.3,
         },
     },
     exit: {
-        y: "100vh",
+        scale: 0,
         opacity: 0,
     },
 };
@@ -50,18 +42,16 @@ export default function AddingModal({ modalOpen, handleSelection, type, setModal
             <Backdrop handleClick={ modalOpen } setModalType={ setModalType }>
                 <motion.div
                     onClick={(e) => e.stopPropagation()}
-                    className='bg-gray-800 w-[80%] h-[75%] rounded-[20px] overflow-hidden'
+                    className='bg-[#393E46] w-[80%] h-[75%] mt-[84px] rounded-xl overflow-hidden'
                     variants={dropIn}
                     initial="hidden"
                     animate="visible"
                     exit="exit"
                 >
                     {/* Heading - (Search Bar + Close Button) */}
-                    <div className='bg-[#333333] rounded-t-[20px] w-full h-[15%] inline-block'>
-                        { (type === "character") && <SearchBarCharacter handleInput={ handleSearchText }/>}
-                        { (type === "weapon") && <SearchBarWeapon handleInput={ handleSearchText }/>}
-                        { (type === "artifact") && <SearchBarArtifact handleInput={ handleSearchText }/>}
-                        <button className="bg-red-500 hover:bg-[#ff4e4e] h-[50px] w-[6%] rounded-[20px] mt-[1%] mx-[1%] float-right" onClick={() => {close()}}>Close</button>
+                    <div className='bg-[#222831] w-full h-[15%] inline-block'>
+                        <SearchBar handleInput={ handleSearchText } type={type} />
+                        <button className="bg-red-500 hover:bg-[#ff4e4e] h-[50px] w-[100px] rounded-xl mt-[1%] mx-[1%] float-right font-merri text-lg text-black" onClick={() => {close()}}>Close</button>
                     </div>
 
                     {/* Content - (List of items) */}

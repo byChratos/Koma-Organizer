@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-//const { shell } = window.require("electron");
 
 
 const variants = {
@@ -16,9 +15,9 @@ const variants = {
 
 export default function Links() {
 
-    /*function openLinkInBrowser(url) {
-        shell.openExternal(url);
-    };*/
+    async function openLinkInBrowser(url) {
+        await window.api.openToBrowser(url);
+    };
 
     return(
         <motion.div className="float-right h-[100px] w-full flex flex-row items-center justify-center">

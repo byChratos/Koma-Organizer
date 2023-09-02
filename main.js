@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, Notification } = require('electron');
+const { app, BrowserWindow, ipcMain, Notification, shell } = require('electron');
 const path = require('path');
 var fs = require('fs');
 const Store = require("electron-store");
@@ -99,6 +99,10 @@ ipcMain.handle('storeList', (event, list) => {
     store.set("calendarList", list);
 });
 
+ipcMain.handle('openToBrowser', (event, url) => {
+    shell.openExternal(url);
+})
+
 ipcMain.on('notify', (_, message) => {
     new Notification({title: 'Notification', body: message}).show();
 })
@@ -127,139 +131,78 @@ function isDuplicate(name, data){
     return false;
 }
 
-ipcMain.handle('saveToFile', (event, args) => {
-    try{
+ipcMain.handle('saveSelection', (event, args) => {
+    const name = args.name;
+    const type = args.type;
 
-        let selectedArtifact = args.selectedArtifact;
-        let selectedCharacter = args.selectedCharacter;
-        let selectedWeapon = args.selectedWeapon;
+    const filePath = path.resolve(__dirname, "calendar.json");
 
-        const filePath = path.resolve(__dirname, "calendar.json")
-
-        //* If calendar.json doesnt exist - create and paste content in
-        checkIfFileExists(filePath, (exists) => {
-            if(exists){
-
-                //*First load the old file data
-                fs.readFile(filePath, (err, rawdata) => {
-                    if(err){
-                        console.error(err);
-                        return;
-                    }
-                    const data = JSON.parse(rawdata);
-
-                    //*Add stuff
-                    if((selectedArtifact != null) && !isDuplicate(selectedArtifact, data)){
-
-                        var id = getArtifactIdByName(selectedArtifact);
-
-                        var newArtifact = {
-                            name: selectedArtifact,
-                            id: id,
-                            type: "artifact",
-                        }
-                        data.push(newArtifact);
-                    }
-                    if((selectedCharacter != null) && !isDuplicate(selectedCharacter, data)){
-                        
-                        var id = getCharIdByName(selectedCharacter);
-                        var materials = getCharacterMaterials(id);
-
-                        var newCharacter = {
-                            name: selectedCharacter,
-                            id: id,
-                            type: "character",
-                            boss: true,
-                            bossId: materials["boss"],
-                            talents: true,
-                            talentsId: materials["talent"],
-                        }
-                        data.push(newCharacter);
-                    }
-                    if((selectedWeapon != null) && !isDuplicate(selectedWeapon, data)){
-
-                        var id = getWeaponIdByName(selectedWeapon);
-                        var material = getWeaponMaterial(id);
-
-                        var newWeapon = {
-                            name: selectedWeapon,
-                            id: id,
-                            type: "weapon",
-                            material: material,
-                        }
-                        data.push(newWeapon);
-                    }
-
-                    //TODO Callback that an Element was a duplicate
-
-                    //* Save stuff
-                    var jsonString = JSON.stringify(data, null, 2);
-                    fs.writeFile(filePath, jsonString, (error) => {
-                        if(error){
-                            console.error(error);
-                            throw error;
-                        }
-                    });
-                    store.set("calendarList", data);
-                    return true;
-                })
-
-            }else{
-                let newData = []
-                if(selectedArtifact != null){
-
-                    var id = getArtifactIdByName(selectedArtifact);
-
-                    var newArtifact = {
-                        name: selectedArtifact,
-                        id: id,
-                        type: "artifact",
-                    }
-                    newData.push(newArtifact);
+    checkIfFileExists(filePath, (exists) => {
+        if(!exists){
+            var jsonString = JSON.stringify([], null, 2);
+            fs.writeFile(filePath, jsonString, (error) => {
+                if(error){
+                    console.error(error);
+                    return false;
                 }
-                if(selectedCharacter != null){
+            });
+        }
 
-                    var id = getCharIdByName(selectedCharacter);
+        fs.readFile(filePath, (err, rawdata) => {
+            if(err){
+                console.error(err);
+                return;
+            }
+            const data = JSON.parse(rawdata);
+
+            if(!isDuplicate(name, data)){
+                if(type == "character"){
+                    var id = getCharIdByName(name);
                     var materials = getCharacterMaterials(id);
 
-                    var newCharacter = {
-                        name: selectedCharacter,
+                    data.push({
+                        name: name,
                         id: id,
                         type: "character",
                         boss: true,
                         bossId: materials["boss"],
                         talents: true,
                         talentsId: materials["talent"],
-                    }
-                    newData.push(newCharacter);
-                }
-                if(selectedWeapon != null){
+                    });
 
-                    var id = getWeaponIdByName(selectedWeapon);
+                }else if(type == "weapon"){
+                    var id = getWeaponIdByName(name);
                     var material = getWeaponMaterial(id);
 
-                    var newWeapon = {
-                        name: selectedWeapon,
+                    data.push({
+                        name: name,
                         id: id,
                         type: "weapon",
                         material: material,
-                    }
-                    newData.push(newWeapon);
+                    });
+                }else{
+                    var id = getArtifactIdByName(name);
+                    
+                    data.push({
+                        name: name,
+                        id: id,
+                        type: "artifact",
+                    });
                 }
-
-                var jsonString = JSON.stringify(newData, null, 2);
-                fs.writeFile(filePath, jsonString, (error) => {
-                    if(error){
-                        console.error(error);
-                        return false;
-                    }
-                });
-                store.set("calendarList", newData);
-                return true;
             }
+            
+            var jsonString = JSON.stringify(data, null, 2);
+            fs.writeFile(filePath, jsonString, (error) => {
+                if(error){
+                    console.error(error);
+                    return false;
+                }
+            });
+
+            store.set("calendarList", data);
+            return true;
         })
-    }catch(error){
-        console.error(error);
-        return false;
-    }
+
+
+    })
 })

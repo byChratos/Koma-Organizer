@@ -10,7 +10,7 @@ export default function Layout({ children }) {
     return(
         <div className="select-none h-screen w-screen">
             <TopBar setOpen={setIsOpen}/>
-            <div>
+            <div className="w-full h-full">
                 {/* <NavDrop isOpen={isOpen} setIsOpen={setIsOpen} /> */}
                 {children}
             </div>

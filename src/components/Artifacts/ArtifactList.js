@@ -15,9 +15,17 @@ export default function ArtifactList({ input, handleClick }) {
     })
 
     return (
-        <ul className='w-full h-full list-none rounded-[20px]'>
-            {filteredData.map((item) => (
-                <button key={item.id} className="bg-gray-400 w-full text-left flex rounded-l-lg my-2 ml-1 overflow-hidden" onClick={() => { handleClick(item.name) }}> <GenshinImage objectKey={item.key} objectType="artifact" imageType="icon" width="50" height="50"/> <li className='text-white w-full h-[50px] ml-[30px]' key={item.id}>{item.name}</li> </button>
+        <ul className='w-full h-full list-none px-2'>
+            {filteredData.reverse().map((item) => (
+                <button key={item.id}
+                    className="bg-[#222831] hover:bg-[#00ADB5] w-full h-[50px] text-left flex flex-row rounded-lg my-2 overflow-hidden drop-shadow-md items-center"
+                    onClick={() => { handleClick(item.name, "artifact") }}
+                >
+                    <GenshinImage objectKey={item.key} objectType="artifact" imageType="icon" width="50" height="50"/>
+                    <p className="text-white font-merri text-lg">
+                        {item.name}
+                    </p>
+                </button>
             ))}
         </ul>
     )

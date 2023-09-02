@@ -14,6 +14,12 @@
     "type": "artifact"
   },
   {
+    "name": "Scion of the Blazing Sun",
+    "id": 15424,
+    "type": "weapon",
+    "material": 114046
+  },
+  {
     "name": "Faruzan",
     "id": 10000076,
     "type": "character",
@@ -23,15 +29,6 @@
     "talentsId": 104329
   },
   {
-    "name": "Thoma",
-    "id": 10000050,
-    "type": "character",
-    "boss": true,
-    "bossId": 113024,
-    "talents": true,
-    "talentsId": 104320
-  },
-  {
     "name": "Barbara",
     "id": 10000014,
     "type": "character",
@@ -39,11 +36,5 @@
     "bossId": 113012,
     "talents": true,
     "talentsId": 104301
-  },
-  {
-    "name": "Scion of the Blazing Sun",
-    "id": 15424,
-    "type": "weapon",
-    "material": 114046
   }
 ]

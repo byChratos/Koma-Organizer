@@ -7,6 +7,24 @@
     src: url("./mws.ttf");
 }
 
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background:  #00ADB5;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1c6569;
+}
+
 * {
     margin: 0;
     padding: 0;

@@ -11,5 +11,7 @@ contextBridge.exposeInMainWorld('api', {
     saveList: (args) => ipcRenderer.invoke('saveList', args),
     storeList: (list) => ipcRenderer.invoke('storeList', list),
 
-    saveToFile: (args) => ipcRenderer.invoke('saveToFile', args),
+    saveSelection: (args) => ipcRenderer.invoke('saveSelection', args),
+
+    openToBrowser: (args) => ipcRenderer.invoke('openToBrowser', args),
 })
