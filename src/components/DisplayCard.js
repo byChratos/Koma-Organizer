@@ -15,14 +15,11 @@ export default function DisplayCard({name, type}) {
     }
 
     let imgType = "icon";
-    if(type == "character") imgType = "splash";
 
 
     return(
-        <div className="w-[400px] h-fit rounded-xl flex flex-col items-center justify-center">
-            <div className="w-[400px] h-[300px] overflow-hidden">
-                <img className="object-cover absolute top-0 left-0 w-full h-full z-10" src={getAssetById(type, id, imgType)} width="1000" height="1000"/>
-            </div>
+        <div className="minW:w-[300px] minW:h-[300px] mdW:w-[400px] mdW:h-[400px] rounded-xl flex flex-col items-center justify-center bg-[#222831]">
+            <img className="" src={getAssetById(type, id, imgType)} width="400" height="400"/>
         </div>
     );
 }

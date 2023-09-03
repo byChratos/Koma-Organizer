@@ -226,7 +226,7 @@ export default function Priority() {
                                 </motion.div>
                             </div>}
                             <div className="ml-auto w-[100px] h-full hover:bg-red-500">
-                                <button className="w-full h-full font-merri" onClick={() => {remove(index); setChanges(true)}}>REMOVE</button>
+                                <button className="w-full h-full font-merri text-white hover:text-black" onClick={() => {remove(index); setChanges(true)}}>REMOVE</button>
                             </div>
                         </div>
                     </motion.div>

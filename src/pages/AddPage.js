@@ -74,15 +74,15 @@ export default function AddPage(){
             animate="animate"
         >
             {/* Card */}
-            <div className="w-[500px] minW:h-[500px] minW:mt-[10px] mdW:h-[700px] mdW:mt-[50px] rounded-xl bg-[#393E46] drop-shadow-lg flex flex-col overflow-hidden">
-                <div className="w-full h-[75px] flex items-center justify-center z-20">
-                    <h1 className={`font-merri text-white text-lg text-center w-fit rounded-xl p-2 ${selectedEntity ? 'bg-[#00ADB5]' : null}`}>Add to Calendar</h1>
+            <div className="w-[500px] minW:h-[550px] minW:mt-[10px] mdW:h-[700px] mdW:mt-[50px] rounded-xl bg-[#393E46] drop-shadow-lg flex flex-col overflow-hidden">
+                <div className="w-full minW:h-[50px] mdW:h-[75px] flex items-center justify-center z-20">
+                    <h1 className="font-merri text-white text-lg text-center w-fit rounded-xl p-2">Add to Calendar</h1>
                 </div>
-                <div className="w-full h-full flex items-center justify-center">
+                <div className="w-full h-full flex flex-col items-center justify-center">
                     {(selectedEntity) ?
                         <>
-                            <DisplayInfo name={selectedEntity} add={add} remove={remove}/>
                             <DisplayCard name={selectedEntity} type={selectedEntityType}/>
+                            <DisplayInfo name={selectedEntity} add={add} remove={remove}/>
                         </>
                     :
                         <AddingButtons setModalOpen={setModalOpen} setModalType={setModalType}/>
