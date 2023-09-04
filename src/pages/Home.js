@@ -58,6 +58,8 @@ const button = {
     },
 }
 
+//TODO POPUP ULTRA KRASS MIT SO ERSTER DES MONATS SHOP REMINDER oder so
+
 export default function Home() {
 
     const navigate = useNavigate();

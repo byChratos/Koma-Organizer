@@ -9,15 +9,15 @@
     "talentsId": 104316
   },
   {
-    "name": "Marechaussee Hunter",
-    "id": 15031,
-    "type": "artifact"
-  },
-  {
     "name": "Scion of the Blazing Sun",
     "id": 15424,
     "type": "weapon",
     "material": 114046
+  },
+  {
+    "name": "Marechaussee Hunter",
+    "id": 15031,
+    "type": "artifact"
   },
   {
     "name": "Faruzan",
@@ -36,5 +36,59 @@
     "bossId": 113012,
     "talents": true,
     "talentsId": 104301
+  },
+  {
+    "name": "Lisa",
+    "id": 10000006,
+    "type": "character",
+    "boss": true,
+    "bossId": 113002,
+    "talents": true,
+    "talentsId": 104307
+  },
+  {
+    "name": "Venti",
+    "id": 10000022,
+    "type": "character",
+    "boss": true,
+    "bossId": 113001,
+    "talents": true,
+    "talentsId": 104307
+  },
+  {
+    "name": "Noelle",
+    "id": 10000034,
+    "type": "character",
+    "boss": true,
+    "bossId": 113009,
+    "talents": true,
+    "talentsId": 104304
+  },
+  {
+    "name": "Ganyu",
+    "id": 10000037,
+    "type": "character",
+    "boss": true,
+    "bossId": 113010,
+    "talents": true,
+    "talentsId": 104313
+  },
+  {
+    "name": "Yoimiya",
+    "id": 10000049,
+    "type": "character",
+    "boss": true,
+    "bossId": 113024,
+    "talents": true,
+    "talentsId": 104320
+  },
+  {
+    "name": "Gorou",
+    "id": 10000055,
+    "type": "character",
+    "boss": true,
+    "bossId": 113023,
+    "talents": true,
+    "talentsId": 104326
   }
 ]

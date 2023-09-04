@@ -1,7 +1,28 @@
-import React from "react";
-import { twMerge } from "tailwind-merge";
+import React, { useState } from "react";
+import { motion, useMotionValue, useAnimation } from "framer-motion";
 
-export default function Day({ dayName, className, handleButton, setDay }) {
+export default function Day({ primary, dayName, handleButton, setDay }) {
+
+    const buttons = {
+        initial: {
+            scale: 1,
+        },
+        hover: {
+            scale: 1.1,
+            transition: {
+                duration: 0.2,
+            }
+        },
+        tap: {
+            scale: 0.9,
+            transition: {
+                type: "spring",
+                stiffness: 200,
+                damping: 15,
+                duration: 0.1,
+            }
+        }
+    }
 
     function openModal() {
         handleButton(true);
@@ -9,10 +30,15 @@ export default function Day({ dayName, className, handleButton, setDay }) {
     }
 
     return(
-        <button className={twMerge("cursor-pointer h-24 w-20 inline-block relative", className)} onClick={() => { openModal() }}>
-            <div className={twMerge("relative bg-orange-500 inline-block h-24 w-20 ", className)}>
-                <p className="text-black text-center"> { dayName } </p>
-            </div>
-        </button>
+        <motion.button 
+            className={`rounded-xl drop-shadow-lg ${primary ? 'bg-[#00ADB5] w-[55%] h-[60%]' : 'bg-[#1c6569] w-[40%] h-[70%]'}`}
+            onClick={() => { openModal() }}
+            variants={buttons}
+            initial="initial"
+            whileHover="hover"
+            whileTap="tap"
+        >
+            <h1 className="text-white text-xl font-merri"> {dayName} </h1>
+        </motion.button>
     );
 }

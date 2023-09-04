@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import Day from "../components/Day";
 import DayInformationModal from '../components/Modals/DayInformationModal';
@@ -31,16 +31,13 @@ const variants = {
 export default function Calendar() {
 
     const[modalOpen, setModalOpen] = useState(false);
-    const setModal = (val) => {
-        setModalOpen(val);
-    }
-
     const[modalDay, setModalDay] = useState(null);
-    const setDay = (day) => {
-        setModalDay(day);
-    }
 
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+    //TODO Automatically get current active day on selected Server
+    let sortedDays = [];
+    sortedDays = days;
 
     return(
         <motion.div
@@ -49,27 +46,37 @@ export default function Calendar() {
             initial="initial"
             animate="animate"
         >
-            {/* Content */}
-            <div className="w-full h-full flex flex-col justify-center items-center bg-[#333231]">
+            <AnimatePresence>
+                {modalOpen ? <DayInformationModal modalOpen={setModalOpen} setModalType={setModalDay} day={modalDay} /> : null}
+            </AnimatePresence>
 
-                <Day dayName="Monday" className="justify-self-center self-center top-0 left-0" handleButton={setModal} setDay={setDay} />
-
-                <Day dayName="Tuesday" className="justify-self-center self-center" handleButton={setModal} setDay={setDay} />
-
-                <Day dayName="Wednesday" className="justify-self-center self-center" handleButton={setModal} setDay={setDay} />
-
-                <Day dayName="Thursday" className="justify-self-center self-center" handleButton={setModal} setDay={setDay} />
-
-                <Day dayName="Friday" className="justify-self-center self-center" handleButton={setModal} setDay={setDay} />
-
-                <Day dayName="Saturday" className="justify-self-center self-center" handleButton={setModal} setDay={setDay} />
-
-                <Day dayName="Sunday" className="justify-self-center self-center" handleButton={setModal} setDay={setDay} />
-
-
+            <div className="w-full h-full pb-[84px] flex flex-row">
+                <div className="h-full w-[33%] flex flex-col">
+                    <div className="w-full h-full flex items-center justify-center">
+                        <Day primary={false} dayName={sortedDays[1]} handleButton={setModalOpen} setDay={setModalDay} />
+                    </div>
+                    <div className="w-full h-full flex items-center justify-center">
+                        <Day primary={false} dayName={sortedDays[2]} handleButton={setModalOpen} setDay={setModalDay} />
+                    </div>
+                    <div className="w-full h-full flex items-center justify-center">
+                        <Day primary={false} dayName={sortedDays[3]} handleButton={setModalOpen} setDay={setModalDay} />
+                    </div>
+                </div>
+                <div className="h-full w-[34%] flex items-center justify-center">
+                    <Day primary={true} dayName={sortedDays[0]} handleButton={setModalOpen} setDay={setModalDay} />
+                </div>
+                <div className="h-full w-[33%] flex flex-col">
+                    <div className="w-full h-full flex items-center justify-center">
+                        <Day primary={false} dayName={sortedDays[4]} handleButton={setModalOpen} setDay={setModalDay} />
+                    </div>
+                    <div className="w-full h-full flex items-center justify-center">
+                        <Day primary={false} dayName={sortedDays[5]} handleButton={setModalOpen} setDay={setModalDay} />
+                    </div>
+                    <div className="w-full h-full flex items-center justify-center">
+                        <Day primary={false} dayName={sortedDays[6]} handleButton={setModalOpen} setDay={setModalDay} />
+                    </div>
+                </div>
             </div>
-            
-            {modalOpen ? <DayInformationModal modalOpen={setModal} setModalType={setDay} day={modalDay} /> : null}
 
         </motion.div>
     )

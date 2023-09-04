@@ -26,6 +26,21 @@ const dropIn = {
     },
 };
 
+const buttons = {
+    initial: {
+        scale: 1,
+    },
+    hover: {
+        scale: 1.15,
+        transition: {
+            duration: 0.2,
+        }
+    },
+    tap: {
+        scale: 0.95,
+    }
+}
+
 export default function AddingModal({ modalOpen, handleSelection, type, setModalType }) {
 
         const [searchText, setSearchText] = useState(null);
@@ -49,9 +64,16 @@ export default function AddingModal({ modalOpen, handleSelection, type, setModal
                     exit="exit"
                 >
                     {/* Heading - (Search Bar + Close Button) */}
-                    <div className='bg-[#222831] w-full h-[15%] inline-block'>
+                    <div className='bg-[#222831] w-full h-[15%] inline-block drop-shadow-md'>
                         <SearchBar handleInput={ handleSearchText } type={type} />
-                        <button className="bg-red-500 hover:bg-[#ff4e4e] h-[50px] w-[100px] rounded-xl mt-[1%] mx-[1%] float-right font-merri text-lg text-black" onClick={() => {close()}}>Close</button>
+                        <motion.button 
+                            className="bg-red-500 h-[50px] w-[100px] rounded-xl mt-[1%] mx-[1%] float-right font-merri text-lg text-black"
+                            onClick={() => {close()}}
+                            variants={buttons}
+                            initial="initial"
+                            whileHover="hover"
+                            whileTap="tap"
+                        >Close</motion.button>
                     </div>
 
                     {/* Content - (List of items) */}

@@ -1,8 +1,45 @@
 import React, { useState } from "react";
-import { twMerge } from "tailwind-merge";
+import { AnimatePresence, motion } from "framer-motion";
 import FarmableMaterial from "../ModalComponents/FarmableMaterial";
+import DrowDown from "./DropDown";
 
 export default function CharList({ className, char }) {
+
+    const variants = {
+        initial: {
+            height: "50px",
+        },
+        open: {
+            height: "200px",
+            transition: {
+                duration: 0.2,
+            }
+        },
+        oneOpen: {
+            height: "129px",
+            transition: {
+                duration: 0.2,
+            }
+        }
+    }
+
+    const liItems = {
+        closed: {
+            height: "0px",
+        },
+        open: {
+            height: "150px",
+            transition: {
+                duration: 0.2,
+            }
+        },
+        oneOpen: {
+            height: "79px",
+            transition: {
+                duration: 0.2
+            }
+        }
+    }
 
     const[isOpen, setIsOpen] = useState(false);
     let talentStyle, bossStyle = "";
@@ -18,20 +55,41 @@ export default function CharList({ className, char }) {
         setIsOpen(!isOpen);
     }
 
+    const oneOpen = (char["talentId"] != false) && (char["bossId"] != false);
+
     return(
-        <button className={(isOpen) ? twMerge("bg-blue-400 hover:bg-blue-500 w-[95%] h-[200px]", className) : twMerge("bg-blue-400 hover:bg-blue-500 w-[95%] h-[50px] overflow-hidden", className)} onClick={() => handleClick()}>
-            <div className="w-full h-full flex flex-col">
-                {/* Header */}
-                <div className="w-full h-[50px] flex-1">
-                    <img className="object-cover inline-block float-left" src={char["charUrl"]} width="50" height="50"/>
-                    <h1 className="text-black flaot-left"> {char["charName"]} </h1>
-                </div>
-                {/* Body */}
-                {(isOpen) && <div className="w-full h-[150px] p-[3%] bg-red-100 rounded-b-md grid grid-rows-2 grid-cols-1 gap-3">
-                    {(char["talentId"] != false) && <FarmableMaterial className={talentStyle} type="talent" materialImgUrl={char["talentUrl"]} materialId={char["talentId"]} />}
-                    {(char["bossId"] != false) && <FarmableMaterial className={bossStyle} type="boss" materialImgUrl={char["bossUrl"]} materialId={char["bossId"]} />}
-                </div>}
+        <motion.div
+            className="h-auto w-[95%] bg-[#1c6569] my-[6px] rounded-xl flex flex-col overflow-hidden"
+            variants={variants}
+            animate={isOpen ? `${oneOpen ? "open" : "oneOpen"}` : "initial"}
+        >
+            <div className={`w-full h-[50px] flex flex-row items-center transition-colors ease-in-out ${isOpen ? 'bg-[#00ADB5]' : 'bg-[#1c6569]'}`}>
+                <img src={char["charUrl"]} width="50" height="50"/>
+                <h1 className="font-merri text-white text-md ml-2">{char["charName"]}</h1>
+                <button className="ml-auto mr-2" onClick={() => handleClick()}>
+                    <DrowDown
+                        width="50" height="50"
+                        isOpen={isOpen}
+                        color="#ffffff"
+                        strokeWidth="4"
+                        lineProps={{ strokeLinecap: "round" }}
+                        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                    />
+                </button>
             </div>
-        </button>
+            <AnimatePresence>
+                {(isOpen) && 
+                <motion.div 
+                    className={`w-full h-fit bg-[#1c6569] p-2 flex flex-col`}
+                    variants={liItems}
+                    initial="closed"
+                    animate={oneOpen ? "open" : "oneOpen"}
+                    exit="closed"
+                >
+                    {(char["talentId"] != false) && <FarmableMaterial className={talentStyle} type="talent" materialImgUrl={char["talentUrl"]} materialId={char["talentId"]} other={char["bossId"]}/>}
+                    {(char["bossId"] != false) && <FarmableMaterial className={bossStyle} type="boss" materialImgUrl={char["bossUrl"]} materialId={char["bossId"]} other={char["talentId"]} bottom={true}/>}
+                </motion.div>}
+            </AnimatePresence>
+        </motion.div>
     );
 }
