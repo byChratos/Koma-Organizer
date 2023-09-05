@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import FarmableMaterial from "../ModalComponents/FarmableMaterial";
 import DrowDown from "./DropDown";
 
-export default function CharList({ className, char }) {
+export default function CharList({ char }) {
 
     const variants = {
         initial: {
@@ -42,15 +42,7 @@ export default function CharList({ className, char }) {
     }
 
     const[isOpen, setIsOpen] = useState(false);
-    let talentStyle, bossStyle = "";
-
-    if(char["bossId"] == false){
-        talentStyle = "row-start-1 row-span-2 col-start-1"
-    }else if(char["talentId"] == false){
-        bossStyle = "row-start-1 row-span-2 col-start-1"
-    }
-
-
+    
     function handleClick() {
         setIsOpen(!isOpen);
     }
@@ -65,10 +57,10 @@ export default function CharList({ className, char }) {
         >
             <div className={`w-full h-[50px] flex flex-row items-center transition-colors ease-in-out ${isOpen ? 'bg-[#00ADB5]' : 'bg-[#1c6569]'}`}>
                 <img src={char["charUrl"]} width="50" height="50"/>
-                <h1 className="font-merri text-white text-md ml-2">{char["charName"]}</h1>
-                <button className="ml-auto mr-2" onClick={() => handleClick()}>
+                <h1 className={`font-merri text-white text-md ml-2 p-2 selection:bg-[#393E46] ${isOpen ? 'hover:bg-[#1c6569]' : 'hover:bg-[#00ADB5]'} rounded-xl select-text`}>{char["charName"]}</h1>
+                <button className={`ml-auto mr-2 ${isOpen ? 'hover:bg-[#1c6569]' : 'hover:bg-[#00ADB5]'} rounded-xl`} onClick={() => handleClick()}>
                     <DrowDown
-                        width="50" height="50"
+                        width="40" height="40"
                         isOpen={isOpen}
                         color="#ffffff"
                         strokeWidth="4"
@@ -86,8 +78,8 @@ export default function CharList({ className, char }) {
                     animate={oneOpen ? "open" : "oneOpen"}
                     exit="closed"
                 >
-                    {(char["talentId"] != false) && <FarmableMaterial className={talentStyle} type="talent" materialImgUrl={char["talentUrl"]} materialId={char["talentId"]} other={char["bossId"]}/>}
-                    {(char["bossId"] != false) && <FarmableMaterial className={bossStyle} type="boss" materialImgUrl={char["bossUrl"]} materialId={char["bossId"]} other={char["talentId"]} bottom={true}/>}
+                    {(char["talentId"] != false) && <FarmableMaterial type="talent" materialImgUrl={char["talentUrl"]} materialId={char["talentId"]} other={char["bossId"]}/>}
+                    {(char["bossId"] != false) && <FarmableMaterial type="boss" materialImgUrl={char["bossUrl"]} materialId={char["bossId"]} other={char["talentId"]} bottom={true}/>}
                 </motion.div>}
             </AnimatePresence>
         </motion.div>

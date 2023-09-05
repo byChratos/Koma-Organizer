@@ -1,12 +1,17 @@
 [
   {
-    "name": "Baizhu",
-    "id": 10000082,
+    "name": "Marechaussee Hunter",
+    "id": 15031,
+    "type": "artifact"
+  },
+  {
+    "name": "Mona",
+    "id": 10000041,
     "type": "character",
     "boss": true,
-    "bossId": 113045,
+    "bossId": 113012,
     "talents": true,
-    "talentsId": 104316
+    "talentsId": 104304
   },
   {
     "name": "Scion of the Blazing Sun",
@@ -15,9 +20,13 @@
     "material": 114046
   },
   {
-    "name": "Marechaussee Hunter",
-    "id": 15031,
-    "type": "artifact"
+    "name": "Baizhu",
+    "id": 10000082,
+    "type": "character",
+    "boss": true,
+    "bossId": 113045,
+    "talents": true,
+    "talentsId": 104316
   },
   {
     "name": "Faruzan",
@@ -38,57 +47,32 @@
     "talentsId": 104301
   },
   {
-    "name": "Lisa",
-    "id": 10000006,
-    "type": "character",
-    "boss": true,
-    "bossId": 113002,
-    "talents": true,
-    "talentsId": 104307
-  },
-  {
-    "name": "Venti",
-    "id": 10000022,
+    "name": "Sucrose",
+    "id": 10000043,
     "type": "character",
     "boss": true,
     "bossId": 113001,
     "talents": true,
-    "talentsId": 104307
+    "talentsId": 104301
   },
   {
-    "name": "Noelle",
-    "id": 10000034,
+    "name": "Lynette",
+    "id": 10000083,
     "type": "character",
     "boss": true,
-    "bossId": 113009,
+    "bossId": 113049,
     "talents": true,
-    "talentsId": 104304
+    "talentsId": 104344
   },
   {
-    "name": "Ganyu",
-    "id": 10000037,
-    "type": "character",
-    "boss": true,
-    "bossId": 113010,
-    "talents": true,
-    "talentsId": 104313
+    "name": "Golden Troupe",
+    "id": 15032,
+    "type": "artifact"
   },
   {
-    "name": "Yoimiya",
-    "id": 10000049,
-    "type": "character",
-    "boss": true,
-    "bossId": 113024,
-    "talents": true,
-    "talentsId": 104320
-  },
-  {
-    "name": "Gorou",
-    "id": 10000055,
-    "type": "character",
-    "boss": true,
-    "bossId": 113023,
-    "talents": true,
-    "talentsId": 104326
+    "name": "Lost Prayer to the Sacred Winds",
+    "id": 14502,
+    "type": "weapon",
+    "material": 114010
   }
 ]

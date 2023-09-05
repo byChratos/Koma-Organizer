@@ -1,5 +1,5 @@
 import React from "react";
-import { getMaterialNameById } from "../../../functions/nonModuleFunctions";
+import { getMaterialNameById, getWeaponMaterial } from "../../../functions/nonModuleFunctions";
 import { motion } from "framer-motion";
 
 export default function FarmableMaterial({ materialId, materialImgUrl, type, other, bottom }){
@@ -27,21 +27,22 @@ export default function FarmableMaterial({ materialId, materialImgUrl, type, oth
 
     let materialName = getMaterialNameById(type, materialId);
 
+
     return(
         <motion.div 
-            className={`w-full ${other != false ? `h-[63px] ${bottom ? null : 'mb-2'}` : 'h-full'} bg-[#393E46] rounded flex`}
+            className={`w-full ${other != false ? `h-[63px] ${bottom ? null : 'mb-2'}` : 'h-full'} bg-[#393E46] rounded flex flex-row minW:pr-0 mdW:pr-2`}
             variants={variants}
             initial="initial"
             animate="animate"
             exit="initial"
         >
             {/* Image */}
-            <div className="h-full w-[20%] flex-1 flex items-center">
+            <div className="h-[63px] w-[63px] flex items-center">
                 <img src={materialImgUrl} width="50" height="50" />
             </div>
             {/* Name */}
-            <div className="h-full w-[80%] flex items-center">
-                <p className="text-white text-md font-merri"> {materialName} </p>
+            <div className="h-full w-fit flex items-center float-left">
+                <p className={`text-white ${materialName.length > 25 ? 'text-sm' : 'text-md'} font-merri rounded-xl hover:bg-[#1c6569] select-text selection:bg-[#00ADB5] minW:p-1 mdW:p-2`}> {materialName} </p>
             </div>
         </motion.div>
     );

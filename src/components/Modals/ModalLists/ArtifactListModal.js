@@ -6,7 +6,7 @@ export default function ArtifactListModal({ artifacts }) {
     return(
         <div className="flex flex-col items-center">
             {artifacts.map((artifact, index) => (
-                <ArtifactList key={artifact["artifactName"]} className="rounded-md my-[8px]" artifact={artifact}/>
+                <ArtifactList key={artifact["artifactName"]} artifact={artifact}/>
             ))}
         </div>
     );
