@@ -48,6 +48,23 @@ require('electron-reload')(__dirname, {
 app.whenReady().then(() => {
     createWindow();
 
+    checkIfFileExists(path.resolve(__dirname, "config.json"), (exists) => {
+        if(!exists){
+
+            const config = {
+                theme: "dark",
+                server: "none",
+            }
+
+            const configString = JSON.stringify(config, null, 2);
+            fs.writeFile(path.resolve(__dirname, "config.json"), configString, (error) => {
+                if(error){
+                    console.error(error);
+                }
+            });
+        }
+    });
+
     createJsonData(enka);
     enka.close();
 

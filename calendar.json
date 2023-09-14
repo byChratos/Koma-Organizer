@@ -8,7 +8,7 @@
     "name": "Mona",
     "id": 10000041,
     "type": "character",
-    "boss": true,
+    "boss": false,
     "bossId": 113012,
     "talents": true,
     "talentsId": 104304
@@ -68,11 +68,5 @@
     "name": "Golden Troupe",
     "id": 15032,
     "type": "artifact"
-  },
-  {
-    "name": "Lost Prayer to the Sacred Winds",
-    "id": 14502,
-    "type": "weapon",
-    "material": 114010
   }
 ]

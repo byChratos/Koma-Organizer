@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
 
 import Links from '../components/Navigation/Links';
+import logo from "../Images/Koma_Koma White.png";
 
 /* //! Color Palette:
 
@@ -66,7 +67,7 @@ export default function Home() {
 
     return(
         <motion.div
-            className='flex flex-col h-screen'
+            className='flex flex-col h-screen pb-[84px]'
             variants={variants}
             initial="initial"
             animate="animate"
@@ -74,8 +75,11 @@ export default function Home() {
             {/* Content */}
             <div className="w-full h-full flex flex-col justify-center items-center bg-[#222831] drop-shadow-sm">
                 <div className="w-[80%] h-[90%]">
+                    <div className='flex items-center justify-center w-[70%] ml-[15%] mt-[2%]'>
+                        <img src={logo} alt="logo" width="full" height="auto" />
+                    </div>
                     <motion.button
-                        className="w-[81%] h-[15%] bg-[#00ADB5] ml-[9.5%] mt-[10%] rounded-xl font-merri text-white text-xl drop-shadow-md hover:drop-shadow-xl"
+                        className="w-[81%] h-[15%] bg-[#00ADB5] ml-[9.5%] mt-[2%] rounded-xl font-merri text-white text-xl drop-shadow-md hover:drop-shadow-xl"
                         whileHover="hover"
                         whileTap="tap"
                         variants={button}
@@ -108,7 +112,7 @@ export default function Home() {
                     </motion.button>
                     <Links />
                 </div>
-                <div className="w-full h-[10%] text-center bg-[#393E46]">
+                <div className="w-full h-fit mt-auto text-center bg-[#393E46]">
                     <p className='text-white font-merri text-xs'>
                     DISCLAIMER© HoYoverse. All rights reserved. HoYoverse and Genshin Impact are trademarks, services marks, or registered trademarks of HoYoverse.</p>
                 </div>
