@@ -4,7 +4,7 @@ import config from "../../config.json";
 
 import Day from "../components/Day";
 import DayInformationModal from '../components/Modals/DayInformationModal';
-
+import moment from 'moment-timezone';
 
 /* //! Color Palette:
 
@@ -43,22 +43,52 @@ export default function Calendar() {
         sortDays();
     }
 
-    const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-    let sortedDays = [];
-
-    function sortDays(){
-        //TODO
-    //1. Get current day of server
-        let date = new Date();
-        let day = date.getDay();
-        let hours = date.getHours();
-
-        
-    }
-
     const[modalOpen, setModalOpen] = useState(false);
     const[modalDay, setModalDay] = useState(null);
     const[server, setServer] = useState(config["server"]);
+    const[days, setDays] = useState(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]);
+
+    
+
+    function sortDays(){
+        const dayList = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        let sortedDays = [];
+
+        //1. Get current day of server
+        let timezone;
+        if(server == "America"){
+            timezone = 'America/New_York';
+        }else if(server == "Asia"){
+            timezone = 'Asia/Singapore';
+        }else if(server == "Europe"){
+            timezone = 'Europe/London';
+        }else{
+            timezone = 'Asia/Singapore';
+        }
+
+        const currentDate = moment().tz(timezone);
+        let day = currentDate.isoWeekday();
+        const hours = currentDate.hours();
+
+        //2. Get day to the sortedDays first entry and all other normally
+        if(hours < 4){
+            if(day > 1){
+                day = day - 1;
+            }else{
+                day = 7;
+            }
+        }
+
+        sortedDays.push(dayList[day-1]);
+        for(const entry of dayList){
+            if(entry == sortedDays[0]){
+                continue;
+            }else{
+                sortedDays.push(entry);
+            }
+        }
+        setDays(sortedDays);
+    }
 
     return(
         <motion.div
@@ -71,32 +101,30 @@ export default function Calendar() {
                 {modalOpen ? <DayInformationModal modalOpen={setModalOpen} setModalType={setModalDay} day={modalDay} /> : null}
             </AnimatePresence>
 
-            <button onClick={() => console.log(server)}>TEST</button>
-
             <div className="w-full h-full pb-[84px] flex flex-row">
                 <div className="h-full w-[33%] flex flex-col">
                     <div className="w-full h-full flex items-center justify-center">
-                        <Day primary={false} dayName={sortedDays[1]} handleButton={setModalOpen} setDay={setModalDay} />
+                        <Day primary={false} dayName={days[1]} handleButton={setModalOpen} setDay={setModalDay} />
                     </div>
                     <div className="w-full h-full flex items-center justify-center">
-                        <Day primary={false} dayName={sortedDays[2]} handleButton={setModalOpen} setDay={setModalDay} />
+                        <Day primary={false} dayName={days[2]} handleButton={setModalOpen} setDay={setModalDay} />
                     </div>
                     <div className="w-full h-full flex items-center justify-center">
-                        <Day primary={false} dayName={sortedDays[3]} handleButton={setModalOpen} setDay={setModalDay} />
+                        <Day primary={false} dayName={days[3]} handleButton={setModalOpen} setDay={setModalDay} />
                     </div>
                 </div>
                 <div className="h-full w-[34%] flex items-center justify-center">
-                    <Day primary={true} dayName={sortedDays[0]} handleButton={setModalOpen} setDay={setModalDay} />
+                    <Day primary={true} dayName={days[0]} handleButton={setModalOpen} setDay={setModalDay} />
                 </div>
                 <div className="h-full w-[33%] flex flex-col">
                     <div className="w-full h-full flex items-center justify-center">
-                        <Day primary={false} dayName={sortedDays[4]} handleButton={setModalOpen} setDay={setModalDay} />
+                        <Day primary={false} dayName={days[4]} handleButton={setModalOpen} setDay={setModalDay} />
                     </div>
                     <div className="w-full h-full flex items-center justify-center">
-                        <Day primary={false} dayName={sortedDays[5]} handleButton={setModalOpen} setDay={setModalDay} />
+                        <Day primary={false} dayName={days[5]} handleButton={setModalOpen} setDay={setModalDay} />
                     </div>
                     <div className="w-full h-full flex items-center justify-center">
-                        <Day primary={false} dayName={sortedDays[6]} handleButton={setModalOpen} setDay={setModalDay} />
+                        <Day primary={false} dayName={days[6]} handleButton={setModalOpen} setDay={setModalDay} />
                     </div>
                 </div>
             </div>

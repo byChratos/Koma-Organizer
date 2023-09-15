@@ -38,7 +38,7 @@ export default function Day({ primary, dayName, handleButton, setDay }) {
             whileHover="hover"
             whileTap="tap"
         >
-            <h1 className="text-white text-xl font-merri"> {dayName} </h1>
+            <h1 className={`text-white ${primary ? 'text-3xl' : 'text-xl'} font-merri`}> {dayName} </h1>
         </motion.button>
     );
 }
