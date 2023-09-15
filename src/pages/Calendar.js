@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import config from "../../config.json";
 
 import Day from "../components/Day";
 import DayInformationModal from '../components/Modals/DayInformationModal';
@@ -30,14 +31,34 @@ const variants = {
 
 export default function Calendar() {
 
-    const[modalOpen, setModalOpen] = useState(false);
-    const[modalDay, setModalDay] = useState(null);
+    useEffect(() => {
+        load();
+    }, []);
+
+    async function load(){
+        let server = await window.api.loadConfig();
+        if(server != "empty"){
+            setServer(server["server"]);
+        }
+        sortDays();
+    }
 
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-
-    //TODO Automatically get current active day on selected Server
     let sortedDays = [];
-    sortedDays = days;
+
+    function sortDays(){
+        //TODO
+    //1. Get current day of server
+        let date = new Date();
+        let day = date.getDay();
+        let hours = date.getHours();
+
+        
+    }
+
+    const[modalOpen, setModalOpen] = useState(false);
+    const[modalDay, setModalDay] = useState(null);
+    const[server, setServer] = useState(config["server"]);
 
     return(
         <motion.div
@@ -49,6 +70,8 @@ export default function Calendar() {
             <AnimatePresence>
                 {modalOpen ? <DayInformationModal modalOpen={setModalOpen} setModalType={setModalDay} day={modalDay} /> : null}
             </AnimatePresence>
+
+            <button onClick={() => console.log(server)}>TEST</button>
 
             <div className="w-full h-full pb-[84px] flex flex-row">
                 <div className="h-full w-[33%] flex flex-col">

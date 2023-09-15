@@ -53,7 +53,7 @@ app.whenReady().then(() => {
 
             const config = {
                 theme: "dark",
-                server: "none",
+                server: "None",
             }
 
             const configString = JSON.stringify(config, null, 2);
@@ -222,4 +222,27 @@ ipcMain.handle('saveSelection', (event, args) => {
 
 
     })
+})
+
+ipcMain.handle('saveConfig', (event, config) => {
+    let configPath = path.resolve(__dirname, "config.json");
+    const jsonString = JSON.stringify(config, null, 2);
+    fs.writeFile(configPath, jsonString, (error) => {
+        if(error){
+            console.error(error);
+            return false;
+        }
+        store.set("config", config);
+        return true;
+    });
+})
+
+ipcMain.handle('loadConfig', (event) => {
+    let config = store.get("config");
+
+    if(config == null){
+        return "empty";
+    }else{
+        return config;
+    }
 })
