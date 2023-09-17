@@ -1,7 +1,8 @@
-const { app, BrowserWindow, ipcMain, Notification, shell } = require('electron');
+const { app, BrowserWindow, ipcMain, Notification, shell, dialog } = require('electron');
 const path = require('path');
 var fs = require('fs');
 const Store = require("electron-store");
+const { autoUpdater } = require("electron-updater");
 
 const { Worker } = require("worker_threads");
 const { EnkaClient } = require("enka-network-api");
@@ -9,6 +10,11 @@ const { createJsonData } = require("./src/functions/createDataList");
 const { getCharIdByName, getWeaponIdByName, getArtifactIdByName, getCharacterMaterials, getWeaponMaterial } = require("./src/functions/nonModuleFunctions");
 
 const isDev = !app.isPackaged;
+
+let updateInterval = null;
+let updateCheck = false;
+let updateFound = false;
+let updateNotAvailable = false;
 
 const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "cache") });
 const worker = new Worker(path.resolve(__dirname, "src", "workers", "enkaWorker.js"));
@@ -25,6 +31,8 @@ function createWindow() {
         minWidth: 1000,
         minHeight: 800,
         backgroundColor: "white",
+        icon: "./src/Images/i.ico",
+        title: "Koma Organizer",
         webPreferences: {
             preload: path.join(__dirname, "preload.js"),
             nodeIntegration: false,
@@ -45,6 +53,8 @@ require('electron-reload')(__dirname, {
 
 app.whenReady().then(() => {
     createWindow();
+
+    updateInterval = setInterval(() => autoUpdater.checkForUpdates(), 600000);
 
     checkIfFileExists(path.resolve(__dirname, "config.json"), (exists) => {
         if(!exists){
@@ -80,11 +90,59 @@ app.whenReady().then(() => {
     enka.close();
 })
 
+autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
+    const dialogOpts = {
+        type: 'info',
+        buttons: ['Ok'],
+        title: `${autoUpdater.channel} Update Available`,
+        message: process.platform === 'win32' ? releaseNotes : releaseName,
+        detail: `A new ${autoUpdater.channel} version download started.`
+    };
+
+    if(!updateCheck){
+        updateInterval = null;
+        dialog.showMessageBox(dialogOpts);
+        updateCheck = true;
+    }
+})
+
+autoUpdater.on("update-downloaded", (_event) => {
+    if(!updateFound){
+        updateInterval = null;
+        updateFound = true;
+
+        setTimeout(() => {
+            autoUpdater.quitAndInstall();
+        }, 3500);
+    }
+})
+
+autoUpdater.on("update-not-available", (_event) => {
+    const dialogOpts = {
+        type: 'info',
+        buttons: ['Ok'],
+        title: `Update not available for ${autoUpdater.channel}`,
+        message: "ABC",
+        detail: `Update not available for ${autoUpdater.channel}`
+    }
+
+    if(!updateNotAvailable){
+        updateNotAvailable = true;
+        dialog.showMessageBox(dialogOpts);
+    }
+})
+
 app.on('quit', () => {
     worker.postMessage("stopAutoUpdater")
     worker.postMessage("closeEnka");
     app.quit();
 })
+
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
+});
 
 ipcMain.handle('update', (event) => {
 

@@ -1,12 +1,17 @@
 {
-  "name": "gensho",
-  "version": "1.0.0",
+  "name": "koma",
+  "version": "0.1.0",
   "description": "",
   "main": "main.js",
+  "productName": "Koma-Organizer",
+  "homepage": "./",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --config webpack.common.js --watch",
-    "start": "electron ."
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode developement",
+    "publish": "electron-builder build --mac --win --publish always",
+    "package": "electron-builder build --mac --win -c.extraMetadata.main=build/app.js --publish never"
   },
   "keywords": [],
   "author": "",
@@ -32,7 +37,9 @@
     "@babel/preset-react": "^7.22.5",
     "babel-loader": "^9.1.3",
     "css-loader": "^6.8.1",
+    "electron-builder": "^24.6.4",
     "electron-devtools-installer": "^3.2.0",
+    "electron-updater": "^6.1.4",
     "file-loader": "^6.2.0",
     "framer-motion": "^10.15.0",
     "moment": "^2.29.4",
@@ -43,5 +50,29 @@
     "style-loader": "^3.3.3",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
+  },
+  "build": {
+    "mac": {
+      "publish": {
+        "provider": "github",
+        "owner": "byChratos",
+        "repo": "Koma-Organizer"
+      }
+    },
+    "win": {
+      "publish": {
+        "provider": "github",
+        "owner": "byChratos",
+        "repo": "Koma-Organizer"
+      }
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "byChratos"
+    }
   }
 }
