@@ -6,9 +6,6 @@ import DisplayCard from '../components/DisplayCard';
 import DisplayInfo from '../components/DisplayInfo';
 import AddingModal from '../components/Modals/AddingModal';
 
-//TODO Auswählen was man von Character farmen möchte
-//TODO Page mit allen Sachen, die man farmen will => einzelne Sachen wie Boss als fertig markierbar, Prioritäten verschiebbar?
-
 
 export default function AddPage(){
 

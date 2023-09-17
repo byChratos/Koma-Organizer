@@ -20,7 +20,7 @@ const variants = {
         }
     }
 }
-//TODO Double Click on Navdrop closes navbar
+
 export default function NavDrop({ isOpen }) {
     return(
         <AnimatePresence>

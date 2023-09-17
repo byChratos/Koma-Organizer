@@ -145,7 +145,7 @@ export default function Priority() {
             animate="animate"
         >
 
-            {(saved) && <PopUp message="ABC" setModalOpen={setSaved} />}
+            {(saved) && <PopUp message="Successfully saved" setModalOpen={setSaved} closeEnabled={true} />}
 
             {/* <h2 className='text-gray-100'>Sort your Characters, Weapons and Artifacts by priority! Highest priority available to farm will be displayed first</h2> */}
             

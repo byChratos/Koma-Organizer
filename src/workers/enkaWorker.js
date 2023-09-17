@@ -6,8 +6,6 @@ const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "..", ".."
 
 parentPort.on('message', (message) => {
 
-    //TODO Timeoffset -> no rate limit
-
     if(message === 'fetchContent'){
 
         // ! Downloads all contents into the cache

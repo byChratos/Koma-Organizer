@@ -59,7 +59,6 @@ function insert(what, into, priority){
     return into;
 }
 
-//TODO
 //! Returns dict of farmable stuff today, sorted by Priority => first element == Top Prio, 
 export function getFarmable(day, calendar){
 

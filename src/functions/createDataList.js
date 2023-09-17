@@ -72,7 +72,6 @@ function createArtifactJson(enka){
 }
 
 async function createMaterialJson(enka){
-    //TODO make users select their server (EU, NA, Asia)
     const res = await fetch("https://gitlab.com/Dimbreath/AnimeGameData/-/raw/master/ExcelBinOutput/DungeonEntryExcelConfigData.json");
     const json = await res.json();
 
