@@ -29,7 +29,7 @@ export default function DropdownMenu({ selectedServer, setSelectedServer }) {
                 </button>
             </div>
             {isOpen &&
-                <ul className="absolute top-[100%] left-0 list-none p-0 m-0 w-[150px] rounded-b-lg overflow-hidden bg-[#1c6569]">
+                <ul className="absolute top-[100%] left-0 list-none p-0 m-0 w-[150px] rounded-b-lg overflow-hidden bg-[#1c6569] z-10">
                     <div className="bg-white opacity-70 w-[80%] h-[2px] ml-auto mr-auto my-[2px] rounded-full"></div>
                     {elements.map((element) => (
                         <li key={element}

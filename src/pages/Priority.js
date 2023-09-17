@@ -24,14 +24,17 @@ export default function Priority() {
 
     const buttons = {
         hover: {
-            scale: 1.1,
+            scale: 1,
             transition: {
                 type: "spring",
                 duration: 0.3
             }
         },
+        small: {
+            scale: 0.925
+        },
         hover2: {
-            scale: 1.05,
+            scale: 1,
             transition: {
                 type: "spring",
                 duration: 0.3
@@ -152,6 +155,7 @@ export default function Priority() {
                     <motion.button
                         className={`w-[125px] h-[75px] text-black font-merri font-lg rounded-lg drop-shadow-md ${changes ? 'text-black bg-green-500' : 'text-white'}`} onClick={() => save()}
                         variants={buttons}
+                        initial="small"
                         whileHover="hover"
                         whileTap="tap"
                         disabled={!changes}
@@ -159,6 +163,7 @@ export default function Priority() {
                     <motion.button
                         className={`w-[125px] h-[75px] text-black font-merri font-lg rounded-lg ml-3 drop-shadow-md ${changes ? 'text-black bg-red-500' : 'text-white'}`} onClick={() => load()}
                         variants={buttons}
+                        initial="small"
                         whileHover="hover"
                         whileTap="tap"
                         disabled={!changes}
@@ -208,7 +213,7 @@ export default function Priority() {
                                     </div>
                                 </div>
                                 {(item["type"] == "character") && <div className="minW:w-[165px] mdW:w-[400px] h-full select-none flex items-center">
-                                    <motion.div className="bg-[#1c6569] minW:w-[60px] mdW:w-[187.5px] h-[60px] cursor-pointer rounded-lg" onClick={() => {swapListAtIndex(index, "boss"); setChanges(true)}} variants={buttons} whileHover="hover2">
+                                    <motion.div className="bg-[#1c6569] minW:w-[60px] mdW:w-[187.5px] h-[60px] cursor-pointer rounded-lg" onClick={() => {swapListAtIndex(index, "boss"); setChanges(true)}} variants={buttons} initial="small" whileHover="hover2">
                                         <div className={`flex flex-row ${list[index]["boss"] == false ? 'grayscale' : 'grayscale-0'}`}>
                                             <img src={getAssetById("bossMaterial", list[index]["bossId"], "icon")} width="60" height="60" />
                                             <div className="mdW:flex minW:hidden h-[60px] items-center">
@@ -216,7 +221,7 @@ export default function Priority() {
                                             </div>
                                         </div>
                                     </motion.div>
-                                    <motion.div className="bg-[#1c6569] minW:w-[60px] mdW:w-[187.5px] h-[60px] ml-[25px] cursor-pointer rounded-lg" onClick={() => {swapListAtIndex(index, "talents"); setChanges(true)}} variants={buttons} whileHover="hover2">
+                                    <motion.div className="bg-[#1c6569] minW:w-[60px] mdW:w-[187.5px] h-[60px] ml-[25px] cursor-pointer rounded-lg" onClick={() => {swapListAtIndex(index, "talents"); setChanges(true)}} variants={buttons} initial="small" whileHover="hover2">
                                         <div className={`flex flex-row ${list[index]["talents"] == false ? 'grayscale' : 'grayscale-0'}`}>
                                             <img src={getAssetById("material", list[index]["talentsId"], "icon")} width="60" height="60" />
                                             <div className="mdW:flex minW:hidden h-[60px] items-center">

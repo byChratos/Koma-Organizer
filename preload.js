@@ -15,5 +15,8 @@ contextBridge.exposeInMainWorld('api', {
     saveConfig: (config) => ipcRenderer.invoke('saveConfig', config),
     loadConfig: (args) => ipcRenderer.invoke('loadConfig'),
 
+    update: (args) => ipcRenderer.invoke('update'),
+
     openToBrowser: (args) => ipcRenderer.invoke('openToBrowser', args),
+    test: (args) => ipcRenderer.invoke('test', args),
 })

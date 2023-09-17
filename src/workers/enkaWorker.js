@@ -6,29 +6,30 @@ const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "..", ".."
 
 parentPort.on('message', (message) => {
 
+    //TODO Timeoffset -> no rate limit
+
     if(message === 'fetchContent'){
 
         // ! Downloads all contents into the cache
-        enka.cachedAssetsManager.fetchAllContents();
+        parentPort.postMessage("updateStart");
+        enka.cachedAssetsManager.fetchAllContents().then(() => parentPort.postMessage("updateEnd"));
 
-    }else if(message === 'startAutoUpdater'){
-
-        enka.cachedAssetsManager.activateAutoCacheUpdater({
-            instant: true,
-            timeout: 60 * 60 * 1000, // 1 hour interval
+    }else if(message == 'updateContent'){
+        // ! Updates content of the cache
+        enka.cachedAssetsManager.updateContents({
             onUpdateStart: async () => {
-                console.log("Updating Genshin Data...");
+                updating = true;
+                parentPort.postMessage("updateStart");
             },
             onUpdateEnd: async () => {
-                enka.cachedAssetsManager.refreshAllData();
-                console.log("Updating Completed!");
+                updating = false;
+                parentPort.postMessage("updateEnd");
             }
-        });
-
-    }else if(message === 'stopAutoUpdater'){
-
-        enka.cachedAssetsManager.deactivateAutoCacheUpdater();
-
+        }).then(updated => {
+            if(!updated){
+                parentPort.postMessage("noUpdates");
+            }
+        })
     }else if(message === 'closeEnka'){
 
         // ! Closes the EnkaClient

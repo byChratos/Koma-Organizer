@@ -13,12 +13,10 @@ const isDev = !app.isPackaged;
 const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "cache") });
 const worker = new Worker(path.resolve(__dirname, "src", "workers", "enkaWorker.js"));
 const store = new Store();
-store.set("calendarList", null);
 
-if(!fs.existsSync("./cache")){
-    enka.cachedAssetsManager.cacheDirectorySetup();
-    worker.postMessage("fetchContent");
-}
+store.set("calendarList", null);
+store.set("update", false);
+store.set("lastCheck", null);
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -65,10 +63,21 @@ app.whenReady().then(() => {
         }
     });
 
+    checkIfFileExists(path.resolve(__dirname, "cache"), (exists) => {
+        if(!exists){
+            enka.cachedAssetsManager.cacheDirectorySetup();
+            worker.postMessage("fetchContent");
+        }
+    });
+
+    if(enka.cachedAssetsManager.hasAllContents()){
+        //worker.postMessage("updateContent");
+    }else{
+        worker.postMessage("fetchContent");
+    }
+
     createJsonData(enka);
     enka.close();
-
-    worker.postMessage("startAutoUpdater");
 })
 
 app.on('quit', () => {
@@ -77,6 +86,39 @@ app.on('quit', () => {
     app.quit();
 })
 
+ipcMain.handle('update', (event) => {
+
+    let lastCheck = store.get("lastCheck");
+    let nowUnix = Math.floor(Date.now() / 1000);
+
+    if(lastCheck == null || (nowUnix - lastCheck) > 30){
+
+        store.set("lastCheck", nowUnix);
+
+        return new Promise((resolve, reject) => {
+            worker.on('message', (msg) => {
+                if(msg === "noUpdates" || msg === "updateEnd"){
+                    store.set("update", false);
+                    resolve(msg);
+                }else if(msg === "updateStart"){
+                    store.set("update", true);
+                }
+            });
+
+            worker.on('error', (err) => {
+                reject(err);
+            });
+
+            let updating = store.get("update");
+            if(!updating){
+                worker.postMessage("updateContent");
+            }
+        })
+    }else{
+        return "wait " + (30 - (nowUnix - lastCheck));
+    }
+
+})
 
 ipcMain.handle('loadList', (event, args) => {
 
@@ -245,4 +287,8 @@ ipcMain.handle('loadConfig', (event) => {
     }else{
         return config;
     }
+})
+
+ipcMain.handle('test', (event) => {
+    console.log("TEST");
 })

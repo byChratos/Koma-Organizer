@@ -1,33 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
 
 import Links from '../components/Navigation/Links';
 import logo from "../Images/Koma_Koma White.png";
-
-/* //! Color Palette:
-
-    Light-Blue: #3873AA
-    Blue: #3943B7
-    Dark-Gray: #333231
-    Gray: #787878
-
-*/
-
-/* Test Palette
-    Dark: #3C3C3C
-    Bittersweet: #FF5A5F
-    Teal: #087E8B
-    White Smoke: #F5F5F5
-    Puce: #C1839F
-*/
-
-/* Test 2
-    Dark: #222831
-    Brighter Dark: #393E46
-    Cyan: #00ADB5
-    Whiteish: #EEEEEE
-*/
 
 const variants = {
     initial: {
@@ -63,7 +39,22 @@ const button = {
 
 export default function Home() {
 
+    useEffect(() => {
+        //getState();
+    }, [])
+
+    //TODO 1. call update function and set updating to true, as soon as value returns updating = false
+    async function getState(){
+        setUpdate(true);
+        let up = await window.api.update();
+        if(up){
+            setUpdate(false);
+        }
+    }
+
     const navigate = useNavigate();
+    const[update, setUpdate] = useState(false);
+
 
     return(
         <motion.div
@@ -73,6 +64,7 @@ export default function Home() {
             animate="animate"
         >
             {/* Content */}
+            {!update && <></>}
             <div className="w-full h-full flex flex-col justify-center items-center bg-[#222831] drop-shadow-sm">
                 <div className="w-[80%] h-[90%]">
                     <div className='flex items-center justify-center w-[70%] ml-[15%] mt-[2%]'>
