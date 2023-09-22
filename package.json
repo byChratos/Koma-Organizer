@@ -1,19 +1,21 @@
 {
   "name": "koma",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "WIP",
   "main": "main.js",
   "productName": "Koma-Organizer",
+  "repository": "Koma-Organizer",
   "homepage": "./",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --config webpack.common.js --watch",
     "start": "electron .",
     "clean": "rmdir /s /q dist",
-    "package": "npm run clean && electron-builder"
+    "package": "npm run clean && electron-builder",
+    "publish": "npm run clean && electron-builder build --win --publish always"
   },
   "keywords": [],
-  "author": "",
+  "author": "Christian Felske",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.14",
@@ -81,7 +83,8 @@
     ],
     "publish": {
       "provider": "github",
-      "owner": "byChratos"
+      "owner": "byChratos",
+      "repo": "Koma-Organizer"
     }
   }
 }

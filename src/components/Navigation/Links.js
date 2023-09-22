@@ -35,7 +35,7 @@ export default function Links() {
             </div>
 
             <div className="ml-2">
-                <a href="#" onClick={() => openLinkInBrowser("https://discord.gg/4DMUgbA3Ve")}>
+                <a href="#" onClick={() => openLinkInBrowser("https://discord.gg/FGGbCybMuK")}>
                     <motion.svg
                         xmlns="http://www.w3.org/2000/svg" className="fill-white" width="50" height="50" viewBox="0 0 16 16"
                         variants={variants}
