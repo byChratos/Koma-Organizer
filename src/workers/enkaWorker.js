@@ -2,7 +2,7 @@ const { parentPort } = require('worker_threads');
 const { EnkaClient } = require("enka-network-api");
 const path = require("path")
 
-const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "..", "..", "cache"), defaultLanguage: "en" })
+const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "..", "..", "cache") })
 
 parentPort.on('message', (message) => {
 

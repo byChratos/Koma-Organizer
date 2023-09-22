@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import DropdownMenu from "../components/DropdownMenu";
-import config from "../../config.json";
 import PopUp from "../components/Modals/PopUp";
 
 export default function SettingsPage() {
@@ -33,7 +32,18 @@ export default function SettingsPage() {
         }
     }
 
-    const[selectedServer, setSelectedServer] = useState(config["server"]);
+    useEffect(() => {
+        loadConfig();
+    }, []);
+
+    async function loadConfig(){
+        let cnfg = await window.api.storeGet({ item: "config" });
+        setConfig(cnfg);
+        setSelectedServer(cnfg["server"]);
+    }
+
+    const[selectedServer, setSelectedServer] = useState("None");
+    const[config, setConfig] = useState(null);
     const[updating, setUpdating] = useState(false);
     const[updateResult, setUpdateResult] = useState(null);
     
@@ -41,16 +51,21 @@ export default function SettingsPage() {
 
     function changeServer(server){
         setSelectedServer(server);
-        config = {
+        let newConfig = {
             ...config,
             server: server,
         }
-        window.api.saveConfig(config);
+        window.api.storeSet({ item: "config", value: newConfig });
+        setConfig(newConfig);
     }
 
     async function update(){
+
+        //* Set updating true for modal to appear
         setUpdating(true);
         const update = await window.api.update();
+
+        //* Process update result
         setUpdateResult(update);
         setUpdating(false);
 
@@ -64,7 +79,7 @@ export default function SettingsPage() {
         }
     }
 
-    function closePopup(v){
+    function closePopup(){
         setUpdateResult(null);
         setUpdateMessage(null);
     }

@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import DrowDown from "./DropDown";
 import { getWeaponMaterial } from "../../../functions/nonModuleFunctions";
 
-export default function WeaponList({ weapon }) {
+export default function WeaponList({ weapon, weaponData, data }) {
     
     const variants = {
         initial: {
@@ -42,7 +42,8 @@ export default function WeaponList({ weapon }) {
         setIsOpen(!isOpen);
     }
 
-    let materialId = getWeaponMaterial(weapon["weaponId"]);
+    let materialId = getWeaponMaterial(weapon["weaponId"], weaponData);
+    console.log("MID: " + materialId);
 
     return(
         <motion.div
@@ -73,7 +74,7 @@ export default function WeaponList({ weapon }) {
                     animate="oneOpen"
                     exit="closed"
                 >
-                    <FarmableMaterial type="weapon" materialImgUrl={weapon["materialUrl"]} materialId={materialId} other={false}/>
+                    <FarmableMaterial type="weapon" materialImgUrl={weapon["materialUrl"]} materialId={materialId} other={false} data={data}/>
                 </motion.div>}
             </AnimatePresence>
         </motion.div>

@@ -6,7 +6,7 @@ const { getWeaponMaterialId } = require("../functions/getWeaponMaterials");
 
 //TODO Make data list creating after update is downloaded (in worker)
 
-function createCharJson(enka){
+function createCharJson(enka, store){
     const characters = enka.getAllCharacters();
     let charactersArray = [];
     let i = 0;
@@ -30,11 +30,14 @@ function createCharJson(enka){
         charactersArray.push(newChar);
         i += 1;
     }
-    const jsonString = JSON.stringify(charactersArray, null, 2);
-    fs.writeFileSync("./src/data/characters.json", jsonString);
+
+    store.set("charData", charactersArray);
+
+    //const jsonString = JSON.stringify(charactersArray, null, 2);
+    //fs.writeFileSync("./src/data/characters.json", jsonString);
 }
 
-function createWeaponJson(enka){
+function createWeaponJson(enka, store){
     const weapons = enka.getAllWeapons();
     let weaponsArray = [];
     let i = 0;
@@ -49,11 +52,14 @@ function createWeaponJson(enka){
         weaponsArray.push(newWeapon);
         i += 1;
     }
-    const jsonString = JSON.stringify(weaponsArray, null, 2);
-    fs.writeFileSync("./src/data/weapons.json", jsonString);
+
+    store.set("weaponData", weaponsArray);
+
+    //const jsonString = JSON.stringify(weaponsArray, null, 2);
+    //fs.writeFileSync("./src/data/weapons.json", jsonString);
 }
 
-function createArtifactJson(enka){
+function createArtifactJson(enka, store){
     const artifacts = enka.getAllArtifactSets();
     let artifactsArray = [];
     let i = 0;
@@ -67,11 +73,14 @@ function createArtifactJson(enka){
         artifactsArray.push(newArtifact);
         i += 1;
     }
-    const jsonString = JSON.stringify(artifactsArray, null, 2);
-    fs.writeFileSync("./src/data/artifacts.json", jsonString);
+
+    store.set("artifactsData", artifactsArray);
+
+    //const jsonString = JSON.stringify(artifactsArray, null, 2);
+    //fs.writeFileSync("./src/data/artifacts.json", jsonString);
 }
 
-async function createMaterialJson(enka){
+async function createMaterialJson(enka, store){
     const res = await fetch("https://gitlab.com/Dimbreath/AnimeGameData/-/raw/master/ExcelBinOutput/DungeonEntryExcelConfigData.json");
     const json = await res.json();
 
@@ -119,11 +128,13 @@ async function createMaterialJson(enka){
         }
     }
 
-    const jsonString = JSON.stringify(newData, null, 2);
-    fs.writeFileSync("./src/data/materials.json", jsonString);
+    store.set("materialData", newData);
+
+    //const jsonString = JSON.stringify(newData, null, 2);
+    //fs.writeFileSync("./src/data/materials.json", jsonString);
 }
 
-async function createBossMaterialJson(enka){
+async function createBossMaterialJson(enka, store){
     const enemyRes = await fetch("https://gitlab.com/Dimbreath/AnimeGameData/-/raw/master/ExcelBinOutput/InvestigationMonsterConfigData.json");
     const enemies = await enemyRes.json();
 
@@ -159,17 +170,19 @@ async function createBossMaterialJson(enka){
         }catch(error){}
     }
 
-    const jsonString = JSON.stringify(bossMaterialList, null, 2);
-    fs.writeFileSync("./src/data/bossMaterials.json", jsonString);
+    store.set("bossData", bossMaterialList);
+
+    //const jsonString = JSON.stringify(bossMaterialList, null, 2);
+    //fs.writeFileSync("./src/data/bossMaterials.json", jsonString);
 }
 
-function createJsonData(enka){
+function createJsonData(enka, store){
 
-    createCharJson(enka);
-    createWeaponJson(enka);
-    createArtifactJson(enka);
-    createMaterialJson(enka);
-    createBossMaterialJson(enka);
+    createCharJson(enka, store);
+    createWeaponJson(enka, store);
+    createArtifactJson(enka, store);
+    createMaterialJson(enka, store);
+    createBossMaterialJson(enka, store);
 }
 
 module.exports = { createJsonData }

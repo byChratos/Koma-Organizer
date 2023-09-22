@@ -1,26 +1,26 @@
 {
   "name": "koma",
   "version": "0.1.0",
-  "description": "",
+  "description": "WIP",
   "main": "main.js",
   "productName": "Koma-Organizer",
   "homepage": "./",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --config webpack.common.js --watch",
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode developement",
-    "publish": "electron-builder build --mac --win --publish always",
-    "package": "electron-builder build --mac --win -c.extraMetadata.main=build/app.js --publish never"
+    "start": "electron .",
+    "clean": "rmdir /s /q dist",
+    "package": "npm run clean && electron-builder"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.14",
-    "electron": "^25.3.1",
+    "electron-log": "^4.4.8",
     "electron-reload": "^2.0.0-alpha.1",
     "electron-store": "^8.1.0",
+    "electron-updater": "^6.1.4",
     "enka-network-api": "^3.7.2",
     "postcss": "^8.4.27",
     "postcss-import": "^15.1.0",
@@ -37,6 +37,7 @@
     "@babel/preset-react": "^7.22.5",
     "babel-loader": "^9.1.3",
     "css-loader": "^6.8.1",
+    "electron": "^26.2.1",
     "electron-builder": "^24.6.4",
     "electron-devtools-installer": "^3.2.0",
     "electron-updater": "^6.1.4",
@@ -52,23 +53,31 @@
     "webpack-cli": "^5.1.4"
   },
   "build": {
+    "productName": "Koma Organizer",
     "mac": {
       "publish": {
         "provider": "github",
         "owner": "byChratos",
         "repo": "Koma-Organizer"
-      }
+      },
+      "icon": "/src/Images/mac.png"
     },
     "win": {
       "publish": {
         "provider": "github",
         "owner": "byChratos",
         "repo": "Koma-Organizer"
-      }
+      },
+      "icon": "/src/Images/win.ico"
     },
     "files": [
+      "preload.js",
+      "main.js",
+      "index.html",
+      "src/**/*",
       "build/**/*",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "cache/**/*"
     ],
     "publish": {
       "provider": "github",

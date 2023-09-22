@@ -1,19 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import config from "../../config.json";
-
 import Day from "../components/Day";
 import DayInformationModal from '../components/Modals/DayInformationModal';
 import moment from 'moment-timezone';
-
-/* //! Color Palette:
-
-    Light-Blue: #3873AA
-    Blue: #3943B7
-    Dark-Gray: #333231
-    Gray: #787878
-
-*/
 
 const variants = {
     initial: {
@@ -31,21 +20,21 @@ const variants = {
 
 export default function Calendar() {
 
+    let config;
+
     useEffect(() => {
-        load();
+        loadConfig();
     }, []);
 
-    async function load(){
-        let server = await window.api.loadConfig();
-        if(server != "empty"){
-            setServer(server["server"]);
-        }
+    async function loadConfig(){
+        config = await window.api.storeGet({ item: "config" });
+        setServer(config["server"]);
         sortDays();
     }
 
     const[modalOpen, setModalOpen] = useState(false);
     const[modalDay, setModalDay] = useState(null);
-    const[server, setServer] = useState(config["server"]);
+    const[server, setServer] = useState("None");
     const[days, setDays] = useState(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]);
 
     

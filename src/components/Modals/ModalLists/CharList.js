@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import FarmableMaterial from "../ModalComponents/FarmableMaterial";
 import DrowDown from "./DropDown";
 
-export default function CharList({ char }) {
+export default function CharList({ char, farmData, bossData }) {
 
     const variants = {
         initial: {
@@ -78,8 +78,8 @@ export default function CharList({ char }) {
                     animate={oneOpen ? "open" : "oneOpen"}
                     exit="closed"
                 >
-                    {(char["talentId"] != false) && <FarmableMaterial type="talent" materialImgUrl={char["talentUrl"]} materialId={char["talentId"]} other={char["bossId"]}/>}
-                    {(char["bossId"] != false) && <FarmableMaterial type="boss" materialImgUrl={char["bossUrl"]} materialId={char["bossId"]} other={char["talentId"]} bottom={true}/>}
+                    {(char["talentId"] != false) && <FarmableMaterial type="talent" materialImgUrl={char["talentUrl"]} materialId={char["talentId"]} other={char["bossId"]} data={farmData}/>}
+                    {(char["bossId"] != false) && <FarmableMaterial type="boss" materialImgUrl={char["bossUrl"]} materialId={char["bossId"]} other={char["talentId"]} bottom={true} data={bossData}/>}
                 </motion.div>}
             </AnimatePresence>
         </motion.div>

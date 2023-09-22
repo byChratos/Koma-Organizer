@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-
 import AddingButtons from '../components/Buttons/AddingButtons';
 import DisplayCard from '../components/DisplayCard';
 import DisplayInfo from '../components/DisplayInfo';
 import AddingModal from '../components/Modals/AddingModal';
+import PopUp from '../components/Modals/PopUp';
 
 
 export default function AddPage(){
@@ -40,6 +40,8 @@ export default function AddPage(){
     //Modal open or not
     const [modalOpen, setModalOpen] = useState(false);
 
+    const[saved, setSaved] = useState(false);
+
     //Modal typing
     const [modalType, setModalType] = useState(null);
 
@@ -54,8 +56,13 @@ export default function AddPage(){
         setSelectedEntityType(type);
     }
 
-    function add() {
-        const response = window.api.saveSelection({name: selectedEntity, type: selectedEntityType});
+    async function add() {
+        const response = await window.api.saveSelection({name: selectedEntity, type: selectedEntityType});
+        if(response){
+            setSelectedEntity(null);
+            setSelectedEntityType(null);
+            setSaved(true);
+        }
     }
 
     function remove() {
@@ -70,6 +77,9 @@ export default function AddPage(){
             initial="initial"
             animate="animate"
         >
+
+            {(saved) && <PopUp message="Successfully added to calendar!" setModalOpen={setSaved} closeEnabled={true} />}
+
             {/* Card */}
             <div className="w-[500px] minW:h-[550px] minW:mt-[10px] mdW:h-[700px] mdW:mt-[50px] rounded-xl bg-[#393E46] drop-shadow-lg flex flex-col overflow-hidden">
                 <div className="w-full minW:h-[50px] mdW:h-[75px] flex items-center justify-center z-20">

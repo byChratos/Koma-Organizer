@@ -1,36 +1,29 @@
-const charData = require("../data/characters.json");
-const weaponData = require("../data/weapons.json");
-const artifactData = require("../data/artifacts.json");
-
-const materialData = require("../data/materials.json");
-const bossData = require("../data/bossMaterials.json");
-
-function getCharIdByName(name){
-    for(const entry of charData){
+function getCharIdByName(name, data){
+    for(const entry of data){
         if(entry["name"] == name){
             return entry["id"];
         }
     }
 }
 
-function getWeaponIdByName(name){
-    for(const entry of weaponData){
+function getWeaponIdByName(name, data){
+    for(const entry of data){
         if(entry["name"] == name){
             return entry["id"];
         }
     }
 }
 
-function getArtifactIdByName(name){
-    for(const entry of artifactData){
+function getArtifactIdByName(name, data){
+    for(const entry of data){
         if(entry["name"] == name){
             return entry["id"];
         }
     }
 }
 
-function getCharacterMaterials(id){
-    for(const entry of charData){
+function getCharacterMaterials(id, data){
+    for(const entry of data){
         if(entry["id"] == id){
             return {
                 boss: entry["bossMaterial"],
@@ -40,8 +33,8 @@ function getCharacterMaterials(id){
     }
 }
 
-function getWeaponMaterial(id){
-    for(const entry of weaponData){
+function getWeaponMaterial(id, data){
+    for(const entry of data){
         if(entry["id"] == id){
             return entry["ascensionMaterial"];
         }
@@ -60,15 +53,15 @@ function getDayNumber(day){
     }
 }
 
-function getMaterialNameById(type, id){
+function getMaterialNameById(type, id, data){
     if(type === "boss"){
-        for(const entry of bossData){
+        for(const entry of data){
             if(entry["id"] == id){
                 return entry["name"];
             }
         }
     }else if(type === "talent" || type === "weapon"){
-        for(const entry of materialData){
+        for(const entry of data){
             if(entry["id"] == id){
                 return entry["name"];
             }

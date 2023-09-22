@@ -2,7 +2,7 @@ import React from "react";
 import { getMaterialNameById, getWeaponMaterial } from "../../../functions/nonModuleFunctions";
 import { motion } from "framer-motion";
 
-export default function FarmableMaterial({ materialId, materialImgUrl, type, other, bottom }){
+export default function FarmableMaterial({ materialId, materialImgUrl, type, other, bottom, data }){
 
     const otherBot = other && bottom
     let i = 0;
@@ -25,7 +25,7 @@ export default function FarmableMaterial({ materialId, materialImgUrl, type, oth
         }
     }
 
-    let materialName = getMaterialNameById(type, materialId);
+    let materialName = getMaterialNameById(type, materialId, data);
 
 
     return(

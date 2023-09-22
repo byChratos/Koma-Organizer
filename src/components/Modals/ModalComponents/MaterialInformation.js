@@ -1,9 +1,9 @@
 import React from "react";
 import { getMaterialNameById } from "../../../functions/nonModuleFunctions";
 
-export default function MaterialInformation({ matId, matType, imageSrc, top}) {
+export default function MaterialInformation({ matId, matType, imageSrc, top, data}) {
 
-    let materialName = getMaterialNameById(matType, matId);
+    let materialName = getMaterialNameById(matType, matId, data);
 
     return(
         <div className="minW:p-2 w-[40%] h-[90%] mdW:p-4 bg-[#00ADB5] rounded-xl flex flex-row my-auto items-center mx-auto drop-shadow-md">

@@ -1,25 +1,56 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { getCharIdByName, getArtifactIdByName, getWeaponIdByName } from "../functions/nonModuleFunctions";
 import { getAssetById } from "../functions/enkaFunctions";
 
 export default function DisplayCard({name, type}) {
 
-    let id;
-    if(type == "character"){
-        id = getCharIdByName(name);
-    }else if(type == "weapon"){
-        id = getWeaponIdByName(name);
-    }else{
-        id = getArtifactIdByName(name);
+    useEffect(() => {
+        loadData();
+    }, []);
+
+    async function loadData(){
+        
+        if(type == "character"){
+            let tmpData = await window.api.storeGet({ item: "charData" });
+            setData(tmpData);
+            getId(tmpData);
+        }else if(type == "weapon"){
+            let tmpData = await window.api.storeGet({ item: "weaponData" });
+            setData(tmpData);
+            getId(tmpData);
+        }else{
+            let tmpData = await window.api.storeGet({ item: "artifactsData" });
+            setData(tmpData);
+            getId(tmpData);
+        }
     }
 
-    let imgType = "icon";
+    function getId(tmp){
+        if(type == "character"){
+            let id = getCharIdByName(name, tmp);
+            setId(id);
+        }else if(type == "weapon"){
+            let id = getWeaponIdByName(name, tmp);
+            setId(id);
+        }else{
+            let id = getArtifactIdByName(name, tmp);
+            setId(id);
+        }
+    }
 
+    const[data, setData] = useState([]);
+    const[id, setId] = useState(null);
+
+    async function log(){
+        await window.api.log({ message: data })
+    }
+
+    //log();
 
     return(
         <div className="minW:w-[300px] minW:h-[300px] mdW:w-[400px] mdW:h-[400px] rounded-xl flex flex-col items-center justify-center bg-[#222831]">
-            <img className="" src={getAssetById(type, id, imgType)} width="400" height="400"/>
+            <img className="" src={ getAssetById(type, id, "icon", data) } width="400" height="400"/>
         </div>
     );
 }

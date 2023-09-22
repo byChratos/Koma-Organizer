@@ -1,18 +1,43 @@
-import React from 'react'
-
-import data from "../../data/artifacts.json";
-import GenshinImage from "../GenshinImage";
-
+import React, { useState, useEffect } from 'react'
+import { getAssetById } from '../../functions/enkaFunctions';
 
 export default function ArtifactList({ input, handleClick }) {
 
-    const filteredData = data.filter((el) => {
-        if(input === null){
-            return el;
-        }else{
-            return el.name.toLowerCase().includes(input.toLowerCase())
-        }
-    })
+    useEffect(() => {
+        loadArtifacts();
+    }, []);
+
+    useEffect(() => {
+        searchLogic();
+    }, [input]);
+
+    async function loadArtifacts(){
+        let tmpData = await window.api.storeGet({ item: "artifactsData" });
+        setData(tmpData);
+
+        let filtered = tmpData.filter((el) => {
+            if(input === null){
+                return el;
+            }else{
+                return el.name.toLowerCase().includes(input.toLowerCase())
+            }
+        });
+        setFilteredData(filtered);
+    }
+
+    function searchLogic(){
+        let filtered = data.filter((el) => {
+            if(input === null){
+                return el;
+            }else{
+                return el.name.toLowerCase().includes(input.toLowerCase())
+            }
+        });
+        setFilteredData(filtered);
+    }
+
+    const[data, setData] = useState([]);
+    const[filteredData, setFilteredData] = useState([]);
 
     return (
         <ul className='w-full h-full list-none px-2'>
@@ -21,7 +46,8 @@ export default function ArtifactList({ input, handleClick }) {
                     className="bg-[#222831] hover:bg-[#00ADB5] w-full h-[50px] text-left flex flex-row rounded-lg my-2 overflow-hidden drop-shadow-md items-center"
                     onClick={() => { handleClick(item.name, "artifact") }}
                 >
-                    <GenshinImage objectKey={item.key} objectType="artifact" imageType="icon" width="50" height="50"/>
+                    <img className="object-cover inline-block relative" src={ getAssetById("artifact", item.id, "icon", data) } width="50" height="50" />
+                    {/* <GenshinImage id={item.id} objectType="artifact" imageType="icon" width="50" height="50" artifactData={data}/> */}
                     <p className="text-white font-merri text-lg">
                         {item.name}
                     </p>

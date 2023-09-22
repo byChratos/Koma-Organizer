@@ -3,6 +3,7 @@ const path = require('path');
 var fs = require('fs');
 const Store = require("electron-store");
 const { autoUpdater } = require("electron-updater");
+const log = require("electron-log");
 
 const { Worker } = require("worker_threads");
 const { EnkaClient } = require("enka-network-api");
@@ -20,18 +21,18 @@ const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "cache") }
 const worker = new Worker(path.resolve(__dirname, "src", "workers", "enkaWorker.js"));
 const store = new Store();
 
-store.set("calendarList", null);
-store.set("update", false);
-store.set("lastCheck", null);
+//TODO Store all data in electron store
+
+let win;
 
 function createWindow() {
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         width: 1000,
         height: 800,
         minWidth: 1000,
         minHeight: 800,
         backgroundColor: "white",
-        icon: "./src/Images/i.ico",
+        icon: path.join(__dirname, "src", "Images", "win.ico"),
         title: "Koma Organizer",
         webPreferences: {
             preload: path.join(__dirname, "preload.js"),
@@ -45,36 +46,32 @@ function createWindow() {
     win.loadFile('index.html');
     //win.setMenu(null);
 
+    win.on("closed", () => {
+        win = null;
+    })
+
 }
 
-require('electron-reload')(__dirname, {
-    electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
-})
+if(isDev){
+    require('electron-reload')(__dirname, {
+        electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
+    })
+}
 
 app.whenReady().then(() => {
     createWindow();
 
+    //* Creates variables in the config.json
+    electronStore();
+
+    //* Gets the Genshin data into the config.json
+    createJsonData(enka, store);
+
     updateInterval = setInterval(() => autoUpdater.checkForUpdates(), 600000);
-
-    checkIfFileExists(path.resolve(__dirname, "config.json"), (exists) => {
-        if(!exists){
-
-            const config = {
-                theme: "dark",
-                server: "None",
-            }
-
-            const configString = JSON.stringify(config, null, 2);
-            fs.writeFile(path.resolve(__dirname, "config.json"), configString, (error) => {
-                if(error){
-                    console.error(error);
-                }
-            });
-        }
-    });
 
     checkIfFileExists(path.resolve(__dirname, "cache"), (exists) => {
         if(!exists){
+            console.log(__dirname, "cache");
             enka.cachedAssetsManager.cacheDirectorySetup();
             worker.postMessage("fetchContent");
         }
@@ -86,8 +83,59 @@ app.whenReady().then(() => {
         worker.postMessage("fetchContent");
     }
 
-    createJsonData(enka);
     enka.close();
+})
+
+function electronStore(){
+    let calendarList = store.get("calendarList", false);
+    if(!calendarList){
+        store.set("calendarList", []);
+    }
+
+    let config = store.get("config", false);
+    if(!config){
+        config = {
+            theme: "dark",
+            server: "None",
+        };
+        store.set("config", config);
+    }
+
+    let update = store.get("update", "not");
+    if(update == "not"){
+        store.set("update", false);
+    }
+
+    let lastCheck = store.get("lastCheck", false);
+    if(!lastCheck){
+        store.set("lastCheck", null);
+    }
+}
+
+//! Logs from Multithreading
+worker.on("message", (msg) => {
+    if(msg.startsWith("LOGGING:")){
+        log.info(msg);
+    }
+})
+
+
+//!Used
+ipcMain.handle("storeGet", (event, args) => {
+    const item = args.item;
+    return store.get(item);
+})
+
+//!Used
+ipcMain.handle("storeSet", (event, args) => {
+    const item = args.item;
+    const value = args.value;
+    store.set(item, value);
+    return true;
+})
+
+ipcMain.handle("log", (event, args) => {
+    log.info(args.message);
 })
 
 autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
@@ -136,13 +184,15 @@ app.on('quit', () => {
     worker.postMessage("stopAutoUpdater")
     worker.postMessage("closeEnka");
     app.quit();
-})
+});
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit()
     }
 });
+
+
 
 ipcMain.handle('update', (event) => {
 
@@ -248,11 +298,57 @@ function isDuplicate(name, data){
     return false;
 }
 
+//!Used
 ipcMain.handle('saveSelection', (event, args) => {
+
+    log.info("Save Selection");
+
     const name = args.name;
     const type = args.type;
 
-    const filePath = path.resolve(__dirname, "calendar.json");
+    let data = store.get("calendarList");
+
+    if(!isDuplicate(name, data)){
+        if(type == "character"){
+            var id = getCharIdByName(name, store.get("charData"));
+            var materials = getCharacterMaterials(id, store.get("charData"));
+
+            data.push({
+                name: name,
+                id: id,
+                type: "character",
+                boss: true,
+                bossId: materials["boss"],
+                talents: true,
+                talentsId: materials["talent"],
+            });
+
+        }else if(type == "weapon"){
+            var id = getWeaponIdByName(name, store.get("weaponData"));
+            var material = getWeaponMaterial(id, store.get("weaponData"));
+
+            data.push({
+                name: name,
+                id: id,
+                type: "weapon",
+                material: material,
+            });
+        }else{
+            var id = getArtifactIdByName(name, store.get("artifactsData"));
+            
+            data.push({
+                name: name,
+                id: id,
+                type: "artifact",
+            });
+        }
+    }
+
+    store.set("calendarList", data);
+    return true;
+
+
+    /*const filePath = path.resolve(__dirname, "calendar.json");
 
     checkIfFileExists(filePath, (exists) => {
         if(!exists){
@@ -321,7 +417,7 @@ ipcMain.handle('saveSelection', (event, args) => {
         })
 
 
-    })
+    })*/
 })
 
 ipcMain.handle('saveConfig', (event, config) => {

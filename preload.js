@@ -3,9 +3,10 @@ const { ipcRenderer, contextBridge } = require("electron");
 contextBridge.exposeInMainWorld('api', {
     testInvoke: (args) => ipcRenderer.invoke('testInvoke', args),
 
-    testSend: (args) => ipcRenderer.send('test-send', args),
+    log: (args) => ipcRenderer.invoke("log", args),
 
-    testReceive: (callback) => ipcRenderer.on('test-receive', (event, data) => { callback(data) }),
+    storeGet: (args) => ipcRenderer.invoke("storeGet", args),
+    storeSet: (args) => ipcRenderer.invoke("storeSet", args),
 
     loadList: (args) => ipcRenderer.invoke('loadList'),
     saveList: (args) => ipcRenderer.invoke('saveList', args),

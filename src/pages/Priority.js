@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
 import PopUp from '../components/Modals/PopUp';
-
-import calendarData from "../../calendar.json";
 import { getAssetById } from "../functions/enkaFunctions";
 
 export default function Priority() {
@@ -83,10 +80,48 @@ export default function Priority() {
     }
 
     useEffect(() => {
-        load();
+        loadCalendar();
+        loadData();
     }, []);
 
-    const[list, setList] = useState(calendarData);
+    async function loadCalendar(){
+        let calendarData = await window.api.storeGet({ item: "calendarList" });
+        setList(calendarData);
+        setChanges(false);
+    }
+
+    async function loadData(){
+        let char = await window.api.storeGet({ item: "charData" });
+        setCharData(char);
+
+        let weapon = await window.api.storeGet({ item: "weaponData" });
+        setWeaponData(weapon);
+
+        let artifact = await window.api.storeGet({ item: "artifactsData" });
+        setArtifactData(artifact);
+
+        let boss = await window.api.storeGet({ item: "bossData" });
+        setBossData(boss);
+
+        let farm = await window.api.storeGet({ item: "materialData" });
+        setFarmData(farm);
+    }
+
+    async function saveCalendar(){
+        const response = await window.api.storeSet({ item: "calendarList", value: list });
+        if(response){
+            setSaved(true);
+            setChanges(false);
+        }
+    }
+
+    const[list, setList] = useState([]);
+    const[charData, setCharData] = useState([]);
+    const[weaponData, setWeaponData] = useState([]);
+    const[artifactData, setArtifactData] = useState([]);
+    const[bossData, setBossData] = useState([]);
+    const[farmData, setFarmData] = useState([]);
+
     const[changes, setChanges] = useState(false);
     const[saved, setSaved] = useState(false);
 
@@ -98,25 +133,6 @@ export default function Priority() {
             updatedList[index] = { ...updatedList[index], talents: (!updatedList[index]["talents"]) }
         }
         setList(updatedList);
-    }
-
-    async function load(){
-
-        const response = await window.api.loadList();
-        if(response == "empty"){
-            await window.api.storeList(list);
-        }else{
-            setList(response);
-            setChanges(false);
-        }
-    }
-
-    async function save(){
-        const response = await window.api.saveList(list);
-        if(response){
-            setSaved(true);
-            setChanges(false);
-        }
     }
 
     function remove(index){
@@ -153,7 +169,7 @@ export default function Priority() {
             <div className="w-full h-[120px] flex flex-row">
                 <div className="w-[302px] h-[100px] bg-[#393E46] rounded-t-xl flex-none flex flex-row items-center px-5 mt-5 ml-[5%]">
                     <motion.button
-                        className={`w-[125px] h-[75px] text-black font-merri font-lg rounded-lg drop-shadow-md ${changes ? 'text-black bg-green-500' : 'text-white'}`} onClick={() => save()}
+                        className={`w-[125px] h-[75px] text-black font-merri font-lg rounded-lg drop-shadow-md ${changes ? 'text-black bg-green-500' : 'text-white'}`} onClick={() => saveCalendar()}
                         variants={buttons}
                         initial="small"
                         whileHover="hover"
@@ -161,7 +177,7 @@ export default function Priority() {
                         disabled={!changes}
                     >SAVE</motion.button>
                     <motion.button
-                        className={`w-[125px] h-[75px] text-black font-merri font-lg rounded-lg ml-3 drop-shadow-md ${changes ? 'text-black bg-red-500' : 'text-white'}`} onClick={() => load()}
+                        className={`w-[125px] h-[75px] text-black font-merri font-lg rounded-lg ml-3 drop-shadow-md ${changes ? 'text-black bg-red-500' : 'text-white'}`} onClick={() => loadCalendar()}
                         variants={buttons}
                         initial="small"
                         whileHover="hover"
@@ -204,7 +220,9 @@ export default function Priority() {
                             <div className="flex flex-row w-full">
                                 <div className="h-full w-[400px] flex flex-row ml-2">
                                     <div className="w-[72px] h-[70px] bg-[#1c6569] overflow-hidden">
-                                        <img src={getAssetById(item["type"], item["id"], "icon")} width="70" height="70"/>
+                                        {item["type"] == "character" && <img src={ getAssetById(item["type"], item["id"], "icon", charData )} width="70" height="70"/>}
+                                        {item["type"] == "weapon" && <img src={ getAssetById(item["type"], item["id"], "icon", weaponData )} width="70" height="70"/>}
+                                        {item["type"] == "artifact" && <img src={ getAssetById(item["type"], item["id"], "icon", artifactData )} width="70" height="70"/>}
                                     </div>
                                     <div className="w-[330px] h-full flex items-center ml-2">
                                         <div className="w-fit h-fit rounded-lg hover:bg-[#1c6569] py-2 px-2">
@@ -215,7 +233,7 @@ export default function Priority() {
                                 {(item["type"] == "character") && <div className="minW:w-[165px] mdW:w-[400px] h-full select-none flex items-center">
                                     <motion.div className="bg-[#1c6569] minW:w-[60px] mdW:w-[187.5px] h-[60px] cursor-pointer rounded-lg" onClick={() => {swapListAtIndex(index, "boss"); setChanges(true)}} variants={buttons} initial="small" whileHover="hover2">
                                         <div className={`flex flex-row ${list[index]["boss"] == false ? 'grayscale' : 'grayscale-0'}`}>
-                                            <img src={getAssetById("bossMaterial", list[index]["bossId"], "icon")} width="60" height="60" />
+                                            <img src={ getAssetById("bossMaterial", list[index]["bossId"], "icon", bossData )} width="60" height="60" />
                                             <div className="mdW:flex minW:hidden h-[60px] items-center">
                                                 <p className={`text-white font-merri ${list[index]["boss"] == false ? 'line-through decoration-2 decoration-gray-400' : 'no-underline'}`}>BOSS</p>
                                             </div>
@@ -223,7 +241,7 @@ export default function Priority() {
                                     </motion.div>
                                     <motion.div className="bg-[#1c6569] minW:w-[60px] mdW:w-[187.5px] h-[60px] ml-[25px] cursor-pointer rounded-lg" onClick={() => {swapListAtIndex(index, "talents"); setChanges(true)}} variants={buttons} initial="small" whileHover="hover2">
                                         <div className={`flex flex-row ${list[index]["talents"] == false ? 'grayscale' : 'grayscale-0'}`}>
-                                            <img src={getAssetById("material", list[index]["talentsId"], "icon")} width="60" height="60" />
+                                            <img src={ getAssetById("material", list[index]["talentsId"], "icon", farmData )} width="60" height="60" />
                                             <div className="mdW:flex minW:hidden h-[60px] items-center">
                                                 <p className={`text-white font-merri ${list[index]["talents"] == false ? 'line-through decoration-2 decoration-gray-400' : 'no-underline'}`}>TALENTS</p>
                                             </div>

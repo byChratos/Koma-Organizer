@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
 import Backdrop from './Backdrop';
 import EntityInformation from './ModalComponents/EntityInformation';
 import MaterialInformation from './ModalComponents/MaterialInformation';
@@ -11,8 +10,6 @@ import { getFarmable } from '../../functions/enkaFunctions';
 import CharacterListModal from './ModalLists/CharacterListModal';
 import WeaponListModal from './ModalLists/WeaponListModal';
 import ArtifactListModal from './ModalLists/ArtifactListModal';
-
-import calendarData from "../../../calendar.json";
 
 const dropIn = {
     hidden: {
@@ -50,46 +47,78 @@ const buttons = {
 export default function DayInformationModal({ modalOpen, setModalType, day }) {
     
     useEffect(() => {
-        load();
+        loadData();
     }, [])
 
-    async function load(){
-        const response = await window.api.loadList();
-        if(response != "empty"){
-            setList(response);
-        }else{
-            await window.api.storeList(list);
-        }
+    async function loadData(){
+        let calendarData = await window.api.storeGet({ item: "calendarList" });
+        setList(calendarData);
+
+        let char = await window.api.storeGet({ item: "charData" });
+        setCharData(char);
+
+        let weapon = await window.api.storeGet({ item: "weaponData" });
+        setWeaponData(weapon);
+
+        let artifact = await window.api.storeGet({ item: "artifactsData" });
+        setArtifactData(artifact);
+
+        let boss = await window.api.storeGet({ item: "bossData" });
+        setBossData(boss);
+
+        let farm = await window.api.storeGet({ item: "materialData" });
+        setFarmData(farm);
     }
 
-    const dayNumber = getDayNumber(day);
+    const[list, setList] = useState([]);
+    const[charData, setCharData] = useState([]);
+    const[weaponData, setWeaponData] = useState([]);
+    const[artifactData, setArtifactData] = useState([]);
+    const[bossData, setBossData] = useState([]);
+    const[farmData, setFarmData] = useState([]);
 
-    const[list, setList] = useState(calendarData);
 
-    const farmable = getFarmable(dayNumber, list);
-    let[top, ...restOfFarmable] = farmable;
+    useEffect(() => {
+        if(farmData != []){
 
-    if(top == null){
-        top = {
-            type: "empty",
+            const dayNumber = getDayNumber(day);
+
+            const farmable = getFarmable(dayNumber, list, charData, weaponData, artifactData, farmData, bossData);
+
+            let[top, ...restOfFarmable] = farmable;
+
+            if(top == null){
+                top = {
+                    type: "empty",
+                }
+            }
+
+            let characters = [];
+            let weapons = [];
+            let artifacts = [];
+
+            //* Puts the other non top priority entries into their respective categories
+            for(const entry of restOfFarmable){
+                if(entry["type"] == "character"){
+                    characters.push(entry);
+                }else if(entry["type"] == "weapon"){
+                    weapons.push(entry);
+                }else{
+                    artifacts.push(entry);
+                }
+            }
+            setFC(characters);
+            setFW(weapons);
+            setFA(artifacts);
+
+            setTop(top);
         }
-    }
+    }, [farmData]);
 
-    let characters = [];
-    let weapons = [];
-    let artifacts = [];
-
-    //* Puts the other non top priority entries into their respective categories
-    for(const entry of restOfFarmable){
-        if(entry["type"] == "character"){
-            characters.push(entry);
-        }else if(entry["type"] == "weapon"){
-            weapons.push(entry);
-        }else{
-            artifacts.push(entry);
-        }
-    }
-
+    const[farmableChar, setFC] = useState(null);
+    const[farmableWeapon, setFW] = useState(null);
+    const[farmableArtifact, setFA] = useState(null);
+    const[top, setTop] = useState({ type: "empty" })
 
     function close(){
         setModalType(null);
@@ -136,13 +165,13 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
                         {(top["type"] == "character") &&
                         <>
                             <EntityInformation name={top["charName"]} imageSrc={top["charUrl"]} />
-                            {(top["talentId"] != false) ? <MaterialInformation matId={top["talentId"]} matType="talent" imageSrc={top["talentUrl"]} /> : <MaterialInformation matId={top["bossId"]} matType="boss" imageSrc={top["bossUrl"]} />}
+                            {(top["talentId"] != false) ? <MaterialInformation matId={top["talentId"]} matType="talent" imageSrc={top["talentUrl"]} data={farmData}/> : <MaterialInformation matId={top["bossId"]} matType="boss" imageSrc={top["bossUrl"]} data={bossData}/>}
                         </>}
 
                         {(top["type"] == "weapon") &&
                         <>
                             <EntityInformation name={top["weaponName"]} imageSrc={top["weaponUrl"]} />
-                            <MaterialInformation matId={top["material"]} matType={top["type"]} imageSrc={top["materialUrl"]} top={top} />
+                            <MaterialInformation matId={top["material"]} matType={top["type"]} imageSrc={top["materialUrl"]} top={top} data={farmData}/>
                         </>}
 
                         {(top["type"] == "artifact") &&
@@ -157,17 +186,17 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
                 <div className="w-full h-[65%] flex flex-row">
                     <div className="w-[32%] h-full bg-[#222831] rounded-xl drop-shadow-md flex flex-col overflow-y-scroll overflow-x-hidden">
                         <h2 className="text-white font-merri text-lg text-center py-1">Other Characters</h2>
-                        {(characters != null) && <CharacterListModal characters={characters}/>}
+                        {(farmableChar != null) && <CharacterListModal characters={farmableChar} farmData={farmData} bossData={bossData}/>}
                     </div>
                     
                     <div className="w-[32%] mx-auto h-full bg-[#222831] rounded-xl drop-shadow-md flex flex-col overflow-auto">
                         <h2 className="text-white font-merri text-lg text-center py-1">Other Weapons</h2>
-                        {(weapons != null) && <WeaponListModal weapons={weapons}/>}
+                        {(farmableWeapon != null) && <WeaponListModal weapons={farmableWeapon} data={farmData} weaponData={weaponData}/>}
                     </div>
 
                     <div className="w-[32%] h-full bg-[#222831] rounded-xl drop-shadow-md flex flex-col overflow-auto">
                         <h2 className="text-white font-merri text-lg text-center py-1">Other Artifacts</h2>
-                        {(artifacts != null) && <ArtifactListModal artifacts={artifacts}/>}
+                        {(farmableArtifact != null) && <ArtifactListModal artifacts={farmableArtifact}/>}
                     </div>
                 </div>
             </div>

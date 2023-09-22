@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
-
 import Links from '../components/Navigation/Links';
 import logo from "../Images/Koma_Koma White.png";
+import { PageContext } from '../components/PageContext';
 
 const variants = {
     initial: {
@@ -55,6 +55,11 @@ export default function Home() {
     const navigate = useNavigate();
     const[update, setUpdate] = useState(false);
 
+    const {
+        page,
+        setPage
+    } = useContext(PageContext);
+
 
     return(
         <motion.div
@@ -75,7 +80,7 @@ export default function Home() {
                         whileHover="hover"
                         whileTap="tap"
                         variants={button}
-                        onClick={() => navigate("/calendar")}>
+                        onClick={() => { setPage("Calendar"); navigate("/calendar") }}>
                         Calendar
                     </motion.button>
                     <motion.button
@@ -83,7 +88,7 @@ export default function Home() {
                         whileHover="hover"
                         whileTap="tap"
                         variants={button}
-                        onClick={() => navigate("/priority")}>
+                        onClick={() => { setPage("Priority"); navigate("/priority") }}>
                         Priority
                     </motion.button>
                     <motion.button
@@ -91,7 +96,7 @@ export default function Home() {
                         whileHover="hover"
                         whileTap="tap"
                         variants={button}
-                        onClick={() => navigate("/add")}>
+                        onClick={() => { setPage("Add"); navigate("/add") }}>
                         Add
                     </motion.button>
                     <motion.button
@@ -99,7 +104,7 @@ export default function Home() {
                         whileHover="hover"
                         whileTap="tap"
                         variants={button}
-                        onClick={() => navigate("/settings")}>
+                        onClick={() => { setPage("Settings"); navigate("/settings") }}>
                         Settings
                     </motion.button>
                     <Links />

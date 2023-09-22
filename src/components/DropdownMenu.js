@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DrowDown from "./Modals/ModalLists/DropDown";
 
 export default function DropdownMenu({ selectedServer, setSelectedServer }) {
     
+    useEffect(() => {
+        setSelection(selectedServer);
+    }, [selectedServer]);
+
     const[isOpen, setIsOpen] = useState(false);
     const[selection, setSelection] = useState(selectedServer);
     const elements = ["America", "Asia", "Europe", "SAR"];

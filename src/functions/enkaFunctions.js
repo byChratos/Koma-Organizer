@@ -1,52 +1,52 @@
-import charData from "../data/characters.json";
+/*import charData from "../data/characters.json";
 import weaponData from "../data/weapons.json";
 import artifactData from "../data/artifacts.json";
 
 import farmData from "../data/materials.json";
-import bossData from "../data/bossMaterials.json";
+import bossData from "../data/bossMaterials.json";*/
 
 
-export function getAsset(object, type, key) {
+export function getAsset(object, type, key, data) {
 
     if(object === "character"){
-        const charUrl = charData[key][type];
+        const charUrl = data[key][type];
         return charUrl;
     }else if(object === "weapon"){
-        const weaponUrl = weaponData[key][type];
+        const weaponUrl = data[key][type];
         return weaponUrl;
     }else if(object === "artifact"){
-        const artifactUrl = artifactData[key][type];
+        const artifactUrl = data[key][type];
         return artifactUrl;
     }
 }
 
-export function getAssetById(object, id, imageType){
+export function getAssetById(object, id, imageType, data){
     if(object == "character"){
-        for(const char of charData){
+        for(const char of data){
             if(char["id"] == id){
                 return char[imageType];
             }
         }
     }else if(object == "weapon"){
-        for(const weapon of weaponData){
+        for(const weapon of data){
             if(weapon["id"] == id){
                 return weapon[imageType];
             }
         }
     }else if(object == "artifact"){
-        for(const artifact of artifactData){
+        for(const artifact of data){
             if(artifact["id"] == id){
                 return artifact[imageType];
             }
         }
     }else if(object == "material"){
-        for(const material of farmData){
+        for(const material of data){
             if(material["id"] == id){
                 return material[imageType];
             }
         }
     }else if(object == "bossMaterial"){
-        for(const material of bossData){
+        for(const material of data){
             if(material["id"] == id){
                 return material[imageType];
             }
@@ -60,7 +60,7 @@ function insert(what, into, priority){
 }
 
 //! Returns dict of farmable stuff today, sorted by Priority => first element == Top Prio, 
-export function getFarmable(day, calendar){
+export function getFarmable(day, calendar, charData, weaponData, artifactData, farmData, bossData){
 
     let farmable = [];
 
@@ -97,12 +97,12 @@ export function getFarmable(day, calendar){
                     var newTalent = {
                         charName: entry["name"],
                         charId: entry["id"],
-                        charUrl: getAssetById("character", entry["id"], "icon"),
+                        charUrl: getAssetById("character", entry["id"], "icon", charData),
                         type: "character",
                         bossId: boss,
-                        bossUrl: getAssetById("bossMaterial", boss, "icon"),
+                        bossUrl: getAssetById("bossMaterial", boss, "icon", bossData),
                         talentId: talents,
-                        talentUrl: getAssetById("material", talents, "icon"),
+                        talentUrl: getAssetById("material", talents, "icon", farmData),
                     }
     
                     farmable.push(newTalent);
@@ -130,7 +130,7 @@ export function getFarmable(day, calendar){
                 var newWeapon = {
                     weaponName: entry["name"],
                     weaponId: entry["id"],
-                    weaponUrl: getAssetById("weapon", entry["id"], "icon"),
+                    weaponUrl: getAssetById("weapon", entry["id"], "icon", weaponData),
                     type: "weapon",
                     material: entry["material"],
                     materialUrl: url,
@@ -142,7 +142,7 @@ export function getFarmable(day, calendar){
             var newArtifact = {
                 artifactName: entry["name"],
                 artifactId: entry["id"],
-                artifactUrl: getAssetById("artifact", entry["id"], "icon"),
+                artifactUrl: getAssetById("artifact", entry["id"], "icon", artifactData),
                 type: "artifact",
             }
 
