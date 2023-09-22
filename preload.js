@@ -17,7 +17,7 @@ contextBridge.exposeInMainWorld('api', {
     loadConfig: (args) => ipcRenderer.invoke('loadConfig'),
 
     update: (args) => ipcRenderer.invoke('update'),
+    updateKoma: (args) => ipcRenderer.invoke('updateKoma'),
 
     openToBrowser: (args) => ipcRenderer.invoke('openToBrowser', args),
-    test: (args) => ipcRenderer.invoke('test', args),
 })

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, Notification, shell, dialog } = require('electron');
+const { app, BrowserWindow, ipcMain, shell, dialog } = require('electron');
 const path = require('path');
 var fs = require('fs');
 const Store = require("electron-store");
@@ -12,7 +12,6 @@ const { getCharIdByName, getWeaponIdByName, getArtifactIdByName, getCharacterMat
 
 const isDev = !app.isPackaged;
 
-let updateInterval = null;
 let updateCheck = false;
 let updateFound = false;
 let updateNotAvailable = false;
@@ -20,8 +19,6 @@ let updateNotAvailable = false;
 const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "cache") });
 const worker = new Worker(path.resolve(__dirname, "src", "workers", "enkaWorker.js"));
 const store = new Store();
-
-//TODO Store all data in electron store
 
 let win;
 
@@ -67,7 +64,7 @@ app.whenReady().then(() => {
     //* Gets the Genshin data into the config.json
     createJsonData(enka, store);
 
-    updateInterval = setInterval(() => autoUpdater.checkForUpdates(), 600000);
+    autoUpdater.checkForUpdates();
 
     checkIfFileExists(path.resolve(__dirname, "cache"), (exists) => {
         if(!exists){
@@ -110,6 +107,13 @@ function electronStore(){
     if(!lastCheck){
         store.set("lastCheck", null);
     }
+
+    let lastCheckKoma = store.get("lastCheckKoma", false);
+    if(!lastCheckKoma){
+        store.set("lastCheckKoma", null);
+    }
+
+    store.set("firstTime", true);
 }
 
 //! Logs from Multithreading
@@ -120,13 +124,12 @@ worker.on("message", (msg) => {
 })
 
 
-//!Used
+
 ipcMain.handle("storeGet", (event, args) => {
     const item = args.item;
     return store.get(item);
 })
 
-//!Used
 ipcMain.handle("storeSet", (event, args) => {
     const item = args.item;
     const value = args.value;
@@ -139,12 +142,15 @@ ipcMain.handle("log", (event, args) => {
 })
 
 autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
+
+    log.info("Koma update available");
+
     const dialogOpts = {
         type: 'info',
         buttons: ['Ok'],
-        title: `${autoUpdater.channel} Update Available`,
+        title: `Update Available`,
         message: process.platform === 'win32' ? releaseNotes : releaseName,
-        detail: `A new ${autoUpdater.channel} version download started.`
+        detail: `A new version download started. The program will automatically restart. Please do not quit`
     };
 
     if(!updateCheck){
@@ -155,27 +161,36 @@ autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
 })
 
 autoUpdater.on("update-downloaded", (_event) => {
+
+    log.info("Update downloaded");
+
     if(!updateFound){
         updateInterval = null;
         updateFound = true;
 
         setTimeout(() => {
             autoUpdater.quitAndInstall();
-        }, 3500);
+        }, 10000);
     }
 })
 
 autoUpdater.on("update-not-available", (_event) => {
+
+    log.info("No Koma Updates available");
+
     const dialogOpts = {
         type: 'info',
         buttons: ['Ok'],
-        title: `Update not available for ${autoUpdater.channel}`,
-        message: "ABC",
-        detail: `Update not available for ${autoUpdater.channel}`
+        title: `Update not available`,
+        message: "No Updates found",
+        detail: `Update not available`
     }
 
-    if(!updateNotAvailable){
-        updateNotAvailable = true;
+    let first = store.get("firstTime");
+
+    if(first){
+        store.set("firstTime", false);
+    }else{
         dialog.showMessageBox(dialogOpts);
     }
 })
@@ -192,7 +207,26 @@ app.on('window-all-closed', () => {
     }
 });
 
+ipcMain.handle('updateKoma', (event) => {
+    
 
+    let lastCheck = store.get("lastCheckKoma");
+    let nowUnix = Math.floor(Date.now() / 1000);
+
+    if(lastCheck == null || (nowUnix - lastCheck) > 30){
+
+        log.info("Looking for Koma Updates");
+
+        store.set("lastCheckKoma", nowUnix);
+
+        autoUpdater.checkForUpdates();
+
+        return true;
+    }else{
+        return "wait " + (30 - (nowUnix - lastCheck));
+    }
+
+})
 
 ipcMain.handle('update', (event) => {
 
@@ -270,10 +304,6 @@ ipcMain.handle('openToBrowser', (event, url) => {
     shell.openExternal(url);
 })
 
-ipcMain.on('notify', (_, message) => {
-    new Notification({title: 'Notification', body: message}).show();
-})
-
 function checkIfFileExists(filePath, callback){
     fs.access(filePath, fs.constants.F_OK, (err) => {
         if(err){
@@ -298,10 +328,7 @@ function isDuplicate(name, data){
     return false;
 }
 
-//!Used
 ipcMain.handle('saveSelection', (event, args) => {
-
-    log.info("Save Selection");
 
     const name = args.name;
     const type = args.type;
@@ -418,31 +445,4 @@ ipcMain.handle('saveSelection', (event, args) => {
 
 
     })*/
-})
-
-ipcMain.handle('saveConfig', (event, config) => {
-    let configPath = path.resolve(__dirname, "config.json");
-    const jsonString = JSON.stringify(config, null, 2);
-    fs.writeFile(configPath, jsonString, (error) => {
-        if(error){
-            console.error(error);
-            return false;
-        }
-        store.set("config", config);
-        return true;
-    });
-})
-
-ipcMain.handle('loadConfig', (event) => {
-    let config = store.get("config");
-
-    if(config == null){
-        return "empty";
-    }else{
-        return config;
-    }
-})
-
-ipcMain.handle('test', (event) => {
-    console.log("TEST");
 })

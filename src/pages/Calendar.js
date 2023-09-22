@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Day from "../components/Day";
 import DayInformationModal from '../components/Modals/DayInformationModal';
 import moment from 'moment-timezone';
+import { log } from '../functions/nonModuleFunctions';
 
 const variants = {
     initial: {
@@ -20,36 +21,33 @@ const variants = {
 
 export default function Calendar() {
 
-    let config;
-
     useEffect(() => {
         loadConfig();
     }, []);
 
     async function loadConfig(){
-        config = await window.api.storeGet({ item: "config" });
-        setServer(config["server"]);
-        sortDays();
+        let config = await window.api.storeGet({ item: "config" });
+        let sv = config["server"];
+        sortDays(sv);
     }
 
     const[modalOpen, setModalOpen] = useState(false);
     const[modalDay, setModalDay] = useState(null);
-    const[server, setServer] = useState("None");
     const[days, setDays] = useState(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]);
 
     
 
-    function sortDays(){
+    function sortDays(sv){
         const dayList = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         let sortedDays = [];
 
         //1. Get current day of server
         let timezone;
-        if(server == "America"){
+        if(sv == "America"){
             timezone = 'America/New_York';
-        }else if(server == "Asia"){
+        }else if(sv == "Asia"){
             timezone = 'Asia/Singapore';
-        }else if(server == "Europe"){
+        }else if(sv == "Europe"){
             timezone = 'Europe/London';
         }else{
             timezone = 'Asia/Singapore';

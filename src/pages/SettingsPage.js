@@ -79,6 +79,21 @@ export default function SettingsPage() {
         }
     }
 
+    async function updateKoma(){
+        
+        setUpdating(true);
+        const update = await window.api.updateKoma();
+        setUpdating(false);
+
+        if(update.startsWith('wait')){
+            setUpdateResult(update);
+            const arr = update.split(" ");
+            setUpdateMessage("Please wait " + arr[1] + " seconds before checking for Koma updates again.");
+        }else{
+            setUpdateResult(null);
+        }
+    }
+
     function closePopup(){
         setUpdateResult(null);
         setUpdateMessage(null);
@@ -98,6 +113,16 @@ export default function SettingsPage() {
 
             <div className="bg-[#393E46] h-[100px] w-[40%] flex flex-row items-center rounded-lg mt-3">
                 <h1 className="text-white font-merri text-xl ml-3">Update Koma</h1>
+                <motion.button 
+                    className="ml-auto mr-2 rounded-lg p-4 text-white font-merri bg-[#1c6569]" onClick={() => updateKoma()}
+                    variants={buttons}
+                    initial="initial"
+                    whileHover="hover"
+                >Check for updates</motion.button>
+            </div>
+
+            <div className="bg-[#393E46] h-[100px] w-[40%] flex flex-row items-center rounded-lg mt-3">
+                <h1 className="text-white font-merri text-xl ml-3">Update Genshin Data</h1>
                 <motion.button 
                     className="ml-auto mr-2 rounded-lg p-4 text-white font-merri bg-[#1c6569]" onClick={() => update()}
                     variants={buttons}

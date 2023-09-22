@@ -184,7 +184,7 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
 
                 {/* Rest */}
                 <div className="w-full h-[65%] flex flex-row">
-                    <div className="w-[32%] h-full bg-[#222831] rounded-xl drop-shadow-md flex flex-col overflow-y-scroll overflow-x-hidden">
+                    <div className="w-[32%] h-full bg-[#222831] rounded-xl drop-shadow-md flex flex-col overflow-auto">
                         <h2 className="text-white font-merri text-lg text-center py-1">Other Characters</h2>
                         {(farmableChar != null) && <CharacterListModal characters={farmableChar} farmData={farmData} bossData={bossData}/>}
                     </div>

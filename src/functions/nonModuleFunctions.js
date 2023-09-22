@@ -69,4 +69,8 @@ function getMaterialNameById(type, id, data){
     }
 }
 
-module.exports = { getArtifactIdByName, getCharIdByName, getWeaponIdByName, getCharacterMaterials, getWeaponMaterial, getDayNumber, getMaterialNameById }
+async function log(msg){
+    await window.api.log({ message: msg });
+}
+
+module.exports = { getArtifactIdByName, getCharIdByName, getWeaponIdByName, getCharacterMaterials, getWeaponMaterial, getDayNumber, getMaterialNameById, log }
