@@ -1,6 +1,8 @@
 ![Koma Logo](src/Images/Koma_Koma%20White.png)
 ## Organize your Characters, Weapons and Artifacts in a calendar to always see what's available to farm today!
 
+_This Program is **not** finished. Encountering bugs is likely._
+
 # Installation
 ### Windows
 1. Go to the [release](https://github.com/byChratos/Koma-Organizer/releases) section of Github and choose any of the stable releases.
