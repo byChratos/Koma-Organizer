@@ -25,7 +25,7 @@ export default function Links() {
             <div>
                 <a href="#" onClick={() => openLinkInBrowser("https://github.com/byChratos/gensho")}>
                     <motion.svg
-                        xmlns="http://www.w3.org/2000/svg" className="fill-white" width="50" height="50" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg" className="fill-lightFont dark:fill-darkFont" width="50" height="50" viewBox="0 0 24 24"
                         variants={variants}
                         whileHover="hover"
                     >
@@ -37,7 +37,7 @@ export default function Links() {
             <div className="ml-2">
                 <a href="#" onClick={() => openLinkInBrowser("https://discord.gg/FGGbCybMuK")}>
                     <motion.svg
-                        xmlns="http://www.w3.org/2000/svg" className="fill-white" width="50" height="50" viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg" className="fill-lightFont dark:fill-darkFont" width="50" height="50" viewBox="0 0 16 16"
                         variants={variants}
                         whileHover="hover"
                     >

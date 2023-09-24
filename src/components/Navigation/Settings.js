@@ -46,7 +46,7 @@ export default function Settings({ isOpen, setPage }) {
                 whileTap="tap"
                 animate={isOpen ? "open" : "closed"}
             >
-                <motion.button className="w-full h-full font-merri hover:bg-[#1c6569] rounded-lg text-white drop-shadow-md"> Settings </motion.button>
+                <motion.button className="w-full h-full font-merri hover:bg-lightSecondary dark:hover:bg-darkSecondary rounded-lg text-lightFontTwo dark:text-darkFont drop-shadow-md"> Settings </motion.button>
             </motion.div>
         </AnimatePresence>
     );

@@ -43,12 +43,12 @@ export default function ArtifactList({ input, handleClick }) {
         <ul className='w-full h-full list-none px-2'>
             {filteredData.reverse().map((item) => (
                 <button key={item.id}
-                    className="bg-[#222831] hover:bg-[#00ADB5] w-full h-[50px] text-left flex flex-row rounded-lg my-2 overflow-hidden drop-shadow-md items-center"
+                    className="bg-lightBGTwo dark:bg-darkBG hover:bg-lightPrimary dark:hover:bg-darkPrimary w-full h-[50px] text-left flex flex-row rounded-lg my-2 overflow-hidden drop-shadow-md items-center"
                     onClick={() => { handleClick(item.name, "artifact") }}
                 >
                     <img className="object-cover inline-block relative" src={ getAssetById("artifact", item.id, "icon", data) } width="50" height="50" />
                     {/* <GenshinImage id={item.id} objectType="artifact" imageType="icon" width="50" height="50" artifactData={data}/> */}
-                    <p className="text-white font-merri text-lg">
+                    <p className="text-lightFont dark:text-darkFont font-merri text-lg">
                         {item.name}
                     </p>
                 </button>

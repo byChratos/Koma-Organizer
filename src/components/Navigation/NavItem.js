@@ -46,7 +46,7 @@ export default function NavItem({ name, link, isOpen, index, setPage, active }){
                 whileTap="tap"
                 animate={isOpen ? "open" : "closed"}
             >
-                <motion.button className={`w-full h-full font-merri hover:bg-[#1c6569] text-white rounded-lg drop-shadow-md ${active ? 'text-xl' : 'text-md no-underline'}`}> {name} </motion.button>
+                <motion.button className={`w-full h-full font-merri hover:bg-lightSecondary dark:hover:bg-darkSecondary text-lightFontTwo dark:text-darkFont rounded-lg drop-shadow-md ${active ? 'text-xl' : 'text-md no-underline'}`}> {name} </motion.button>
             </motion.li>
         </AnimatePresence>
     );

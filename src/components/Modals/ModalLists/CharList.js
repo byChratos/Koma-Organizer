@@ -51,14 +51,14 @@ export default function CharList({ char, farmData, bossData }) {
 
     return(
         <motion.div
-            className="h-auto w-[95%] bg-[#1c6569] my-[6px] rounded-xl flex flex-col overflow-hidden"
+            className="h-auto w-[95%] bg-lightSecondary dark:bg-darkSecondary my-[6px] rounded-xl flex flex-col overflow-hidden"
             variants={variants}
             animate={isOpen ? `${oneOpen ? "open" : "oneOpen"}` : "initial"}
         >
-            <div className={`w-full h-[50px] flex flex-row items-center transition-colors ease-in-out ${isOpen ? 'bg-[#00ADB5]' : 'bg-[#1c6569]'}`}>
+            <div className={`w-full h-[50px] flex flex-row items-center transition-colors ease-in-out ${isOpen ? 'bg-lightPrimary dark:bg-darkPrimary' : 'bg-lightSecondary dark:bg-darkSecondary'}`}>
                 <img src={char["charUrl"]} width="50" height="50"/>
-                <h1 className={`font-merri text-white text-md ml-2 p-2 selection:bg-[#393E46] ${isOpen ? 'hover:bg-[#1c6569]' : 'hover:bg-[#00ADB5]'} rounded-xl select-text`}>{char["charName"]}</h1>
-                <button className={`ml-auto mr-2 ${isOpen ? 'hover:bg-[#1c6569]' : 'hover:bg-[#00ADB5]'} rounded-xl`} onClick={() => handleClick()}>
+                <h1 className={`font-merri text-lightFontTwo dark:text-darkFont text-md ml-2 p-2 selection:text-lightFont dark:selection:text-darkFont selection:bg-lightBGTwo dark:selection:bg-darkBGTwo ${isOpen ? 'hover:bg-lightSecondary dark:hover:bg-darkSecondary' : 'hover:bg-lightPrimary dark:hover:bg-darkPrimary'} rounded-xl select-text`}>{char["charName"]}</h1>
+                <button className={`ml-auto mr-2 ${isOpen ? 'hover:bg-lightSecondary dark:hover:bg-darkSecondary' : 'hover:bg-lightPrimary dark:hover:bg-darkPrimary'} rounded-xl`} onClick={() => handleClick()}>
                     <DrowDown
                         width="40" height="40"
                         isOpen={isOpen}
@@ -72,7 +72,7 @@ export default function CharList({ char, farmData, bossData }) {
             <AnimatePresence>
                 {(isOpen) && 
                 <motion.div 
-                    className={`w-full h-fit bg-[#1c6569] p-2 flex flex-col`}
+                    className={`w-full h-fit bg-lightSecondary dark:bg-darkSecondary p-2 flex flex-col`}
                     variants={liItems}
                     initial="closed"
                     animate={oneOpen ? "open" : "oneOpen"}

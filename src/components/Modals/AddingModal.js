@@ -57,14 +57,14 @@ export default function AddingModal({ modalOpen, handleSelection, type, setModal
             <Backdrop handleClick={ modalOpen } setModalType={ setModalType }>
                 <motion.div
                     onClick={(e) => e.stopPropagation()}
-                    className='bg-[#393E46] w-[80%] h-[75%] mt-[84px] rounded-xl overflow-hidden'
+                    className='bg-lightBG dark:bg-darkBGTwo w-[80%] h-[75%] mt-[84px] rounded-xl overflow-hidden'
                     variants={dropIn}
                     initial="hidden"
                     animate="visible"
                     exit="exit"
                 >
                     {/* Heading - (Search Bar + Close Button) */}
-                    <div className='bg-[#222831] w-full h-[15%] inline-block drop-shadow-md'>
+                    <div className='bg-lightBGTwo dark:bg-darkBG w-full h-[15%] inline-block drop-shadow-md'>
                         <SearchBar handleInput={ handleSearchText } type={type} />
                         <motion.button 
                             className="bg-red-500 h-[50px] w-[100px] rounded-xl mt-[1%] mx-[1%] float-right font-merri text-lg text-black"

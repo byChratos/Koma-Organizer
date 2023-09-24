@@ -26,7 +26,7 @@ export default function NavSeparator({ isOpen, index }){
     return(
         <AnimatePresence>
             <motion.li
-                className="h-[74px] w-[2px] bg-white rounded-lg mt-[5px] bg-gradient-to-b from-[#00ADB5] via-[#EEEEEE] to-[#00ADB5]"
+                className="h-[74px] w-[2px] bg-white rounded-lg mt-[5px] bg-gradient-to-b from-lightPrimary dark:from-darkPrimary via-[#EEEEEE] dark:via-[#EEEEEE] to-lightPrimary dark:to-darkPrimary"
                 variants={variants}
                 animate={isOpen ? "open" : "closed"}
             >

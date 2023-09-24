@@ -30,7 +30,7 @@ export default function Navbar({ isOpen, setPage, activePage }) {
 
     return(
         <motion.nav
-            className="absolute w-full h-full bg-[#00ADB5] top-0 left-0 z-10 flex flex-row"
+            className="absolute w-full h-full bg-lightPrimary dark:bg-darkPrimary top-0 left-0 z-10 flex flex-row"
             initial="closed"
             animate={isOpen ? "open" : "closed"}
             variants={variants}

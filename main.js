@@ -41,7 +41,8 @@ function createWindow() {
     })
 
     win.loadFile('index.html');
-    win.setMenu(null);
+    
+    if(!isDev) win.setMenu(null);
 
     win.on("closed", () => {
         win = null;

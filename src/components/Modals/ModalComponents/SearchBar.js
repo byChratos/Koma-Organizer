@@ -11,7 +11,7 @@ export default function SearchBar({ handleInput, type }) {
 
     return(
         <input
-            className="bg-[#323b47] focus:bg-white placeholder-gray-300 selection:bg-[#00ADB5] w-[60%] h-[50px] mt-[1%] mx-[1%] rounded-[20px] text-[35px] pl-[20px] text-white focus:text-black font-merri drop-shadow-md"
+            className="bg-lightBG dark:bg-darkBGTwo focus:bg-lightPrimary dark:focus:bg-white placeholder-gray-300 dark:placeholder-gray-300 selection:bg-lightSecondary dark:selection:bg-darkPrimary w-[60%] h-[50px] mt-[1%] mx-[1%] rounded-[20px] text-[35px] pl-[20px] text-lightFont dark:text-darkFont focus:text-lightFontTwo dark:focus:text-black font-merri drop-shadow-md"
             type="text"
             placeholder={"Search " + type.charAt(0).toUpperCase() + type.slice(1)}
             onChange={inputHandler}

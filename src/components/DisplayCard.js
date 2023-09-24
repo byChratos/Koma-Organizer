@@ -49,7 +49,7 @@ export default function DisplayCard({name, type}) {
     //log();
 
     return(
-        <div className="minW:w-[300px] minW:h-[300px] mdW:w-[400px] mdW:h-[400px] rounded-xl flex flex-col items-center justify-center bg-[#222831]">
+        <div className="minW:w-[300px] minW:h-[300px] mdW:w-[400px] mdW:h-[400px] rounded-xl flex flex-col items-center justify-center bg-lightBG dark:bg-darkBG">
             <img className="" src={ getAssetById(type, id, "icon", data) } width="400" height="400"/>
         </div>
     );

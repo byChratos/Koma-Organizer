@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 
 import MenuButton from "./MenuButton";
+import { PageContext } from "../PageContext";
 
 const navVar = {
     hover: {
@@ -29,9 +30,13 @@ export default function NavToggle({ toggle, isOpen, setOpen }) {
         setOpen(!isOpen);
     }
 
+    const {
+        theme
+    } = useContext(PageContext);
+
     return(
         <motion.div
-            className={`w-[50px] h-[50px] cursor-pointer absolute top-4 left-4 items-center content-center z-20 rounded-lg ${isOpen ? 'hover:bg-[#1c6569]' : 'hover:bg-[#212327]'}`}
+            className={`w-[50px] h-[50px] cursor-pointer absolute top-4 left-4 items-center content-center z-20 rounded-lg ${isOpen ? 'hover:bg-lightSecondary dark:hover:bg-darkSecondary' : 'hover:bg-[#9c9cf1] dark:hover:bg-[#212327]'}`}
             variants={navVar}
             onClick={() => toggleNav()}
         >
@@ -39,7 +44,7 @@ export default function NavToggle({ toggle, isOpen, setOpen }) {
                 isOpen={isOpen}
                 onClick={() => toggleNav()}
                 strokeWidth="5"
-                color="#ffffff"
+                color={theme === 'dark' ? "#ffffff" : "#ffffff"}
                 lineProps={{ strokeLinecap: "round" }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
                 width="30"

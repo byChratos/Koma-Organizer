@@ -47,14 +47,14 @@ export default function WeaponList({ weapon, weaponData, data }) {
 
     return(
         <motion.div
-            className="h-auto w-[95%] bg-[#1c6569] my-[6px] rounded-xl flex flex-col overflow-hidden"
+            className="h-auto w-[95%] bg-lightSecondary dark:bg-darkSecondary my-[6px] rounded-xl flex flex-col overflow-hidden"
             variants={variants}
             animate={isOpen ? "oneOpen" : "initial"}
         >
-            <div className={`w-full h-[50px] flex flex-row items-center transition-colors ease-in-out ${isOpen ? 'bg-[#00ADB5]' : 'bg-[#1c6569]'}`}>
+            <div className={`w-full h-[50px] flex flex-row items-center transition-colors ease-in-out ${isOpen ? 'bg-lightPrimary dark:bg-darkPrimary' : 'bg-lightSecondary dark:bg-darkSecondary'}`}>
                 <img src={weapon["weaponUrl"]} width="50" height="50"/>
-                <h1 className={`font-merri text-white ${weapon["weaponName"].length > 25 ? 'text-sm' : 'text-md'} ml-2 p-2 selection:bg-[#393E46] ${isOpen ? 'hover:bg-[#1c6569]' : 'hover:bg-[#00ADB5]'} rounded-xl select-text`}>{weapon["weaponName"]}</h1>
-                <button className={`ml-auto mr-2 ${isOpen ? 'hover:bg-[#1c6569]' : 'hover:bg-[#00ADB5]'} rounded-xl`} onClick={() => handleClick()}>
+                <h1 className={`font-merri text-lightFontTwo dark:text-darkFont ${weapon["weaponName"].length > 25 ? 'text-sm' : 'text-md'} ml-2 p-2 selection:text-lightFont dark:selection:text-darkFont selection:bg-lightBGTwo dark:selection:bg-darkBGTwo ${isOpen ? 'hover:bg-lightSecondary dark:hover:bg-darkSecondary' : 'hover:bg-lightPrimary dark:hover:bg-darkPrimary'} rounded-xl select-text`}>{weapon["weaponName"]}</h1>
+                <button className={`ml-auto mr-2 ${isOpen ? 'hover:bg-lightSecondary dark:hover:bg-darkSecondary' : 'hover:bg-lightPrimary dark:hover:bg-darkPrimary'} rounded-xl`} onClick={() => handleClick()}>
                     <DrowDown
                         width="40" height="40"
                         isOpen={isOpen}
@@ -68,7 +68,7 @@ export default function WeaponList({ weapon, weaponData, data }) {
             <AnimatePresence>
                 {(isOpen) && 
                 <motion.div 
-                    className={`w-full h-fit bg-[#1c6569] p-2 flex flex-col`}
+                    className={`w-full h-fit bg-lightSecondary dark:bg-darkSecondary p-2 flex flex-col`}
                     variants={liItems}
                     initial="closed"
                     animate="oneOpen"
@@ -80,17 +80,3 @@ export default function WeaponList({ weapon, weaponData, data }) {
         </motion.div>
     );
 }
-{/*
-<button className={(isOpen) ? "bg-blue-400 hover:bg-blue-500 w-[95%] h-[150px]" : "bg-blue-400 hover:bg-blue-500 w-[95%] h-[50px] overflow-hidden"} onClick={() => handleClick()}>
-    <div className="w-full h-full flex flex-col">
-        <div className="w-full h-[50px] flex-1">
-            <img className="object-cover inline-block float-left" src={weapon["weaponUrl"]} width="50" height="50"/>
-            <h1 className="text-black flaot-left"> {weapon["weaponName"]} </h1>
-        </div>
-        
-        {(isOpen) && <div className="w-full h-[100px] p-[3%] bg-red-100 rounded-b-md grid grid-rows-2 grid-cols-1 gap-3">
-            <FarmableMaterial className="row-start-1 row-span-2 col-start-1" type="weapon" materialImgUrl={weapon["materialUrl"]} materialId={weapon["material"]} />
-        </div>}
-    </div>
-</button>
-*/}

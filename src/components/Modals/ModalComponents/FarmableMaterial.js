@@ -30,7 +30,7 @@ export default function FarmableMaterial({ materialId, materialImgUrl, type, oth
 
     return(
         <motion.div 
-            className={`w-full ${other != false ? `h-[63px] ${bottom ? null : 'mb-2'}` : 'h-full'} bg-[#393E46] rounded flex flex-row minW:pr-0 mdW:pr-2`}
+            className={`w-full ${other != false ? `h-[63px] ${bottom ? null : 'mb-2'}` : 'h-full'} bg-lightBG dark:bg-darkBGTwo rounded flex flex-row minW:pr-0 mdW:pr-2`}
             variants={variants}
             initial="initial"
             animate="animate"
@@ -42,7 +42,7 @@ export default function FarmableMaterial({ materialId, materialImgUrl, type, oth
             </div>
             {/* Name */}
             <div className="h-full w-fit flex items-center float-left">
-                <p className={`text-white ${materialName.length > 25 ? 'text-sm' : 'text-md'} font-merri rounded-xl hover:bg-[#1c6569] select-text selection:bg-[#00ADB5] minW:p-1 mdW:p-2`}> {materialName} </p>
+                <p className={`text-lightFont dark:text-darkFont ${materialName.length > 25 ? 'text-sm' : 'text-md'} font-merri rounded-xl hover:bg-lightSecondary dark:hover:bg-darkSecondary select-text selection:bg-lightPrimary dark:selection:bg-darkPrimary minW:p-1 mdW:p-2`}> {materialName} </p>
             </div>
         </motion.div>
     );

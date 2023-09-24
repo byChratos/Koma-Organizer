@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
 import Links from '../components/Navigation/Links';
-import logo from "../Images/Koma_Koma White.png";
+import logoDark from "../Images/Koma_Koma White.png";
+import logoLight from "../Images/Koma_Koma Black.png";
 import { PageContext } from '../components/PageContext';
 
 const variants = {
@@ -57,7 +58,8 @@ export default function Home() {
 
     const {
         page,
-        setPage
+        setPage,
+        theme
     } = useContext(PageContext);
 
 
@@ -70,13 +72,13 @@ export default function Home() {
         >
             {/* Content */}
             {!update && <></>}
-            <div className="w-full h-full flex flex-col justify-center items-center bg-[#222831] drop-shadow-sm">
+            <div className="w-full h-full flex flex-col justify-center items-center bg-lightBG dark:bg-darkBG drop-shadow-sm">
                 <div className="w-[80%] h-[90%]">
                     <div className='flex items-center justify-center w-[70%] ml-[15%] mt-[2%]'>
-                        <img src={logo} alt="logo" width="full" height="auto" />
+                        {(theme ===  'dark') ? <img src={logoDark} alt="logo" width="full" height="auto" /> : <img src={logoLight} alt="logo" width="full" height="auto"/>}
                     </div>
                     <motion.button
-                        className="w-[81%] h-[15%] bg-[#00ADB5] ml-[9.5%] mt-[2%] rounded-xl font-merri text-white text-xl drop-shadow-md hover:drop-shadow-xl"
+                        className="w-[81%] h-[15%] bg-lightPrimary dark:bg-darkPrimary ml-[9.5%] mt-[2%] rounded-xl font-merri text-lightFontTwo dark:text-darkFont text-xl drop-shadow-md hover:drop-shadow-xl"
                         whileHover="hover"
                         whileTap="tap"
                         variants={button}
@@ -84,7 +86,7 @@ export default function Home() {
                         Calendar
                     </motion.button>
                     <motion.button
-                        className="w-[39.5%] h-[15%] bg-[#00ADB5] rounded-xl ml-[9.5%] mt-[1%] font-merri text-white text-lg drop-shadow-md hover:drop-shadow-xl"
+                        className="w-[39.5%] h-[15%] bg-lightPrimary dark:bg-darkPrimary rounded-xl ml-[9.5%] mt-[1%] font-merri text-lightFontTwo dark:text-darkFont text-lg drop-shadow-md hover:drop-shadow-xl"
                         whileHover="hover"
                         whileTap="tap"
                         variants={button}
@@ -92,7 +94,7 @@ export default function Home() {
                         Priority
                     </motion.button>
                     <motion.button
-                        className="w-[39.5%] h-[15%] bg-[#00ADB5] rounded-xl ml-[2%] mt-[1%] font-merri text-white text-lg drop-shadow-md hover:drop-shadow-xl"
+                        className="w-[39.5%] h-[15%] bg-lightPrimary dark:bg-darkPrimary rounded-xl ml-[2%] mt-[1%] font-merri text-lightFontTwo dark:text-darkFont text-lg drop-shadow-md hover:drop-shadow-xl"
                         whileHover="hover"
                         whileTap="tap"
                         variants={button}
@@ -100,7 +102,7 @@ export default function Home() {
                         Add
                     </motion.button>
                     <motion.button
-                        className="w-[81%] h-[15%] bg-[#00ADB5] ml-[9.5%] mt-[1%] rounded-xl font-merri text-white text-xl drop-shadow-md hover:drop-shadow-xl"
+                        className="w-[81%] h-[15%] bg-lightPrimary dark:bg-darkPrimary ml-[9.5%] mt-[1%] rounded-xl font-merri text-lightFontTwo dark:text-darkFont text-xl drop-shadow-md hover:drop-shadow-xl"
                         whileHover="hover"
                         whileTap="tap"
                         variants={button}
@@ -109,8 +111,8 @@ export default function Home() {
                     </motion.button>
                     <Links />
                 </div>
-                <div className="w-full h-fit mt-auto text-center bg-[#393E46]">
-                    <p className='text-white font-merri text-xs'>
+                <div className="w-full h-fit mt-auto text-center bg-lightBGTwo dark:bg-darkBGTwo">
+                    <p className='text-lightFont dark:text-darkFont font-merri text-xs'>
                     DISCLAIMER© HoYoverse. All rights reserved. HoYoverse and Genshin Impact are trademarks, services marks, or registered trademarks of HoYoverse.</p>
                 </div>
             </div>

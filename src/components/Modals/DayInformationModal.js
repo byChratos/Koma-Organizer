@@ -129,15 +129,15 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
         <Backdrop handleClick={ modalOpen } setModalType={ setModalType }>
             <motion.div
                 onClick={(e) => e.stopPropagation()}
-                className="bg-[#393E46] w-[80%] h-[75%] mt-[84px] rounded-xl overflow-hidden"
+                className="bg-lightBG dark:bg-darkBGTwo w-[80%] h-[75%] mt-[84px] rounded-xl overflow-hidden"
                 variants={dropIn}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
             >
             {/* Heading Div */}
-            <div className='bg-[#222831] w-full h-[15%] inline-block drop-shadow-md'>
-                <h1 className="text-white text-3xl font-merri float-left mt-[1%] mx-[1%]"> {day} </h1>
+            <div className='bg-lightBGTwo dark:bg-darkBG w-full h-[15%] inline-block drop-shadow-md'>
+                <h1 className="text-lightFont dark:text-darkFont text-3xl font-merri float-left mt-[1%] mx-[1%]"> {day} </h1>
                 <motion.button
                     className="bg-red-500 h-[50px] w-[100px] rounded-xl mt-[1%] mx-[1%] float-right font-merri text-lg text-black"
                     onClick={() => {close()}}
@@ -152,12 +152,12 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
             <div className="w-full h-[85%] p-2 flex flex-col mt-[-0.5%]">
 
                 {/* Top Priority */}
-                <div className="w-full h-[35%] rounded-xl overflow-hidden bg-[#222831] flex flex-row mb-2 drop-shadow-md">
-                    <div className="bg-[#1c6569] p-3 w-fit h-fit rounded-br-xl">
-                        <h2 className="text-lg text-white font-merri">Your top priority today:</h2>
+                <div className="w-full h-[35%] rounded-xl overflow-hidden bg-lightBGTwo dark:bg-darkBG flex flex-row mb-2 drop-shadow-md">
+                    <div className="bg-lightSecondary dark:bg-darkSecondary p-3 w-fit h-fit rounded-br-xl">
+                        <h2 className="text-lg text-lightFontTwo dark:text-darkFont font-merri">Your top priority today:</h2>
                     </div>
 
-                    <div className="w-[70%] h-[90%] bg-[#1c6569] p-2 my-auto mx-auto flex flex-row rounded-xl">
+                    <div className="w-[70%] h-[90%] bg-lightSecondary dark:bg-darkSecondary p-2 my-auto mx-auto flex flex-row rounded-xl">
                         {(top["type"] == "empty") &&
                             <EntityInformation name="Your Calendar is empty" imageSrc={"https://i.ds.at/MxdaKg/rs:fill:750:0/plain/2021/07/29/572c4830-721d-11eb-bb63-96959c3b62f2.jpg"} />
                         }
@@ -184,68 +184,22 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
 
                 {/* Rest */}
                 <div className="w-full h-[65%] flex flex-row">
-                    <div className="w-[32%] h-full bg-[#222831] rounded-xl drop-shadow-md flex flex-col overflow-auto">
-                        <h2 className="text-white font-merri text-lg text-center py-1">Other Characters</h2>
+                    <div className="w-[32%] h-full bg-lightBGTwo dark:bg-darkBG rounded-xl drop-shadow-md flex flex-col overflow-auto">
+                        <h2 className="text-lightFont dark:text-darkFont font-merri text-lg text-center py-1">Other Characters</h2>
                         {(farmableChar != null) && <CharacterListModal characters={farmableChar} farmData={farmData} bossData={bossData}/>}
                     </div>
                     
-                    <div className="w-[32%] mx-auto h-full bg-[#222831] rounded-xl drop-shadow-md flex flex-col overflow-auto">
-                        <h2 className="text-white font-merri text-lg text-center py-1">Other Weapons</h2>
+                    <div className="w-[32%] mx-auto h-full bg-lightBGTwo dark:bg-darkBG rounded-xl drop-shadow-md flex flex-col overflow-auto">
+                        <h2 className="text-lightFont dark:text-darkFont font-merri text-lg text-center py-1">Other Weapons</h2>
                         {(farmableWeapon != null) && <WeaponListModal weapons={farmableWeapon} data={farmData} weaponData={weaponData}/>}
                     </div>
 
-                    <div className="w-[32%] h-full bg-[#222831] rounded-xl drop-shadow-md flex flex-col overflow-auto">
-                        <h2 className="text-white font-merri text-lg text-center py-1">Other Artifacts</h2>
+                    <div className="w-[32%] h-full bg-lightBGTwo dark:bg-darkBG rounded-xl drop-shadow-md flex flex-col overflow-auto">
+                        <h2 className="text-lightFont dark:text-darkFont font-merri text-lg text-center py-1">Other Artifacts</h2>
                         {(farmableArtifact != null) && <ArtifactListModal artifacts={farmableArtifact}/>}
                     </div>
                 </div>
             </div>
-
-
-            {/*
-            <div className='w-full h-[85%] overflow-y-auto overflow-x-hidden grid grid-cols-3 grid-rows-3 gap-4 p-[1%] mt-[-0.5%]'>
-                <div className="bg-[#222831] w-full h-full row-start-1 col-start-1 col-span-full rounded-md flex overflow-hidden">
-
-                    <div className="bg-gray-600 h-[50px] w-[450px] rounded-br-lg">
-                        <h1 className='text-white text-lg'>Top Priority Today:</h1>
-                    </div>
-
-                    {(top["type"] == "empty") &&
-                    <>
-                        <EntityInformation name="Your Calendar is empty" imageSrc={"https://i.ds.at/MxdaKg/rs:fill:750:0/plain/2021/07/29/572c4830-721d-11eb-bb63-96959c3b62f2.jpg"} />
-                    </>}
-
-                    {(top["type"] == "character") &&
-                    <>
-                        <EntityInformation name={top["charName"]} imageSrc={top["charUrl"]} />
-                        {(top["talentId"] != false) ? <MaterialInformation matId={top["talentId"]} matType="talent" imageSrc={top["talentUrl"]} /> : <MaterialInformation matId={top["bossId"]} matType="boss" imageSrc={top["bossUrl"]} />}
-                    </>}
-
-                    {(top["type"] == "weapon") &&
-                    <>
-                        <EntityInformation name={top["weaponName"]} imageSrc={top["weaponUrl"]} />
-                        <MaterialInformation matId={top["material"]} matType={top["type"]} imageSrc={top["materialUrl"]} top={top} />
-                    </>}
-
-                    {(top["type"] == "artifact") &&
-                    <>
-                        <EntityInformation name={top["artifactName"]} imageSrc={top["artifactUrl"]} />
-                    </>}
-
-                </div>
-
-                <div className="bg-[#222831] w-full h-full row-start-2 col-start-1 row-span-2 rounded-md overflow-auto">
-                    {(characters != null) && <CharacterListModal characters={characters}/>}
-                </div>
-                <div className="bg-[#222831] w-full h-full row-start-2 col-start-2 row-span-2 rounded-md">
-                    {(weapons != null) && <WeaponListModal weapons={weapons}/>}
-                </div>
-                <div className="bg-[#222831] w-full h-full row-start-2 col-start-3 row-span-2 rounded-md">
-                    {(artifacts != null) && <ArtifactListModal artifacts={artifacts}/>}
-                </div>
-            </div>*/}
-            
-
             </motion.div>
         </Backdrop>
     );

@@ -1,4 +1,7 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
+    darkMode: 'class',
     content: ['./src/**/*.{js,jsx,ts,tsx}'],
     theme: {
         screens: {
@@ -9,6 +12,19 @@ module.exports = {
         extend: {
             fontFamily: {
                 'merri': ['Merriweather', 'regular']
+            },
+            colors: {
+                darkPrimary: '#00ADB5',
+                darkSecondary: '#1c6569',
+                darkBG: '#222831',
+                darkBGTwo: '#393E46',
+                darkFont: colors.white,
+                lightPrimary: '#736CED',
+                lightSecondary: '#9F9FED',
+                lightBG: '#FEF9FF',
+                lightBGTwo: '#D4C1EC',
+                lightFont: colors.black,
+                lightFontTwo: '#FEF9FF',
             }
         },
     },

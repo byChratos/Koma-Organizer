@@ -31,7 +31,7 @@ export default function Day({ primary, dayName, handleButton, setDay }) {
 
     return(
         <motion.button 
-            className={`rounded-xl drop-shadow-lg ${primary ? 'bg-[#00ADB5] w-[55%] h-[60%]' : 'bg-[#1c6569] w-[40%] h-[70%]'}`}
+            className={`rounded-xl drop-shadow-lg ${primary ? 'bg-lightPrimary dark:bg-darkPrimary w-[55%] h-[60%]' : 'bg-lightSecondary dark:bg-darkSecondary w-[40%] h-[70%]'}`}
             onClick={() => { openModal() }}
             variants={buttons}
             initial="initial"

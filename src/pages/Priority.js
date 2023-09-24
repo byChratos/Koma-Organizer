@@ -167,9 +167,9 @@ export default function Priority() {
             
             {/* Content */}
             <div className="w-full h-[120px] flex flex-row">
-                <div className="w-[302px] h-[100px] bg-[#393E46] rounded-t-xl flex-none flex flex-row items-center px-5 mt-5 ml-[5%]">
+                <div className="w-[302px] h-[100px] bg-lightBGTwo dark:bg-darkBGTwo rounded-t-xl flex-none flex flex-row items-center px-5 mt-5 ml-[5%]">
                     <motion.button
-                        className={`w-[125px] h-[75px] text-black font-merri font-lg rounded-lg drop-shadow-md ${changes ? 'text-black bg-green-500' : 'text-white'}`} onClick={() => saveCalendar()}
+                        className={`w-[125px] h-[75px] text-black font-merri font-lg rounded-lg drop-shadow-md ${changes ? 'text-black bg-green-500' : 'text-lightFont dark:text-darkFont'}`} onClick={() => saveCalendar()}
                         variants={buttons}
                         initial="small"
                         whileHover="hover"
@@ -177,7 +177,7 @@ export default function Priority() {
                         disabled={!changes}
                     >SAVE</motion.button>
                     <motion.button
-                        className={`w-[125px] h-[75px] text-black font-merri font-lg rounded-lg ml-3 drop-shadow-md ${changes ? 'text-black bg-red-500' : 'text-white'}`} onClick={() => loadCalendar()}
+                        className={`w-[125px] h-[75px] text-black font-merri font-lg rounded-lg ml-3 drop-shadow-md ${changes ? 'text-black bg-red-500' : 'text-lightFont dark:text-darkFont'}`} onClick={() => loadCalendar()}
                         variants={buttons}
                         initial="small"
                         whileHover="hover"
@@ -186,15 +186,15 @@ export default function Priority() {
                     >CANCEL</motion.button>
                 </div>
 
-                <motion.div className="w-[250px] h-[40px] mt-[80px] ml-5 rounded-t-xl bg-[#393E46] flex items-center" variants={divVars} animate={changes ? 'animate' : 'initial'}>
-                    <p className="w-full text-white font-merri text-center">You have unsaved changes!</p>
+                <motion.div className="w-[250px] h-[40px] mt-[80px] ml-5 rounded-t-xl bg-lightBGTwo dark:bg-darkBGTwo flex items-center" variants={divVars} animate={changes ? 'animate' : 'initial'}>
+                    <p className="w-full text-lightFont dark:text-darkFont font-merri text-center">You have unsaved changes!</p>
                 </motion.div>
             </div>
-            <div className='w-[90%] h-fit bg-[#393E46] rounded-b-xl rounded-tr-xl drop-shadow-md items-center flex flex-col ml-[5%] p-5 overflow-x-hidden overflow-y-auto'>
+            <div className='w-[90%] h-fit bg-lightBGTwo dark:bg-darkBGTwo rounded-b-xl rounded-tr-xl drop-shadow-md items-center flex flex-col ml-[5%] p-5 overflow-x-hidden overflow-y-auto'>
                 <div className="w-full">
                     {list.map((item, index) => (
                         <motion.div key={item["id"]}
-                            className="bg-[#00ADB5] w-full h-[70px] rounded-xl my-2 flex flex-row overflow-hidden drop-shadow-sm"
+                            className="bg-lightPrimary dark:bg-darkPrimary w-full h-[70px] rounded-xl my-2 flex flex-row overflow-hidden drop-shadow-sm"
                             variants={listItem}
                         >
                             <div className="flex flex-col w-[50px] h-full">
@@ -219,31 +219,31 @@ export default function Priority() {
                             </div>
                             <div className="flex flex-row w-full">
                                 <div className="h-full w-[400px] flex flex-row ml-2">
-                                    <div className="w-[72px] h-[70px] bg-[#1c6569] overflow-hidden">
+                                    <div className="w-[72px] h-[70px] bg-lightSecondary dark:bg-darkSecondary overflow-hidden">
                                         {item["type"] == "character" && <img src={ getAssetById(item["type"], item["id"], "icon", charData )} width="70" height="70"/>}
                                         {item["type"] == "weapon" && <img src={ getAssetById(item["type"], item["id"], "icon", weaponData )} width="70" height="70"/>}
                                         {item["type"] == "artifact" && <img src={ getAssetById(item["type"], item["id"], "icon", artifactData )} width="70" height="70"/>}
                                     </div>
                                     <div className="w-[330px] h-full flex items-center ml-2">
-                                        <div className="w-fit h-fit rounded-lg hover:bg-[#1c6569] py-2 px-2">
-                                            <p className="w-fit text-left font-merri text-lg text-white select-text selection:bg-[#393E46]">{item["name"]}</p>
+                                        <div className="w-fit h-fit rounded-lg hover:bg-lightSecondary dark:hover:bg-darkSecondary py-2 px-2">
+                                            <p className="w-fit text-left font-merri text-lg text-lightFontTwo dark:text-darkFont select-text selection:bg-lightBGTwo dark:selection:text-darkFont selection:text-lightFont dark:selection:bg-darkBGTwo">{item["name"]}</p>
                                         </div>
                                     </div>
                                 </div>
                                 {(item["type"] == "character") && <div className="minW:w-[165px] mdW:w-[400px] h-full select-none flex items-center">
-                                    <motion.div className="bg-[#1c6569] minW:w-[60px] mdW:w-[187.5px] h-[60px] cursor-pointer rounded-lg" onClick={() => {swapListAtIndex(index, "boss"); setChanges(true)}} variants={buttons} initial="small" whileHover="hover2">
+                                    <motion.div className="bg-lightSecondary dark:bg-darkSecondary minW:w-[60px] mdW:w-[187.5px] h-[60px] cursor-pointer rounded-lg" onClick={() => {swapListAtIndex(index, "boss"); setChanges(true)}} variants={buttons} initial="small" whileHover="hover2">
                                         <div className={`flex flex-row ${list[index]["boss"] == false ? 'grayscale' : 'grayscale-0'}`}>
                                             <img src={ getAssetById("bossMaterial", list[index]["bossId"], "icon", bossData )} width="60" height="60" />
                                             <div className="mdW:flex minW:hidden h-[60px] items-center">
-                                                <p className={`text-white font-merri ${list[index]["boss"] == false ? 'line-through decoration-2 decoration-gray-400' : 'no-underline'}`}>BOSS</p>
+                                                <p className={`text-lightFontTwo dark:text-darkFont font-merri ${list[index]["boss"] == false ? 'line-through decoration-2 decoration-gray-400' : 'no-underline'}`}>BOSS</p>
                                             </div>
                                         </div>
                                     </motion.div>
-                                    <motion.div className="bg-[#1c6569] minW:w-[60px] mdW:w-[187.5px] h-[60px] ml-[25px] cursor-pointer rounded-lg" onClick={() => {swapListAtIndex(index, "talents"); setChanges(true)}} variants={buttons} initial="small" whileHover="hover2">
+                                    <motion.div className="bg-lightSecondary dark:bg-darkSecondary minW:w-[60px] mdW:w-[187.5px] h-[60px] ml-[25px] cursor-pointer rounded-lg" onClick={() => {swapListAtIndex(index, "talents"); setChanges(true)}} variants={buttons} initial="small" whileHover="hover2">
                                         <div className={`flex flex-row ${list[index]["talents"] == false ? 'grayscale' : 'grayscale-0'}`}>
                                             <img src={ getAssetById("material", list[index]["talentsId"], "icon", farmData )} width="60" height="60" />
                                             <div className="mdW:flex minW:hidden h-[60px] items-center">
-                                                <p className={`text-white font-merri ${list[index]["talents"] == false ? 'line-through decoration-2 decoration-gray-400' : 'no-underline'}`}>TALENTS</p>
+                                                <p className={`text-lightFontTwo dark:text-darkFont font-merri ${list[index]["talents"] == false ? 'line-through decoration-2 decoration-gray-400' : 'no-underline'}`}>TALENTS</p>
                                             </div>
                                         </div>
                                         
