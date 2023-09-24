@@ -35,6 +35,7 @@ export default function SettingsPage() {
 
     useEffect(() => {
         loadConfig();
+        getVersion();
     }, []);
 
     async function loadConfig(){
@@ -47,6 +48,11 @@ export default function SettingsPage() {
         setCurrentTheme(str);
     }
 
+    async function getVersion(){
+        const v = await window.api.getVersion();
+        setVersion(v);
+    }
+
     const[selectedServer, setSelectedServer] = useState("None");
     const[theme, setCurrentTheme] = useState("Dark");
     const[config, setConfig] = useState(null);
@@ -54,6 +60,8 @@ export default function SettingsPage() {
     const[updateResult, setUpdateResult] = useState(null);
     
     const[updateMessage, setUpdateMessage] = useState(null);
+
+    const[version, setVersion] = useState(null);
 
     const {
         setTheme
@@ -143,7 +151,10 @@ export default function SettingsPage() {
             </div>
 
             <div className="bg-lightBGTwo dark:bg-darkBGTwo h-[100px] w-[40%] flex flex-row items-center rounded-lg mt-3">
-                <h1 className="text-lightFont dark:text-darkFont font-merri text-xl ml-3">Update Koma</h1>
+                <div className="h-full w-fit flex flex-col justify-center">
+                    <h1 className="text-lightFont dark:text-darkFont font-merri text-xl ml-3">Update Koma</h1>
+                    <p className="text-lightFont dark:text-darkFont font-merri text-sm ml-6">Currently: V{version}</p>
+                </div>
                 <motion.button 
                     className="ml-auto mr-2 rounded-lg p-4 text-lightFontTwo dark:text-darkFont font-merri bg-lightSecondary dark:bg-darkSecondary" onClick={() => updateKoma()}
                     variants={buttons}

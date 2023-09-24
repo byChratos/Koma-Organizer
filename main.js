@@ -14,7 +14,6 @@ const isDev = !app.isPackaged;
 
 let updateCheck = false;
 let updateFound = false;
-let updateNotAvailable = false;
 
 const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "cache") });
 const worker = new Worker(path.resolve(__dirname, "src", "workers", "enkaWorker.js"));
@@ -58,6 +57,8 @@ if(isDev){
 
 app.whenReady().then(() => {
     createWindow();
+
+    log.info("Program started.");
 
     //* Creates variables in the config.json
     electronStore();
@@ -124,7 +125,9 @@ worker.on("message", (msg) => {
     }
 })
 
-
+ipcMain.handle("getVersion", (event) => {
+    return app.getVersion();
+})
 
 ipcMain.handle("storeGet", (event, args) => {
     const item = args.item;
@@ -197,8 +200,14 @@ autoUpdater.on("update-not-available", (_event) => {
 })
 
 app.on('quit', () => {
+
+    log.info("Closing app....");
+
     worker.postMessage("stopAutoUpdater")
     worker.postMessage("closeEnka");
+
+    log.info(" ");
+
     app.quit();
 });
 
@@ -210,7 +219,6 @@ app.on('window-all-closed', () => {
 
 ipcMain.handle('updateKoma', (event) => {
     
-
     let lastCheck = store.get("lastCheckKoma");
     let nowUnix = Math.floor(Date.now() / 1000);
 
@@ -237,6 +245,8 @@ ipcMain.handle('update', (event) => {
     if(lastCheck == null || (nowUnix - lastCheck) > 30){
 
         store.set("lastCheck", nowUnix);
+
+        log.info("Looking for Genshin Data updates...")
 
         return new Promise((resolve, reject) => {
             worker.on('message', (msg) => {
@@ -302,6 +312,7 @@ ipcMain.handle('storeList', (event, list) => {
 });
 
 ipcMain.handle('openToBrowser', (event, url) => {
+    log.info("Opening link to browser");
     shell.openExternal(url);
 })
 
@@ -370,80 +381,10 @@ ipcMain.handle('saveSelection', (event, args) => {
                 type: "artifact",
             });
         }
+    }else{
+        return false;
     }
 
     store.set("calendarList", data);
     return true;
-
-
-    /*const filePath = path.resolve(__dirname, "calendar.json");
-
-    checkIfFileExists(filePath, (exists) => {
-        if(!exists){
-            var jsonString = JSON.stringify([], null, 2);
-            fs.writeFile(filePath, jsonString, (error) => {
-                if(error){
-                    console.error(error);
-                    return false;
-                }
-            });
-        }
-
-        fs.readFile(filePath, (err, rawdata) => {
-            if(err){
-                console.error(err);
-                return;
-            }
-            const data = JSON.parse(rawdata);
-
-            if(!isDuplicate(name, data)){
-                if(type == "character"){
-                    var id = getCharIdByName(name);
-                    var materials = getCharacterMaterials(id);
-
-                    data.push({
-                        name: name,
-                        id: id,
-                        type: "character",
-                        boss: true,
-                        bossId: materials["boss"],
-                        talents: true,
-                        talentsId: materials["talent"],
-                    });
-
-                }else if(type == "weapon"){
-                    var id = getWeaponIdByName(name);
-                    var material = getWeaponMaterial(id);
-
-                    data.push({
-                        name: name,
-                        id: id,
-                        type: "weapon",
-                        material: material,
-                    });
-                }else{
-                    var id = getArtifactIdByName(name);
-                    
-                    data.push({
-                        name: name,
-                        id: id,
-                        type: "artifact",
-                    });
-                }
-            }
-            
-            var jsonString = JSON.stringify(data, null, 2);
-            fs.writeFile(filePath, jsonString, (error) => {
-                if(error){
-                    console.error(error);
-                    return false;
-                }
-            });
-
-            store.set("calendarList", data);
-            return true;
-        })
-
-
-    })*/
 })

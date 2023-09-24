@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion } from 'framer-motion';
 import PopUp from '../components/Modals/PopUp';
 import { getAssetById } from "../functions/enkaFunctions";
+import { PageContext } from "../components/PageContext";
 
 export default function Priority() {
 
@@ -112,6 +113,7 @@ export default function Priority() {
         if(response){
             setSaved(true);
             setChanges(false);
+            window.api.log({ message: "PRIORITY: Saved changes" });
         }
     }
 
@@ -124,6 +126,10 @@ export default function Priority() {
 
     const[changes, setChanges] = useState(false);
     const[saved, setSaved] = useState(false);
+
+    const {
+        theme
+    } = useContext(PageContext);
 
     function swapListAtIndex(index, type){
         const updatedList = [...list];
@@ -190,7 +196,7 @@ export default function Priority() {
                     <p className="w-full text-lightFont dark:text-darkFont font-merri text-center">You have unsaved changes!</p>
                 </motion.div>
             </div>
-            <div className='w-[90%] h-fit bg-lightBGTwo dark:bg-darkBGTwo rounded-b-xl rounded-tr-xl drop-shadow-md items-center flex flex-col ml-[5%] p-5 overflow-x-hidden overflow-y-auto'>
+            <div className={`w-[90%] h-fit bg-lightBGTwo dark:bg-darkBGTwo rounded-b-xl rounded-tr-xl drop-shadow-md items-center flex flex-col ml-[5%] p-5 overflow-x-hidden overflow-y-auto ${theme === 'dark' ? 'darkScroll' : 'lightScroll'}`}>
                 <div className="w-full">
                     {list.map((item, index) => (
                         <motion.div key={item["id"]}

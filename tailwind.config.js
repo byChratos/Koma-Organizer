@@ -22,7 +22,7 @@ module.exports = {
                 lightPrimary: '#736CED',
                 lightSecondary: '#9F9FED',
                 lightBG: '#FEF9FF',
-                lightBGTwo: '#D4C1EC',
+                lightBGTwo: '#CCCCFF',
                 lightFont: colors.black,
                 lightFontTwo: '#FEF9FF',
             }

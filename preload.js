@@ -4,6 +4,7 @@ contextBridge.exposeInMainWorld('api', {
     testInvoke: (args) => ipcRenderer.invoke('testInvoke', args),
 
     log: (args) => ipcRenderer.invoke("log", args),
+    getVersion: (args) => ipcRenderer.invoke("getVersion"),
 
     storeGet: (args) => ipcRenderer.invoke("storeGet", args),
     storeSet: (args) => ipcRenderer.invoke("storeSet", args),

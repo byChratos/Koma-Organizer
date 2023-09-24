@@ -41,6 +41,7 @@ export default function AddPage(){
     const [modalOpen, setModalOpen] = useState(false);
 
     const[saved, setSaved] = useState(false);
+    const[popup, setPopup] = useState(false);
 
     //Modal typing
     const [modalType, setModalType] = useState(null);
@@ -59,10 +60,20 @@ export default function AddPage(){
     async function add() {
         const response = await window.api.saveSelection({name: selectedEntity, type: selectedEntityType});
         if(response){
-            setSelectedEntity(null);
-            setSelectedEntityType(null);
             setSaved(true);
+            setPopup(true);
+            window.api.log({ message: `ADD: Added ${selectedEntity}` })
+        }else{
+            setPopup(true);
+            window.api.log({ message: `ADD: ${selectedEntity} already is in calendar`})
         }
+    }
+
+    function close(v){
+        setSaved(false);
+        setPopup(false);
+        setSelectedEntity(null);
+        setSelectedEntityType(null);
     }
 
     function remove() {
@@ -78,7 +89,7 @@ export default function AddPage(){
             animate="animate"
         >
 
-            {(saved) && <PopUp message="Successfully added to calendar!" setModalOpen={setSaved} closeEnabled={true} />}
+            {(popup) ? (saved) ? <PopUp message={`Successfully added ${selectedEntity} to calendar!`} setModalOpen={close} closeEnabled={true} /> : <PopUp message={`${selectedEntity} already is in calendar!`} setModalOpen={close} closeEnabled={true} /> : null}
 
             {/* Card */}
             <div className="w-[500px] minW:h-[550px] minW:mt-[10px] mdW:h-[700px] mdW:mt-[50px] rounded-xl bg-lightBGTwo dark:bg-darkBGTwo drop-shadow-lg flex flex-col overflow-hidden">

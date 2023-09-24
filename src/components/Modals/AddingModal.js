@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { motion } from 'framer-motion';
 
 import CharacterList from '../Character/CharacterList';
@@ -6,6 +6,7 @@ import WeaponList from '../Weapon/WeaponList';
 import ArtifactList from '../Artifacts/ArtifactList';
 import Backdrop from './Backdrop';
 import SearchBar from './ModalComponents/SearchBar';
+import { PageContext } from "../PageContext";
 
 
 const dropIn = {
@@ -53,6 +54,10 @@ export default function AddingModal({ modalOpen, handleSelection, type, setModal
             modalOpen(false);
         }
 
+        const {
+            theme
+        } = useContext(PageContext);
+
         return (
             <Backdrop handleClick={ modalOpen } setModalType={ setModalType }>
                 <motion.div
@@ -77,7 +82,7 @@ export default function AddingModal({ modalOpen, handleSelection, type, setModal
                     </div>
 
                     {/* Content - (List of items) */}
-                    <div className='w-full h-[85%] overflow-y-auto overflow-x-hidden'>
+                    <div className={`w-full h-[85%] overflow-y-auto overflow-x-hidden ${theme === 'dark' ? 'darkScroll' : 'lightScroll'}`}>
                         { (type === "character") && <CharacterList handleClick={ handleSelection } input={searchText} />}
                         { (type === "weapon") && <WeaponList handleClick={ handleSelection } input={searchText} />}
                         { (type === "artifact") && <ArtifactList handleClick={ handleSelection } input={searchText} />}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion } from 'framer-motion';
 import Backdrop from './Backdrop';
 import EntityInformation from './ModalComponents/EntityInformation';
@@ -10,6 +10,7 @@ import { getFarmable } from '../../functions/enkaFunctions';
 import CharacterListModal from './ModalLists/CharacterListModal';
 import WeaponListModal from './ModalLists/WeaponListModal';
 import ArtifactListModal from './ModalLists/ArtifactListModal';
+import { PageContext } from "../PageContext";
 
 const dropIn = {
     hidden: {
@@ -77,7 +78,6 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
     const[bossData, setBossData] = useState([]);
     const[farmData, setFarmData] = useState([]);
 
-
     useEffect(() => {
         if(farmData != []){
 
@@ -119,6 +119,10 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
     const[farmableWeapon, setFW] = useState(null);
     const[farmableArtifact, setFA] = useState(null);
     const[top, setTop] = useState({ type: "empty" })
+
+    const {
+        theme
+    } = useContext(PageContext);
 
     function close(){
         setModalType(null);
@@ -184,17 +188,17 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
 
                 {/* Rest */}
                 <div className="w-full h-[65%] flex flex-row">
-                    <div className="w-[32%] h-full bg-lightBGTwo dark:bg-darkBG rounded-xl drop-shadow-md flex flex-col overflow-auto">
+                    <div className={`w-[32%] h-full bg-lightBGTwo dark:bg-darkBG rounded-xl drop-shadow-md flex flex-col overflow-auto ${theme === 'dark' ? 'darkScroll' : 'lightScroll'}`}>
                         <h2 className="text-lightFont dark:text-darkFont font-merri text-lg text-center py-1">Other Characters</h2>
                         {(farmableChar != null) && <CharacterListModal characters={farmableChar} farmData={farmData} bossData={bossData}/>}
                     </div>
                     
-                    <div className="w-[32%] mx-auto h-full bg-lightBGTwo dark:bg-darkBG rounded-xl drop-shadow-md flex flex-col overflow-auto">
+                    <div className={`w-[32%] mx-auto h-full bg-lightBGTwo dark:bg-darkBG rounded-xl drop-shadow-md flex flex-col overflow-auto ${theme === 'dark' ? 'darkScroll' : 'lightScroll'}`}>
                         <h2 className="text-lightFont dark:text-darkFont font-merri text-lg text-center py-1">Other Weapons</h2>
                         {(farmableWeapon != null) && <WeaponListModal weapons={farmableWeapon} data={farmData} weaponData={weaponData}/>}
                     </div>
 
-                    <div className="w-[32%] h-full bg-lightBGTwo dark:bg-darkBG rounded-xl drop-shadow-md flex flex-col overflow-auto">
+                    <div className={`w-[32%] h-full bg-lightBGTwo dark:bg-darkBG rounded-xl drop-shadow-md flex flex-col overflow-auto ${theme === 'dark' ? 'darkScroll' : 'lightScroll'}`}>
                         <h2 className="text-lightFont dark:text-darkFont font-merri text-lg text-center py-1">Other Artifacts</h2>
                         {(farmableArtifact != null) && <ArtifactListModal artifacts={farmableArtifact}/>}
                     </div>
