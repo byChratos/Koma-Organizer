@@ -5,7 +5,6 @@ const Store = require("electron-store");
 const { autoUpdater } = require("electron-updater");
 const log = require("electron-log");
 
-const { Worker } = require("worker_threads");
 const { EnkaClient } = require("enka-network-api");
 const { createJsonData } = require("./src/functions/createDataList");
 const { getCharIdByName, getWeaponIdByName, getArtifactIdByName, getCharacterMaterials, getWeaponMaterial } = require("./src/functions/nonModuleFunctions");
@@ -16,7 +15,6 @@ let updateCheck = false;
 let updateFound = false;
 
 const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "cache") });
-const worker = new Worker(path.resolve(__dirname, "src", "workers", "enkaWorker.js"));
 const store = new Store();
 
 let win;
@@ -68,20 +66,6 @@ app.whenReady().then(() => {
 
     autoUpdater.checkForUpdates();
 
-    checkIfFileExists(path.resolve(__dirname, "cache"), (exists) => {
-        if(!exists){
-            console.log(__dirname, "cache");
-            enka.cachedAssetsManager.cacheDirectorySetup();
-            worker.postMessage("fetchContent");
-        }
-    });
-
-    if(enka.cachedAssetsManager.hasAllContents()){
-        //worker.postMessage("updateContent");
-    }else{
-        worker.postMessage("fetchContent");
-    }
-
     enka.close();
 })
 
@@ -118,13 +102,6 @@ function electronStore(){
     store.set("firstTime", true);
 }
 
-//! Logs from Multithreading
-worker.on("message", (msg) => {
-    if(msg.startsWith("LOGGING:")){
-        log.info(msg);
-    }
-})
-
 ipcMain.handle("getVersion", (event) => {
     return app.getVersion();
 })
@@ -148,6 +125,8 @@ ipcMain.handle("log", (event, args) => {
 autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
 
     log.info("Koma update available");
+    log.info("Release Name: " + releaseName);
+    log.info("Release Notes: " + releaseNotes);
 
     const dialogOpts = {
         type: 'info',
@@ -203,8 +182,8 @@ app.on('quit', () => {
 
     log.info("Closing app....");
 
-    worker.postMessage("stopAutoUpdater")
-    worker.postMessage("closeEnka");
+    //worker.postMessage("stopAutoUpdater")
+    //worker.postMessage("closeEnka");
 
     log.info(" ");
 
@@ -235,43 +214,7 @@ ipcMain.handle('updateKoma', (event) => {
         return "wait " + (30 - (nowUnix - lastCheck));
     }
 
-})
-
-ipcMain.handle('update', (event) => {
-
-    let lastCheck = store.get("lastCheck");
-    let nowUnix = Math.floor(Date.now() / 1000);
-
-    if(lastCheck == null || (nowUnix - lastCheck) > 30){
-
-        store.set("lastCheck", nowUnix);
-
-        log.info("Looking for Genshin Data updates...")
-
-        return new Promise((resolve, reject) => {
-            worker.on('message', (msg) => {
-                if(msg === "noUpdates" || msg === "updateEnd"){
-                    store.set("update", false);
-                    resolve(msg);
-                }else if(msg === "updateStart"){
-                    store.set("update", true);
-                }
-            });
-
-            worker.on('error', (err) => {
-                reject(err);
-            });
-
-            let updating = store.get("update");
-            if(!updating){
-                worker.postMessage("updateContent");
-            }
-        })
-    }else{
-        return "wait " + (30 - (nowUnix - lastCheck));
-    }
-
-})
+});
 
 ipcMain.handle('loadList', (event, args) => {
 
@@ -314,19 +257,7 @@ ipcMain.handle('storeList', (event, list) => {
 ipcMain.handle('openToBrowser', (event, url) => {
     log.info("Opening link to browser");
     shell.openExternal(url);
-})
-
-function checkIfFileExists(filePath, callback){
-    fs.access(filePath, fs.constants.F_OK, (err) => {
-        if(err){
-            //*File doesnt exist
-            callback(false);
-        }else{
-            //*File exists
-            callback(true);
-        }
-    })
-}
+});
 
 //* Checks if a Character, Weapon or Artifact is already inside of the calendar
 function isDuplicate(name, data){
@@ -387,4 +318,4 @@ ipcMain.handle('saveSelection', (event, args) => {
 
     store.set("calendarList", data);
     return true;
-})
+});

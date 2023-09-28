@@ -1,14 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import DrowDown from "./Modals/ModalLists/DropDown";
 
 export default function DropdownMenu({ selected, setSelected, elements, z }) {
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
     
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     useEffect(() => {
         setSelection(selected);
     }, [selected]);
 
     const[isOpen, setIsOpen] = useState(false);
     const[selection, setSelection] = useState(selected);
+    const dropdownRef = useRef(null);
 
     function handleClick(element) {
         setIsOpen(false);
@@ -17,7 +31,7 @@ export default function DropdownMenu({ selected, setSelected, elements, z }) {
     }
 
     return(
-        <div className="relative inline-block ml-auto mr-3">
+        <div className="relative inline-block ml-auto mr-3" ref={dropdownRef}>
             <div className={`bg-lightSecondary dark:bg-darkSecondary text-lightFontTwo dark:text-darkFont font-merri w-[150px] h-[50px] ${isOpen ? 'rounded-t-lg' : 'rounded-lg'} flex flex-row items-center pl-2`}>
                 <p>{selection}</p>
                 <button className="bg-lightSecondary dark:bg-darkSecondary hover:bg-lightPrimary dark:hover:bg-darkPrimary transition-colors ease-in-out rounded-lg ml-auto mr-2" onClick={() => setIsOpen(!isOpen)}>

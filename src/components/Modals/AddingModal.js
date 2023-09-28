@@ -58,6 +58,8 @@ export default function AddingModal({ modalOpen, handleSelection, type, setModal
             theme
         } = useContext(PageContext);
 
+        //TODO Filtering
+
         return (
             <Backdrop handleClick={ modalOpen } setModalType={ setModalType }>
                 <motion.div
@@ -69,10 +71,12 @@ export default function AddingModal({ modalOpen, handleSelection, type, setModal
                     exit="exit"
                 >
                     {/* Heading - (Search Bar + Close Button) */}
-                    <div className='bg-lightBGTwo dark:bg-darkBG w-full h-[15%] inline-block drop-shadow-md'>
-                        <SearchBar handleInput={ handleSearchText } type={type} />
+                    <div className='bg-lightBGTwo dark:bg-darkBG w-full h-[15%] drop-shadow-md flex flex-row'>
+                        <div className="h-full w-fit">
+                            <SearchBar handleInput={ handleSearchText } type={type} />
+                        </div>
                         <motion.button 
-                            className="bg-red-500 h-[50px] w-[100px] rounded-xl mt-[1%] mx-[1%] float-right font-merri text-lg text-black"
+                            className="bg-red-500 h-[50px] w-[100px] rounded-xl mt-2 mr-2 ml-auto font-merri text-lg text-black"
                             onClick={() => {close()}}
                             variants={buttons}
                             initial="initial"

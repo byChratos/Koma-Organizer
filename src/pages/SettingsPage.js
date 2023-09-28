@@ -93,26 +93,6 @@ export default function SettingsPage() {
         setTheme(th.toLowerCase());
     }
 
-    async function update(){
-
-        //* Set updating true for modal to appear
-        setUpdating(true);
-        const update = await window.api.update();
-
-        //* Process update result
-        setUpdateResult(update);
-        setUpdating(false);
-
-        if(update == "noUpdates"){
-            setUpdateMessage("There were no updates.");
-        }else if(update == "updateEnd"){
-            setUpdateMessage("Updates finished downloading.");
-        }else if(update.startsWith('wait')){
-            const arr = update.split(" ");
-            setUpdateMessage("Please wait " + arr[1] +  " seconds before checking for updates again.");
-        }
-    }
-
     async function updateKoma(){
         
         setUpdating(true);
@@ -157,16 +137,6 @@ export default function SettingsPage() {
                 </div>
                 <motion.button 
                     className="ml-auto mr-2 rounded-lg p-4 text-lightFontTwo dark:text-darkFont font-merri bg-lightSecondary dark:bg-darkSecondary" onClick={() => updateKoma()}
-                    variants={buttons}
-                    initial="initial"
-                    whileHover="hover"
-                >Check for updates</motion.button>
-            </div>
-
-            <div className="bg-lightBGTwo dark:bg-darkBGTwo h-[100px] w-[40%] flex flex-row items-center rounded-lg mt-3">
-                <h1 className="text-lightFont dark:text-darkFont font-merri text-xl ml-3">Update Genshin Data</h1>
-                <motion.button 
-                    className="ml-auto mr-2 rounded-lg p-4 text-lightFontTwo dark:text-darkFont font-merri bg-lightSecondary dark:bg-darkSecondary" onClick={() => update()}
                     variants={buttons}
                     initial="initial"
                     whileHover="hover"

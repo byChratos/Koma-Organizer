@@ -24,6 +24,8 @@ function createCharJson(enka, store){
             sideIcon: char.sideIcon.url,
             splash: char.splashImage.url,
             gachaSlice: char.gachaSlice.url,
+            stars: char.stars,
+            element: char.element.name.get("en"),
             bossMaterial: getBossMaterialId(char),
             talentMaterial: getTalentMaterialId(char),
         }
@@ -32,9 +34,6 @@ function createCharJson(enka, store){
     }
 
     store.set("charData", charactersArray);
-
-    //const jsonString = JSON.stringify(charactersArray, null, 2);
-    //fs.writeFileSync("./src/data/characters.json", jsonString);
 }
 
 function createWeaponJson(enka, store){
