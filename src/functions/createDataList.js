@@ -1,10 +1,7 @@
-const fs = require("fs");
 const { getTalentMaterialId, getBossMaterialId } = require("../functions/getCharacterMaterials");
 const { getWeaponMaterialId } = require("../functions/getWeaponMaterials");
 
 //TODO Weekly Boss Material?
-
-//TODO Make data list creating after update is downloaded (in worker)
 
 function createCharJson(enka, store){
     const characters = enka.getAllCharacters();
@@ -41,21 +38,26 @@ function createWeaponJson(enka, store){
     let weaponsArray = [];
     let i = 0;
     for(const weapon of weapons){
+
+        //* Skipping Beta weapons
+        if(weapon.name.get("en") == "Ebony Bow" || weapon.name.get("en") == "Amber Bead" || weapon.name.get("en") == "Quartz" || weapon.name.get("en") == "The Flagstaff"){
+            continue;
+        }
+
         const newWeapon = {
             key: i,
             id: weapon.id,
             name: weapon.name.get("en"),
             icon: weapon.icon.url,
             ascensionMaterial: getWeaponMaterialId(weapon),
+            weaponType: weapon.weaponType,
+            stars: weapon.stars,
         }
         weaponsArray.push(newWeapon);
         i += 1;
     }
 
     store.set("weaponData", weaponsArray);
-
-    //const jsonString = JSON.stringify(weaponsArray, null, 2);
-    //fs.writeFileSync("./src/data/weapons.json", jsonString);
 }
 
 function createArtifactJson(enka, store){
@@ -74,9 +76,6 @@ function createArtifactJson(enka, store){
     }
 
     store.set("artifactsData", artifactsArray);
-
-    //const jsonString = JSON.stringify(artifactsArray, null, 2);
-    //fs.writeFileSync("./src/data/artifacts.json", jsonString);
 }
 
 async function createMaterialJson(enka, store){

@@ -133,7 +133,7 @@ autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
         buttons: ['Ok'],
         title: `Update Available`,
         message: process.platform === 'win32' ? releaseNotes : releaseName,
-        detail: `A new version download started. The program will automatically restart. Please do not quit`
+        detail: `A new version download started. You will get a notification once the update finishes downloading. Please do not quit`
     };
 
     if(!updateCheck){
@@ -151,9 +151,19 @@ autoUpdater.on("update-downloaded", (_event) => {
         updateInterval = null;
         updateFound = true;
 
-        setTimeout(() => {
+        const dialogOpts = {
+            type: 'info',
+            buttons: ['Ok'],
+            title: `Update finished downloading!`,
+            message: "Restart Koma to make the updates take effect",
+            detail: "Update downloaded"
+        }
+
+        dialog.showMessageBox(dialogOpts);
+
+        /*setTimeout(() => {
             autoUpdater.quitAndInstall();
-        }, 10000);
+        }, 10000);*/
     }
 })
 

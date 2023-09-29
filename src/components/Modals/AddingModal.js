@@ -6,6 +6,7 @@ import WeaponList from '../Weapon/WeaponList';
 import ArtifactList from '../Artifacts/ArtifactList';
 import Backdrop from './Backdrop';
 import SearchBar from './ModalComponents/SearchBar';
+import Filters from './ModalComponents/Filters';
 import { PageContext } from "../PageContext";
 
 
@@ -60,23 +61,42 @@ export default function AddingModal({ modalOpen, handleSelection, type, setModal
 
         //TODO Filtering
 
+        const defaultFilters = {
+            character: {
+                fourStars: true,
+                fiveStars: true,
+            },
+            weapon: {
+                oneStars: true,
+                twoStars: true,
+                threeStars: true,
+                fourStars: true,
+                fiveStars: true,
+            }
+        }
+
+        const[filters, setFilters] = useState(defaultFilters);
+
         return (
             <Backdrop handleClick={ modalOpen } setModalType={ setModalType }>
                 <motion.div
                     onClick={(e) => e.stopPropagation()}
-                    className='bg-lightBG dark:bg-darkBGTwo w-[80%] h-[75%] mt-[84px] rounded-xl overflow-hidden'
+                    className='bg-lightBG dark:bg-darkBGTwo w-[80%] h-[75%] mt-[84px] rounded-xl overflow-hidden flex flex-col'
                     variants={dropIn}
                     initial="hidden"
                     animate="visible"
                     exit="exit"
                 >
                     {/* Heading - (Search Bar + Close Button) */}
-                    <div className='bg-lightBGTwo dark:bg-darkBG w-full h-[15%] drop-shadow-md flex flex-row'>
+                    <div className='bg-lightBGTwo dark:bg-darkBG w-full h-[122px] flex-none drop-shadow-md flex flex-row'>
                         <div className="h-full w-fit">
                             <SearchBar handleInput={ handleSearchText } type={type} />
+
+                            <Filters filters={filters} setFilters={setFilters} type={type}/>
+
                         </div>
                         <motion.button 
-                            className="bg-red-500 h-[50px] w-[100px] rounded-xl mt-2 mr-2 ml-auto font-merri text-lg text-black"
+                            className="bg-red-500 h-[50px] w-[100px] rounded-xl my-3 mr-3 ml-auto font-merri text-lg text-black"
                             onClick={() => {close()}}
                             variants={buttons}
                             initial="initial"
@@ -86,9 +106,9 @@ export default function AddingModal({ modalOpen, handleSelection, type, setModal
                     </div>
 
                     {/* Content - (List of items) */}
-                    <div className={`w-full h-[85%] overflow-y-auto overflow-x-hidden ${theme === 'dark' ? 'darkScroll' : 'lightScroll'}`}>
-                        { (type === "character") && <CharacterList handleClick={ handleSelection } input={searchText} />}
-                        { (type === "weapon") && <WeaponList handleClick={ handleSelection } input={searchText} />}
+                    <div className={`w-full grow overflow-y-auto overflow-x-hidden ${theme === 'dark' ? 'darkScroll' : 'lightScroll'}`}>
+                        { (type === "character") && <CharacterList handleClick={ handleSelection } input={searchText} filters={filters} />}
+                        { (type === "weapon") && <WeaponList handleClick={ handleSelection } input={searchText} filters={filters} />}
                         { (type === "artifact") && <ArtifactList handleClick={ handleSelection } input={searchText} />}
                     </div>
 
