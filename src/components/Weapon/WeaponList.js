@@ -4,7 +4,7 @@ import { getAssetById } from '../../functions/enkaFunctions';
 export default function WeaponList({ input, handleClick, filters }) {
 
     const weaponTypeNames = ["Bow", "Catalyst", "Claymore", "Polearm", "Sword"];
-    const weaponTypes = ["WEAPON_BOW", "WEAPON_CATALYST", "WEAPON_CLAYMORE", "WEAPON_POLEARM", "WEAPON_SWORD"];
+    const weaponTypes = ["WEAPON_BOW", "WEAPON_CATALYST", "WEAPON_CLAYMORE", "WEAPON_POLE", "WEAPON_SWORD_ONE_HAND"];
 
     useEffect(() => {
         loadWeapons();

@@ -13,6 +13,7 @@ const isDev = !app.isPackaged;
 
 let updateCheck = false;
 let updateFound = false;
+let updateDownloaded = false;
 
 const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "cache") });
 const store = new Store();
@@ -159,6 +160,7 @@ autoUpdater.on("update-downloaded", (_event) => {
             detail: "Update downloaded"
         }
 
+        updateDownloaded = true;
         dialog.showMessageBox(dialogOpts);
 
         /*setTimeout(() => {
@@ -192,12 +194,13 @@ app.on('quit', () => {
 
     log.info("Closing app....");
 
-    //worker.postMessage("stopAutoUpdater")
-    //worker.postMessage("closeEnka");
-
     log.info(" ");
 
-    app.quit();
+    if(updateDownloaded){
+        autoUpdater.quitAndInstall();
+    }else{
+        app.quit();
+    }
 });
 
 app.on('window-all-closed', () => {
