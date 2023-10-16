@@ -1,11 +1,3 @@
-/*import charData from "../data/characters.json";
-import weaponData from "../data/weapons.json";
-import artifactData from "../data/artifacts.json";
-
-import farmData from "../data/materials.json";
-import bossData from "../data/bossMaterials.json";*/
-
-
 export function getAsset(object, type, key, data) {
 
     if(object === "character"){
@@ -52,11 +44,6 @@ export function getAssetById(object, id, imageType, data){
             }
         }
     }
-}
-
-//! Inserts the element into the object at the specified priority
-function insert(what, into, priority){
-    return into;
 }
 
 //! Returns dict of farmable stuff today, sorted by Priority => first element == Top Prio, 

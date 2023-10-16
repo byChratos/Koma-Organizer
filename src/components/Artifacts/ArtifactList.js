@@ -12,7 +12,7 @@ export default function ArtifactList({ input, handleClick }) {
     }, [input]);
 
     async function loadArtifacts(){
-        let tmpData = await window.api.storeGet({ item: "artifactsData" });
+        let tmpData = await window.api.storeGet({ file: "genshin", item: "artifactsData" });
         setData(tmpData);
 
         let filtered = tmpData.filter((el) => {

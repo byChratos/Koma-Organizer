@@ -12,15 +12,15 @@ export default function DisplayCard({name, type}) {
     async function loadData(){
         
         if(type == "character"){
-            let tmpData = await window.api.storeGet({ item: "charData" });
+            let tmpData = await window.api.storeGet({ file: "genshin", item: "charData" });
             setData(tmpData);
             getId(tmpData);
         }else if(type == "weapon"){
-            let tmpData = await window.api.storeGet({ item: "weaponData" });
+            let tmpData = await window.api.storeGet({ file: "genshin", item: "weaponData" });
             setData(tmpData);
             getId(tmpData);
         }else{
-            let tmpData = await window.api.storeGet({ item: "artifactsData" });
+            let tmpData = await window.api.storeGet({ file: "genshin", item: "artifactsData" });
             setData(tmpData);
             getId(tmpData);
         }

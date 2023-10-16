@@ -16,7 +16,12 @@ let updateFound = false;
 let updateDownloaded = false;
 
 const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "cache") });
+
+//TODO Remove next update
 const store = new Store();
+
+const userStore = new Store({ name: "userConfig" });
+const genshinStore = new Store({ name: "genshinData" });
 
 let win;
 
@@ -63,44 +68,50 @@ app.whenReady().then(() => {
     electronStore();
 
     //* Gets the Genshin data into the config.json
-    createJsonData(enka, store);
+    createJsonData(enka, genshinStore);
 
     autoUpdater.checkForUpdates();
 
-    enka.close();
+    //enka.close();
 })
 
 function electronStore(){
-    let calendarList = store.get("calendarList", false);
+    let calendarList = userStore.get("calendarList", false);
+
     if(!calendarList){
-        store.set("calendarList", []);
+        userStore.set("calendarList", []);
+    }else{
+        const cl = store.get("calendarList", false);
+        if(cl){
+            userStore.set("calendarList", cl);
+        }
     }
 
-    let config = store.get("config", false);
+    let config = userStore.get("config", false);
     if(!config){
         config = {
             theme: "dark",
             server: "None",
         };
-        store.set("config", config);
+        userStore.set("config", config);
     }
 
-    let update = store.get("update", "not");
+    let update = userStore.get("update", "not");
     if(update == "not"){
-        store.set("update", false);
+        userStore.set("update", false);
     }
 
-    let lastCheck = store.get("lastCheck", false);
+    let lastCheck = userStore.get("lastCheck", false);
     if(!lastCheck){
-        store.set("lastCheck", null);
+        userStore.set("lastCheck", null);
     }
 
-    let lastCheckKoma = store.get("lastCheckKoma", false);
+    let lastCheckKoma = userStore.get("lastCheckKoma", false);
     if(!lastCheckKoma){
-        store.set("lastCheckKoma", null);
+        userStore.set("lastCheckKoma", null);
     }
 
-    store.set("firstTime", true);
+    userStore.set("firstTime", true);
 }
 
 ipcMain.handle("getVersion", (event) => {
@@ -108,14 +119,26 @@ ipcMain.handle("getVersion", (event) => {
 })
 
 ipcMain.handle("storeGet", (event, args) => {
+    const file = args.file;
     const item = args.item;
-    return store.get(item);
+
+    if(file == "genshin"){
+        return genshinStore.get(item);
+    }else{
+        return userStore.get(item);
+    }
 })
 
 ipcMain.handle("storeSet", (event, args) => {
+    const file = args.file;
     const item = args.item;
     const value = args.value;
-    store.set(item, value);
+
+    if(file == "genshin"){
+        genshinStore.set(item, value);
+    }else{
+        userStore.set(item, value);
+    }
     return true;
 })
 
@@ -181,10 +204,10 @@ autoUpdater.on("update-not-available", (_event) => {
         detail: `Update not available`
     }
 
-    let first = store.get("firstTime");
+    let first = userStore.get("firstTime");
 
     if(first){
-        store.set("firstTime", false);
+        userStore.set("firstTime", false);
     }else{
         dialog.showMessageBox(dialogOpts);
     }
@@ -195,6 +218,8 @@ app.on('quit', () => {
     log.info("Closing app....");
 
     log.info(" ");
+
+    enka.close();
 
     if(updateDownloaded){
         autoUpdater.quitAndInstall();
@@ -211,14 +236,14 @@ app.on('window-all-closed', () => {
 
 ipcMain.handle('updateKoma', (event) => {
     
-    let lastCheck = store.get("lastCheckKoma");
+    let lastCheck = userStore.get("lastCheckKoma");
     let nowUnix = Math.floor(Date.now() / 1000);
 
     if(lastCheck == null || (nowUnix - lastCheck) > 30){
 
         log.info("Looking for Koma Updates");
 
-        store.set("lastCheckKoma", nowUnix);
+        userStore.set("lastCheckKoma", nowUnix);
 
         autoUpdater.checkForUpdates();
 
@@ -231,7 +256,7 @@ ipcMain.handle('updateKoma', (event) => {
 
 ipcMain.handle('loadList', (event, args) => {
 
-    list = store.get("calendarList");
+    list = userStore.get("calendarList");
 
     if(list == null){
         return "empty";
@@ -253,7 +278,7 @@ ipcMain.handle('saveList', (event, list) => {
             }
         });
 
-        store.set("calendarList", list);
+        userStore.set("calendarList", list);
         return true;
 
     }catch(error){
@@ -264,7 +289,7 @@ ipcMain.handle('saveList', (event, list) => {
 });
 
 ipcMain.handle('storeList', (event, list) => {
-    store.set("calendarList", list);
+    userStore.set("calendarList", list);
 });
 
 ipcMain.handle('openToBrowser', (event, url) => {
@@ -289,12 +314,12 @@ ipcMain.handle('saveSelection', (event, args) => {
     const name = args.name;
     const type = args.type;
 
-    let data = store.get("calendarList");
+    let data = userStore.get("calendarList");
 
     if(!isDuplicate(name, data)){
         if(type == "character"){
-            var id = getCharIdByName(name, store.get("charData"));
-            var materials = getCharacterMaterials(id, store.get("charData"));
+            var id = getCharIdByName(name, genshinStore.get("charData"));
+            var materials = getCharacterMaterials(id, userStore.get("charData"));
 
             data.push({
                 name: name,
@@ -307,8 +332,8 @@ ipcMain.handle('saveSelection', (event, args) => {
             });
 
         }else if(type == "weapon"){
-            var id = getWeaponIdByName(name, store.get("weaponData"));
-            var material = getWeaponMaterial(id, store.get("weaponData"));
+            var id = getWeaponIdByName(name, genshinStore.get("weaponData"));
+            var material = getWeaponMaterial(id, genshinStore.get("weaponData"));
 
             data.push({
                 name: name,
@@ -317,7 +342,7 @@ ipcMain.handle('saveSelection', (event, args) => {
                 material: material,
             });
         }else{
-            var id = getArtifactIdByName(name, store.get("artifactsData"));
+            var id = getArtifactIdByName(name, genshinStore.get("artifactsData"));
             
             data.push({
                 name: name,
@@ -329,6 +354,6 @@ ipcMain.handle('saveSelection', (event, args) => {
         return false;
     }
 
-    store.set("calendarList", data);
+    userStore.set("calendarList", data);
     return true;
 });

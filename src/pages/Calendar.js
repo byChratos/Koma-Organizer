@@ -26,7 +26,7 @@ export default function Calendar() {
     }, []);
 
     async function loadConfig(){
-        let config = await window.api.storeGet({ item: "config" });
+        let config = await window.api.storeGet({ file: "user", item: "config" });
         let sv = config["server"];
         sortDays(sv);
     }

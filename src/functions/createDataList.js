@@ -127,9 +127,6 @@ async function createMaterialJson(enka, store){
     }
 
     store.set("materialData", newData);
-
-    //const jsonString = JSON.stringify(newData, null, 2);
-    //fs.writeFileSync("./src/data/materials.json", jsonString);
 }
 
 async function createBossMaterialJson(enka, store){
@@ -169,9 +166,6 @@ async function createBossMaterialJson(enka, store){
     }
 
     store.set("bossData", bossMaterialList);
-
-    //const jsonString = JSON.stringify(bossMaterialList, null, 2);
-    //fs.writeFileSync("./src/data/bossMaterials.json", jsonString);
 }
 
 function createJsonData(enka, store){

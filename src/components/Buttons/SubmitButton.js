@@ -1,5 +1,4 @@
 import React from "react";
-//const { ipcRenderer } = window.require("electron");
 import { twMerge } from "tailwind-merge";
 
 export default function SubmitButton({ selectedCharacter, selectedWeapon, selectedArtifact, className }){
@@ -7,8 +6,6 @@ export default function SubmitButton({ selectedCharacter, selectedWeapon, select
     async function button() {
         const response = await window.api.saveToFile({selectedArtifact: selectedArtifact, selectedCharacter: selectedCharacter, selectedWeapon: selectedWeapon});
     };
-
-    //TODO Successfully added reply
 
     return (
 

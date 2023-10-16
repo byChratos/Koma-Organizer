@@ -52,22 +52,22 @@ export default function DayInformationModal({ modalOpen, setModalType, day }) {
     }, [])
 
     async function loadData(){
-        let calendarData = await window.api.storeGet({ item: "calendarList" });
+        let calendarData = await window.api.storeGet({ file: "user", item: "calendarList" });
         setList(calendarData);
 
-        let char = await window.api.storeGet({ item: "charData" });
+        let char = await window.api.storeGet({ file: "genshin", item: "charData" });
         setCharData(char);
 
-        let weapon = await window.api.storeGet({ item: "weaponData" });
+        let weapon = await window.api.storeGet({ file: "genshin", item: "weaponData" });
         setWeaponData(weapon);
 
-        let artifact = await window.api.storeGet({ item: "artifactsData" });
+        let artifact = await window.api.storeGet({ file: "genshin", item: "artifactsData" });
         setArtifactData(artifact);
 
-        let boss = await window.api.storeGet({ item: "bossData" });
+        let boss = await window.api.storeGet({ file: "genshin", item: "bossData" });
         setBossData(boss);
 
-        let farm = await window.api.storeGet({ item: "materialData" });
+        let farm = await window.api.storeGet({ file: "genshin", item: "materialData" });
         setFarmData(farm);
     }
 

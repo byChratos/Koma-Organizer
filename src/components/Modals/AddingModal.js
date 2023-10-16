@@ -59,8 +59,6 @@ export default function AddingModal({ modalOpen, handleSelection, type, setModal
             theme
         } = useContext(PageContext);
 
-        //TODO Filtering
-
         const defaultFilters = {
             character: {
                 fourStars: true,

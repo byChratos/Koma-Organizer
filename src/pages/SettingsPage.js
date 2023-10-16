@@ -39,7 +39,7 @@ export default function SettingsPage() {
     }, []);
 
     async function loadConfig(){
-        let cnfg = await window.api.storeGet({ item: "config" });
+        let cnfg = await window.api.storeGet({ file: "user", item: "config" });
         setConfig(cnfg);
         setSelectedServer(cnfg["server"]);
 
@@ -78,7 +78,7 @@ export default function SettingsPage() {
             ...config,
             server: server,
         }
-        window.api.storeSet({ item: "config", value: newConfig });
+        window.api.storeSet({ file: "user", item: "config", value: newConfig });
         setConfig(newConfig);
     }
 
@@ -88,7 +88,7 @@ export default function SettingsPage() {
             ...config,
             theme: th.toLowerCase(),
         }
-        window.api.storeSet({ item: "config", value: newConfig });
+        window.api.storeSet({ file: "user", item: "config", value: newConfig });
         setConfig(newConfig);
         setTheme(th.toLowerCase());
     }
