@@ -17,7 +17,6 @@ let updateDownloaded = false;
 
 const enka = new EnkaClient({ cacheDirectory: path.resolve(__dirname, "cache") });
 
-//TODO Remove next update
 const store = new Store();
 
 const userStore = new Store({ name: "userConfig" });
@@ -76,14 +75,15 @@ app.whenReady().then(() => {
 })
 
 function electronStore(){
+    //! For migrating from one file storing all data the app uses to userFile and genshinDataFile seperately
     let calendarList = userStore.get("calendarList", false);
 
     if(!calendarList){
-        userStore.set("calendarList", []);
-    }else{
         const cl = store.get("calendarList", false);
         if(cl){
             userStore.set("calendarList", cl);
+        }else{
+            userStore.set("calendarList", []);
         }
     }
 
@@ -149,8 +149,6 @@ ipcMain.handle("log", (event, args) => {
 autoUpdater.on("update-available", (_event, releaseNotes, releaseName) => {
 
     log.info("Koma update available");
-    log.info("Release Name: " + releaseName);
-    log.info("Release Notes: " + releaseNotes);
 
     const dialogOpts = {
         type: 'info',
@@ -179,16 +177,12 @@ autoUpdater.on("update-downloaded", (_event) => {
             type: 'info',
             buttons: ['Ok'],
             title: `Update finished downloading!`,
-            message: "Restart Koma to make the updates take effect",
-            detail: "Update downloaded"
+            message: "Update downloaded!",
+            detail: "Restart Koma to make the changes take effect"
         }
 
         updateDownloaded = true;
         dialog.showMessageBox(dialogOpts);
-
-        /*setTimeout(() => {
-            autoUpdater.quitAndInstall();
-        }, 10000);*/
     }
 })
 

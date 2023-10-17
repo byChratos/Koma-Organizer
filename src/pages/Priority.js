@@ -169,8 +169,6 @@ export default function Priority() {
 
             {(saved) && <PopUp message="Successfully saved" setModalOpen={setSaved} closeEnabled={true} />}
 
-            {/* <h2 className='text-gray-100'>Sort your Characters, Weapons and Artifacts by priority! Highest priority available to farm will be displayed first</h2> */}
-            
             {/* Content */}
             <div className="w-full h-[120px] flex flex-row">
                 <div className="w-[302px] h-[100px] bg-lightBGTwo dark:bg-darkBGTwo rounded-t-xl flex-none flex flex-row items-center px-5 mt-5 ml-[5%]">
